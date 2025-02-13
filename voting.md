@@ -12,18 +12,17 @@ The main goal is to identify reliable questions for each sample. There are a tot
 ## Procedure
 
 goto [SciSense](https://domsoos.github.io/scisense/index.html)
+sign in if you have an account, otherwise create one.
 
-For each discovery, complete Step 1 and Step 2:
+For each discovery, complete Step 1 and 2:
 ### Step 1
 - Read each science abstract and science news. 
-- Answer each question to the afte
-
+- Answer each question
 ![Step 1. Answering each question](./imgs/step1.png)
 
 ### Step 2
-Voting for each category using the following instructions
+Voting for each category using the following instructions   
 
-#### Voting Instructions
 Vote for reliable questions **after reviewing the correct answers** to maintain an unbiased evaluation. For each sample, we have three types of questions:
 - **True/False**
 Vote for **2 out of 4** candidate questions
