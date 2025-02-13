@@ -24,13 +24,13 @@ For each discovery, complete Step 1 and 2:
 Voting for each category using the following instructions   
 
 Vote for reliable questions **after reviewing the correct answers** to maintain an unbiased evaluation. For each sample, we have three types of questions:
-- **True/False**
+- **True/False**   
 Vote for **2 out of 4** candidate questions
 
-- **Easy Multiple Choice**
+- **Easy Multiple Choice**   
 Vote for **2 out of 3** candidate questions
 
-- **Hard Multiple Choice**
+- **Hard Multiple Choice**   
 Vote for **2 out of 3** candidate questions
 
 ![Step 2. Vote for two questions in each category](./imgs/step2.png)
