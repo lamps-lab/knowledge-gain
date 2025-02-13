@@ -4,9 +4,9 @@
 The main goal is to identify reliable questions for each sample. There are a total of **10** samples, 10 candidate questions per sample. 
 
 ## Evaluation criteria
-1. Abstract driven answers:
+1. Abstract driven answers     
   The answers must be derivable directly from the abstract.
-2. Unambiguity
+2. Unambiguity    
   Voters should feel comfortable with the questions and answers that they are clear and not ambiguous. 
 
 ## Procedure
