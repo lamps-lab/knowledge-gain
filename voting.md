@@ -34,6 +34,8 @@ Vote for **2 out of 3** candidate questions
 - **Hard Multiple Choice**
 Vote for **2 out of 3** candidate questions
 
+![Step 2. Vote for two questions in each category](./imgs/step2.png)
+
 ### Note  
 - If you vote for more than 6 questions, your votes will not be counted and have to redo the voting to submit. 
 The system only allows 6 votes per sample, otherwise you'll get the following message: 
