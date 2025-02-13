@@ -2,9 +2,29 @@
 
 ## Objective 
 The main goal is to identify reliable questions for each sample. There are a total of **10** samples, 10 candidate questions per sample. 
- 
-## Voting Instructions
-Vote for reliable questions **before reviewing the correct answers** to maintain an unbiased evaluation. For each sample, we have three types of questions:
+
+## Evaluation criteria
+1. Abstract driven answers:
+  The answers must be derivable directly from the abstract.
+2. Unambiguity
+  Voters should feel comfortable with the questions and answers that they are clear and not ambiguous. 
+
+## Procedure
+
+goto [SciSense](https://domsoos.github.io/scisense/index.html)
+
+For each discovery, complete Step 1 and Step 2:
+### Step 1
+- Read each science abstract and science news. 
+- Answer each question to the afte
+
+![Step 1. Answering each question](./imgs/step1.png)
+
+### Step 2
+Voting for each category using the following instructions
+
+#### Voting Instructions
+Vote for reliable questions **after reviewing the correct answers** to maintain an unbiased evaluation. For each sample, we have three types of questions:
 - **True/False**
 Vote for **2 out of 4** candidate questions
 
@@ -14,10 +34,13 @@ Vote for **2 out of 3** candidate questions
 - **Hard Multiple Choice**
 Vote for **2 out of 3** candidate questions
 
-**Note**:  
-Vote only once per sample and select exactly two questions per category.
+### Note  
+- If you vote for more than 6 questions, your votes will not be counted and have to redo the voting to submit. 
+The system only allows 6 votes per sample, otherwise you'll get the following message: 
+![Voting Error Message](./imgs/vote-error.png)
 
 ## Time Estimate
 
 I will do it first and time it. 
+
 
