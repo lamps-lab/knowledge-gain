@@ -11,7 +11,7 @@ The main goal is to identify reliable questions for each sample. There are a tot
 
 ## Procedure
 
-goto [SciSense](https://domsoos.github.io/scisense/index.html)
+goto [SciSense](https://domsoos.github.io/scisense/index.html)    
 sign in if you have an account, otherwise create one.
 
 For each discovery, complete Step 1 and 2:
