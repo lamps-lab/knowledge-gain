@@ -16,7 +16,7 @@ sign in if you have an account, otherwise create one.
 
 For each discovery, complete Step 1 and 2:
 ### Step 1
-- Read each science abstract and science news. 
+- Read each science abstract. 
 - Answer each question
 ![Step 1. Answering each question](./imgs/step1.png)
 
