@@ -57,7 +57,8 @@ for paper in papers:
                 "qa_type": map_question_type(qdata.get("type", "")),
                 "source": qdata.get("source", ""),
                 "evidence": qdata.get("evidence", ""),
-                "vote": qdata.get("vote", 0)
+                "vote": qdata.get("vote", 0),
+                "options": qdata.get("options", {})
             }
             qas.append(qa_entry)
     

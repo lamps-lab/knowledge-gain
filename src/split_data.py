@@ -17,8 +17,9 @@ for article in data["articles"]:
                 "content": content,
                 "question": qa["question"],
                 "answer": qa["answer"],
-                "qa_type": qa["qa_type"]
-            })
+                "qa_type": qa["qa_type"],
+                "options": qa["options"]
+        })
 
 # Split based on article_id to avoid leakage.
 article_ids = list({s["article_id"] for s in flattened_samples})
