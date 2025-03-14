@@ -14,7 +14,12 @@
           "qa_type": "TF",
           "source": "In the \u201cDiscussion,\u201d it emphasizes further research is needed to validate mechanisms of this relationship, indicating correlation, not causation.",
           "evidence": "The paper finds daytime sleepiness is associated with a higher risk of MCR, but does not conclude direct causation. ",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "Daytime sleepiness and lack of motivation are associated with a higher risk of developing motoric cognitive risk (MCR).",
@@ -22,7 +27,12 @@
           "qa_type": "TF",
           "source": " In \u201cResults: Incidence of MCR According to PSQI Components\u201d",
           "evidence": "\u201conly sleep-related daytime dysfunction (excessive sleepiness and lower enthusiasm) \u2026 showed a significant risk of MCR\u201d in fully adjusted models.",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What age group was studied in this research?",
@@ -30,7 +40,14 @@
           "qa_type": "MC_easy",
           "source": "In the Abstract (Methods) and in \u201cParticipants\u201d",
           "evidence": "\u201cCommunity-residing adults aged 65 years and older without dementia.\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "Adults under 40",
+            "DK": "I do not know the answer.",
+            "C": "Teenagers aged 15-19",
+            "B": "Adults aged 65 and older",
+            "D": "Middle-aged individuals aged 40-60"
+          }
         },
         {
           "question": "What is motoric cognitive risk (MCR)?",
@@ -38,7 +55,14 @@
           "qa_type": "MC_easy",
           "source": "In the Introduction (first paragraphs)",
           "evidence": "the authors describe \u201cMCR is a pre-dementia syndrome first described in 2013 that is characterized by the presence of cognitive complaints and slow gait speed.\u201d",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "A condition characterized by sleep apnea and insomnia",
+            "DK": "I do not know the answer.",
+            "C": "A genetic disorder linked to memory loss",
+            "B": "A pre-dementia syndrome involving slow gait and cognitive complaints",
+            "D": "A sudden decline in motor skills caused by brain injury"
+          }
         },
         {
           "question": "What factor weakened the association between poor sleep quality and MCR?",
@@ -46,7 +70,14 @@
           "qa_type": "MC_hard",
           "source": "In \u201cResults: Incidence of MCR According to the Overall PSQI Score,",
           "evidence": "\u201cPoor sleepers had a higher risk of incident MCR \u2026 but this association was not significant after adjustment for depressive symptoms (GDS score).\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "Adjustment for age and sex",
+            "DK": "I do not know the answer.",
+            "C": "Inclusion of participants with dementia",
+            "B": "Adjustment for depressive symptoms",
+            "D": "The use of treadmill-based gait measurements"
+          }
         },
         {
           "question": "What potential benefit does early screening for sleep disturbances provide?",
@@ -54,7 +85,14 @@
           "qa_type": "MC_hard",
           "source": "In the \u201cDiscussion\u201d (last paragraph)",
           "evidence": "\u201cOur findings also emphasize the need for an early screening of sleep disturbances as a potential preventive intervention for cognitive decline \u2026.\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "It eliminates the need for further cognitive testing.",
+            "DK": "I do not know the answer.",
+            "C": "It guarantees the prevention of dementia.",
+            "B": "It may allow for preventive interventions to reduce the risk of cognitive decline.",
+            "D": "It immediately cures motoric cognitive risk syndrome."
+          }
         }
       ]
     },
@@ -67,20 +105,30 @@
       },
       "qas": [
         {
-          "question": "The sound of the Aztec skull whistle is often perceived as aversive and scary.",
-          "answer": "A",
-          "qa_type": "TF",
-          "source": "Results, \u201cPerceptual ratings\u201d sections in the paper",
-          "evidence": "\u201cWe show that skull whistle sounds are predominantly perceived as aversive and scary,\u201d",
-          "vote": 3
-        },
-        {
           "question": "The skull whistle sounds were categorized alongside calming sounds like lullabies.",
           "answer": "B",
           "qa_type": "TF",
           "source": "Results, \u201cPerceptual assessment\u201d sections of the paper",
           "evidence": "\u201cSkull whistle sounds attract mental attention by affectively mimicking other aversive and startling sounds,\u201d not grouping with calming or lullaby-like sounds",
-          "vote": 2
+          "vote": 3,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
+        },
+        {
+          "question": "The sound of the Aztec skull whistle is often perceived as aversive and scary.",
+          "answer": "A",
+          "qa_type": "TF",
+          "source": "Results, \u201cPerceptual ratings\u201d sections in the paper",
+          "evidence": "\u201cWe show that skull whistle sounds are predominantly perceived as aversive and scary,\u201d",
+          "vote": 3,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What kind of sound does the Aztec skull whistle produce?",
@@ -88,7 +136,14 @@
           "qa_type": "MC_easy",
           "source": "Introduction of the paper",
           "evidence": "\u201cSkull whistles produce a specific non-linear and noisy sound [\u2026] that can have a shrill, piercing, and scream-like sound quality when played with intensive air pressure\u201d",
-          "vote": 3
+          "vote": 4,
+          "options": {
+            "A": "A soothing hun",
+            "DK": "I do not know the answer.",
+            "C": "A rhytmic beat",
+            "B": "A scream-like, aversive tone",
+            "D": "A high-pitched musical note"
+          }
         },
         {
           "question": "What Aztec deity might the whistles symbolize?",
@@ -96,15 +151,14 @@
           "qa_type": "MC_easy",
           "source": "Introduction of the paper",
           "evidence": "\u201cTheir configuration might portray the deity Ehecatl, the Aztec God of the Wind, who traveled to the underworld to obtain bones [\u2026]\u201d",
-          "vote": 2
-        },
-        {
-          "question": "What does the activation of higher-order brain regions when hearing skull whistles indicate?",
-          "answer": "B",
-          "qa_type": "MC_hard",
-          "source": "Results",
-          "evidence": "\u201cNeural decoding of skull whistle sounds,\u201d showing that \u201cskull whistles received a specific decoding of the affective significance [\u2026] accompanied by higher-order auditory cognition,\u201d reflecting the hybrid natural\u2013artificial character",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "Ehecatl, the God of Wind",
+            "DK": "I do not know the answer.",
+            "C": "Tlaloc, the God of Rain",
+            "B": "Huitzilopochtli, the God of War",
+            "D": "Quetzalcoatl, the Feathered Serpent"
+          }
         },
         {
           "question": "How were the skull whistle sounds classified in comparison to other tested sounds?",
@@ -112,7 +166,29 @@
           "qa_type": "MC_hard",
           "source": "",
           "evidence": "\u201cPerceptual assessment and ratings of sounds,\u201d plus the RSA and HCA analyses, demonstrating that skull whistle sounds \u201ccluster\u201d with aversive alarm sounds and fear-related human utterances",
-          "vote": 2
+          "vote": 3,
+          "options": {
+            "A": "They were grouped with animal calls.",
+            "DK": "I do not know the answer.",
+            "C": "They were categorized as soothing background noise.",
+            "B": "They were placed near alarm sounds and human noises of fear.",
+            "D": "They were associated with calming natural sounds."
+          }
+        },
+        {
+          "question": "Why are skull whistle sounds particularly unsettling to listeners?",
+          "answer": "A",
+          "qa_type": "MC_hard",
+          "source": "The sections Results from \u201cFree choice labeling\u201d and \u201cForced-choice classification\u201d",
+          "evidence": "The paper indicate a hybrid natural\u2013artificial character, close to \u201caversive, scream-like\u201d noises in humans and nature, making them unsettling for listeners",
+          "vote": 3,
+          "options": {
+            "A": "They mimic the sounds of nature and human screams.",
+            "DK": "I do not know the answer.",
+            "C": "They are classified as purely artificial sounds.",
+            "B": "They are extremely high-pitched and inaudible to most people.",
+            "D": "They cause physical discomfort due to their volume."
+          }
         }
       ]
     },
@@ -130,7 +206,12 @@
           "qa_type": "TF",
           "source": "Abstract and \u201cSignificant development of functional systems on a global scale\u201d section",
           "evidence": "\u201cWe observe that growth patterns are regionally specific, with some areas showing minimal RSFC changes, while others exhibit a dramatic increase at birth.\u201d",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "There is an increase in both local and global efficiency in brain networks during the fetal to neonatal period.",
@@ -138,7 +219,12 @@
           "qa_type": "TF",
           "source": "Abstract and \u201cGraph features develop throughout the birth transition period\u201d section",
           "evidence": "\u201cOur graph analysis further emphasized \u2026 while a concomitant gradual increase was found in global efficiency in sensorimotor and parietal-frontal regions throughout the fetal to neonatal period.\u201d",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What type of imaging technology was used in this study to observe brain development?",
@@ -146,7 +232,14 @@
           "qa_type": "MC_easy",
           "source": "Abstract and \u201cParticipants\u201d subsection in \u201cMaterials and methods\u201d",
           "evidence": "\u201cLeveraging a large, longitudinal perinatal functional magnetic resonance imaging (fMRI) data set \u2026\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "CT scan",
+            "DK": "I do not know the answer.",
+            "C": "PET scan",
+            "B": "Functional MRI (fMRI)",
+            "D": "Ultrasound"
+          }
         },
         {
           "question": "Which brain region was highlighted as undergoing significant growth and reorganization after birth?",
@@ -154,7 +247,14 @@
           "qa_type": "MC_easy",
           "source": "Abstract and \u201cGraph features develop throughout the birth transition period\u201d section",
           "evidence": "\u201cExamples with birth-triggered dramatic change include RSFC within the subcortical network\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "Occipital lobe",
+            "DK": "I do not know the answer.",
+            "C": "Temporal lobe",
+            "B": "Subcortical network",
+            "D": "Cerebellum"
+          }
         },
         {
           "question": "Which neural connections showed the most dramatic increase during the birth transition?",
@@ -162,7 +262,14 @@
           "qa_type": "MC_hard",
           "source": "Abstract and \u201cDifferential timing of maturation across individual functional brain networks\u201d section",
           "evidence": "\u201cExamples with birth-triggered dramatic change include RSFC within the subcortical network \u2026 as well as the cross-hemisphere RSFC between the bilateral sensorimotor networks and between the bilateral temporal network.\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "Cross-hemisphere connections, such as between bilateral sensorimotor regions.",
+            "DK": "I do not know the answer.",
+            "C": "Networks linked to speech and language processing.",
+            "B": "Connections within the occipital lobe.",
+            "D": "Connections related to memory and learning."
+          }
         },
         {
           "question": "What was one of the key findings about brain network activity after birth?",
@@ -170,7 +277,14 @@
           "qa_type": "MC_hard",
           "source": "Abstract and \u201cGraph features develop throughout the birth transition period\u201d section",
           "evidence": " \"while a concomitant gradual increase was found in global efficiency in sensorimotor and parietal-frontal regions throughout the fetal to neonatal period.\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "It focuses exclusively on motor control.",
+            "DK": "I do not know the answer.",
+            "C": "Neural activity becomes entirely random and disorganized.",
+            "B": "Local neural networks begin to communicate more globally.",
+            "D": "All networks grow at the same rate."
+          }
         }
       ]
     },
@@ -188,7 +302,12 @@
           "qa_type": "TF",
           "source": "Abstract",
           "evidence": "\u201cAdipose tissue retains an epigenetic memory of obesity \u2026 Mice carrying this obesogenic memory show accelerated rebound weight gain.\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "Formerly overweight mice showed faster weight regain when fed a high-fat diet compared to control mice.",
@@ -196,7 +315,12 @@
           "qa_type": "TF",
           "source": "\u201cResults: Metabolic memory primes adipocytes\u201d and \u201cDiscussion\u201d",
           "evidence": "\u201cWe next investigated the response of WL (weight-loss) and control mice to 4\u2009weeks of HFD feeding. HC mice gained weight faster than CC_s mice \u2026 Mice carrying this obesogenic memory show accelerated rebound weight gain.\u201d",
-          "vote": 1
+          "vote": 1,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What is obesogenic memory?",
@@ -204,7 +328,14 @@
           "qa_type": "MC_easy",
           "source": "Abstract and \u201cDiscussion\u201d sections of the paper",
           "evidence": "\u201cThese findings indicate the existence of an obesogenic memory, largely on the basis of stable epigenetic changes, in mouse adipocytes \u2026 Mice carrying this obesogenic memory show accelerated rebound weight gain.\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "A brain condition affecting eating habits",
+            "DK": "I do not know the answer.",
+            "C": "A type of genetic mutation causing obesity",
+            "B": "Epigenetic changes in fat cells that influence future weight regain",
+            "D": "A temporary change in fat metabolism during dieting"
+          }
         },
         {
           "question": "What type of diet accelerated weight regain in formerly overweight mice?",
@@ -212,7 +343,14 @@
           "qa_type": "MC_easy",
           "source": "\u201cResults: Metabolic memory primes adipocytes\u201d section of the paper",
           "evidence": "\u201cWe next investigated the response of WL and control mice to 4\u2009weeks of HFD feeding \u2026 [the WL] mice gained weight faster than controls\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "High-protein diet",
+            "DK": "I do not know the answer.",
+            "C": "High-fat diet",
+            "B": "Low-fat diet",
+            "D": "Vegetarian diet"
+          }
         },
         {
           "question": "What is one consequence of epigenetic changes in fat cells after significant weight loss?",
@@ -220,7 +358,14 @@
           "qa_type": "MC_hard",
           "source": "Discussion section of the paper",
           "evidence": "\"...these results strongly suggest the presence of stable \u2026 epigenetic memory in mouse adipocytes that persists after WL, priming adipocytes for pathological responses to further HFD feeding\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "Improved fat metabolism in the body",
+            "DK": "I do not know the answer.",
+            "C": "Increased energy expenditure in fat cells",
+            "B": "Reduced effectiveness of dieting in maintaining weight loss",
+            "D": "Permanent loss of fat cell identity"
+          }
         },
         {
           "question": "What broader implication does obesogenic memory have on global health?",
@@ -228,7 +373,14 @@
           "qa_type": "MC_hard",
           "source": " Introduction and \u201cDiscussion\u201d sections of the paper",
           "evidence": "\u201cHence ephemeral \u2018yo-yo\u2019 dieting or repeated WL/weight regain hamper long-term weight management \u2026 underscoring the difficulty of maintaining weight loss.\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "It may help identify new treatments for underweight individuals.",
+            "DK": "I do not know the answer.",
+            "C": "It suggests that weight loss surgeries can eliminate all obesity-related health risks.",
+            "B": "It highlights the challenge of managing obesity and its related health risks.",
+            "D": "It proves that obesity is solely caused by genetic mutations."
+          }
         }
       ]
     },
@@ -241,20 +393,30 @@
       },
       "qas": [
         {
-          "question": "The DNA storage system allows non-experts to encode data using a simplified software platform.",
-          "answer": "A",
-          "qa_type": "TF",
-          "source": "Results: \u201cDistributed and bespoke epi-bit storage\u201d section of the paper",
-          "evidence": "\u2026distributed and bespoke DNA storage was implemented by 60 volunteers lacking professional biolab experience. Our framework presents a new modality of DNA data storage\" ",
-          "vote": 2
-        },
-        {
           "question": "DNA storage has the potential to surpass current silicon-based data storage technologies in density and energy efficiency.",
           "answer": "A",
           "qa_type": "TF",
           "source": "Introduction of the paper",
           "evidence": "\u201cDNA storage has shown potential to transcend current silicon-based data storage technologies in storage density, longevity and energy consumption.\u201d",
-          "vote": 2
+          "vote": 3,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
+        },
+        {
+          "question": "The DNA storage system allows non-experts to encode data using a simplified software platform.",
+          "answer": "A",
+          "qa_type": "TF",
+          "source": "Results: \u201cDistributed and bespoke epi-bit storage\u201d section of the paper",
+          "evidence": "\u2026distributed and bespoke DNA storage was implemented by 60 volunteers lacking professional biolab experience. Our framework presents a new modality of DNA data storage\" ",
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What does the new DNA data storage technique use to encode data?",
@@ -262,7 +424,14 @@
           "qa_type": "MC_easy",
           "source": "Abstract, Introduction sections of the paper",
           "evidence": "We present an alternative, parallel strategy that enables the writing of arbitrary data on DNA using premade nucleic acids. Through self-assembly guided enzymatic methylation, epigenetic modifications [\u2026] are introduced onto universal DNA templates to enact molecular movable-type printing.\u201d",
-          "vote": 2
+          "vote": 3,
+          "options": {
+            "A": "Entire DNA molecules",
+            "DK": "I do not know the answer.",
+            "C": "Magnetic disks",
+            "B": "Movable DNA bricks",
+            "D": "RNA strands"
+          }
         },
         {
           "question": "How is binary data represented in the new DNA storage system?",
@@ -270,7 +439,14 @@
           "qa_type": "MC_easy",
           "source": "Abstract of the paper",
           "evidence": "\u201c...epigenetic modifications, as information bits, can be introduced precisely onto universal DNA templates [\u2026] the data encoded in complex epigenetic patterns were retrieved high-throughput by nanopore sequencing\u201d",
-          "vote": 2
+          "vote": 3,
+          "options": {
+            "A": "By arranging DNA strands in a spiral",
+            "DK": "I do not know the answer.",
+            "C": "By matching colors of DNA bases",
+            "B": "Using chemical markers for ones and zeros",
+            "D": "Through physical cutting of the DNA strands"
+          }
         },
         {
           "question": "How many bits were written per reaction using the new DNA storage method?",
@@ -278,7 +454,14 @@
           "qa_type": "MC_hard",
           "source": "Results: \u201cData storage at high-bit parallelism\u201d section of the paper",
           "evidence": "\u201c\u2026five kinds of 1,300\u2009nt DNA template\u2026achieved 350-bit parallelism per writing reaction.\u201d ",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "275",
+            "DK": "I do not know the answer.",
+            "C": "5000",
+            "B": "350",
+            "D": "16,833"
+          }
         },
         {
           "question": "What is one of the key innovations of the new DNA storage technique?",
@@ -286,7 +469,14 @@
           "qa_type": "MC_hard",
           "source": "Discussion of the paper",
           "evidence": "\u201cCompared with de\u00a0novo synthesis-based storage, the epi-bit strategy possesses unique characteristics. First, it represents a parallel \u2018printing\u2019 process with prefabricated movable types and carriers.\u201d",
-          "vote": 1
+          "vote": 2,
+          "options": {
+            "A": "It eliminates the need for chemical markers.",
+            "DK": "I do not know the answer.",
+            "C": "It requires no biological expertise to operate.",
+            "B": "It uses pre-made DNA bricks instead of synthesizing DNA from scratch.",
+            "D": "It increases the physical size of DNA storage."
+          }
         }
       ]
     },
@@ -304,7 +494,12 @@
           "qa_type": "TF",
           "source": "Abstract",
           "evidence": "\u201cWe employ mechanochemistry to synthesize Galinstan liquid metal/aluminium nitride (LM/AlN) colloids with a gradient liquid\u2013solid heterointerface\u2026\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "The new thermal interface material (TIM) can reduce pump electricity consumption by up to 65%.",
@@ -312,7 +507,12 @@
           "qa_type": "TF",
           "source": " \u201cColloidal LMs for heat dissipation in practical devices\u201d section of the paper",
           "evidence": " \u201cBy combining the colloidal LMs \u2026 a notable 65% reduction in pump electricity consumption \u2026 maintaining a comfortable thermal condition.\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What is a key feature of the gradient interface in the new TIM?",
@@ -320,7 +520,14 @@
           "qa_type": "MC_easy",
           "source": "Introduction of the paper",
           "evidence": "\u201c\u2026a gradient heterointerface with a unique liquid\u2013solid interlocked structure \u2026 bridging interface air voids and enhancing the interfacial bonding strength, thereby promoting nanoscale thermal conduction\u2026\u201d",
-          "vote": 3
+          "vote": 4,
+          "options": {
+            "A": "It creates hard boundaries between materials.",
+            "DK": "I do not know the answer.",
+            "C": "It acts as an insulator for electronic components.",
+            "B": "It helps heat pass through more effectively.",
+            "D": "It increases the weight of cooling systems."
+          }
         },
         {
           "question": "What is the primary material combination used in the new TIM?",
@@ -328,7 +535,14 @@
           "qa_type": "MC_easy",
           "source": "Abstract",
           "evidence": "\u201cWe employ mechanochemistry to synthesize Galinstan liquid metal/aluminium nitride (LM/AlN) colloids\u2026\u201d",
-          "vote": 3
+          "vote": 4,
+          "options": {
+            "A": "Copper and silicon",
+            "DK": "I do not know the answer.",
+            "C": "Silver and carbon",
+            "B": "Galinstan and aluminum nitride",
+            "D": "Gold and graphene"
+          }
         },
         {
           "question": "Why does the TIM outperform leading thermal conductors in practical applications?",
@@ -336,15 +550,29 @@
           "qa_type": "MC_hard",
           "source": "Abstract",
           "evidence": " \u201cThese colloids demonstrate thermal resistances of between 0.42 and 0.86\u2009mm\u00b2\u2009K\u2009W\u207b\u00b9 \u2026 outperforming leading thermal conductors \u2026 This superior performance is attributed to the gradient heterointerface with efficient thermal transport across liquid\u2013solid interfaces.\u201d",
-          "vote": 3
+          "vote": 4,
+          "options": {
+            "A": "Its gradient interface enhances thermal transport across liquid\u2013solid boundaries.",
+            "DK": "I do not know the answer.",
+            "C": "It remains stable at higher temperatures than other materials.",
+            "B": "It has higher electrical conductivity than traditional materials.",
+            "D": "It creates a vacuum layer that insulates components."
+          }
         },
         {
-          "question": "What is the primary advantage of the TIM in experimental setups for high-power electronics?",
-          "answer": "B",
+          "question": "What challenge in modern data centers does the TIM address?",
+          "answer": "A",
           "qa_type": "MC_hard",
-          "source": "\u201cColloidal LMs for heat dissipation in practical devices\u201d section of the paper",
-          "evidence": "\u201cEmploying the colloidal LM at the interface region doubled the power density value of the heat source \u2026 while decreasing the average working temperature \u2026 Also \u2026 enabled a 65% reduction in pump electricity consumption.\u201d",
-          "vote": 2
+          "source": "Introduction of the paper",
+          "evidence": "\u201cEffectively managing thermal conditions in electronic systems \u2026 The associated power consumption of cooling infrastructure \u2026 largely contributes to the world\u2019s overall carbon emissions.\u201d",
+          "vote": 2,
+          "options": {
+            "A": "Increasing electricity costs due to artificial intelligence demands.",
+            "DK": "I do not know the answer.",
+            "C": "High material costs of conventional cooling systems.",
+            "B": "Lack of space for additional cooling infrastructure.",
+            "D": "Incompatibility of current systems with newer hardware."
+          }
         }
       ]
     },
@@ -362,7 +590,12 @@
           "qa_type": "TF",
           "source": "Abstract and \u201cExtremely efficient star formation\u201d discussion.",
           "evidence": "\u201cThese galaxies require an exceptional fraction of 50\u2009per cent of baryons converted into stars\u2014two to three times higher than the most efficient galaxies at later epochs.\u201d",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "The discovery of massive galaxies during the Cosmic Dawn challenges the \u039b\u2009cold dark-matter model.",
@@ -370,7 +603,12 @@
           "qa_type": "TF",
           "source": "\u201cHowever, three ultra-massive galaxies \u2026 require an efficiency of ~50%, but do not exceed the fundamental limit of 100% under \u039bCDM.\u201d",
           "evidence": "\u201c\u2026their stellar masses are as high as log(M\u2605/M\u2299)\u2009\u2273\u200911.0, making them comparable to or exceeding the Milky Way\u2019s stellar mass (about\u00a06 \u00d7 1010\u2009M\u2299)\u2026\u201d",
-          "vote": 1
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What is the Cosmic Dawn?",
@@ -378,7 +616,14 @@
           "qa_type": "MC_easy",
           "source": "Introduction and general context in the paper (the term \u201cCosmic Dawn\u201d is commonly used for the Universe\u2019s first billion years).",
           "evidence": "\"We find that the first billion years after the Big Bang ...*",
-          "vote": 3
+          "vote": 4,
+          "options": {
+            "A": "The moment of the Big Bang",
+            "DK": "I do not know the answer.",
+            "C": "The era when black holes formed",
+            "B": "The first billion years after the Big Bang",
+            "D": "The last billion years of the Universe"
+          }
         },
         {
           "question": "What tool was used to study these massive galaxies?",
@@ -386,15 +631,14 @@
           "qa_type": "MC_easy",
           "source": "Abstract and \u201cFRESCO NIRCam grism spectra\u2026\u201d section",
           "evidence": "\u201cHere we report a systematic study of 36 massive dust-obscured galaxies \u2026 from the JWST FRESCO survey.\u201d \u201c\u2026the imaging and spectroscopic data provided by the James Webb Space Telescope (JWST)\u2026\u201d",
-          "vote": 3
-        },
-        {
-          "question": "What aspect of star formation in these galaxies is surprising?",
-          "answer": "A",
-          "qa_type": "MC_hard",
-          "source": "Discussion on these \u201cthree ultra-massive galaxies \u2026 2\u20133 times higher than the most efficient galaxies at later epochs.\u201d",
-          "evidence": "\u201c\u2026with star-formation efficiencies of about\u00a050% of cosmic baryons \u2026 surpassing the typical feedback-limited rates at later epochs.\u201d",
-          "vote": 2
+          "vote": 4,
+          "options": {
+            "A": "Hubble Space Telescope",
+            "DK": "I do not know the answer.",
+            "C": "Large Hadron Collider",
+            "B": "James Webb Space Telescope (JWST)",
+            "D": "Sloan Digital Sky Survey"
+          }
         },
         {
           "question": "What does the JWST FRESCO program focus on?",
@@ -402,7 +646,29 @@
           "qa_type": "MC_hard",
           "source": "\u201cFRESCO NIRCam grism spectra and imaging data\u201d section of the paper",
           "evidence": "\u201c\u2026FRESCO obtained direct images in three filters \u2026 as well as NIRCam grism spectroscopy \u2026 from about z = 4.9\u20139.0\u2026 The main advantage is robust measurement of emission lines (and thus spectroscopic redshifts) and more accurate stellar masses.\u201d",
-          "vote": 2
+          "vote": 3,
+          "options": {
+            "A": "Detecting gravitational waves",
+            "DK": "I do not know the answer.",
+            "C": "Observing black hole activity in nearby galaxies",
+            "B": "Measuring distances and masses of galaxies in the early Universe",
+            "D": "Analyzing the chemical composition of stars"
+          }
+        },
+        {
+          "question": "Why do these massive galaxies stand out compared to most others observed in the early Universe?",
+          "answer": "B",
+          "qa_type": "MC_hard",
+          "source": "Main text, pages\u00a0312\u2013313",
+          "evidence": "\u201c\u2026three ultra-massive galaxies \u2026 star-formation rates exceeding \u2026 produce a large fraction of cosmic star-formation-rate density \u2026 in the first billion years.\u201d",
+          "vote": 2,
+          "options": {
+            "A": "They contain no baryonic matter.",
+            "DK": "I do not know the answer.",
+            "C": "Their light is entirely from black holes.",
+            "B": "They form stars much faster than typical galaxies.",
+            "D": "They contradict the \u039b\u2009cold dark-matter model."
+          }
         }
       ]
     },
@@ -420,15 +686,25 @@
           "qa_type": "TF",
           "source": "Introduction section of the paper",
           "evidence": "\u201cQuantum error correction \u2026 provides a path \u2026 by combining multiple physical qubits into a logical qubit\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
-          "question": "The Willow processor improves qubit stability but does not reduce the error rate exponentially as the number of qubits increases.",
+          "question": "Qubits in quantum computing can only store a 1 or a 0, similar to classical computing bits.",
           "answer": "B",
           "qa_type": "TF",
-          "source": "\u201cA surface code memory below threshold\u201d section of the paper",
-          "evidence": "culminating in a 101-qubit distance-7 code with 0.143% \u00b1 0.003% error per cycle of error correction, demonstrating exponential error suppression",
-          "vote": 2
+          "source": "Introduction section of the paper",
+          "evidence": "qubits can exist in superposition states, holding more information than just \u20180\u2019 or \u20181,\u2019 which underlies \u201cthe fragility of quantum information and the need for quantum error correction\u201d.",
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What is a key feature of quantum error correction?",
@@ -436,7 +712,14 @@
           "qa_type": "MC_easy",
           "source": "Introduction section of the paper",
           "evidence": "\u201cQuantum error correction [\u2026] provides a path [\u2026] by combining multiple physical qubits into a logical qubit [\u2026]\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "Reduces processing time",
+            "DK": "I do not know the answer.",
+            "C": "Eliminates all errors entirely",
+            "B": "Combines multiple physical qubits into a logical qubit",
+            "D": "Doubles computing power automatically"
+          }
         },
         {
           "question": "How often does the Willow processor experience correlated error events, according to the research?",
@@ -444,7 +727,14 @@
           "qa_type": "MC_easy",
           "source": "\u201cA repetition code memory in the ultralow-error regime\u201d section of the paper",
           "evidence": "\u201cWe also run repetition codes up to distance 29 and find that logical performance is limited by rare correlated error events, occurring approximately once every hour or 3 \u00d7 10\u2079 cycles\u201d",
-          "vote": 2
+          "vote": 3,
+          "options": {
+            "A": "Every few seconds",
+            "DK": "I do not know the answer.",
+            "C": "Every millisecond",
+            "B": "Once every hour",
+            "D": "Once a day"
+          }
         },
         {
           "question": "Why is scaling physical qubits important in quantum error correction?",
@@ -452,15 +742,29 @@
           "qa_type": "MC_hard",
           "source": "Introduction section of the paper",
           "evidence": "\u201cQuantum computing promises computational speed-ups in quantum chemistry, quantum simulation, cryptography and optimization\u201d and the paper features large-scale below-threshold performance, implying potential advantages over classical supercomputers for specialized quantum tasks",
-          "vote": 3
+          "vote": 4,
+          "options": {
+            "A": "It increases processing speed exponentially.",
+            "DK": "I do not know the answer.",
+            "C": "It eliminates the need for classical computing.",
+            "B": "It allows errors to be corrected faster than they are produced.",
+            "D": "It enables higher energy efficiency."
+          }
         },
         {
-          "question": "What is one challenge that remains before large-scale quantum computing becomes practical?",
+          "question": "What does the exponential suppression of errors depend on in the Willow processor?",
           "answer": "A",
           "qa_type": "MC_hard",
-          "source": "",
-          "evidence": "the correct answer is not present in the paper",
-          "vote": 2
+          "source": "Introduction section of the paper",
+          "evidence": "\u201cIf the physical operations are below a critical noise threshold, the logical error rate should be suppressed exponentially as we increase the number of physical qubits per logical qubit\u201d",
+          "vote": 2,
+          "options": {
+            "A": "The size of the encoded qubit lattice",
+            "DK": "I do not know the answer.",
+            "C": "The environment temperature",
+            "B": "The speed of the processor",
+            "D": "The number of classical bits used"
+          }
         }
       ]
     },
@@ -478,7 +782,12 @@
           "qa_type": "TF",
           "source": "Main text, introduction to time crystals (references 19\u201326)",
           "evidence": "\u201cTime crystals \u2026 where discrete time translation symmetry is spontaneously broken. \u2026 This concept can be extended \u2026 to topological order.\u201d",
-          "vote": 3
+          "vote": 3,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "Time crystals only exist in equilibrium states of matter.",
@@ -486,7 +795,12 @@
           "qa_type": "TF",
           "source": "Abstract",
           "evidence": "\u201c\u2026the extension to periodically driven systems gives rise to exotic new phenomena that are forbidden in thermal equilibrium.\u201d",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What type of quantum system was programmed to exhibit time-crystal behavior?",
@@ -494,7 +808,14 @@
           "qa_type": "MC_easy",
           "source": "Abstract",
           "evidence": "\u201cHere, we report the observation of \u2026 a prethermal topologically ordered time crystal \u2026 with programmable superconducting qubits arranged on a square lattice.\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "Classical binary computer",
+            "DK": "I do not know the answer.",
+            "C": "Optical quantum simulator",
+            "B": "Superconducting quantum computer",
+            "D": "Molecular computer"
+          }
         },
         {
           "question": "Why are topological time crystals beneficial for quantum computing?",
@@ -502,7 +823,14 @@
           "qa_type": "MC_easy",
           "source": "Introduction, first paragraph in main text",
           "evidence": "\u201c\u2026featuring a variety of intriguing properties such as long-range entanglement and intrinsic robustness against local perturbations. Their extension to periodically driven systems gives rise to exotic new phenomena\u2026\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "They increase the energy output of qubits.",
+            "DK": "I do not know the answer.",
+            "C": "They enable faster entanglement.",
+            "B": "They reduce the likelihood of quantum errors.",
+            "D": "They eliminate the need for cooling systems."
+          }
         },
         {
           "question": "What broader potential does this research suggest for topological time crystals?",
@@ -510,7 +838,14 @@
           "qa_type": "MC_hard",
           "source": "Abstract",
           "evidence": "\u201cOur results demonstrate the potential to explore exotic topologically ordered nonequilibrium phases of matter with noisy intermediate-scale quantum processors.\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "Enhancing thermal energy transfer in quantum systems.",
+            "DK": "I do not know the answer.",
+            "C": "Developing perpetual motion machines.",
+            "B": "Exploring non-equilibrium phases of matter using quantum circuits.",
+            "D": "Increasing classical computational efficiency."
+          }
         },
         {
           "question": "What was the primary method used to observe the topological time-crystal behavior?",
@@ -518,7 +853,14 @@
           "qa_type": "MC_hard",
           "source": "Abstract",
           "evidence": "\u201c\u2026we observe discrete time-translation symmetry breaking dynamics that is only manifested in the subharmonic temporal response of nonlocal logical operators.\u201d",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "Measuring periodic oscillations of logical operators.",
+            "DK": "I do not know the answer.",
+            "C": "Observing spatial crystal formations under a microscope.",
+            "B": "Simulating quantum circuits in classical computers.",
+            "D": "Measuring the energy dissipation in superconducting qubits."
+          }
         }
       ]
     },
@@ -536,7 +878,12 @@
           "qa_type": "TF",
           "source": "Discussion, \u201cPotential for diffusive loss of Ar\u201d sections in the paper",
           "evidence": "\u201cWe modelled the diffusive loss of Ar from iddingsite \u2026 considering three aspects of Lafayette\u2019s history that could have induced 40Ar loss: (1) heating during an impact event \u2026 (2) heating during transit in space \u2026 (3) heating during entry into Earth\u2019s atmosphere.\u201d",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "The water responsible for forming minerals in the Lafayette meteorite likely came from melting permafrost triggered by volcanic activity.",
@@ -544,7 +891,12 @@
           "qa_type": "TF",
           "source": "Discussion, \u201cSignificance of the 40Ar/39Ar age\u201d",
           "evidence": "\u201cAn alternate and simpler explanation is that magmatism acted as a localised heat source for melting of subsurface ice \u2026 providing the heat source for water\u2013rock interaction.\u201d",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "True",
+            "DK": "I do not know the answer.",
+            "B": "False"
+          }
         },
         {
           "question": "What key material in the Lafayette meteorite indicates past interaction with liquid water?",
@@ -552,7 +904,14 @@
           "qa_type": "MC_easy",
           "source": "Introduction, paragraphs on aqueous alteration products",
           "evidence": "\u201cOlivine grains and the mesostasis of Lafayette host aqueous alteration products \u2026 We refer to this alteration mineral assemblage as \u2018iddingsite.\u2019\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "Quartz",
+            "DK": "I do not know the answer.",
+            "C": "Magnite",
+            "B": "Iddingsite",
+            "D": "Graphite"
+          }
         },
         {
           "question": "What caused the permafrost to melt and create liquid water on Mars?",
@@ -560,7 +919,14 @@
           "qa_type": "MC_easy",
           "source": "Discussion, final paragraphs sections",
           "evidence": "\u201c\u2026spatial variability of alteration \u2026 is consistent with a model of heat from magmatic eruptions or intrusions \u2026 short-lived melting of permafrost.\u201d",
-          "vote": 4
+          "vote": 4,
+          "options": {
+            "A": "Climate change on Mars",
+            "DK": "I do not know the answer.",
+            "C": "Impact of large asteroids",
+            "B": "Magmatic activity beneath the surface",
+            "D": "Tidal forces from Mars' moons"
+          }
         },
         {
           "question": "What broader implications does this research have beyond Mars?",
@@ -568,7 +934,14 @@
           "qa_type": "MC_hard",
           "source": "Conclusions, final discussion",
           "evidence": "\u201c\u2026our data support interpretations that activation of localised hydrological cycles on Amazonian Mars \u2026 was infrequent but not unusual. \u2026 This approach demonstrates the potential of 40Ar/39Ar geochronology to provide precise constraints on water\u2013rock interaction ages.\u201d",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "Understanding how Mars lost its atmosphere",
+            "DK": "I do not know the answer.",
+            "C": "Identifying new regions of Mars suitable for colonization",
+            "B": "Developing techniques to date water presence on other planetary bodies",
+            "D": "Determining the exact timeline of Earth\u2019s geological history"
+          }
         },
         {
           "question": "How did researchers account for the effects of the meteorite's journey on its apparent age?",
@@ -576,7 +949,14 @@
           "qa_type": "MC_hard",
           "source": "",
           "evidence": "",
-          "vote": 2
+          "vote": 2,
+          "options": {
+            "A": "By modeling the temperature changes during its journey and atmospheric entry",
+            "DK": "I do not know the answer.",
+            "C": "By conducting isotope ratio tests using hydrogen",
+            "B": "By comparing it to other meteorites found on Earth",
+            "D": "By measuring the changes in its magnetic field"
+          }
         }
       ]
     }
