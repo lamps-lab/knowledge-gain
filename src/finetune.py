@@ -99,4 +99,8 @@ generated_text = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
 print("\nSingle sample prompt:")
 print(tokenizer.decode(sample["input_ids"], skip_special_tokens=True))
 print("Generated output:")
+<<<<<<< HEAD
 print(generated_text)
+=======
+print(generated_text)
+>>>>>>> 8a21e8f7b1498410e758713da41456a03c157393
