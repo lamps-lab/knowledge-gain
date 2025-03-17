@@ -16,7 +16,7 @@ with open("../data/train_dataset.json", "r") as f:
 with open("../data/test_dataset.json", "r") as f:
     test_samples = json.load(f)
 
-# Helper: convert list of dicts into dict of lists.
+# convert list of dicts into dict of lists.
 def dict_from_samples(samples):
     return {k: [sample[k] for sample in samples] for k in samples[0]}
 
@@ -29,16 +29,18 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(model_id)
 print(model)
 
-# build prompt with question, context & answer.
+# Modify the preprocess function to include explicit instructions.
 def preprocess_function(examples):
-    # Each training example is a full sequence:
-    # "question: {question}\ncontext: {content}\nanswer: {answer}"
+    instruction = (
+        "You are a helpful assistant that answers multiple choice questions given different types of content. "
+        "Output must be a JSON object with the keys: 'question', 'options', and 'correct_answer'."
+    )
+    # build prompt with question, context & answer.
     texts = [
-        f"question: {q}\ncontext: {c}\nanswer: {a}" 
-        for q, c, a in zip(examples["question"], examples["content"], examples["answer"])
+        f"{instruction}\n\nquestion: {q}\ncontent: {c}\noptions: {o}\ncorrect answer: {a}"
+        for q, c, o, a in zip(examples["question"], examples["content"], examples["options"], examples["answer"])
     ]
     model_inputs = tokenizer(texts, max_length=512, truncation=True, padding="max_length")
-    # For causal LM, the labels are the same as input_ids.
     model_inputs["labels"] = model_inputs["input_ids"].copy()
     return model_inputs
 
@@ -76,31 +78,3 @@ trainer = Trainer(
 # 8. FINETUNE THE MODEL & SAVE
 trainer.train()
 trainer.save_model("../models/finetuned_qwen")
-
-exit()
-# 9. TESTING THE MODEL
-# Evaluate the model on the test dataset.
-eval_results = trainer.evaluate()
-print("Evaluation results:", eval_results)
-
-# Generate predictions using trainer.predict().
-test_output = trainer.predict(test_dataset)
-predicted_ids = test_output.predictions
-decoded_preds = tokenizer.batch_decode(predicted_ids, skip_special_tokens=True)
-print("\nSample predictions from test dataset:")
-for i, text in enumerate(decoded_preds[:5]):
-    print(f"Sample {i+1}: {text}")
-
-# Alternatively, generate output for a single test sample using model.generate.
-sample = test_dataset[0]
-input_ids = torch.tensor([sample["input_ids"]]).to(model.device)
-generated_ids = model.generate(input_ids, max_length=512, do_sample=False)
-generated_text = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
-print("\nSingle sample prompt:")
-print(tokenizer.decode(sample["input_ids"], skip_special_tokens=True))
-print("Generated output:")
-<<<<<<< HEAD
-print(generated_text)
-=======
-print(generated_text)
->>>>>>> 8a21e8f7b1498410e758713da41456a03c157393
