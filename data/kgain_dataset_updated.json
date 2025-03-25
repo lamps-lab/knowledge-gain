@@ -169,19 +169,20 @@
 	      "status": "Answer is present in the abstract."
 	    },
         {
-          "question": "How were the skull whistle sounds classified in comparison to other tested sounds?",
+          "question": "Which auditory category best describes skull whistle sounds?",
           "answer": "B",
           "qa_type": "MC_hard",
           "source": "",
           "evidence": "\u201cPerceptual assessment and ratings of sounds,\u201d plus the RSA and HCA analyses, demonstrating that skull whistle sounds \u201ccluster\u201d with aversive alarm sounds and fear-related human utterances",
           "vote": 3,
           "options": {
-            "A": "They were grouped with animal calls.",
-            "DK": "I do not know the answer.",
-            "C": "They were categorized as soothing background noise.",
-            "B": "They were placed near alarm sounds and human noises of fear.",
-            "D": "They were associated with calming natural sounds."
-          }
+		    "A": "Grouped with animal calls",
+		    "DK": "I do not know the answer.",
+		    "B": "Grouped with alarm sounds and fear-related human utterances",
+		    "C": "Categorized as soothing background noise",
+		    "D": "Associated with calming natural sounds"
+          },
+          "status":"New question was generated because original was not self-contained."
         },
         {
           "question": "Why are skull whistle sounds particularly unsettling to listeners?",
@@ -237,7 +238,7 @@
 	      "status": "Answer is present in the abstract."
 	    },
 	    {
-	      "question": "What type of imaging technology was used in this study to observe brain development?",
+	      "question": "Which imaging technique is most commonly used to assess functional brain connectivity in early development?",
 	      "answer": "B",
 	      "qa_type": "MC_easy",
 	      "source": "Abstract and “Participants” subsection in “Materials and methods”",
@@ -250,7 +251,7 @@
 	        "B": "Functional MRI (fMRI)",
 	        "D": "Ultrasound"
 	      },
-	      "status": "Answer is present in the abstract."
+	      "status": "New question was generated because the original was not self-contained."
 	    },
 	    {
 	      "question": "Which brain region was highlighted as undergoing significant growth and reorganization after birth?",
@@ -284,19 +285,20 @@
           }
         },
         {
-          "question": "What was one of the key findings about brain network activity after birth?",
+          "question": "Which change in brain network connectivity is characteristic of the transition from fetal to neonatal stages?",
           "answer": "B",
           "qa_type": "MC_hard",
           "source": "Abstract and \u201cGraph features develop throughout the birth transition period\u201d section",
           "evidence": " \"while a concomitant gradual increase was found in global efficiency in sensorimotor and parietal-frontal regions throughout the fetal to neonatal period.\u201d",
           "vote": 3,
           "options": {
-            "A": "It focuses exclusively on motor control.",
-            "DK": "I do not know the answer.",
-            "C": "Neural activity becomes entirely random and disorganized.",
-            "B": "Local neural networks begin to communicate more globally.",
-            "D": "All networks grow at the same rate."
-          }
+		    "A": "Networks become less connected",
+		    "DK": "I do not know the answer.",
+		    "B": "Local networks begin to communicate more globally",
+		    "C": "Networks exhibit random activity",
+		    "D": "No significant changes occur"
+          },
+          "status": "New question was generated because original question was not self-contained."
         }
       ]
     },
@@ -437,7 +439,7 @@
 	      "status": "New question generated."
 	    },
 	    {
-	      "question": "What does the new DNA data storage technique use to encode data?",
+	      "question": "Which component is central to synthesis-free DNA data storage that mimics movable type printing?",
 	      "answer": "B",
 	      "qa_type": "MC_easy",
 	      "source": "Abstract and Introduction sections of the paper",
@@ -450,10 +452,10 @@
 	        "B": "Movable DNA bricks",
 	        "D": "RNA strands"
 	      },
-	      "status": "Answer is present in the abstract."
+	      "status": "New question was generated because original was not self-contained."
 	    },
 	    {
-	      "question": "How is binary data represented in the new DNA storage system?",
+	      "question": "In epigenetic DNA data storage, how is binary information typically encoded?",
 	      "answer": "B",
 	      "qa_type": "MC_easy",
 	      "source": "Abstract of the paper",
@@ -466,10 +468,10 @@
 	        "B": "Using chemical markers for ones and zeros",
 	        "D": "Through physical cutting of the DNA strands"
 	      },
-	      "status": "Answer is present in the abstract."
+	      "status": "New question was generated to make it self-contained."
 	    },
         {
-          "question": "How many bits were written per reaction using the new DNA storage method?",
+          "question": "In synthesis-free DNA data storage, what level of bit parallelism is typically achieved per writing reaction?",
           "answer": "B",
           "qa_type": "MC_hard",
           "source": "Results: \u201cData storage at high-bit parallelism\u201d section of the paper",
@@ -481,10 +483,11 @@
             "C": "5000",
             "B": "350",
             "D": "16,833"
-          }
+          },
+          "status":"New question was generated to make it self-contained."
         },
         {
-          "question": "What is one of the key innovations of the new DNA storage technique?",
+          "question": "Which strategy is being pursued to enable rapid, low-cost DNA data storage by avoiding traditional de novo synthesis?",
           "answer": "B",
           "qa_type": "MC_hard",
           "source": "Discussion of the paper",
@@ -496,7 +499,8 @@
             "C": "It requires no biological expertise to operate.",
             "B": "It uses pre-made DNA bricks instead of synthesizing DNA from scratch.",
             "D": "It increases the physical size of DNA storage."
-          }
+          },
+           "status":"New question was generated because it was not self-contained."
         }
       ]
     },
@@ -509,7 +513,7 @@
       },
   "qas": [
 	    {
-	      "question": "The TIM developed in the study is a solid compound made of aluminum and silicon.",
+	      "question": "True or False: A thermal interface material made from colloidal liquid metals and ceramic particles is a solid compound of aluminum and silicon.",
 	      "answer": "B",
 	      "qa_type": "TF",
 	      "source": "Abstract",
@@ -520,7 +524,7 @@
 	        "DK": "I do not know the answer.",
 	        "B": "False"
 	      },
-	      "status": "Answer is present in the abstract."
+	      "status": "Neq question was generated because it was not self-contained."
 	    },
 	    {
 	      "question": "The new thermal interface material (TIM) can reduce pump electricity consumption by up to 65%.",
@@ -537,7 +541,7 @@
 	      "status": "Answer is present in the abstract."
 	    },
 	    {
-	      "question": "What is a key feature of the gradient interface in the new TIM?",
+	      "question": "What is the main advantage of a gradient heterointerface in thermal interface materials?",
 	      "answer": "B",
 	      "qa_type": "MC_easy",
 	      "source": "Introduction of the paper",
@@ -593,7 +597,7 @@
       },
   "qas": [
 	    {
-	      "question": "The observed galaxies are converting baryonic matter into stars at an unusually high efficiency.",
+	      "question": "True or False: Some early-universe galaxies are thought to convert baryonic matter into stars more efficiently than later galaxies.",
 	      "answer": "A",
 	      "qa_type": "TF",
 	      "source": "Abstract and “Extremely efficient star formation” discussion.",
@@ -604,7 +608,7 @@
 	        "DK": "I do not know the answer.",
 	        "B": "False"
 	      },
-	      "status": "Answer is present in the abstract."
+	      "status": "New question was generated because it was not self-contained."
 	    },
 	    {
 	      "question": "The discovery of massive galaxies during the Cosmic Dawn challenges the Λ cold dark-matter model.",
@@ -621,7 +625,7 @@
 	      "status": "Answer is present in the abstract."
 	    },
 	    {
-	      "question": "What is the redshift range of the massive dust-obscured galaxies studied?",
+	      "question": "Which redshift interval is typically characteristic of galaxies from the Cosmic Dawn era?",
 	      "answer": "C",
 	      "qa_type": "MC_easy",
 	      "source": "Abstract",
@@ -637,7 +641,7 @@
 	      "status": "New question generated."
 	    },
 	    {
-	      "question": "What tool was used to study these massive galaxies?",
+	      "question": "Which space telescope is most commonly used to observe high-redshift galaxies in the early universe?",
 	      "answer": "B",
 	      "qa_type": "MC_easy",
 	      "source": "Abstract and “FRESCO NIRCam grism spectra” section.",
@@ -650,7 +654,7 @@
 	        "B": "James Webb Space Telescope (JWST)",
 	        "D": "Sloan Digital Sky Survey"
 	      },
-	      "status": "Answer is present in the abstract."
+	      "status": "New question was generated because it was not self-contained."
 	    },
         {
           "question": "What does the JWST FRESCO program focus on?",
@@ -853,7 +857,7 @@
 	      "status": "Answer is present in the abstract."
 	    },
         {
-          "question": "What broader potential does this research suggest for topological time crystals?",
+          "question": "Which application is a key motivation for studying topological time crystals in quantum systems?",
           "answer": "B",
           "qa_type": "MC_hard",
           "source": "Abstract",
@@ -865,10 +869,11 @@
             "C": "Developing perpetual motion machines.",
             "B": "Exploring non-equilibrium phases of matter using quantum circuits.",
             "D": "Increasing classical computational efficiency."
-          }
+          },
+          "status":"New question was generated because it was not self-contained."
         },
         {
-          "question": "What was the primary method used to observe the topological time-crystal behavior?",
+          "question": "Which experimental signature is widely accepted as evidence for discrete time-translation symmetry breaking in quantum time crystals?",
           "answer": "A",
           "qa_type": "MC_hard",
           "source": "Abstract",
@@ -880,7 +885,8 @@
             "C": "Observing spatial crystal formations under a microscope.",
             "B": "Simulating quantum circuits in classical computers.",
             "D": "Measuring the energy dissipation in superconducting qubits."
-          }
+          },
+          "status": "New question generated because question was not self-contained."
         }
       ]
     },
@@ -953,7 +959,7 @@
 	      "status": "Answer is present in the abstract."
 	    },
         {
-          "question": "What broader implications does this research have beyond Mars?",
+          "question": "What is a key broader implication of applying precise radiometric dating methods in planetary science?",
           "answer": "B",
           "qa_type": "MC_hard",
           "source": "Conclusions, final discussion",
@@ -965,7 +971,8 @@
             "C": "Identifying new regions of Mars suitable for colonization",
             "B": "Developing techniques to date water presence on other planetary bodies",
             "D": "Determining the exact timeline of Earth\u2019s geological history"
-          }
+          },
+          "status": "New question generated because question was not self-contained."
         },
         {
           "question": "Which radiometric dating method is commonly used to determine the age of aqueous alteration in meteorites?",

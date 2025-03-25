@@ -1,0 +1,152 @@
+[
+  {
+    "article_id": "0co1IO07eJkXdipuXHsg",
+    "original_question": "Daytime sleepiness directly causes motoric cognitive risk.",
+    "replacement_question": "True or False: Excessive daytime sleepiness is generally considered a risk marker for cognitive decline in older adults.",
+    "qa_type": "TF",
+    "options": {
+      "A": "True",
+      "DK": "I do not know the answer.",
+      "B": "False"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "article_id": "0co1IO07eJkXdipuXHsg",
+    "original_question": "What age group was studied in this research?",
+    "replacement_question": "Which population is most commonly at risk for sleep-related cognitive decline?",
+    "qa_type": "MC_easy",
+    "options": {
+      "A": "Children",
+      "DK": "I do not know the answer.",
+      "B": "Older adults",
+      "C": "Teenagers",
+      "D": "Young adults"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "article_id": "0co1IO07eJkXdipuXHsg",
+    "original_question": "What is motoric cognitive risk (MCR)?",
+    "replacement_question": "Motoric cognitive risk syndrome is typically defined by the presence of which two clinical features?",
+    "qa_type": "MC_easy",
+    "options": {
+      "A": "Cognitive complaints and slow gait",
+      "B": "Memory loss and balance impairment",
+      "C": "Depressive symptoms and high blood pressure",
+      "DK": "I do not know the answer.",
+      "D": "Rapid movements and hyperactivity"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "article_id": "0co1IO07eJkXdipuXHsg",
+    "original_question": "What factor weakened the association between poor sleep quality and MCR?",
+    "replacement_question": "Which factor is known to confound the relationship between sleep quality and cognitive decline?",
+    "qa_type": "MC_hard",
+    "options": {
+      "A": "Age",
+      "DK": "I do not know the answer.",
+      "B": "Depressive symptoms",
+      "C": "Physical activity",
+      "D": "Educational level"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "article_id": "0co1IO07eJkXdipuXHsg",
+    "original_question": "What potential benefit does early screening for sleep disturbances provide?",
+    "replacement_question": "What is one benefit of early detection of sleep disorders in older adults?",
+    "qa_type": "MC_hard",
+    "options": {
+      "A": "Immediate reversal of cognitive decline",
+      "DK": "I do not know the answer.",
+      "B": "Opportunity for early preventive measures",
+      "C": "Reduction in sleep apnea prevalence",
+      "D": "Enhancement of physical fitness"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "article_id": "bJg3NskdacdUNtGMa9n9",
+    "original_question": "What kind of sound does the Aztec skull whistle produce?",
+    "replacement_question": "Aztec skull whistles are generally described as producing which type of sound?",
+    "qa_type": "MC_easy",
+    "options": {
+      "A": "A soft, gentle melody",
+      "DK": "I do not know the answer.",
+      "B": "A blend of hiss-like and scream-like tones",
+      "C": "A steady rhythmic beat",
+      "D": "A continuous high-pitched note"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "article_id": "bJg3NskdacdUNtGMa9n9",
+    "original_question": "What Aztec deity might the whistles symbolize?",
+    "replacement_question": "Which Aztec god, associated with wind, is most often linked to ritual instruments like skull whistles?",
+    "qa_type": "MC_easy",
+    "options": {
+      "A": "Ehecatl",
+      "DK": "I do not know the answer.",
+      "B": "Huitzilopochtli",
+      "C": "Tlaloc",
+      "D": "Quetzalcoatl"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "article_id": "bJg3NskdacdUNtGMa9n9",
+    "original_question": "Why are skull whistle sounds particularly unsettling to listeners?",
+    "replacement_question": "What acoustic property is most often cited as making skull whistle sounds eerie?",
+    "qa_type": "MC_hard",
+    "options": {
+      "A": "They mimic naturally alarming sounds",
+      "DK": "I do not know the answer.",
+      "B": "They are very loud",
+      "C": "They have a slow rhythm",
+      "D": "They produce a harmonious tone"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "article_id": "nSyYzKPwIl1QOotPPi61",
+    "original_question": "What is obesogenic memory?",
+    "replacement_question": "In weight management, what does the term 'obesogenic memory' refer to?",
+    "qa_type": "MC_easy",
+    "options": {
+      "A": "A short-term change in appetite",
+      "DK": "I do not know the answer.",
+      "B": "Long-lasting epigenetic changes in fat cells that favor weight regain",
+      "C": "A temporary drop in metabolism",
+      "D": "An immediate improvement in fat cell function"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "article_id": "tZHLZGdw87gj11XyXyUS",
+    "original_question": "True or False? The prethermal time crystal observed in the experiment exhibits discrete time-translation symmetry breaking dynamics.",
+    "replacement_question": "True or False: Time crystals are defined as phases of matter that exhibit a repeating pattern in time under periodic driving.",
+    "qa_type": "TF",
+    "options": {
+      "A": "True",
+      "DK": "I do not know the answer.",
+      "B": "False"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "article_id": "zwGkpIaeda5BYbI4E3wx",
+    "original_question": "How did researchers account for the effects of the meteorite's journey on its apparent age?",
+    "replacement_question": "Which radiometric dating method is commonly used to determine the age of aqueous alteration in meteorites?",
+    "qa_type": "MC_hard",
+    "options": {
+      "A": "40Ar/39Ar dating",
+      "DK": "I do not know the answer.",
+      "B": "Carbon-14 dating",
+      "C": "Uranium-lead dating",
+      "D": "Thermoluminescence dating"
+    },
+    "correct_answer": "A"
+  }
+]
