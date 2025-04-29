@@ -1,55 +1,75 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
+import numpy as np
 
-groups = ['A', 'B', 'C']
-sc0_list = []
-sc1_list = []
-diff_list = []
+groups  = ['A', 'B', 'C']
+mapping = {'A': 'News', 'B': 'Abstract', 'C': 'Tweet'}
 
-for group in groups:
-    df = pd.read_csv(f'testgroup{group}.csv', skiprows=[1])
-    
-    # Drop mapping row if present
-    if df.iloc[0].astype(str).str.contains("ImportId").any():
-        df = df.iloc[1:].reset_index(drop=True)
-    
-    # Extract SC0 and SC1 values from the first data row
-    sc0 = float(df.loc[0, "SC0"])
-    sc1 = float(df.loc[0, "SC1"])
-    diff = sc1 - sc0  # compute sc1 - sc0
-    
-    sc0_list.append(sc0)
-    sc1_list.append(sc1)
-    diff_list.append(diff)
-    
-    print(f"Group {group}: SC0 = {sc0}, SC1 = {sc1}, Difference (SC1-SC0) = {diff}")
+sc0_vals_all, sc1_vals_all, diff_vals_all = [], [], []
 
-x = range(len(groups))
-width = 0.25
+for g in groups:
+    df = pd.read_csv(Path(f'./data/group{g}.csv'), skiprows=[1])
+    df[['SC0', 'SC1']] = df[['SC0', 'SC1']].apply(pd.to_numeric, errors='coerce')
+    df = df.dropna(subset=['SC0', 'SC1'])              # keep complete rows only
 
-plt.figure(figsize=(8, 6))
-bars_sc0 = plt.bar([p - width for p in x], sc0_list, width=width, label='Part 1')
-bars_sc1 = plt.bar(x, sc1_list, width=width, label='Part 2')
-bars_diff = plt.bar([p + width for p in x], diff_list, width=width, label='Knowledge Gain (Part2 - Part 1)')
+    sc0_vals_all.append(df['SC0'].values)
+    sc1_vals_all.append(df['SC1'].values)
+    diff_vals_all.append((df['SC1'] - df['SC0']).values)
 
-plt.xticks(x, groups)
-plt.xlabel('Group')
-plt.ylabel('Values')
-#plt.title('Comparison of SC0, SC1 and their Difference for Each Group')
-plt.legend()
+all_scores = np.concatenate(sc0_vals_all + sc1_vals_all + diff_vals_all)
 
-# Annotate each bar with its value
-def annotate_bars(bars):
-    for bar in bars:
-        height = bar.get_height()
-        plt.annotate(f'{height}',
-                     xy=(bar.get_x() + bar.get_width()/2, height),
-                     xytext=(0, 3),
-                     textcoords="offset points",
-                     ha='center', va='bottom')
+# ── plotting ────────────────────────────────────────────────────────────────
+x, width = range(len(groups)), 0.25
+fig, ax  = plt.subplots(figsize=(9, 7))
 
-annotate_bars(bars_sc0)
-annotate_bars(bars_sc1)
-annotate_bars(bars_diff)
+for i, (p1, p2, gain) in enumerate(zip(sc0_vals_all, sc1_vals_all, diff_vals_all)):
+    # Part 1  (blue box, orange median)
+    ax.boxplot(p1,
+               positions=[i - width],
+               widths=width*0.9,
+               patch_artist=True,
+               showfliers=False,
+               boxprops=dict(facecolor='C0'),
+               medianprops=dict(color='orange'))
 
+    # Part 2  (orange box, **blue** median)
+    ax.boxplot(p2,
+               positions=[i],
+               widths=width*0.9,
+               patch_artist=True,
+               showfliers=False,
+               boxprops=dict(facecolor='C1'),
+               medianprops=dict(color='blue', linewidth=1))
+
+    # Knowledge-gain (green box, orange median)
+    ax.boxplot(gain,
+               positions=[i + width],
+               widths=width*0.9,
+               patch_artist=True,
+               showfliers=False,
+               boxprops=dict(facecolor='C2'),
+               medianprops=dict(color='orange'))
+
+# axis dressing
+ax.set_xticks(list(x))
+ax.set_xticklabels([mapping[g] for g in groups], fontsize=14)
+ax.set_ylabel('Score distribution', fontsize=16)
+ax.set_ylim(0, all_scores.max() * 1.25)
+
+# legend (proxy handles match box/median colours)
+handles = [
+    plt.Line2D([0], [0], marker='s', linestyle='',
+               markerfacecolor='C0', markeredgecolor='none', markersize=15,
+               label='Part 1'),
+    plt.Line2D([0], [0], marker='s', linestyle='',
+               markerfacecolor='C1', markeredgecolor='none', markersize=15,
+               label='Part 2'),
+    plt.Line2D([0], [0], marker='s', linestyle='',
+               markerfacecolor='C2', markeredgecolor='none', markersize=15,
+               label='Knowledge Gain')
+]
+ax.legend(handles=handles, frameon=False, fontsize=13)
+
+plt.tight_layout()
 plt.show()
