@@ -6,12 +6,9 @@ import numpy as np
 mapping = {'A': 'News', 'B': 'Abstract', 'C': 'Tweet'}
 
 survey_files = {
-    "A": ["a1", # "a2",
-          "a3"],
-    "B": ["b1", "b2" # "b3",
-         ],
-    "C": [# "c1", 
-          "c2", "c3"]
+    "A": ["a1", "a2", "a3"],
+    "B": ["b1", "b2", "b3"],
+    "C": ["c1", "c2", "c3"]
 }
 
 sc0_grouped, sc1_grouped, gain_grouped = [], [], []
@@ -34,7 +31,7 @@ for g, subs in survey_files.items():
 
 all_scores = np.concatenate(sc0_grouped + sc1_grouped + gain_grouped)
 
-# ── plotting ────────────────────────────────────────────────
+# plotting
 x, width = range(len(mapping)), 0.25
 fig, ax = plt.subplots(figsize=(9, 7))
 

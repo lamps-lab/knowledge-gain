@@ -4,9 +4,9 @@ from pathlib import Path
 
 # block to survey mapping
 block_map = {
-    1: {"a": "a1", "b": "b1", "c": None},   # docs 1–10
-    2: {"a": None, "b": "b2", "c": "c2"},   # docs 11–20
-    3: {"a": "a3", "b": None, "c": "c3"}    # docs 21–30
+    1: {"a": "a1", "b": "b1", "c": "c1"},   # docs 1–10
+    2: {"a": "a2", "b": "b2", "c": "c2"},   # docs 11–20
+    3: {"a": "a3", "b": "b3", "c": "c3"}    # docs 21–30
 }
 
 label_map = {"a": "News", "b": "Abstract", "c": "Tweet"}
@@ -30,7 +30,7 @@ def get_timers(sub):
     survey_cache[sub] = timers
     return timers
 
-# -------- collect per-document, per-group distributions --------
+# collect per-document, per-group distributions
 data_series, positions, box_colors = [], [], []
 
 for doc in range(1, 31):
