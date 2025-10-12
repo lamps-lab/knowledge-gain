@@ -60,7 +60,7 @@ bp = ax.boxplot(
     positions=positions,
     widths=0.22,
     patch_artist=True,
-    showfliers=False
+    showfliers=True
 )
 
 # color each box and style medians
@@ -93,3 +93,49 @@ ax.legend(handles=handles, frameon=False, fontsize=12, loc="upper right")
 
 plt.tight_layout()
 plt.show()
+
+
+
+summed_data = {g: [] for g in ("a", "b", "c")}
+
+for block in block_map:
+    for g in ("a", "b", "c"):
+        sub = block_map[block].get(g)
+        if not sub:
+            continue
+        timers = get_timers(sub)
+        # flatten all timer values into one list (ignoring NaNs)
+        vals = timers.to_numpy().flatten()
+        vals = vals[~pd.isna(vals)]
+        if len(vals) > 0:
+            summed_data[g].extend(vals)
+
+# create the boxplot data in label order
+group_order = ["a", "b", "c"]
+all_series = [summed_data[g] for g in group_order]
+all_colors = [colors[g] for g in group_order]
+all_labels = [label_map[g] for g in group_order]
+
+fig, ax = plt.subplots(figsize=(6, 7))
+bp2 = ax.boxplot(
+    all_series,
+    patch_artist=True,
+    widths=0.5,
+    showfliers=True
+)
+
+for box, color in zip(bp2["boxes"], all_colors):
+    box.set_facecolor(color)
+for med in bp2["medians"]:
+    med.set_color("black")
+    med.set_linewidth(1.3)
+
+ax.set_xticks(range(1, len(all_labels) + 1))
+ax.set_xticklabels(all_labels, fontsize=12)
+ax.set_ylabel("Time distribution (s)", fontsize=14)
+ax.set_title("Summed Distributions Across All Documents", fontsize=15)
+ax.grid(True, alpha=0.35)
+
+plt.tight_layout()
+plt.show()
+
