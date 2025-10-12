@@ -38,17 +38,17 @@ fig, ax = plt.subplots(figsize=(9, 7))
 for i, (p1, p2, gain) in enumerate(zip(sc0_grouped, sc1_grouped, gain_grouped)):
     # Part 1
     ax.boxplot(p1, positions=[i - width], widths=width*0.9, patch_artist=True,
-               showfliers=False, boxprops=dict(facecolor='C0'),
+               showfliers=True, boxprops=dict(facecolor='C0'),
                medianprops=dict(color='orange'))
 
     # Part 2
     ax.boxplot(p2, positions=[i], widths=width*0.9, patch_artist=True,
-               showfliers=False, boxprops=dict(facecolor='C1'),
+               showfliers=True, boxprops=dict(facecolor='C1'),
                medianprops=dict(color='blue', linewidth=1))
 
     # Gain
     ax.boxplot(gain, positions=[i + width], widths=width*0.9, patch_artist=True,
-               showfliers=False, boxprops=dict(facecolor='C2'),
+               showfliers=True, boxprops=dict(facecolor='C2'),
                medianprops=dict(color='orange'))
 
 # axis dressing
