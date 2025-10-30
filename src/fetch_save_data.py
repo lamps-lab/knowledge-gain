@@ -70,7 +70,7 @@ for paper in papers:
         "qas": qas
     })
 
-with open("kgain_dataset.json", "w") as f:
+with open("../data/kgain_dataset.json", "w") as f:
     json.dump({"articles": articles}, f, indent=2)
 
 print("Generated dataset with", len(articles), "articles.")
