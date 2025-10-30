@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 # Read CSV file (assumes the file is named "data.csv")
 # Skip the second header row so only the first header is used
 group = "B"
-df = pd.read_csv(f'testgroup{group}.csv', skiprows=[1])
+df = pd.read_csv(f'./data/group{group}.csv', skiprows=[1])
 
 # Check if the first row is the mapping row and drop it if needed
 if df.iloc[0].astype(str).str.contains("ImportId").any():
