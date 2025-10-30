@@ -57,7 +57,7 @@ def plot_compare(acc1_b, acc2_b, gain_b,
     # colours: base = light tint, fine-tuned = default hue
     palette = [("#7fa9ff", "C0"), ("#ffb57f", "C1"), ("#a4d9a4", "C2")]
 
-    # metric order: Part1 | Part2 | Gain
+    # metric order: Part1 | Part2 | KGain
     series_base = [acc1_b, acc2_b, gain_b]
     series_ft   = [acc1_f, acc2_f, gain_f]
 
