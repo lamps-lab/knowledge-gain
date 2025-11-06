@@ -20,7 +20,7 @@ def get_timers(sub):
     """Return numeric Timer_Page Submit columns for a survey file (cached)."""
     if sub in survey_cache:
         return survey_cache[sub]
-    fp = Path(f"../data/newdata/{sub}.csv")
+    fp = Path(f"../data/qualtrics/{sub}.csv")
     df = pd.read_csv(fp, skiprows=[1])
     # drop the Qualtrics mapping row if it slipped in
     if df.iloc[0].astype(str).str.contains("ImportId").any():
