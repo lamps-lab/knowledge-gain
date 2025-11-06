@@ -1,0 +1,4 @@
+content-type,runs,pre_acc_mean,post_acc_mean,kg_mean,pre_parse_ok_rate,post_parse_ok_rate,post_conf_mean,post_idk_rate_mean
+abstract,130,0.0,0.0,0.0,0.0,0.0,,
+news,120,0.0,0.0,0.0,0.0,0.0,,
+tweet,120,0.0,0.0,0.0,0.0,0.0,,
