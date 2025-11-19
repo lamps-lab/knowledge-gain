@@ -17,7 +17,7 @@ sc0_grouped, sc1_grouped, gain_grouped = [], [], []
 for g, subs in survey_files.items():
     all_sc0, all_sc1, all_gain = [], [], []
     for sub in subs:
-        df = pd.read_csv(Path(f'../data/qualtrics/{sub}.csv'), skiprows=[1])
+        df = pd.read_csv(Path(f'../data/human_study/{sub}.csv'), skiprows=[1])
         df[['SC0', 'SC1']] = df[['SC0', 'SC1']].apply(pd.to_numeric, errors='coerce')
         df = df.dropna(subset=['SC0', 'SC1'])
 
