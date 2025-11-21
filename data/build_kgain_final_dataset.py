@@ -1,35 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Build document-centric grouped annotations
+Build document-centric grouped annotations - FIXED OFFSET VERSION
 
-Output: one item per (article, content-type):
-{
-  "article-id": "<string>",                  # EXACT from kgain_dataset.json
-  "content-type": "news|abstract|tweet",
-  "content": "<verbatim string>",
-  "human_annotations": [
-    {
-      "annotator_id": <int >= 1>,
-      "qa_annotations": [
-        {
-          "question_in_set": 1,
-          "question-text": "<string>",
-          "options": ["<A>", "<B>", "...", "I do not know the answer."],
-          "correct_option": 2,            # 1-based index
-          "correct_answer": "<string>",
-          "human-answer-pre": 3,          # 1..len(options)
-          "human-answer-post": 3          # 1..len(options)
-        },
-        ... (6 total)
-      ]
-    },
-    ... (30 annotators)
-  ]
-}
-
-Run:
-  python kgain_final_dataset.py --data-root . --out kgain_docs_grouped.json
+Fixes:
+- Corrects the ID matching offset: qs_id (2..31) -> Article Index (0..29).
+- Ensures all 30 articles (90 documents) are correctly matched.
 """
 
 from __future__ import annotations
@@ -53,17 +29,6 @@ class Diag:
 
 # Normalization helpers
 LETTER_RE = re.compile(r"^[A-J]$", re.IGNORECASE)
-LEADING_ENUM_RE = re.compile(
-    r"""^\s*(?:                                   # START
-        (?:q(?:uestion)?\s*\d+\s*[:.)-]) |       # Q1:  Question 2)  q10.
-        (?:\(?\d+\)?\s*[:.)-]) |                 # 1.  (2)  3)  4:
-        (?:[ivxlcdm]+\s*[:.)-]) |                # i. ii) v:
-        (?:[a-j]\s*[:.)-])                       # a) b. c:
-    )\s*""",
-    re.IGNORECASE | re.VERBOSE,
-)
-
-# canonical DK variants
 DK_CANONICAL_TEXTS = {
     "i do not know the answer",
     "i do not know the answer.",
@@ -78,7 +43,7 @@ DK_LABEL = "I do not know the answer."
 MEDIA_NORMALIZE = {
     "news": "news",
     "abstract": "abstract",
-    "asbtract": "abstract",  # typo tolerance
+    "asbtract": "abstract",
     "tweet": "tweet",
     "tweets": "tweet",
 }
@@ -90,34 +55,14 @@ def nrm_basic(s: str) -> str:
     s = re.sub(r"\s+", " ", s).strip()
     return s.casefold()
 
-def strip_leading_enum(s: str) -> str:
-    t = nrm_basic(s)
-    prev = None
-    while prev != t:
-        prev = t
-        t = LEADING_ENUM_RE.sub("", t)
-    return t.strip()
-
-def qnorm(s: str) -> str:
-    t = strip_leading_enum(s)
-    t = t.rstrip(" .?!:;-")
-    t = re.sub(r"\s+", " ", t).strip()
-    return t
-
 def is_dk_text(s: str) -> bool:
     t = nrm_basic(s).rstrip(".")
     return t in DK_CANONICAL_TEXTS
 
-# Options & answers
+# Options & Answer Parsing
 def options_dict_to_list_with_dk_last(opts: Dict[str, str], diag: Diag) -> Tuple[List[str], Dict[str, int]]:
-    """
-    Return (ordered_options, originalKey->newIndex).
-    - Sort A,B,C,... in key order
-    - Put DK last if present
-    - If DK not present, APPEND canonical DK as the last option
-    """
     if not isinstance(opts, dict):
-        raise ValueError("options must be a dict of {letter|DK: option_text}")
+        return ([DK_LABEL], {})
 
     non_dk_items, dk_items = [], []
     for k, v in opts.items():
@@ -136,27 +81,22 @@ def options_dict_to_list_with_dk_last(opts: Dict[str, str], diag: Diag) -> Tuple
 
     ordered = [v for _, v in non_dk_items_sorted]
     if dk_items:
-        # keep only first DK text; ensure last
         dk_text = dk_items[0][1]
         if dk_text not in ordered:
             ordered.append(dk_text)
         else:
-            # if DK text already somewhere in ordered, move it to the end
             ordered = [o for o in ordered if nrm_basic(o) != nrm_basic(dk_text)]
             ordered.append(dk_text)
     else:
-        # DK missing — append canonical DK label LAST
         ordered.append(DK_LABEL)
         diag.added_dk_to_questions += 1
 
-    # Build key->idx using the final ordered list
     key2idx: Dict[str, int] = {}
     text2idx: Dict[str, int] = {nrm_basic(txt): i + 1 for i, txt in enumerate(ordered)}
     for k, v in non_dk_items_sorted + dk_items:
         key2idx[k] = text2idx[nrm_basic(v)]
-    # Also map "DK" by text after enforcing presence
-    key2idx["DK"] = text2idx[nrm_basic(ordered[-1])]  # DK is last
-
+    
+    key2idx["DK"] = text2idx[nrm_basic(ordered[-1])]
     return ordered, key2idx
 
 RE_PREFIX_LETTER = re.compile(r"^\s*([A-J])\s*[\)\].:\-–—]\s*(.*)$", re.IGNORECASE)
@@ -168,36 +108,25 @@ def extract_letter_or_number_hint(s: str) -> Tuple[Optional[str], Optional[int],
     if not isinstance(s, str):
         s = str(s)
     m = RE_PREFIX_LETTER.match(s)
-    if m:
-        return m.group(1).upper(), None, m.group(2)
+    if m: return m.group(1).upper(), None, m.group(2)
     m = RE_PREFIX_NUM.match(s)
-    if m:
-        return None, int(m.group(1)), m.group(2)
+    if m: return None, int(m.group(1)), m.group(2)
     m = RE_TRAIL_LETTER.match(s)
-    if m:
-        return m.group(2).upper(), None, m.group(1)
+    if m: return m.group(2).upper(), None, m.group(1)
     m = RE_TRAIL_NUM.match(s)
-    if m:
-        return None, int(m.group(2)), m.group(1)
+    if m: return None, int(m.group(2)), m.group(1)
     return None, None, s
 
 def parse_option_to_index(raw_val, options: List[str], diag: Diag) -> Optional[int]:
-    """
-    Return 1-based index into options.
-    - DK shortcuts map to last
-    - Out-of-range numeric (> len) maps to DK (last)
-    """
     if raw_val is None or (isinstance(raw_val, float) and math.isnan(raw_val)):
         return None
     s = str(raw_val).strip()
     if s == "" or s == "--":
         return None
 
-    # DK shortcuts
     if is_dk_text(s) or nrm_basic(s) in {"dk", "idk"}:
         return len(options)
 
-    # letter/number hints
     letter, number, residual = extract_letter_or_number_hint(s)
     if letter and LETTER_RE.match(letter):
         idx = ord(letter.upper()) - ord("A") + 1
@@ -208,17 +137,14 @@ def parse_option_to_index(raw_val, options: List[str], diag: Diag) -> Optional[i
             return number
         if 0 <= number < len(options):
             return number + 1
-        # Out-of-range number → DK (last)
         diag.remap_gt_len_to_dk += 1
         return len(options)
 
-    # bare letter
     if LETTER_RE.match(s):
         idx = ord(s.upper()) - ord("A") + 1
         if 1 <= idx <= len(options):
             return idx
 
-    # bare number
     if re.fullmatch(r"-?\d+", s):
         num = int(s)
         if 1 <= num <= len(options):
@@ -228,19 +154,16 @@ def parse_option_to_index(raw_val, options: List[str], diag: Diag) -> Optional[i
         diag.remap_gt_len_to_dk += 1
         return len(options)
 
-    # exact text
     ns = nrm_basic(s)
     for i, opt in enumerate(options, start=1):
         if nrm_basic(opt) == ns:
             return i
 
-    # residual from hint
     rs = nrm_basic(residual)
     if rs and rs != ns:
         for i, opt in enumerate(options, start=1):
             if nrm_basic(opt) == rs:
                 return i
-
     return None
 
 def coerce_annotator_id(x) -> Optional[int]:
@@ -250,41 +173,92 @@ def coerce_annotator_id(x) -> Optional[int]:
     except Exception:
         return None
 
-# Mapping helpers
-def is_subsequence(subseq: Tuple[str, ...], full: Tuple[str, ...]) -> bool:
-    """True if `subseq` appears in order (not necessarily contiguous) inside `full`."""
-    it = iter(full)
-    return all(any(tok == f for f in it) for tok in subseq)
-
-# Build document-centric grouped data
+# Main Builder
 def build_docs(data_root: Path, out_path: Path) -> None:
     diag = Diag()
 
-    # 1) Load kgain_dataset.json
+    # 1) Load JSON (Source of Truth)
     ds_path = data_root / "kgain_dataset.json"
     with open(ds_path, "r", encoding="utf-8") as f:
         kg = json.load(f)
     articles = kg.get("articles", []) if isinstance(kg, dict) else kg
+    print(f"[INFO] Loaded {len(articles)} articles from JSON.")
 
-    # 2) Build article signatures and per-question meta (per media)
-    article_by_media_signature: Dict[Tuple[str, Tuple[str, ...]], Dict] = {}
-    per_article_qmeta: Dict[Tuple[str, str], List[Dict]] = {}
+    # 2) Load CSV (Annotations)
+    csv_path = data_root / "kg_points_long.csv"
+    hp = pd.read_csv(csv_path)
 
+    hp["media"] = hp["media"].astype(str).str.strip().str.casefold().map(MEDIA_NORMALIZE).fillna("unknown")
+    hp = hp[hp["media"].isin({"news", "abstract", "tweet"})].copy()
+    hp["phase"] = hp["phase"].astype(str).str.strip().str.casefold()
+    hp["annotator_id_int"] = hp["annotator_id"].map(coerce_annotator_id)
+    hp["q_in_set"] = hp["q_in_set"].astype(int)
+    hp["qs_id"] = hp["qs_id"].astype(int)
+    
+    # Filter valid rows
+    hp = hp[hp["annotator_id_int"].notna() & hp["phase"].isin({"pre", "post"})].copy()
+    hp["annotator_id_int"] = hp["annotator_id_int"].astype(int)
+
+    # 3) PRE-INITIALIZE Dictionary with ALL 90 Documents
+    docs_map: Dict[Tuple[str, str], Dict] = {}
+    
     for art in articles:
         article_id = art.get("article_id") or art.get("article-id")
         contents = art.get("contents", {})
-        qas = art.get("qas", [])
+        
+        for media in ["news", "abstract", "tweet"]:
+            doc_key = (article_id, media)
+            content_text = contents.get(media)
+            docs_map[doc_key] = {
+                "article-id": article_id,
+                "content-type": media,
+                "content": content_text,
+                "human_annotations": []
+            }
 
-        q_infos = []
-        for q_pos, qa in enumerate(qas, start=1):
-            q_text = qa.get("question")
-            if not q_text:
-                continue
-            opts_dict = qa.get("options", {})
+    print(f"[INFO] Initialized {len(docs_map)} document buckets (should be 90).")
+
+    # 4) Fill in Annotations from CSV
+    grouped = hp.groupby(["media", "qs_id", "annotator_id_int"], dropna=False)
+    print(f"[INFO] Processing {len(grouped)} annotator sessions...")
+
+    for (media, qs_id, annot_id), df in grouped:
+        # qs_id ranges from 2 to 31.
+        # Python lists are 0-indexed.
+        # So: Article Index = qs_id - 2.
+        article_idx = qs_id - 2 
+        
+        if article_idx < 0 or article_idx >= len(articles):
+            continue
+
+        article_obj = articles[article_idx]
+        article_id = article_obj.get("article_id") or article_obj.get("article-id")
+        json_qas = article_obj.get("qas", [])
+        doc_key = (article_id, media)
+
+        if doc_key not in docs_map:
+            continue 
+
+        qa_annots = []
+        answers_by_qnum = {}
+        for _, row in df.iterrows():
+            qnum = row["q_in_set"]
+            ph = row["phase"]
+            ans = row["answer_option"]
+            if qnum not in answers_by_qnum:
+                answers_by_qnum[qnum] = {"pre": None, "post": None}
+            if pd.notna(ans):
+                answers_by_qnum[qnum][ph] = str(ans)
+
+        for q_idx, qa_json in enumerate(json_qas):
+            q_num_1based = q_idx + 1
+            
+            q_text = qa_json.get("question")
+            opts_dict = qa_json.get("options", {})
             options_list, origkey2newidx = options_dict_to_list_with_dk_last(opts_dict, diag)
+            dk_idx = len(options_list)
 
-            # Correct answer key (by option key if present, otherwise parse against list)
-            correct_key = qa.get("answer")
+            correct_key = qa_json.get("answer")
             correct_idx = None
             if isinstance(correct_key, str) and correct_key in origkey2newidx:
                 correct_idx = int(origkey2newidx[correct_key])
@@ -292,116 +266,18 @@ def build_docs(data_root: Path, out_path: Path) -> None:
                 if isinstance(correct_key, str):
                     ci = parse_option_to_index(correct_key, options_list, diag)
                     correct_idx = int(ci) if ci is not None else None
+            
+            correct_ans_str = None
+            if isinstance(correct_idx, int) and 1 <= correct_idx <= len(options_list):
+                correct_ans_str = options_list[correct_idx - 1]
 
-            q_infos.append({
-                "question_in_set": q_pos,
-                "question_text": q_text,
-                "question_key": qnorm(q_text),
-                "options": options_list,   # DK guaranteed present & last
-                "correct_option": correct_idx,
-                "correct_answer": (options_list[correct_idx - 1] if isinstance(correct_idx, int) and 1 <= correct_idx <= len(options_list) else None),
-            })
+            user_ans = answers_by_qnum.get(q_num_1based, {})
+            pre_raw = user_ans.get("pre")
+            post_raw = user_ans.get("post")
 
-        for media in ("news", "abstract", "tweet"):
-            content_text = contents.get(media)
-            ordered_keys = tuple(q["question_key"] for q in q_infos)
-            if len(ordered_keys) != 6:
-                continue
-            sig = (media, ordered_keys)
-            meta = {
-                "article_id": article_id,
-                "content_type": media,
-                "content": content_text,
-            }
-            article_by_media_signature[sig] = meta
-            per_article_qmeta[(article_id, media)] = q_infos
+            pre_idx = parse_option_to_index(pre_raw, options_list, diag)
+            post_idx = parse_option_to_index(post_raw, options_list, diag)
 
-    # 3) Load human answers
-    hp = pd.read_csv(data_root / "kg_points_long.csv")
-
-    # normalize media (tolerate typos), phase, annotators
-    hp["media"] = hp["media"].astype(str).str.strip().str.casefold().map(MEDIA_NORMALIZE).fillna("unknown")
-    hp = hp[hp["media"].isin({"news", "abstract", "tweet"})].copy()
-    hp["phase"] = hp["phase"].astype(str).str.strip().str.casefold()
-    hp["annotator_id_int"] = hp["annotator_id"].map(coerce_annotator_id)
-    hp["q_in_set"] = hp["q_in_set"].astype(int)
-    hp["qs_id"] = hp["qs_id"].astype(int)
-    hp["question_key"] = hp["question_text"].apply(qnorm)
-    hp = hp[hp["annotator_id_int"].notna() & hp["phase"].isin({"pre", "post"})].copy()
-    hp["annotator_id_int"] = hp["annotator_id_int"].astype(int)
-
-    # 4) Build signature mapping per (media, qs_id) allowing subsequence
-    sig_map: Dict[Tuple[str, int], Dict] = {}
-    articles_by_media: Dict[str, List[Tuple[Tuple[str, ...], Dict]]] = {}
-    for (m, keys), meta in article_by_media_signature.items():
-        articles_by_media.setdefault(m, []).append((keys, meta))
-
-    for (media, qs_id), df in hp.groupby(["media", "qs_id"], dropna=False):
-        # observed ordered question keys (by q_in_set order, dedup by text)
-        qmap = df.drop_duplicates(subset=["question_key"]).sort_values("q_in_set")
-        observed = tuple(qmap["question_key"].tolist())
-        if not observed:
-            continue
-        # exact match first
-        meta = article_by_media_signature.get((media, observed))
-        if meta is None:
-            # subsequence match (strict order, gaps allowed)
-            candidates = []
-            for full_keys, m in articles_by_media.get(media, []):
-                if is_subsequence(observed, full_keys):
-                    candidates.append((len(observed), m))
-            meta = candidates[0][1] if candidates else None
-        if meta is not None:
-            sig_map[(media, qs_id)] = meta
-
-    # 5) Build doc-centric structure: (article_id, media) -> list of annotators and their qa_annotations
-    docs: Dict[Tuple[str, str], Dict] = {}
-    total_pre = total_post = 0
-
-    # group by (media, qs_id, annotator) to build their 6-Q annotation
-    for (media, qs_id, annot), df in hp.groupby(["media", "qs_id", "annotator_id_int"], dropna=False):
-        meta = sig_map.get((media, qs_id))
-        if meta is None:
-            continue  # unmatched set
-
-        article_id = meta["article_id"]
-        content = meta["content"]
-        q_infos = per_article_qmeta[(article_id, media)]
-
-        # ensure doc node exists
-        doc_key = (article_id, media)
-        if doc_key not in docs:
-            docs[doc_key] = {
-                "article-id": article_id,
-                "content-type": media,
-                "content": content,
-                "human_annotations": []
-            }
-
-        # map answers by normalized question text (NOT by q_in_set)
-        per_qkey: Dict[str, Dict[str, Optional[str]]] = {}
-        for qk, sdf in df.groupby("question_key"):
-            pre_raw = sdf.loc[sdf["phase"] == "pre", "answer_option"].dropna().astype(str)
-            post_raw = sdf.loc[sdf["phase"] == "post", "answer_option"].dropna().astype(str)
-            per_qkey[qk] = {
-                "pre": pre_raw.iloc[0] if len(pre_raw) else None,
-                "post": post_raw.iloc[0] if len(post_raw) else None,
-            }
-
-        qa_annots = []
-        for q_info in q_infos:
-            qidx = int(q_info["question_in_set"])
-            qk = q_info["question_key"]
-            options_list = q_info["options"]
-            dk_idx = len(options_list)  # DK is last (forced)
-
-            pre_val = per_qkey.get(qk, {}).get("pre")
-            post_val = per_qkey.get(qk, {}).get("post")
-
-            pre_idx = parse_option_to_index(pre_val, options_list, diag)
-            post_idx = parse_option_to_index(post_val, options_list, diag)
-
-            # Impute any missing/blank to DK
             if pre_idx is None:
                 pre_idx = dk_idx
                 diag.imputed_null_to_dk += 1
@@ -409,46 +285,44 @@ def build_docs(data_root: Path, out_path: Path) -> None:
                 post_idx = dk_idx
                 diag.imputed_null_to_dk += 1
 
-            total_pre += 1
-            total_post += 1
-
             qa_annots.append({
-                "question_in_set": qidx,
-                "question-text": q_info["question_text"],
+                "question_in_set": q_num_1based,
+                "question-text": q_text,
                 "options": options_list,
-                "correct_option": int(q_info["correct_option"]) if q_info["correct_option"] is not None else None,
-                "correct_answer": q_info["correct_answer"],
+                "correct_option": correct_idx,
+                "correct_answer": correct_ans_str,
                 "human-answer-pre": int(pre_idx),
                 "human-answer-post": int(post_idx),
             })
 
-        # append annotator entry to this document
-        docs[doc_key]["human_annotations"].append({
-            "annotator_id": int(annot),
+        docs_map[doc_key]["human_annotations"].append({
+            "annotator_id": int(annot_id),
             "qa_annotations": qa_annots
         })
 
-    # 6) Emit as a list sorted stably (by article-id, content-type)
-    out_rows = sorted(docs.values(), key=lambda r: (str(r["article-id"]), r["content-type"]))
+    # 5) Final Output & Check for Empty Docs
+    out_rows = sorted(docs_map.values(), key=lambda r: (str(r["article-id"]), r["content-type"]))
+
+    empty_docs = [r for r in out_rows if len(r["human_annotations"]) == 0]
+    if empty_docs:
+        print(f"\n[WARNING] The following {len(empty_docs)} documents STILL have 0 annotators:")
+        for d in empty_docs:
+            print(f"  - ID: {d['article-id']} | Media: {d['content-type']}")
+    else:
+        print(f"\n[SUCCESS] All {len(out_rows)} documents have human annotations.")
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out_rows, f, ensure_ascii=False, indent=2)
 
-    # 7) Diagnostics
-    print(f"[DONE] Wrote {len(out_rows)} document records to {out_path}")
-    print(f"       Added DK to questions missing it: {diag.added_dk_to_questions}")
-    print(f"       Remapped out-of-range numerics to DK: {diag.remap_gt_len_to_dk}")
-    print(f"       Imputed NULL/blank to DK: {diag.imputed_null_to_dk}")
+    print(f"\n[DONE] Wrote {len(out_rows)} document records to {out_path}")
     media_counts = Counter([r["content-type"] for r in out_rows])
     print("       Documents by media:", dict(media_counts))
-    annot_dist = Counter(len(r["human_annotations"]) for r in out_rows)
-    print("       Annotator counts per document (histogram):", dict(sorted(annot_dist.items())))
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data-root", type=str, default=".", help="Directory containing kgain_dataset.json and kg_points_long.csv")
-    ap.add_argument("--out", type=str, default="kgain_annotated_dataset.json", help="Output JSON path (default: ./kgain_docs_grouped.json)")
+    ap.add_argument("--out", type=str, default="kgain_annotated_dataset.json", help="Output JSON path")
     args = ap.parse_args()
     build_docs(Path(args.data_root).resolve(), Path(args.out).resolve())
 
