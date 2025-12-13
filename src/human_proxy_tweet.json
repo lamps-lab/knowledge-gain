@@ -1,0 +1,69 @@
+{
+  "prog.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "context": "Quantum error correction that suppresses errors below critical threshold that is understood as needed for achieving future practical quantum computing applications is demonstrated on newest generation quantum chips from Google Quantum AI, says Nature paper\nhttps://t.co/x4zPeudPfm\n— Springer Nature (@SpringerNature)\nDecember 10, 2024",
+        "question": "How often does the Willow processor experience correlated error events, according to the research?",
+        "options": "1. Every few seconds\n2. Once every hour\n3. Every millisecond\n4. Once a day\n5. I do not know the answer.",
+        "reasoning": "The context does not provide specific information about the frequency of correlated error events experienced by the Willow processor. Therefore, I cannot determine how often these error events occur based on the provided text.",
+        "answer": "5"
+      },
+      {
+        "augmented": true,
+        "context": "Discovery of three ultra-\n#massiveGalaxies\nin\n#earlyUniverse\nchallenges current galaxy formation models. Findings suggest early galaxies formed stars more efficiently than previously thought. Study published in Nature.\n@UNIGEnews\n@nature\nhttps://t.co/xomLHkS5Yz\n…\n— Phys.org (@physorg_com)\nNovember 13, 2024",
+        "question": "Which space telescope is most commonly used to observe high-redshift galaxies in the early universe?",
+        "options": "1. Hubble Space Telescope\n2. James Webb Space Telescope (JWST)\n3. Large Hadron Collider\n4. Sloan Digital Sky Survey\n5. I do not know the answer.",
+        "reasoning": "The text does not specify which space telescope is most commonly used to observe high-redshift galaxies in the early universe. However, based on my prior knowledge, the James Webb Space Telescope (JWST) is specifically designed for observing such galaxies and is the most relevant instrument for this purpose.",
+        "answer": "2"
+      },
+      {
+        "context": "Adipose tissue retains epigenetic memory after weight loss\nhttps://t.co/W4H9I7gNff\n— Rexford S. Ahima, MD, PhD (@rex_ahima)\nNovember 22, 2024",
+        "question": "What broader implication does obesogenic memory have on global health?",
+        "options": "1. It may help identify new treatments for underweight individuals.\n2. It highlights the challenge of managing obesity and its related health risks.\n3. It suggests that weight loss surgeries can eliminate all obesity-related health risks.\n4. It proves that obesity is solely caused by genetic mutations.\n5. I do not know the answer.",
+        "human_choice": "5"
+      },
+      {
+        "context": "#arXiv\nQuantum Rubik's cube: Quantum permutation puzzles with indistinguishable particles\nhttps://t.co/XQI96sfvlx\ngenuine quantum puzzles by adding a quantum move-the square root of SWAP.\npic.twitter.com/EQGe7HZDZE\n— Francis Villatoro (@emulenews)\nNovember 23, 2024",
+        "question": "Quantum permutation puzzles can include operations that are not possible in classical puzzles.",
+        "options": "1. True\n2. False\n3. I do not know the answer.",
+        "human_choice": "3"
+      }
+    ],
+    "signature": {
+      "instructions": "You are a participant in a knowledge study.\nRead the provided text carefully. Answer the question based on the text and your prior knowledge.\nIf the answer is not in the text and you do not know, select 'I do not know'.\nReturn only the number of the selected option.",
+      "fields": [
+        {
+          "prefix": "Context:",
+          "description": "The article text to read"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Options:",
+          "description": "Numbered list of options"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "The number of the selected option (e.g., '1', '2', '3')"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

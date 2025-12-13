@@ -1,0 +1,40 @@
+{
+  "prog.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You are a participant in a knowledge study.\nRead the provided text carefully. Answer the question based on the text and your prior knowledge.\nIf the answer is not in the text and you do not know, select 'I do not know'.\nReturn only the number of the selected option.",
+      "fields": [
+        {
+          "prefix": "Context:",
+          "description": "The article text to read"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Options:",
+          "description": "Numbered list of options"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "The number of the selected option (e.g., '1', '2', '3')"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}
