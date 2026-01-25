@@ -1,190 +1,189 @@
 import json
 import dspy
+import os
 import random
-from dspy.teleprompt import BootstrapFewShotWithRandomSearch, COPRO
-from collections import Counter
+from dspy.teleprompt import MIPROv2
 
-# -------------------------------------------------------------------------
-# 1. Configuration & Setup
-# -------------------------------------------------------------------------
-
-# Configure your LLM (LLMSim)
-# Ideally use GPT-4o or GPT-4-turbo for high-fidelity simulation
-lm = dspy.LM('openai/gpt-4o-mini', max_tokens=1000)
+lm = dspy.LM('openai/gpt-4o-mini', max_tokens=1000, temperature=0.7)
 dspy.settings.configure(lm=lm)
 
 DATASET_PATH = "../data/kgain_annotated_dataset.json"
 
-# -------------------------------------------------------------------------
-# 2. Data Loading & Parsing
-# -------------------------------------------------------------------------
-def load_and_split_data(path):
-    with open(path, 'r') as f:
-        data = json.load(f)
+# Signatures optimized for HUMAN ERROR
+class PreSignature(dspy.Signature):
+    """
+    You are a regular "average person" with NO special knowledge. 
+    Answer the question based ONLY on your intuition and gut feeling. 
+    If a regular person wouldn't know this fact off the top of their head, you DO NOT KNOW the answer.
+    """
+    question = dspy.InputField()
+    options = dspy.InputField()
+    answer = dspy.OutputField(desc="A single number (1, 2, 3...)")
 
-    tasks = {
-        "pre": [],
-        "news": [],
-        "abstract": [],
-        "tweet": []
+class NewsSignature(dspy.Signature):
+    """
+    You are a distracted reader skimming the news. 
+    You often miss details or misinterpret the main point.
+    Do NOT simply say "I don't know" if you are unsure. Instead, make a GUESS based on the headlines or keywords that stand out to you, even if that leads to a wrong answer.
+    """
+    context = dspy.InputField(desc="News article text")
+    question = dspy.InputField()
+    options = dspy.InputField()
+    answer = dspy.OutputField(desc="A single number (1, 2, 3...)")
+
+class AbstractSignature(dspy.Signature):
+    """
+    You are a layperson trying to read a complex scientific abstract.
+    You understand very little of the jargon.
+    However, you don't want to admit ignorance. Try to GUESS the answer based on words that look similar to the options. 
+    You are likely to pick an answer just because it repeats a word from the text.
+    """
+    context = dspy.InputField(desc="Scientific abstract text")
+    question = dspy.InputField()
+    options = dspy.InputField()
+    answer = dspy.OutputField(desc="A single number (1, 2, 3...)")
+
+class TweetSignature(dspy.Signature):
+    """
+    You are scrolling through social media quickly.
+    You rely on quick heuristics and gut feelings.
+    If the tweet is confusing, you might just guess the most controversial or obvious option. Only say "I don't know" if it is completely impossible to guess.
+    """
+    context = dspy.InputField(desc="Tweet text")
+    question = dspy.InputField()
+    options = dspy.InputField()
+    answer = dspy.OutputField(desc="A single number (1, 2, 3...)")
+
+# The Alignment Metric
+def parse_answer(pred_answer):
+    try:
+        txt = str(pred_answer).strip().split('.')[0].split(' ')[0]
+        txt = ''.join(filter(str.isdigit, txt))
+        return int(txt) if txt else -1
+    except:
+        return -1
+
+def human_agreement_metric(example, pred, trace=None):
+    """
+    Score = Proportion of humans that the model agreed with.
+    """
+    model_ans = parse_answer(pred.answer)
+    
+    if not example.human_answers:
+        return 0.0
+        
+    match_count = example.human_answers.count(model_ans)
+    total_humans = len(example.human_answers)
+    
+    return match_count / total_humans
+
+# Data Loading
+def load_and_split_data():
+    if not os.path.exists(DATASET_PATH):
+        raise FileNotFoundError(f"Cannot find dataset at {DATASET_PATH}")
+
+    with open(DATASET_PATH, 'r') as f:
+        raw_data = json.load(f)
+
+    tasks = {'pre': [], 'news': [], 'abstract': [], 'tweet': []}
+
+    for doc in raw_data:
+        media = doc['content-type']
+        content = doc.get('content', "")
+        
+        if not doc['human_annotations']: continue
+        
+        qs = doc['human_annotations'][0]['qa_annotations']
+        
+        for q_idx, q_ref in enumerate(qs):
+            q_text = q_ref['question-text']
+            options_str = "\n".join([f"{i+1}. {opt}" for i, opt in enumerate(q_ref['options'])])
+            
+            pre_answers = []
+            post_answers = []
+            
+            for annotator in doc['human_annotations']:
+                if q_idx < len(annotator['qa_annotations']):
+                    qa = annotator['qa_annotations'][q_idx]
+                    pre_answers.append(qa['human-answer-pre'])
+                    post_answers.append(qa['human-answer-post'])
+            
+            # --- PRE EXAMPLE ---
+            tasks['pre'].append(dspy.Example(
+                question=q_text,
+                options=options_str,
+                human_answers=pre_answers
+            ).with_inputs('question', 'options'))
+
+            # --- POST EXAMPLE ---
+            if media in tasks:
+                tasks[media].append(dspy.Example(
+                    context=content,
+                    question=q_text,
+                    options=options_str,
+                    human_answers=post_answers
+                ).with_inputs('context', 'question', 'options'))
+
+    return tasks
+
+# Optimization Loop
+def optimize_all():
+    tasks_data = load_and_split_data()
+    
+    task_configs = {
+        'pre':      {'sig': PreSignature,      'data': tasks_data['pre']},
+        'news':     {'sig': NewsSignature,     'data': tasks_data['news']},
+        'abstract': {'sig': AbstractSignature, 'data': tasks_data['abstract']},
+        'tweet':    {'sig': TweetSignature,    'data': tasks_data['tweet']}
     }
 
-    for doc in data:
-        media_type = doc['content-type'] # news, abstract, tweet
-        content = doc['content']
+    for task_name, config in task_configs.items():
+        print(f"\n{'='*60}")
+        print(f"OPTIMIZING TASK: {task_name.upper()}")
+        print(f"{'='*60}")
         
-        for annotator in doc['human_annotations']:
-            # We treat every annotator's response as a distinct training example
-            for qa in annotator['qa_annotations']:
-                
-                # Format options as a string for the LLM
-                options_str = "\n".join([f"{i+1}. {opt}" for i, opt in enumerate(qa['options'])])
-                
-                # --- Task 1: Pre-Knowledge (No Content) ---
-                # We want to predict 'human-answer-pre'
-                tasks["pre"].append(dspy.Example(
-                    question=qa['question-text'],
-                    options=options_str,
-                    # The label we want to mimic:
-                    human_choice=str(qa['human-answer-pre']) 
-                ).with_inputs("question", "options"))
-
-                # --- Task 2/3/4: Post-Knowledge (With Content) ---
-                # We want to predict 'human-answer-post'
-                if media_type in tasks:
-                    tasks[media_type].append(dspy.Example(
-                        context=content,
-                        question=qa['question-text'],
-                        options=options_str,
-                        # The label we want to mimic:
-                        human_choice=str(qa['human-answer-post'])
-                    ).with_inputs("context", "question", "options"))
-
-    # Shuffle and create splits (Train / Dev)
-    splits = {}
-    for key, examples in tasks.items():
-        random.shuffle(examples)
-        # Use a smaller subset for dev to save costs during optimization
-        train_size = int(len(examples) * 0.6)
-        splits[key] = {
-            "train": examples[:train_size],
-            "dev": examples[train_size:]
-        }
-        print(f"Task [{key}]: {len(examples)} total examples ({len(splits[key]['train'])} train, {len(splits[key]['dev'])} dev)")
-    
-    return splits
-
-# -------------------------------------------------------------------------
-# 3. Define DSPy Signatures (The "Prompt Templates")
-# -------------------------------------------------------------------------
-
-class PreKnowledgeWorker(dspy.Signature):
-    """
-    You are a participant in a knowledge study. 
-    Answer the question based strictly on your current intuition and prior knowledge. 
-    If you do not know, you must select the 'I do not know' option.
-    Return only the number of the selected option.
-    """
-    question = dspy.InputField()
-    options = dspy.InputField(desc="Numbered list of options")
-    answer = dspy.OutputField(desc="The number of the selected option (e.g., '1', '2', '3')")
-
-class PostKnowledgeWorker(dspy.Signature):
-    """
-    You are a participant in a knowledge study.
-    Read the provided text carefully. Answer the question based on the text and your prior knowledge.
-    If the answer is not in the text and you do not know, select 'I do not know'.
-    Return only the number of the selected option.
-    """
-    context = dspy.InputField(desc="The article text to read")
-    question = dspy.InputField()
-    options = dspy.InputField(desc="Numbered list of options")
-    answer = dspy.OutputField(desc="The number of the selected option (e.g., '1', '2', '3')")
-
-# -------------------------------------------------------------------------
-# 4. Define the Modules
-# -------------------------------------------------------------------------
-
-class HumanSimulatorPre(dspy.Module):
-    def __init__(self):
-        super().__init__()
-        # ChainOfThought allows the LLM to "reason" like a human before choosing
-        self.prog = dspy.ChainOfThought(PreKnowledgeWorker)
-    
-    def forward(self, question, options):
-        return self.prog(question=question, options=options)
-
-class HumanSimulatorPost(dspy.Module):
-    def __init__(self):
-        super().__init__()
-        self.prog = dspy.ChainOfThought(PostKnowledgeWorker)
-    
-    def forward(self, context, question, options):
-        return self.prog(context=context, question=question, options=options)
-
-# -------------------------------------------------------------------------
-# 5. Define the Alignment Metric
-# -------------------------------------------------------------------------
-
-def mimicry_metric(gold, pred, trace=None):
-    """
-    Rewards the LLM if it selects the EXACT same option index as the human.
-    This forces the LLM to model human errors and 'IDK' tendencies.
-    """
-    # Normalize strings (remove periods, spaces)
-    pred_clean = pred.answer.strip().split('.')[0].split(' ')[0]
-    gold_clean = gold.human_choice.strip()
-    
-    return pred_clean == gold_clean
-
-# -------------------------------------------------------------------------
-# 6. Optimization Loop
-# -------------------------------------------------------------------------
-
-def optimize_prompts():
-    all_data = load_and_split_data(DATASET_PATH)
-    
-    # We use BootstrapFewShotWithRandomSearch.
-    # It acts as an evolution strategy: it tries different combinations of 
-    # few-shot examples (human demos) to find the set that maximizes the metric.
-    teleprompter = BootstrapFewShotWithRandomSearch(
-        metric=mimicry_metric, 
-        max_bootstrapped_demos=4,
-        max_labeled_demos=4,
-        num_candidate_programs=15, # Increase this for better results (e.g. 10-20)
-        num_threads=4
-    )
-
-    optimized_programs = {}
-
-    print("\n" + "="*60)
-    print("OPTIMIZING PROMPT 1: PRE-KNOWLEDGE (PRIORS)")
-    print("="*60)
-    
-    pre_optimizer = teleprompter.compile(
-        student=HumanSimulatorPre(),
-        trainset=all_data['pre']['train'][:50], # limiting training set for speed
-        valset=all_data['pre']['dev'][:20]
-    )
-    pre_optimizer.save("human_pre.json")
-    optimized_programs['pre'] = pre_optimizer
-
-    # --- Post-Knowledge Optimizations ---
-    
-    for media in ['news', 'abstract', 'tweet']:
-        print("\n" + "="*60)
-        print(f"OPTIMIZING PROMPT FOR: {media.upper()}")
-        print("="*60)
+        dataset = config['data']
+        total_len = len(dataset)
         
-        post_optimizer = teleprompter.compile(
-            student=HumanSimulatorPost(),
-            trainset=all_data[media]['train'][:50],
-            valset=all_data[media]['dev'][:20]
+        if total_len == 0:
+            print(f"No data for {task_name}, skipping.")
+            continue
+
+        train_size = int(total_len * 0.8)
+        random.shuffle(dataset)
+        trainset = dataset[:train_size]
+        
+        print(f"Total Examples: {total_len}")
+        print(f"Optimization Set: {len(trainset)}")
+
+        teleprompter = MIPROv2(
+            metric=human_agreement_metric, 
+            auto=None, 
+            num_candidates=7
         )
-        post_optimizer.save(f"human_post_{media}.json")
-        optimized_programs[media] = post_optimizer
-
-    print("\n[DONE] All prompts optimized and saved to JSON.")
+        
+        prog = dspy.Predict(config['sig'])
+        
+        print(f"Starting optimization (generating 7 instruction candidates, running 20 trials)...")
+        
+        optimized_prog = teleprompter.compile(
+            prog,
+            trainset=trainset,
+            max_bootstrapped_demos=3,
+            max_labeled_demos=3,    
+            num_trials=20,          
+            minibatch_size=25
+        )
+        
+        filename = f"human_proxy_{task_name}.json"
+        optimized_prog.save(filename)
+        print(f"[SUCCESS] Saved optimized prompt to {filename}")
+        
+        try:
+            print(f"--- Learned Instruction for {task_name} ---")
+            print(optimized_prog.predictors()[0].signature.instructions)
+        except:
+            pass
 
 if __name__ == "__main__":
-    optimize_prompts()
+    optimize_all()
