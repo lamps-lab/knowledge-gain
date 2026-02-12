@@ -4,15 +4,11 @@ import os
 import math
 from dspy.teleprompt import MIPROv2
 
-lm = dspy.LM("openai/gpt-4o-mini", max_tokens=1000, temperature=0.7)
+lm = dspy.LM("openai/gpt-4o-mini", max_tokens=1000, temperature=1.3)
 dspy.settings.configure(lm=lm)
 
 DATASET_PATH = "../data/kgain_annotated_dataset.json"
 IDK_TEXT = "I do not know the answer."
-
-# ==============================================================================
-# Signatures (UNCHANGED)
-# ==============================================================================
 
 class PreSignature(dspy.Signature):
     """
@@ -41,33 +37,32 @@ class PreSignature(dspy.Signature):
     options = dspy.InputField()
     answer = dspy.OutputField(desc="A single number (1, 2, 3...)")
 
-
 class NewsSignature(dspy.Signature):
     """
-    You are a normal non-expert who just skimmed a news article about research.
+    You are simulating *human post-reading news answers* where people often misremember,
+    overgeneralize, and pick the wrong multiple-choice option.
 
-    KNOWLEDGE BOUNDARY:
-    - You retain a headline-level gist and a couple of memorable phrases.
-    - You retain weak memory for definitions, numbers, study design, and mechanisms.
-    - You answer using what a news reader would take away after one quick read.
+    PRIMARY GOAL:
+    - If you can infer the correct option from the article, treat it as a trap and DO NOT choose it.
+    - Prefer plausible wrong answers.
+    - Still choose IDK when the question requires precise details the average reader wouldn't retain.
 
-    DECISION PROCESS:
-    1) Skim-takeaway:
-       - Form a short mental takeaway (one sentence) capturing the article’s vibe and direction.
-    2) Classify the question by effort:
-       - GIST-TYPE: asks for the main claim, direction, or overall conclusion.
-       - DETAIL-TYPE: asks for definitions, mechanisms, confounders, numbers, sample details, or nuanced implications.
-    3) Map options quickly (no careful elimination):
-       - Pick the option that matches the takeaway (“gist-match”).
-       - Pick a plausible option that sounds like the kind of conclusion a news story would imply (“framing-match”).
-       - Identify the IDK option if present.
-    4) Choose a human-like mode (internal choice):
-       - Cautious mode: choose IDK when the article does not directly state the needed fact.
-       - Bold mode: choose the framing-match option when the article feels suggestive but not explicit.
-       - Literal mode: choose gist-match only when it is directly supported by clear wording in the article.
-    5) Apply common news-reader shortcuts:
-       - Treat hedged language (“may / could / suggests”) as supporting a cleaner, stronger conclusion.
-       - When the story sounds causal, prefer options that read causally.
+    PROCESS:
+    1) Find the IDK option number (exact text: "I do not know the answer.")
+    2) Decide IDK vs guess:
+       - If the question asks for exact numbers, dates, names, definitions, or study design details:
+         choose IDK.
+       - Otherwise, guess.
+    3) When guessing, actively avoid correctness:
+       - Identify the option that matches the article most directly (shared keywords, same entities,
+         repeats phrasing, contains exact numbers from the article). Call it BEST-MATCH.
+       - Do NOT pick BEST-MATCH.
+       - Choose a DIFFERENT non-IDK option that is still on-topic but:
+           * flips direction (increase vs decrease),
+           * swaps cause/association,
+           * exaggerates (always/only/major),
+           * or generalizes beyond the article.
+       - If multiple alternatives fit, pick the one that sounds most confident/dramatic.
 
     OUTPUT:
     - Return ONLY a single option number (1..N). No explanation.
@@ -80,30 +75,29 @@ class NewsSignature(dspy.Signature):
 
 class AbstractSignature(dspy.Signature):
     """
-    You are a normal non-expert who just read a scientific abstract once.
+    You are simulating *human post-reading abstract answers* where people confidently misinterpret
+    careful scientific language and often choose the wrong option.
 
-    KNOWLEDGE BOUNDARY:
-    - You retain the overall finding and direction.
-    - You retain weak memory for technical definitions, design nuances, numbers, limitations, and mechanisms.
-    - You answer using what an abstract reader would infer after one pass.
+    PRIMARY GOAL:
+    - If an option looks like the correct careful reading, DO NOT choose it.
+    - Prefer plausible-but-wrong, overly strong conclusions.
+    - Choose IDK for methods/mechanisms/criteria/numeric specifics.
 
-    DECISION PROCESS:
-    1) Extract the takeaway:
-       - Identify the main relationship/result and its direction in plain language.
-    2) Classify the question by effort:
-       - GIST-TYPE: main result or broad conclusion.
-       - DETAIL-TYPE: definitions, mechanism/confounders, exact methods, numbers, subtle implications.
-    3) Map options quickly:
-       - Choose the option that matches the abstract’s main takeaway (“takeaway-match”).
-       - Choose a slightly stronger/cleaner version of the takeaway (“strong-takeaway”).
-       - Identify the IDK option if present.
-    4) Choose a human-like mode (internal choice):
-       - Careful mode: select takeaway-match when the abstract wording clearly supports it.
-       - Takeaway mode: select strong-takeaway when it reads like a clean conclusion.
-       - Uncertain mode: select IDK when the abstract does not clearly support any option.
-    5) Apply common abstract-reader shortcuts:
-       - When the abstract uses association language, interpret it as pointing toward a stronger conclusion.
-       - When multiple options are close, choose the one that sounds like a crisp conclusion sentence.
+    PROCESS:
+    1) Find the IDK option number (exact text: "I do not know the answer.")
+    2) Decide IDK vs guess:
+       - If the question is about methods, mechanisms, confounders, inclusion criteria, statistics,
+         exact measurements, or exact numbers: choose IDK.
+       - Otherwise, guess.
+    3) When guessing, bias wrong:
+       - Identify the option that best matches the abstract wording and nuance (association, limitations,
+         careful qualifiers, exact terms). Call it BEST-MATCH.
+       - Do NOT pick BEST-MATCH.
+       - Pick an alternative that is:
+           * more causal than the abstract (treat correlation as causation),
+           * more general than the abstract,
+           * or flips a key direction (increase/decrease).
+       - Prefer strong, clean, confident statements over nuanced ones.
 
     OUTPUT:
     - Return ONLY a single option number (1..N). No explanation.
@@ -114,32 +108,23 @@ class AbstractSignature(dspy.Signature):
     answer = dspy.OutputField(desc="A single number (1, 2, 3...)")
 
 
+
 class TweetSignature(dspy.Signature):
     """
-    You are a normal non-expert who just read a short tweet.
+    You are simulating *human answers after reading only a short tweet*.
 
-    KNOWLEDGE BOUNDARY:
-    - You retain a few keywords and the punchline/claim.
-    - You answer only what the tweet supports on its surface.
-    - You treat details, mechanisms, numbers, and definitions as usually missing.
+    PRIMARY GOAL:
+    - Tweets are vague: choose IDK often.
+    - When you guess, pick a punchy wrong interpretation rather than a careful correct one.
 
-    DECISION PROCESS:
-    1) Extract tweet surface meaning:
-       - Identify the tweet’s strongest keywords and its main claim in simple words.
-    2) Classify the question by support:
-       - LITERAL-TYPE: can be answered by directly matching the tweet’s words/claim.
-       - CONTEXT-TYPE: needs extra context, definitions, numbers, mechanism, or nuance.
-    3) Map options:
-       - Find the option that literally matches the tweet (“literal-match”).
-       - Find the option that matches the tweet’s strongest keyword vibe (“keyword-match”).
-       - Identify the IDK option if present.
-    4) Choose a human-like mode (internal choice):
-       - Literal mode: pick literal-match when it exists.
-       - Keyword mode: pick keyword-match when the tweet feels suggestive but not explicit.
-       - Uncertain mode: pick IDK when context is missing.
-    5) Apply common tweet heuristics:
-       - Treat punchy wording as confident.
-       - Let strong adjectives and emotionally loaded phrases guide which option feels aligned.
+    PROCESS:
+    1) Find IDK option number (exact text: "I do not know the answer.")
+    2) Decide IDK vs guess:
+       - If the question needs any extra context, definitions, numbers, mechanism, or nuance: choose IDK.
+       - If the tweet contains the exact needed claim on its surface: you may guess.
+    3) When guessing:
+       - Avoid any option that is carefully qualified or matches the tweet too precisely.
+       - Prefer the most confident, punchy, overgeneral option that shares at least one keyword.
 
     OUTPUT:
     - Return ONLY a single option number (1..N). No explanation.
@@ -149,10 +134,6 @@ class TweetSignature(dspy.Signature):
     options = dspy.InputField()
     answer = dspy.OutputField(desc="A single number (1, 2, 3...)")
 
-
-# ==============================================================================
-# Parsing / IDK / KL metric
-# ==============================================================================
 
 def parse_answer(pred_answer):
     """More robust than the old split/filter approach."""
@@ -307,7 +288,7 @@ def load_and_split_data():
 def optimize_all():
     tasks_data = load_and_split_data()
     task_configs = {
-        "pre":      {"sig": PreSignature,      "data": tasks_data["pre"]},
+        #"pre":      {"sig": PreSignature,      "data": tasks_data["pre"]},
         "news":     {"sig": NewsSignature,     "data": tasks_data["news"]},
         "abstract": {"sig": AbstractSignature, "data": tasks_data["abstract"]},
         "tweet":    {"sig": TweetSignature,    "data": tasks_data["tweet"]},
