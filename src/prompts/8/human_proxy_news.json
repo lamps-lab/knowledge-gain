@@ -1,0 +1,42 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "Record Smashing Electron Beam Delivers a Petawatt of Power in an Instant\nPhysics\n09 March 2025\nBy\nMike McRae\n(Ramberg/Getty Images)\nPhysicists at SLAC National Accelerator Laboratory in the US have shattered the record for most powerful beam of electrons, cramming an ultra-high current of around 100,000 amps into an instant.\nAt around five times the field strength of what could be achieved previously, the mind-blowing amount of energy in the beam's electric field at SLAC's\nFACET-II linear accelerator\ncould push the boundaries on experimentation, leading to new discoveries in everything from astrophysics to materials science.\nThe team's new technique for steering millimeter-long chains of electrons along a magnetic track allows them to squeeze the race down into a photo finish that delivers more than a petawatt of power in one million-billionth of a second.\nParticle accelerators\nhave been a vital tool for physicists for nearly a century, using oscillating electromagnetic fields to\nnudge charged particles up to velocities\nthat come within a whisker of the speed of light.\nAs the particles change direction their own field\nshines with high-energy X-ray photons\nthat can illuminate materials for high-resolution imagery.\nframeborder=\"0″ allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen>\nPlace another wall of electromagnetism in front of this beam, the energy from the colliding fields could\nshake a variety of shiny new particles\nfrom the quantum foam itself.\nTo create more intense flashes or light, or bigger collisions, more energy is needed; either by pushing the particles ever faster, or by ensuring all their energy is delivered in a shorter period of time.\nSince the electrons are already traveling at near top velocities as they surf on waves of electromagnetism, more speed isn't possible. By the same reasoning, forcing electrons at the back of the pack to press down on their accelerator and catch up to those in front isn't a solution.\nBut there is another trick. Though they're all racing at the same speed, the accelerator's electrons are distributed along the slope of an electromagnetic wave as they surf down the tunnel, with some at the 'bottom' and some at the 'top'.\nThose at the top have more energy whenever they swerve. To force those at the bottom to slow, the researchers needed a way for them to pump the brakes a touch.\nOne way commonly used to manage such a situation is the use of a\nmagnetic obstacle\nthat causes lower energy particles to take a slightly longer path, much as a chicane on an actual race track would force a less powerful car to carefully weave left and right while a car with more grunt could push straight through.\nDiagram of the FACET-II section of the linear accelerator. (\nSLAC/DoE\n)\nBy deflecting particles according to their energy level, the chain of electrons could bunch up and – in theory – pack a greater punch.\nThere's just one problem. Every swerve on the track forces the electrons to shed precious energy in the form of a high-frequency X-ray photon.\nTo help replace the lost energy, the team inserted into the middle of the chicanes a second magnetic device called an\nundulator\n, which pushed the electrons back and forth quickly in another direction. At the same time, a flash of light from a sapphire laser was introduced to control the spread of electrons.\nThe timely mix of undulations and light shaped the distribution of the chain as it was repeatedly sped up and compressed, replacing a portion of the lost energy while forcing a number of the electrons to overlap within a space barely a third of a micrometer long.\nThe end result was a powerful\nlightning\nin a bottle created with a technique that could be improved upon in future, potentially confining more high-speed electrons to an even smaller space.\nThis research was published in\nPhysical Review Letters\n.",
+      "question": "An electron beam with a current of 0.1 megaamperes is equivalent to 100,000 amperes.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "2"
+    }
+  ],
+  "signature": {
+    "instructions": "Simulate a human attempting to answer questions from a news article after reading. The goal is to choose the wrong option intentionally while avoiding the correct answer, as if under pressure to avoid being wrong in a quiz competition. Identify the IDK option and determine when to use it based on the complexity of the detail required. When a guess is required, carefully select a plausible but incorrect option that contrasts with the content of the article. Make sure to show confidence in your choice, even if it is wrong!",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "News article text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "Association of Sleep Disturbances With Prevalent and Incident Motoric Cognitive Risk Syndrome in Community-Residing Older Adults | Neurology\nhttps://t.co/peDRm9cBKa\n— Alvaro Casas Herrero (@alvaro_casasher)\nNovember 18, 2024",
+      "question": "Which population is most commonly at risk for sleep-related cognitive decline?",
+      "options": "1. Adults under 40\n2. Adults aged 65 and older\n3. Teenagers aged 15-19\n4. Middle-aged individuals aged 40-60\n5. I do not know the answer.",
+      "answer": "2"
+    },
+    {
+      "augmented": true,
+      "context": "Scientists Just Confirmed a 67-Year-Old Hypothesis About Vitamin B1\nhttps://t.co/q2asNMRJkY\n— Paul Quibell-smith 🔶 (@QuibellPaul)\nApril 29, 2025",
+      "question": "A carbene stabilized in water can be characterized by nuclear magnetic resonance.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "1"
+    },
+    {
+      "augmented": true,
+      "context": "The End of The\n#Universe\nCould Come 'Much Sooner' Than We Thought\nhttps://t.co/sOJeJAtrb9\n— Oden (@Gjallarhornet)\nMay 14, 2025",
+      "question": "What is the predicted maximum age for neutron stars based on the model?",
+      "options": "1. ~1 million years\n2. ~10⁶⁸ years\n3. ~10¹⁰ years\n4. Infinite\n5. I do not know the answer.",
+      "answer": "5"
+    }
+  ],
+  "signature": {
+    "instructions": "You will analyze the given context and the related question thoroughly. Based on your understanding of the content, assess whether the statement is accurate, choosing from the options: True, False, or I do not know the answer. Be sure to rely on the facts presented in the context without inferring beyond what is said, maintaining a focus on clarity in your response. Ensure your answers reflect an understanding of the statement's validity in relation to the context provided while also considering nuances in phrasing.",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "Tweet text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

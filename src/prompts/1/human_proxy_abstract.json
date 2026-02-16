@@ -1,0 +1,69 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "Electronic systems and devices operating at significant power levels demand sophisticated solutions for heat dissipation. Although materials with high thermal conductivity hold promise for exceptional thermal transport across nano- and microscale interfaces under ideal conditions, their performance often falls short by several orders of magnitude in the complex thermal interfaces typical of real-world applications. This study introduces mechanochemistry-mediated colloidal liquid metals composed of Galinstan and aluminium nitride to bridge the practice–theory disparity. These colloids demonstrate thermal resistances of between 0.42 and 0.86 mm2 K W−1 within actual thermal interfaces, outperforming leading thermal conductors by over an order of magnitude. This superior performance is attributed to the gradient heterointerface with efficient thermal transport across liquid–solid interfaces and the notable colloidal thixotropy. In practical devices, experimental results demonstrate their capacity to extract 2,760 W of heat from a 16 cm2 thermal source when coupled with microchannel cooling, and can facilitate a 65% reduction in pump electricity consumption. This advancement in thermal interface technology offers a promising solution for efficient and sustainable cooling of devices operating at kilowatt levels",
+      "question": "The thermal interface material (TIM) can reduce pump electricity consumption by up to 65%.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "1"
+    },
+    {
+      "context": "Identifying the mechanisms that underlie cooperation is fundamental to biology\n1\n. The most complex form of cooperation in vertebrates occurs in cooperative breeders, in which helpers forego reproduction and assist in raising the young of others, typically relatives\n2\n. Not all cooperative societies, however, are kin-based—nearly half of all avian\n3\nand mammalian\n4\ncooperative breeders form mixed-kin societies, much like those of humans\n5\n. Kin selection in mixed-kin societies occurs when individuals gain indirect fitness from the preferential helping of relatives\n6\n, but helpers also frequently assist non-kin\n7\n, highlighting a potential role for direct fitness in stabilizing cooperative societies\n7\n,\n8\n. Here, using a 20-year study of superb starlings (\nLamprotornis superbus\n), we examined how direct and indirect fitness jointly influence helping behaviour. Although we detected kin-biased helping (demonstrating kin selection), non-kin helping was common despite opportunities to aid kin. Unexpectedly, specific pairs maintained long-term reciprocal helping relationships by swapping social roles across their lifetimes—a subtle pattern of reciprocity requiring decades of observation to detect. Given the frequency of non-kin helping and the occurrence of reciprocal helping among both kin and non-kin, helping behaviour in superb starlings seems to be greatly influenced by direct fitness. However, the relative importance of direct and indirect fitness varied with helpers’ sex and dispersal history. By uncovering a cryptic yet crucial role of long-term reciprocal helping, we suggest that reciprocity may be an underappreciated mechanism promoting the stability of cooperatively breeding societies.",
+      "question": "In cooperative societies, helping behavior can be influenced by which type of fitness?",
+      "options": "1. Direct fitness only\n2. Indirect fitness only\n3. Both direct and indirect fitness\n4. Neither direct nor indirect fitness\n5. I do not know the answer.",
+      "human_answers": [
+        1,
+        3,
+        3,
+        3,
+        3,
+        5,
+        5
+      ]
+    },
+    {
+      "context": "Electronic systems and devices operating at significant power levels demand sophisticated solutions for heat dissipation. Although materials with high thermal conductivity hold promise for exceptional thermal transport across nano- and microscale interfaces under ideal conditions, their performance often falls short by several orders of magnitude in the complex thermal interfaces typical of real-world applications. This study introduces mechanochemistry-mediated colloidal liquid metals composed of Galinstan and aluminium nitride to bridge the practice–theory disparity. These colloids demonstrate thermal resistances of between 0.42 and 0.86 mm2 K W−1 within actual thermal interfaces, outperforming leading thermal conductors by over an order of magnitude. This superior performance is attributed to the gradient heterointerface with efficient thermal transport across liquid–solid interfaces and the notable colloidal thixotropy. In practical devices, experimental results demonstrate their capacity to extract 2,760 W of heat from a 16 cm2 thermal source when coupled with microchannel cooling, and can facilitate a 65% reduction in pump electricity consumption. This advancement in thermal interface technology offers a promising solution for efficient and sustainable cooling of devices operating at kilowatt levels",
+      "question": "What is the primary material combination used in the thermal interface material (TIM)?",
+      "options": "1. Copper and silicon\n2. Galinstan and aluminum nitride\n3. Silver and carbon\n4. Gold and graphene\n5. I do not know the answer.",
+      "human_answers": [
+        5,
+        2,
+        5,
+        5,
+        3,
+        5
+      ]
+    }
+  ],
+  "signature": {
+    "instructions": "You are trying to answer a question based on a complex scientific context. Read the provided context first, then look at the question and the multiple-choice options. Even if you don't fully understand the concepts, make an educated guess based on the words that seem to relate to the context or options. Choose the answer that appears most familiar or repeats key terms from the text, even if you're unsure.",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "Scientific abstract text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

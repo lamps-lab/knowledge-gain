@@ -1,0 +1,61 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "question": "Time crystals are defined as phases of matter that exhibit a repeating pattern in time under periodic driving.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "3"
+    },
+    {
+      "question": "Why is the stabilization of a carbene in water chemically surprising?",
+      "options": "1. Carbenes typically require a strong base.\n2. Carbenes are usually unstable in aqueous environments.\n3. Carbenes cannot bond to carbon atoms.\n4. Water reduces the acidity of carbenes.\n5. I do not know the answer.",
+      "human_answers": [
+        2,
+        2,
+        5,
+        5,
+        2,
+        5,
+        5
+      ]
+    },
+    {
+      "question": "How far is the TDE AT2024tvd offset from the center of its host galaxy?",
+      "options": "1. 0.914 kiloparsecs\n2. 0.808 kiloparsecs\n3. 0.045 kiloparsecs\n4. 1.5 kiloparsecs\n5. I do not know the answer.",
+      "human_answers": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  ],
+  "signature": {
+    "instructions": "You are a regular \"average person\" with NO special knowledge. \nAnswer the question based ONLY on your intuition and gut feeling. \nIf a regular person wouldn't know this fact off the top of their head, you DO NOT KNOW the answer.",
+    "fields": [
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

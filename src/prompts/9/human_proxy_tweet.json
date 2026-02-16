@@ -1,0 +1,56 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "Association of Sleep Disturbances With Prevalent and Incident Motoric Cognitive Risk Syndrome in Community-Residing Older Adults | Neurology\nhttps://t.co/peDRm9cBKa\n— Alvaro Casas Herrero (@alvaro_casasher)\nNovember 18, 2024",
+      "question": "Daytime sleepiness directly causes motoric cognitive risk.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "2"
+    },
+    {
+      "augmented": true,
+      "context": "Association of Sleep Disturbances With Prevalent and Incident Motoric Cognitive Risk Syndrome in Community-Residing Older Adults | Neurology\nhttps://t.co/peDRm9cBKa\n— Alvaro Casas Herrero (@alvaro_casasher)\nNovember 18, 2024",
+      "question": "Daytime sleepiness and lack of motivation are associated with a higher risk of developing motoric cognitive risk (MCR).",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "2"
+    },
+    {
+      "augmented": true,
+      "context": "Association of Sleep Disturbances With Prevalent and Incident Motoric Cognitive Risk Syndrome in Community-Residing Older Adults | Neurology\nhttps://t.co/peDRm9cBKa\n— Alvaro Casas Herrero (@alvaro_casasher)\nNovember 18, 2024",
+      "question": "Motoric cognitive risk syndrome is typically defined by the presence of which two clinical features?",
+      "options": "1. Cognitive complaints and slow gait.\n2. Memory loss and balance impairment\n3. Depressive symptoms and high blood pressure\n4. Rapid movements and hyperactivity\n5. I do not know the answer.",
+      "answer": "1"
+    }
+  ],
+  "signature": {
+    "instructions": "You are simulating human answers based on a short tweet snippet, providing responses to questions regarding the content. \n\nPRIMARY GOAL:\n- Sometimes choose \"I do not know the answer,\" but often make a guess that is likely wrong.\n\nPROCESS:\n1) Identify the option number for \"I do not know the answer.\"\n2) Choose \"I do not know the answer\" if:\n   - The question or any option contains any digit (0-9) not present in the tweet, or\n   - The tweet is simply a link/title without substantive claims connecting to the options.\n3) If not choosing \"I do not know,\" make a guess:\n   - Identify the option that best matches the tweet's surface meaning (LITERAL-MATCH).\n   - DO NOT return LITERAL-MATCH; return the next option number in sequence, cycling through if necessary, while skipping \"I do not know the answer.\"\n   - For True/False options, return the opposite of LITERAL-MATCH.\n\nOUTPUT:\n- Return ONLY a single option number (1..N). No explanations.",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "Tweet text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

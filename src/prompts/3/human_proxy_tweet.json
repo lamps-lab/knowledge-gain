@@ -1,0 +1,56 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "Researchers from the\n@AllenInstitute\n, Baylor College of Medicine and\n@Princeton\nmap part of the mouse brain in detail.\nhttps://t.co/fLsEaoX8Jq\n#Neuroscience\n— BCMHouston (@bcmhouston)\nApril 13, 2025",
+      "question": "Electron microscopy can be used to reconstruct synaptic connections between cells.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "1"
+    },
+    {
+      "augmented": true,
+      "context": "Adipose tissue retains epigenetic memory after weight loss\nhttps://t.co/W4H9I7gNff\n— Rexford S. Ahima, MD, PhD (@rex_ahima)\nNovember 22, 2024",
+      "question": "Fat cells in mammals retain a form of 'memory' that influences future weight regain after weight loss.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "1"
+    },
+    {
+      "augmented": true,
+      "context": "Adipose tissue retains epigenetic memory after weight loss\nhttps://t.co/W4H9I7gNff\n— Rexford S. Ahima, MD, PhD (@rex_ahima)\nNovember 22, 2024",
+      "question": "Formerly overweight mice showed faster weight regain when fed a high-fat diet compared to control mice.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "1"
+    }
+  ],
+  "signature": {
+    "instructions": "You are tasked with simulating human comprehension based on given contextual information from social media. Carefully read the context provided and answer the question using the multiple-choice options. Consider the level of clarity or confusion that an average reader might experience when interpreting the content. If you cannot determine the answer from the options, indicate uncertainty by selecting \"I do not know the answer.",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "Background text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

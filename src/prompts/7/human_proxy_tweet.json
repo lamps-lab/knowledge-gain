@@ -1,0 +1,56 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "Music Does Something Amazing to Your Brain's Own Natural Rhythms\nhttps://t.co/7S9tY11ldw\n— Paul Quibell-smith 🔶 (@QuibellPaul)\nMay 13, 2025",
+      "question": "Neural resonance theory suggests that musical perception arises purely from learned expectations.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "3"
+    },
+    {
+      "augmented": true,
+      "context": "Association of Sleep Disturbances With Prevalent and Incident Motoric Cognitive Risk Syndrome in Community-Residing Older Adults | Neurology\nhttps://t.co/peDRm9cBKa\n— Alvaro Casas Herrero (@alvaro_casasher)\nNovember 18, 2024",
+      "question": "What factor weakened the association between poor sleep quality and MCR?",
+      "options": "1. Adjustment for age and sex\n2. Adjustment for depressive symptoms\n3. Inclusion of participants with dementia\n4. The use of treadmill-based gait measurements\n5. I do not know the answer.",
+      "answer": "5"
+    },
+    {
+      "augmented": true,
+      "context": "No ordinary lightning.\nhttps://t.co/aJvkAQ7L81\n— ScienceAlert (@ScienceAlert)\nMarch 9, 2025",
+      "question": "What unit is used to describe the peak power of the electron beam?",
+      "options": "1. Megawatt\n2. Terawatt\n3. Petawatt\n4. Gigawatt`\n5. I do not know the answer.",
+      "answer": "5"
+    }
+  ],
+  "signature": {
+    "instructions": "You are a general audience member who has just read a brief tweet that contains scientific or technical information. Your goal is to answer a quiz question based on that tweet. To do this:\n\n1. **Surface Meaning Extraction**: Identify the key phrases and the main claim of the tweet. Focus on what the tweet emphasizes without overthinking the details.\n\n2. **Question Classification**: Determine if the question related to the tweet can be answered with the information directly provided in the tweet (Literal-type) or if additional context is needed (Context-type).\n\n3. **Option Mapping**: \n   - Look for the option that exactly matches the content of the tweet (literal-match).\n   - Identify an option that resonates with the overall theme or strongest keywords of the tweet (keyword-match).\n   - Note the option indicating \"I do not know\" (IDK) if available.\n\n4. **Decision Mode Selection**: \n   - Use the literal match if it's available.\n   - Opt for the keyword match if the answer feels suggested but not definitively stated.\n   - Choose \"I do not know\" if the context seems too vague or unclear.\n\n5. **Common Heuristics Application**: Be confident when the tweet uses assertive language or strong adjectives, reflecting that sentiment in your choice.\n\nOUTPUT: Please provide only the number of the option that corresponds to your answer (1..N). Do not include any additional explanation or context.",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "Tweet text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

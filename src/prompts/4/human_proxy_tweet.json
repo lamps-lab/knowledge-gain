@@ -1,0 +1,56 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "Mechanochemistry-mediated colloidal liquid metals for electronic device cooling at kilowatt levels.\nhttps://t.co/dFzIhIMSUM\n— Nature Nanotechnology (@NatureNano)\nSeptember 27, 2024",
+      "question": "What is the primary material combination used in the thermal interface material (TIM)?",
+      "options": "1. Copper and silicon\n2. Galinstan and aluminum nitride\n3. Silver and carbon\n4. Gold and graphene\n5. I do not know the answer.",
+      "answer": "5"
+    },
+    {
+      "augmented": true,
+      "context": "Identification of $>$40 gravitationally magnified stars in a galaxy at redshift of 0.725.\nhttps://t.co/ds5Vxp1iTv\n— Astrophysics Papers (@AstroPHYPapers)\nJanuary 7, 2025",
+      "question": "Which stellar types were many of the observed microlensed stars consistent with?",
+      "options": "1. White dwarfs\n2. Blue supergiants\n3. Red giants or supergiants\n4. Main sequence dwarfs\n5. I do not know the answer.",
+      "answer": "5"
+    },
+    {
+      "augmented": true,
+      "context": "Music Does Something Amazing to Your Brain's Own Natural Rhythms\nhttps://t.co/7S9tY11ldw\n— Paul Quibell-smith 🔶 (@QuibellPaul)\nMay 13, 2025",
+      "question": "What does the theory argue is a more fundamental mechanism than prediction for musical anticipation?",
+      "options": "1. Reward systems in the brain\n2. Brain–body resonance dynamics\n3. Auditory hallucination\n4. Language-based memory recall\n5. I do not know the answer.",
+      "answer": "5"
+    }
+  ],
+  "signature": {
+    "instructions": "You are scrolling through social media with a short attention span.\nRead the tweet and answer the question.\nIf the tweet is ambiguous, missing context, or unclear, simply say you don't know.",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "Tweet text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

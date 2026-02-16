@@ -1,0 +1,42 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "Scientists Just Confirmed a 67-Year-Old Hypothesis About Vitamin B1\nPhysics\n29 April 2025\nBy\nDavid Nield\n(Petr Smagin/Getty Images)\nYou often need a lot of patience to be a scientist, and that's certainly been the case for researchers who have now found solid evidence for a hypothesis around\nvitamin B1\n(or thiamine) that was first put forward almost 70 years ago.\nIn 1958, Columbia University chemist\nRonald Breslow\nproposed that\nvitamin\nB1 performs key metabolic processes in the body by forming a molecular structure known as a\ncarbene\n.\nThe problem: carbenes are highly unstable and reactive, and usually break down instantly in water. They should, by all accounts, be incompatible with the body's high water content.\nBut researchers led by a team from the University of California, Riverside (UC Riverside) have now managed to keep a carbene intact in water for months in their lab.\nThe structure of the water-stable carbene. (Lavallo Lab/UCR)\n\"This is the first time anyone has been able to observe a stable carbene in water,\"\nsays\nchemist Vincent Lavallo, from UC Riverside. \"People thought this was a crazy idea. But it turns out, Breslow was right.\"\nKey to the breakthrough was the way the researchers were able to synthesize a \"\nsuit of armor\n\" molecule in the lab, to wrap around the carbene and keep it intact. The team was able to use\nhigh-resolution imagery\nto verify the composition of the carbene.\nThrough some other chemical tweaks on top of the protective structure, the carbene could be kept stable in water for as long as six months. It shows that carbenes can be biologically feasible, and that\nvitamin\nB1 may take on that form to do its work in the body.\nWhat's more, the researchers think that the approach they've used here could have industrial applications. Being able to stabilize carbenes could allow water to replace more toxic and dangerous substances in chemical reactions in the future, making for a cleaner way to produce things like pharmaceuticals and fuels.\n\"Water is the ideal solvent – it's abundant, non-toxic, and environmentally friendly,\"\nsays\nchemist Varun Raviprolu, from the University of California, Los Angeles (UCLA). \"If we can get these powerful catalysts to work in water, that's a big step toward greener chemistry.\"\nThere's a twist here: the researchers were investigating the chemistry of reactive molecules in general, not looking to prove Breslow's hypothesis. It's another example of\nthe serendipitous scientific discoveries\nthat can sometimes come from careful research.\nThe research also acts as a reminder not to give up on a promising idea, even after almost six decades. There's plenty more to explore here for scientists – not least why the extra protection of the molecule seemed to reduce its reactivity – but Ronald Breslow would be happy to see his prediction was right.\n\"There are other reactive intermediates we've never been able to isolate, just like this one,\"\nsays\nLavallo. \"Using protective strategies like ours, we may finally be able to see them, and learn from them.\"\n\"Just 30 years ago, people thought these molecules couldn't even be made. Now we can bottle them in water. What Breslow said all those years ago – he was right.\"\nThe research has been published in\nScience Advances\n.",
+      "question": "What is the common name for the coenzyme thiamine?",
+      "options": "1. Vitamin D\n2. Vitamin B1\n3. Vitamin A\n4. Vitamin K\n5. I do not know the answer.",
+      "answer": "5"
+    }
+  ],
+  "signature": {
+    "instructions": "You are in a high-stakes scientific review panel, tasked with evaluating critical research articles on health and astrophysics. After reading an article, you must generate a plausible wrong answer to the posed question about the article's contents while minimizing the use of \"I do not know.\" Make sure to choose options that seem plausible but are incorrect, and avoid the best match for the answer to demonstrate your understanding of human guessing behavior in post-reading responses. Output only the number of the selected option (1..N).",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "News article text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

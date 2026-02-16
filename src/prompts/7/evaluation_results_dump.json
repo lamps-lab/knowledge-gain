@@ -1,0 +1,3782 @@
+[
+  {
+    "doc_id": 0,
+    "question": "Daytime sleepiness directly causes motoric cognitive risk.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 0,
+    "question": "Daytime sleepiness and lack of motivation are associated with a higher risk of developing motoric cognitive risk (MCR).",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 0,
+    "question": "Motoric cognitive risk syndrome is typically defined by the presence of which two clinical features?",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 0,
+    "question": "Which population is most commonly at risk for sleep-related cognitive decline?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 0,
+    "question": "What factor weakened the association between poor sleep quality and MCR?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 0,
+    "question": "What potential benefit does early screening for sleep disturbances provide?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 1,
+    "question": "Daytime sleepiness directly causes motoric cognitive risk.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 1,
+    "question": "Daytime sleepiness and lack of motivation are associated with a higher risk of developing motoric cognitive risk (MCR).",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 1,
+    "question": "Motoric cognitive risk syndrome is typically defined by the presence of which two clinical features?",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 1,
+    "question": "Which population is most commonly at risk for sleep-related cognitive decline?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 1,
+    "question": "What factor weakened the association between poor sleep quality and MCR?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 1,
+    "question": "What potential benefit does early screening for sleep disturbances provide?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 2,
+    "question": "Daytime sleepiness directly causes motoric cognitive risk.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 2,
+    "question": "Daytime sleepiness and lack of motivation are associated with a higher risk of developing motoric cognitive risk (MCR).",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 2,
+    "question": "Motoric cognitive risk syndrome is typically defined by the presence of which two clinical features?",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 2,
+    "question": "Which population is most commonly at risk for sleep-related cognitive decline?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 2,
+    "question": "What factor weakened the association between poor sleep quality and MCR?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 2,
+    "question": "What potential benefit does early screening for sleep disturbances provide?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 3,
+    "question": "Spacetime curvature alone can lead to the evaporation of compact stellar objects, even without an event horizon.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 3,
+    "question": "The evaporation timescale of an object increases with its average mass density.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 3,
+    "question": "Which objects are included in the evaporation analysis due to spacetime curvature effects?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 3,
+    "question": "What is the predicted maximum age for neutron stars based on the model?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 3,
+    "question": "What sets the upper limit for the lifetime of matter in the universe, according to this model?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 3,
+    "question": "What implication does the model suggest for primordial objects with extremely high densities (\u03c1 > 3 \u00d7 10\u2075\u00b3 g/cm\u00b3)?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 4,
+    "question": "Spacetime curvature alone can lead to the evaporation of compact stellar objects, even without an event horizon.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 4,
+    "question": "The evaporation timescale of an object increases with its average mass density.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 4,
+    "question": "Which objects are included in the evaporation analysis due to spacetime curvature effects?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 4,
+    "question": "What is the predicted maximum age for neutron stars based on the model?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 4,
+    "question": "What sets the upper limit for the lifetime of matter in the universe, according to this model?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 4,
+    "question": "What implication does the model suggest for primordial objects with extremely high densities (\u03c1 > 3 \u00d7 10\u2075\u00b3 g/cm\u00b3)?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 5,
+    "question": "Spacetime curvature alone can lead to the evaporation of compact stellar objects, even without an event horizon.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 5,
+    "question": "The evaporation timescale of an object increases with its average mass density.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 5,
+    "question": "Which objects are included in the evaporation analysis due to spacetime curvature effects?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 5,
+    "question": "What is the predicted maximum age for neutron stars based on the model?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 5,
+    "question": "What sets the upper limit for the lifetime of matter in the universe, according to this model?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 5,
+    "question": "What implication does the model suggest for primordial objects with extremely high densities (\u03c1 > 3 \u00d7 10\u2075\u00b3 g/cm\u00b3)?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 6,
+    "question": "Electron beams used in high-intensity physics experiments are typically controlled using acoustic waves.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 6,
+    "question": "An electron beam with a current of 0.1 megaamperes is equivalent to 100,000 amperes.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 6,
+    "question": "What unit is used to describe the peak power of the electron beam?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 6,
+    "question": "What type of energy field is associated with the high-speed electron beam?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 6,
+    "question": "What type of wave do high-speed electrons surf in a particle accelerator?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 6,
+    "question": "What device helps to restore energy lost by electrons during path deflection in the beamline?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 7,
+    "question": "Electron beams used in high-intensity physics experiments are typically controlled using acoustic waves.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 7,
+    "question": "An electron beam with a current of 0.1 megaamperes is equivalent to 100,000 amperes.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 7,
+    "question": "What unit is used to describe the peak power of the electron beam?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 7,
+    "question": "What type of energy field is associated with the high-speed electron beam?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 7,
+    "question": "What type of wave do high-speed electrons surf in a particle accelerator?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 7,
+    "question": "What device helps to restore energy lost by electrons during path deflection in the beamline?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 8,
+    "question": "Electron beams used in high-intensity physics experiments are typically controlled using acoustic waves.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 8,
+    "question": "An electron beam with a current of 0.1 megaamperes is equivalent to 100,000 amperes.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 8,
+    "question": "What unit is used to describe the peak power of the electron beam?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 8,
+    "question": "What type of energy field is associated with the high-speed electron beam?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 8,
+    "question": "What type of wave do high-speed electrons surf in a particle accelerator?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 8,
+    "question": "What device helps to restore energy lost by electrons during path deflection in the beamline?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 9,
+    "question": "Neural synchronization is a mechanism involved in how we perceive and respond to music.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 9,
+    "question": "Neural resonance theory suggests that musical perception arises purely from learned expectations.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 9,
+    "question": "Which of the following is physically synchronize with musical stimuli?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 9,
+    "question": "Which aspects of music are included in the survey of the neuroscience literature discussed?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 9,
+    "question": "What principle may explain why some musical structures are common across cultures?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 9,
+    "question": "What does the theory argue is a more fundamental mechanism than prediction for musical anticipation?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 10,
+    "question": "Neural synchronization is a mechanism involved in how we perceive and respond to music.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 10,
+    "question": "Neural resonance theory suggests that musical perception arises purely from learned expectations.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 10,
+    "question": "Which of the following is physically synchronize with musical stimuli?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 10,
+    "question": "Which aspects of music are included in the survey of the neuroscience literature discussed?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 10,
+    "question": "What principle may explain why some musical structures are common across cultures?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 10,
+    "question": "What does the theory argue is a more fundamental mechanism than prediction for musical anticipation?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 11,
+    "question": "Neural synchronization is a mechanism involved in how we perceive and respond to music.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 11,
+    "question": "Neural resonance theory suggests that musical perception arises purely from learned expectations.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 11,
+    "question": "Which of the following is physically synchronize with musical stimuli?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 11,
+    "question": "Which aspects of music are included in the survey of the neuroscience literature discussed?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 11,
+    "question": "What principle may explain why some musical structures are common across cultures?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 11,
+    "question": "What does the theory argue is a more fundamental mechanism than prediction for musical anticipation?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 12,
+    "question": "A carbene stabilized in water can be characterized by nuclear magnetic resonance.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 12,
+    "question": "Thiamine is also known as vitamin B1.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 12,
+    "question": "Which aspect of carbene chemistry had not previously been demonstrated?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 12,
+    "question": "What is the common name for the coenzyme thiamine?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 12,
+    "question": "Why is the stabilization of a carbene in water chemically surprising?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 12,
+    "question": "What type of intermediate provides chemical support for the formation of carbenes from thiamine?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 13,
+    "question": "A carbene stabilized in water can be characterized by nuclear magnetic resonance.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 13,
+    "question": "Thiamine is also known as vitamin B1.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 13,
+    "question": "Which aspect of carbene chemistry had not previously been demonstrated?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 13,
+    "question": "What is the common name for the coenzyme thiamine?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 13,
+    "question": "Why is the stabilization of a carbene in water chemically surprising?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 13,
+    "question": "What type of intermediate provides chemical support for the formation of carbenes from thiamine?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 14,
+    "question": "A carbene stabilized in water can be characterized by nuclear magnetic resonance.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 14,
+    "question": "Thiamine is also known as vitamin B1.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 14,
+    "question": "Which aspect of carbene chemistry had not previously been demonstrated?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 14,
+    "question": "What is the common name for the coenzyme thiamine?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 14,
+    "question": "Why is the stabilization of a carbene in water chemically surprising?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 14,
+    "question": "What type of intermediate provides chemical support for the formation of carbenes from thiamine?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 15,
+    "question": "Carnivorous behavior in ground squirrels was only observed in adult males.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 15,
+    "question": "Behavioral flexibility in animals can be influenced by fluctuations in food availability.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 15,
+    "question": "What ecological condition coincided with the increase in carnivorous behavior among squirrels?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 15,
+    "question": "What type of animal do California ground squirrels hunt and consume?",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 15,
+    "question": "Which of the following best describes squirrel behavior during high vole abundance?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 15,
+    "question": "What does the term \u201cbehavioral flexibility\u201d refer to in the context of animal foraging?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 16,
+    "question": "Carnivorous behavior in ground squirrels was only observed in adult males.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 16,
+    "question": "Behavioral flexibility in animals can be influenced by fluctuations in food availability.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 16,
+    "question": "What ecological condition coincided with the increase in carnivorous behavior among squirrels?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 16,
+    "question": "What type of animal do California ground squirrels hunt and consume?",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 16,
+    "question": "Which of the following best describes squirrel behavior during high vole abundance?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 16,
+    "question": "What does the term \u201cbehavioral flexibility\u201d refer to in the context of animal foraging?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 17,
+    "question": "Carnivorous behavior in ground squirrels was only observed in adult males.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 17,
+    "question": "Behavioral flexibility in animals can be influenced by fluctuations in food availability.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 17,
+    "question": "What ecological condition coincided with the increase in carnivorous behavior among squirrels?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 17,
+    "question": "What type of animal do California ground squirrels hunt and consume?",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 17,
+    "question": "Which of the following best describes squirrel behavior during high vole abundance?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 17,
+    "question": "What does the term \u201cbehavioral flexibility\u201d refer to in the context of animal foraging?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 18,
+    "question": "Certifying randomness is something that can easily be done using only classical computers.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 18,
+    "question": "Quantum computers can be used to generate random bits that are certifiably unpredictable.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 18,
+    "question": "What task was the classical supercomputer used for in the experiment?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 18,
+    "question": "How many random bits were certified using the described quantum protocol?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 18,
+    "question": "What concept makes it impossible to achieve certified randomness using only classical computation?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 18,
+    "question": "How were the quantum challenge circuits generated in the protocol?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 19,
+    "question": "Certifying randomness is something that can easily be done using only classical computers.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 19,
+    "question": "Quantum computers can be used to generate random bits that are certifiably unpredictable.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 19,
+    "question": "What task was the classical supercomputer used for in the experiment?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 19,
+    "question": "How many random bits were certified using the described quantum protocol?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 19,
+    "question": "What concept makes it impossible to achieve certified randomness using only classical computation?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 19,
+    "question": "How were the quantum challenge circuits generated in the protocol?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 20,
+    "question": "Certifying randomness is something that can easily be done using only classical computers.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 20,
+    "question": "Quantum computers can be used to generate random bits that are certifiably unpredictable.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 20,
+    "question": "What task was the classical supercomputer used for in the experiment?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 20,
+    "question": "How many random bits were certified using the described quantum protocol?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 20,
+    "question": "What concept makes it impossible to achieve certified randomness using only classical computation?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 20,
+    "question": "How were the quantum challenge circuits generated in the protocol?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 21,
+    "question": "True or False: Cold dark matter is typically non-relativistic in the present Universe.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 21,
+    "question": "The proposed dark matter candidate involves fermion-antifermion pairs forming a condensate.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 21,
+    "question": "What phase transition is involved in forming the proposed dark matter candidate?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 21,
+    "question": "What type of particles are proposed to form the condensate in the new dark matter model?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 21,
+    "question": "What happens when the phase transition is frustrated in the case of massive fermions?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 21,
+    "question": "What unique prediction distinguishes the condensate in this model from the standard dark matter scenario?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 22,
+    "question": "True or False: Cold dark matter is typically non-relativistic in the present Universe.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 22,
+    "question": "The proposed dark matter candidate involves fermion-antifermion pairs forming a condensate.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 22,
+    "question": "What phase transition is involved in forming the proposed dark matter candidate?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 22,
+    "question": "What type of particles are proposed to form the condensate in the new dark matter model?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 22,
+    "question": "What happens when the phase transition is frustrated in the case of massive fermions?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 22,
+    "question": "What unique prediction distinguishes the condensate in this model from the standard dark matter scenario?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 23,
+    "question": "True or False: Cold dark matter is typically non-relativistic in the present Universe.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 23,
+    "question": "The proposed dark matter candidate involves fermion-antifermion pairs forming a condensate.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 23,
+    "question": "What phase transition is involved in forming the proposed dark matter candidate?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 23,
+    "question": "What type of particles are proposed to form the condensate in the new dark matter model?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 23,
+    "question": "What happens when the phase transition is frustrated in the case of massive fermions?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 23,
+    "question": "What unique prediction distinguishes the condensate in this model from the standard dark matter scenario?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 24,
+    "question": "All cable bacteria species belong to a single known genus.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 24,
+    "question": "The newly identified cable bacterium shows identical morphology to all other cable bacteria.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 24,
+    "question": "In which environment are some electron-conducting bacteria naturally found?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 24,
+    "question": "Which element is found in a specialized conductive cofactor that supports long-distance electron transport in some bacteria?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 24,
+    "question": "What is the likely function of the conductive fibers in cable bacteria?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 24,
+    "question": "What does it mean if an organism possesses metabolic pathways common to two different genera?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 25,
+    "question": "All cable bacteria species belong to a single known genus.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 25,
+    "question": "The newly identified cable bacterium shows identical morphology to all other cable bacteria.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 25,
+    "question": "In which environment are some electron-conducting bacteria naturally found?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 25,
+    "question": "Which element is found in a specialized conductive cofactor that supports long-distance electron transport in some bacteria?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 25,
+    "question": "What is the likely function of the conductive fibers in cable bacteria?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 25,
+    "question": "What does it mean if an organism possesses metabolic pathways common to two different genera?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 26,
+    "question": "All cable bacteria species belong to a single known genus.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 26,
+    "question": "The newly identified cable bacterium shows identical morphology to all other cable bacteria.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 26,
+    "question": "In which environment are some electron-conducting bacteria naturally found?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 26,
+    "question": "Which element is found in a specialized conductive cofactor that supports long-distance electron transport in some bacteria?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 26,
+    "question": "What is the likely function of the conductive fibers in cable bacteria?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 26,
+    "question": "What does it mean if an organism possesses metabolic pathways common to two different genera?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 27,
+    "question": "Proton and neutron emission can occur during electromagnetic dissociation of heavy nuclei.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 27,
+    "question": "The RELDIS model overestimates the cross sections for events where one proton is emitted with multiple neutrons.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 27,
+    "question": "Which model was used to compare theoretical predictions to observed proton-neutron emission cross sections?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 27,
+    "question": "What element is used as the starting nucleus in the proton and neutron emission reactions?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 27,
+    "question": "What is a key condition for measuring events with one, two, or three proton emissions?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 27,
+    "question": "What is the significance of the proton emission cross sections being linked to different isotopes?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 28,
+    "question": "Proton and neutron emission can occur during electromagnetic dissociation of heavy nuclei.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 28,
+    "question": "The RELDIS model overestimates the cross sections for events where one proton is emitted with multiple neutrons.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 28,
+    "question": "Which model was used to compare theoretical predictions to observed proton-neutron emission cross sections?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 28,
+    "question": "What element is used as the starting nucleus in the proton and neutron emission reactions?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 28,
+    "question": "What is a key condition for measuring events with one, two, or three proton emissions?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 28,
+    "question": "What is the significance of the proton emission cross sections being linked to different isotopes?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 29,
+    "question": "Proton and neutron emission can occur during electromagnetic dissociation of heavy nuclei.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 29,
+    "question": "The RELDIS model overestimates the cross sections for events where one proton is emitted with multiple neutrons.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 29,
+    "question": "Which model was used to compare theoretical predictions to observed proton-neutron emission cross sections?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 29,
+    "question": "What element is used as the starting nucleus in the proton and neutron emission reactions?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 29,
+    "question": "What is a key condition for measuring events with one, two, or three proton emissions?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 29,
+    "question": "What is the significance of the proton emission cross sections being linked to different isotopes?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 30,
+    "question": "Loss of lean body mass from GLP-1 receptor agonists is always beneficial for patients with heart failure.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 30,
+    "question": "GLP-1 receptor agonists can lead to significant body weight reduction.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 30,
+    "question": "What type of body mass is lost in addition to fat during treatment with GLP-1 receptor agonists?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 30,
+    "question": "Which class of drugs includes semaglutide and is known for promoting weight loss?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 30,
+    "question": "Why might loss of cardiac muscle mass be a concern for individuals taking GLP-1 receptor agonists?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 30,
+    "question": "Why is it difficult to assess the overall impact of muscle loss from GLP-1 receptor agonists?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 31,
+    "question": "Loss of lean body mass from GLP-1 receptor agonists is always beneficial for patients with heart failure.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 31,
+    "question": "GLP-1 receptor agonists can lead to significant body weight reduction.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 31,
+    "question": "What type of body mass is lost in addition to fat during treatment with GLP-1 receptor agonists?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 31,
+    "question": "Which class of drugs includes semaglutide and is known for promoting weight loss?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 31,
+    "question": "Why might loss of cardiac muscle mass be a concern for individuals taking GLP-1 receptor agonists?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 31,
+    "question": "Why is it difficult to assess the overall impact of muscle loss from GLP-1 receptor agonists?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 32,
+    "question": "Loss of lean body mass from GLP-1 receptor agonists is always beneficial for patients with heart failure.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 32,
+    "question": "GLP-1 receptor agonists can lead to significant body weight reduction.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 32,
+    "question": "What type of body mass is lost in addition to fat during treatment with GLP-1 receptor agonists?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 32,
+    "question": "Which class of drugs includes semaglutide and is known for promoting weight loss?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 32,
+    "question": "Why might loss of cardiac muscle mass be a concern for individuals taking GLP-1 receptor agonists?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 32,
+    "question": "Why is it difficult to assess the overall impact of muscle loss from GLP-1 receptor agonists?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 33,
+    "question": "Quantum permutation puzzles can include operations that are not possible in classical puzzles.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 33,
+    "question": "The square root of SWAP operation cannot be represented using classical moves.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 33,
+    "question": "What is the main type of move allowed in classical permutation puzzles?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 33,
+    "question": "What distinguishes quantum permutation puzzles from classical ones?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 33,
+    "question": "What is the role of indistinguishable particles in a quantum permutation puzzle?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 33,
+    "question": "What is one reason classical and quantum puzzles behave differently?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 34,
+    "question": "Quantum permutation puzzles can include operations that are not possible in classical puzzles.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 34,
+    "question": "The square root of SWAP operation cannot be represented using classical moves.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 34,
+    "question": "What is the main type of move allowed in classical permutation puzzles?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 34,
+    "question": "What distinguishes quantum permutation puzzles from classical ones?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 34,
+    "question": "What is the role of indistinguishable particles in a quantum permutation puzzle?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 34,
+    "question": "What is one reason classical and quantum puzzles behave differently?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 35,
+    "question": "Quantum permutation puzzles can include operations that are not possible in classical puzzles.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 35,
+    "question": "The square root of SWAP operation cannot be represented using classical moves.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 35,
+    "question": "What is the main type of move allowed in classical permutation puzzles?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 35,
+    "question": "What distinguishes quantum permutation puzzles from classical ones?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 35,
+    "question": "What is the role of indistinguishable particles in a quantum permutation puzzle?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 35,
+    "question": "What is one reason classical and quantum puzzles behave differently?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 36,
+    "question": "The skull whistle sounds were categorized alongside calming sounds like lullabies.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 36,
+    "question": "The sound of the Aztec skull whistle is often perceived as aversive and scary.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 36,
+    "question": "What kind of sound does the Aztec skull whistle produce?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 36,
+    "question": "What Aztec deity might the whistles symbolize?",
+    "media": "abstract",
+    "model_pre_answer": 4,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 36,
+    "question": "Which auditory category best describes skull whistle sounds?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 36,
+    "question": "Why are skull whistle sounds particularly unsettling to listeners?",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 37,
+    "question": "The skull whistle sounds were categorized alongside calming sounds like lullabies.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 37,
+    "question": "The sound of the Aztec skull whistle is often perceived as aversive and scary.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 37,
+    "question": "What kind of sound does the Aztec skull whistle produce?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 37,
+    "question": "What Aztec deity might the whistles symbolize?",
+    "media": "news",
+    "model_pre_answer": 4,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 37,
+    "question": "Which auditory category best describes skull whistle sounds?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 37,
+    "question": "Why are skull whistle sounds particularly unsettling to listeners?",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 38,
+    "question": "The skull whistle sounds were categorized alongside calming sounds like lullabies.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 38,
+    "question": "The sound of the Aztec skull whistle is often perceived as aversive and scary.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 38,
+    "question": "What kind of sound does the Aztec skull whistle produce?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 38,
+    "question": "What Aztec deity might the whistles symbolize?",
+    "media": "tweet",
+    "model_pre_answer": 4,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 38,
+    "question": "Which auditory category best describes skull whistle sounds?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 38,
+    "question": "Why are skull whistle sounds particularly unsettling to listeners?",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 39,
+    "question": "Charge-coupled device (CCD) cameras can be used to detect single photons in ultraweak light emissions.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 39,
+    "question": "Ultraweak photon emission is only detectable in plant tissues and not in animals.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 39,
+    "question": "What is the typical intensity range of ultraweak photon emission from biological systems?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 39,
+    "question": "Which condition in plants leads to the highest ultraweak photon emission among the treatments tested?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 39,
+    "question": "What distinguishes ultraweak photon emission from other biological light emissions?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 39,
+    "question": "Which of the following can be inferred as a non-invasive indicator of vitality in biological organisms?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 40,
+    "question": "Charge-coupled device (CCD) cameras can be used to detect single photons in ultraweak light emissions.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 40,
+    "question": "Ultraweak photon emission is only detectable in plant tissues and not in animals.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 40,
+    "question": "What is the typical intensity range of ultraweak photon emission from biological systems?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 40,
+    "question": "Which condition in plants leads to the highest ultraweak photon emission among the treatments tested?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 40,
+    "question": "What distinguishes ultraweak photon emission from other biological light emissions?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 40,
+    "question": "Which of the following can be inferred as a non-invasive indicator of vitality in biological organisms?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 41,
+    "question": "Charge-coupled device (CCD) cameras can be used to detect single photons in ultraweak light emissions.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 41,
+    "question": "Ultraweak photon emission is only detectable in plant tissues and not in animals.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 41,
+    "question": "What is the typical intensity range of ultraweak photon emission from biological systems?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 41,
+    "question": "Which condition in plants leads to the highest ultraweak photon emission among the treatments tested?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 41,
+    "question": "What distinguishes ultraweak photon emission from other biological light emissions?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 41,
+    "question": "Which of the following can be inferred as a non-invasive indicator of vitality in biological organisms?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 42,
+    "question": "Latent HSV-1 can be reactivated by neuroinflammation caused by brain injury.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 42,
+    "question": "In the experiment, \u03b2 amyloid and phosphorylated tau were observed only in tissues without HSV-1 infection.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 42,
+    "question": "Which immune signaling molecule was shown to be important in triggering pathological effects in neural tissue?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 42,
+    "question": "Which type of immune response is associated with destructive inflammation in the brain?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 42,
+    "question": "How can repeated mechanical brain injuries contribute to neurodegenerative disease mechanisms?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 42,
+    "question": "What outcome might result from targeting IL-1\u03b2 during acute neural injury in the context of latent viral infection?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 43,
+    "question": "Latent HSV-1 can be reactivated by neuroinflammation caused by brain injury.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 43,
+    "question": "In the experiment, \u03b2 amyloid and phosphorylated tau were observed only in tissues without HSV-1 infection.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 43,
+    "question": "Which immune signaling molecule was shown to be important in triggering pathological effects in neural tissue?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 43,
+    "question": "Which type of immune response is associated with destructive inflammation in the brain?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 43,
+    "question": "How can repeated mechanical brain injuries contribute to neurodegenerative disease mechanisms?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 43,
+    "question": "What outcome might result from targeting IL-1\u03b2 during acute neural injury in the context of latent viral infection?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 44,
+    "question": "Latent HSV-1 can be reactivated by neuroinflammation caused by brain injury.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 44,
+    "question": "In the experiment, \u03b2 amyloid and phosphorylated tau were observed only in tissues without HSV-1 infection.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 44,
+    "question": "Which immune signaling molecule was shown to be important in triggering pathological effects in neural tissue?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 44,
+    "question": "Which type of immune response is associated with destructive inflammation in the brain?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 44,
+    "question": "How can repeated mechanical brain injuries contribute to neurodegenerative disease mechanisms?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 44,
+    "question": "What outcome might result from targeting IL-1\u03b2 during acute neural injury in the context of latent viral infection?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 45,
+    "question": "Red giants and supergiants are among the types of stars that can be magnified through microlensing.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 45,
+    "question": "Gravitational lensing can magnify distant stars, allowing them to be individually observed.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 45,
+    "question": "Which stellar types were many of the observed microlensed stars consistent with?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 45,
+    "question": "What effect allows faint distant stars to appear magnified and visible?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 45,
+    "question": "Why are red supergiant stars more difficult to detect at high redshift without lensing?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 45,
+    "question": "Why are microlensed stars especially useful for studying dark matter?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 46,
+    "question": "Red giants and supergiants are among the types of stars that can be magnified through microlensing.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 46,
+    "question": "Gravitational lensing can magnify distant stars, allowing them to be individually observed.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 46,
+    "question": "Which stellar types were many of the observed microlensed stars consistent with?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 46,
+    "question": "What effect allows faint distant stars to appear magnified and visible?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 46,
+    "question": "Why are red supergiant stars more difficult to detect at high redshift without lensing?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 46,
+    "question": "Why are microlensed stars especially useful for studying dark matter?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 47,
+    "question": "Red giants and supergiants are among the types of stars that can be magnified through microlensing.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 47,
+    "question": "Gravitational lensing can magnify distant stars, allowing them to be individually observed.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 47,
+    "question": "Which stellar types were many of the observed microlensed stars consistent with?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 47,
+    "question": "What effect allows faint distant stars to appear magnified and visible?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 47,
+    "question": "Why are red supergiant stars more difficult to detect at high redshift without lensing?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 47,
+    "question": "Why are microlensed stars especially useful for studying dark matter?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 48,
+    "question": "Seismic imaging revealed that the magma reservoir contains a mixture of supercritical fluid and magma at its cap.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 48,
+    "question": "The top of the Yellowstone magma reservoir is located approximately 3.8 kilometers beneath the surface.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 48,
+    "question": "Which geophysical technique is commonly used to study subsurface structures by analyzing how artificially generated seismic waves travel through the Earth?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 48,
+    "question": "What type of volcanic system is located under Yellowstone?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 48,
+    "question": "What kind of material fills the pore space at the top of the Yellowstone magma reservoir?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 48,
+    "question": "What process is inferred to prevent instability in the Yellowstone magma reservoir?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 49,
+    "question": "Seismic imaging revealed that the magma reservoir contains a mixture of supercritical fluid and magma at its cap.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 49,
+    "question": "The top of the Yellowstone magma reservoir is located approximately 3.8 kilometers beneath the surface.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 49,
+    "question": "Which geophysical technique is commonly used to study subsurface structures by analyzing how artificially generated seismic waves travel through the Earth?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 49,
+    "question": "What type of volcanic system is located under Yellowstone?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 49,
+    "question": "What kind of material fills the pore space at the top of the Yellowstone magma reservoir?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 49,
+    "question": "What process is inferred to prevent instability in the Yellowstone magma reservoir?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 50,
+    "question": "Seismic imaging revealed that the magma reservoir contains a mixture of supercritical fluid and magma at its cap.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 50,
+    "question": "The top of the Yellowstone magma reservoir is located approximately 3.8 kilometers beneath the surface.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 50,
+    "question": "Which geophysical technique is commonly used to study subsurface structures by analyzing how artificially generated seismic waves travel through the Earth?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 50,
+    "question": "What type of volcanic system is located under Yellowstone?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 50,
+    "question": "What kind of material fills the pore space at the top of the Yellowstone magma reservoir?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 50,
+    "question": "What process is inferred to prevent instability in the Yellowstone magma reservoir?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 51,
+    "question": "Brain functional network development accelerates significantly around the time of birth.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 51,
+    "question": "There is an increase in both local and global efficiency in brain networks during the fetal to neonatal period.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 51,
+    "question": "Which imaging technique is most commonly used to assess functional brain connectivity in early development?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 51,
+    "question": "Which brain region goes under significant growth and reorganization after birth?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 51,
+    "question": "Which change in brain network connectivity is characteristic of the transition from fetal to neonatal stages?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 51,
+    "question": "Which neural connections showed the most dramatic increase during the birth transition?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 52,
+    "question": "Brain functional network development accelerates significantly around the time of birth.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 52,
+    "question": "There is an increase in both local and global efficiency in brain networks during the fetal to neonatal period.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 52,
+    "question": "Which imaging technique is most commonly used to assess functional brain connectivity in early development?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 52,
+    "question": "Which brain region goes under significant growth and reorganization after birth?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 52,
+    "question": "Which change in brain network connectivity is characteristic of the transition from fetal to neonatal stages?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 52,
+    "question": "Which neural connections showed the most dramatic increase during the birth transition?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 53,
+    "question": "Brain functional network development accelerates significantly around the time of birth.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 53,
+    "question": "There is an increase in both local and global efficiency in brain networks during the fetal to neonatal period.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 53,
+    "question": "Which imaging technique is most commonly used to assess functional brain connectivity in early development?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 53,
+    "question": "Which brain region goes under significant growth and reorganization after birth?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 53,
+    "question": "Which change in brain network connectivity is characteristic of the transition from fetal to neonatal stages?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 53,
+    "question": "Which neural connections showed the most dramatic increase during the birth transition?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 54,
+    "question": "Fat cells in mammals retain a form of 'memory' that influences future weight regain after weight loss.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 54,
+    "question": "Formerly overweight mice showed faster weight regain when fed a high-fat diet compared to control mice.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 54,
+    "question": "In weight management, what does the term 'obesogenic memory' refer to?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 54,
+    "question": "What type of diet accelerated weight regain in formerly overweight mice?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 54,
+    "question": "What is one consequence of epigenetic changes in fat cells after significant weight loss?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 54,
+    "question": "What broader implication does obesogenic memory have on global health?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 55,
+    "question": "Fat cells in mammals retain a form of 'memory' that influences future weight regain after weight loss.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 55,
+    "question": "Formerly overweight mice showed faster weight regain when fed a high-fat diet compared to control mice.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 55,
+    "question": "In weight management, what does the term 'obesogenic memory' refer to?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 55,
+    "question": "What type of diet accelerated weight regain in formerly overweight mice?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 55,
+    "question": "What is one consequence of epigenetic changes in fat cells after significant weight loss?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 55,
+    "question": "What broader implication does obesogenic memory have on global health?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 56,
+    "question": "Fat cells in mammals retain a form of 'memory' that influences future weight regain after weight loss.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 56,
+    "question": "Formerly overweight mice showed faster weight regain when fed a high-fat diet compared to control mice.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 56,
+    "question": "In weight management, what does the term 'obesogenic memory' refer to?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 56,
+    "question": "What type of diet accelerated weight regain in formerly overweight mice?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 56,
+    "question": "What is one consequence of epigenetic changes in fat cells after significant weight loss?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 56,
+    "question": "What broader implication does obesogenic memory have on global health?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 57,
+    "question": "DNA storage has the potential to surpass current silicon-based data storage technologies in density and energy efficiency.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 57,
+    "question": "Non-experts lacking professional biolab experience were able to implement the new DNA data storage system.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 57,
+    "question": "Which component is central to synthesis-free DNA data storage that mimics movable type printing?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 57,
+    "question": "In epigenetic DNA data storage, how is binary information typically encoded?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 57,
+    "question": "Which strategy is being pursued to enable rapid, low-cost DNA data storage by avoiding traditional de novo synthesis?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 57,
+    "question": "In synthesis-free DNA data storage, what level of bit parallelism is achieved per writing reaction",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 58,
+    "question": "DNA storage has the potential to surpass current silicon-based data storage technologies in density and energy efficiency.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 58,
+    "question": "Non-experts lacking professional biolab experience were able to implement the new DNA data storage system.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 58,
+    "question": "Which component is central to synthesis-free DNA data storage that mimics movable type printing?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 58,
+    "question": "In epigenetic DNA data storage, how is binary information typically encoded?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 58,
+    "question": "Which strategy is being pursued to enable rapid, low-cost DNA data storage by avoiding traditional de novo synthesis?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 58,
+    "question": "In synthesis-free DNA data storage, what level of bit parallelism is achieved per writing reaction",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 59,
+    "question": "DNA storage has the potential to surpass current silicon-based data storage technologies in density and energy efficiency.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 59,
+    "question": "Non-experts lacking professional biolab experience were able to implement the new DNA data storage system.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 59,
+    "question": "Which component is central to synthesis-free DNA data storage that mimics movable type printing?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 59,
+    "question": "In epigenetic DNA data storage, how is binary information typically encoded?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 59,
+    "question": "Which strategy is being pursued to enable rapid, low-cost DNA data storage by avoiding traditional de novo synthesis?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 59,
+    "question": "In synthesis-free DNA data storage, what level of bit parallelism is achieved per writing reaction",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 60,
+    "question": "The thermal interface material (TIM) can reduce pump electricity consumption by up to 65%.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 60,
+    "question": "A thermal interface material made from colloidal liquid metals and ceramic particles is a solid compound of aluminum and silicon.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 60,
+    "question": "What is a key feature of the gradient interface in the TIM?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 60,
+    "question": "What is the primary material combination used in the thermal interface material (TIM)?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 60,
+    "question": "Why does the TIM outperform leading thermal conductors in practical applications?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 60,
+    "question": "What challenge in modern data centers does the TIM address?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 61,
+    "question": "The thermal interface material (TIM) can reduce pump electricity consumption by up to 65%.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 61,
+    "question": "A thermal interface material made from colloidal liquid metals and ceramic particles is a solid compound of aluminum and silicon.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 61,
+    "question": "What is a key feature of the gradient interface in the TIM?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 61,
+    "question": "What is the primary material combination used in the thermal interface material (TIM)?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 61,
+    "question": "Why does the TIM outperform leading thermal conductors in practical applications?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 61,
+    "question": "What challenge in modern data centers does the TIM address?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 62,
+    "question": "The thermal interface material (TIM) can reduce pump electricity consumption by up to 65%.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 62,
+    "question": "A thermal interface material made from colloidal liquid metals and ceramic particles is a solid compound of aluminum and silicon.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 62,
+    "question": "What is a key feature of the gradient interface in the TIM?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 62,
+    "question": "What is the primary material combination used in the thermal interface material (TIM)?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 62,
+    "question": "Why does the TIM outperform leading thermal conductors in practical applications?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 62,
+    "question": "What challenge in modern data centers does the TIM address?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 63,
+    "question": "The black hole responsible for AT2024tvd has a mass greater than 10\u2078 solar masses.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 63,
+    "question": "High-resolution imaging helped determine the spatial offset of AT2024tvd from the galactic center.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 63,
+    "question": "Which type of event is AT2024tvd?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 63,
+    "question": "What kind of emission was delayed but bright in the observation of AT2024tvd?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 63,
+    "question": "The mass of the black hole responsible for AT2024tvd is approximately:",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 63,
+    "question": "How far is the TDE AT2024tvd offset from the center of its host galaxy?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 64,
+    "question": "The black hole responsible for AT2024tvd has a mass greater than 10\u2078 solar masses.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 64,
+    "question": "High-resolution imaging helped determine the spatial offset of AT2024tvd from the galactic center.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 64,
+    "question": "Which type of event is AT2024tvd?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 64,
+    "question": "What kind of emission was delayed but bright in the observation of AT2024tvd?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 64,
+    "question": "The mass of the black hole responsible for AT2024tvd is approximately:",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 64,
+    "question": "How far is the TDE AT2024tvd offset from the center of its host galaxy?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 65,
+    "question": "The black hole responsible for AT2024tvd has a mass greater than 10\u2078 solar masses.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 65,
+    "question": "High-resolution imaging helped determine the spatial offset of AT2024tvd from the galactic center.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 65,
+    "question": "Which type of event is AT2024tvd?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 65,
+    "question": "What kind of emission was delayed but bright in the observation of AT2024tvd?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 65,
+    "question": "The mass of the black hole responsible for AT2024tvd is approximately:",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 65,
+    "question": "How far is the TDE AT2024tvd offset from the center of its host galaxy?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 66,
+    "question": "Some early-universe galaxies are thought to convert baryonic matter into stars more efficiently than later galaxies.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 66,
+    "question": "The discovery of massive galaxies during the Cosmic Dawn challenges the \u039b\u2009cold dark-matter model.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 66,
+    "question": "Which space telescope is most commonly used to observe high-redshift galaxies in the early universe?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 66,
+    "question": "What is the redshift range of the massive dust-obscured galaxies studied?",
+    "media": "abstract",
+    "model_pre_answer": 6,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 66,
+    "question": "What does the JWST FRESCO program focus on?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 66,
+    "question": "Why do these massive galaxies stand out compared to most others observed in the early Universe?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 67,
+    "question": "Some early-universe galaxies are thought to convert baryonic matter into stars more efficiently than later galaxies.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 67,
+    "question": "The discovery of massive galaxies during the Cosmic Dawn challenges the \u039b\u2009cold dark-matter model.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 67,
+    "question": "Which space telescope is most commonly used to observe high-redshift galaxies in the early universe?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 67,
+    "question": "What is the redshift range of the massive dust-obscured galaxies studied?",
+    "media": "news",
+    "model_pre_answer": 6,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 67,
+    "question": "What does the JWST FRESCO program focus on?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 67,
+    "question": "Why do these massive galaxies stand out compared to most others observed in the early Universe?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 68,
+    "question": "Some early-universe galaxies are thought to convert baryonic matter into stars more efficiently than later galaxies.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 68,
+    "question": "The discovery of massive galaxies during the Cosmic Dawn challenges the \u039b\u2009cold dark-matter model.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 68,
+    "question": "Which space telescope is most commonly used to observe high-redshift galaxies in the early universe?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 68,
+    "question": "What is the redshift range of the massive dust-obscured galaxies studied?",
+    "media": "tweet",
+    "model_pre_answer": 6,
+    "model_post_answer": 6
+  },
+  {
+    "doc_id": 68,
+    "question": "What does the JWST FRESCO program focus on?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 68,
+    "question": "Why do these massive galaxies stand out compared to most others observed in the early Universe?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 69,
+    "question": "Quantum error correction can only achieve exponential suppression of logical errors if the physical error rate is below a critical threshold.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 69,
+    "question": "True or False? \nQuantum error correction aims to suppress errors in qubits by using additional physical qubits.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 69,
+    "question": "What is a key feature of quantum error correction?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 69,
+    "question": "How often does the Willow processor experience correlated error events, according to the research?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 69,
+    "question": "Why is scaling physical qubits important in quantum error correction?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 69,
+    "question": "What does the exponential suppression of errors depend on in the Willow processor?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 70,
+    "question": "Quantum error correction can only achieve exponential suppression of logical errors if the physical error rate is below a critical threshold.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 70,
+    "question": "True or False? \nQuantum error correction aims to suppress errors in qubits by using additional physical qubits.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 70,
+    "question": "What is a key feature of quantum error correction?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 70,
+    "question": "How often does the Willow processor experience correlated error events, according to the research?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 70,
+    "question": "Why is scaling physical qubits important in quantum error correction?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 70,
+    "question": "What does the exponential suppression of errors depend on in the Willow processor?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 71,
+    "question": "Quantum error correction can only achieve exponential suppression of logical errors if the physical error rate is below a critical threshold.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 71,
+    "question": "True or False? \nQuantum error correction aims to suppress errors in qubits by using additional physical qubits.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 71,
+    "question": "What is a key feature of quantum error correction?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 71,
+    "question": "How often does the Willow processor experience correlated error events, according to the research?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 71,
+    "question": "Why is scaling physical qubits important in quantum error correction?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 71,
+    "question": "What does the exponential suppression of errors depend on in the Willow processor?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 72,
+    "question": "Time crystals only exist in equilibrium states of matter.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 72,
+    "question": "Time crystals are defined as phases of matter that exhibit a repeating pattern in time under periodic driving.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 72,
+    "question": "What type of quantum system was programmed to exhibit time-crystal behavior?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 72,
+    "question": "Why are topological time crystals beneficial for quantum computing?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 72,
+    "question": "Which application is a key motivation for studying topological time crystals in quantum systems",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 72,
+    "question": "Which experimental signature is widely accepted as evidence for discrete time-translation symmetry breaking in quantum time crystals?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 73,
+    "question": "Time crystals only exist in equilibrium states of matter.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 73,
+    "question": "Time crystals are defined as phases of matter that exhibit a repeating pattern in time under periodic driving.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 73,
+    "question": "What type of quantum system was programmed to exhibit time-crystal behavior?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 73,
+    "question": "Why are topological time crystals beneficial for quantum computing?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 73,
+    "question": "Which application is a key motivation for studying topological time crystals in quantum systems",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 73,
+    "question": "Which experimental signature is widely accepted as evidence for discrete time-translation symmetry breaking in quantum time crystals?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 74,
+    "question": "Time crystals only exist in equilibrium states of matter.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 74,
+    "question": "Time crystals are defined as phases of matter that exhibit a repeating pattern in time under periodic driving.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 74,
+    "question": "What type of quantum system was programmed to exhibit time-crystal behavior?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 74,
+    "question": "Why are topological time crystals beneficial for quantum computing?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 74,
+    "question": "Which application is a key motivation for studying topological time crystals in quantum systems",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 74,
+    "question": "Which experimental signature is widely accepted as evidence for discrete time-translation symmetry breaking in quantum time crystals?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 75,
+    "question": "This is one of the few surviving sources of notated sacred music from pre-Reformation Scotland.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 75,
+    "question": "The discovered music fragment lacks a written title, text, or composer attribution.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 75,
+    "question": "What is the likely voice part represented in the recovered music?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 75,
+    "question": "Where was the music fragment discovered?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 75,
+    "question": "What does the identification of the musical fragment contribute to our understanding of pre-Reformation Scotland?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 75,
+    "question": "What broader historical context does the abstract suggest this music fragment helps illuminate?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 76,
+    "question": "This is one of the few surviving sources of notated sacred music from pre-Reformation Scotland.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 76,
+    "question": "The discovered music fragment lacks a written title, text, or composer attribution.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 76,
+    "question": "What is the likely voice part represented in the recovered music?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 76,
+    "question": "Where was the music fragment discovered?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 76,
+    "question": "What does the identification of the musical fragment contribute to our understanding of pre-Reformation Scotland?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 76,
+    "question": "What broader historical context does the abstract suggest this music fragment helps illuminate?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 77,
+    "question": "This is one of the few surviving sources of notated sacred music from pre-Reformation Scotland.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 77,
+    "question": "The discovered music fragment lacks a written title, text, or composer attribution.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 77,
+    "question": "What is the likely voice part represented in the recovered music?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 77,
+    "question": "Where was the music fragment discovered?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 77,
+    "question": "What does the identification of the musical fragment contribute to our understanding of pre-Reformation Scotland?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 77,
+    "question": "What broader historical context does the abstract suggest this music fragment helps illuminate?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 78,
+    "question": "High-resolution imaging of the entire deep seafloor has already been completed.",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 78,
+    "question": "Only a tiny fraction of the Earth's deep ocean seafloor has been visually observed.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 78,
+    "question": "What is considered the depth threshold for categorizing ocean regions as \u201cdeep ocean\u201d?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 78,
+    "question": "Which type of country is most responsible for conducting deep-sea dives?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 78,
+    "question": "What factor contributes to the limited exploration of the deep ocean?",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 78,
+    "question": "Why is a biased sampling of the deep ocean problematic?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 79,
+    "question": "High-resolution imaging of the entire deep seafloor has already been completed.",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 79,
+    "question": "Only a tiny fraction of the Earth's deep ocean seafloor has been visually observed.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 79,
+    "question": "What is considered the depth threshold for categorizing ocean regions as \u201cdeep ocean\u201d?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 79,
+    "question": "Which type of country is most responsible for conducting deep-sea dives?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 79,
+    "question": "What factor contributes to the limited exploration of the deep ocean?",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 79,
+    "question": "Why is a biased sampling of the deep ocean problematic?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 80,
+    "question": "High-resolution imaging of the entire deep seafloor has already been completed.",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 80,
+    "question": "Only a tiny fraction of the Earth's deep ocean seafloor has been visually observed.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 80,
+    "question": "What is considered the depth threshold for categorizing ocean regions as \u201cdeep ocean\u201d?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 80,
+    "question": "Which type of country is most responsible for conducting deep-sea dives?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 80,
+    "question": "What factor contributes to the limited exploration of the deep ocean?",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 80,
+    "question": "Why is a biased sampling of the deep ocean problematic?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 81,
+    "question": "Electron microscopy can be used to reconstruct synaptic connections between cells.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 81,
+    "question": "Calcium imaging is a method used to monitor the activity of neurons.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 81,
+    "question": "What type of imaging was used to record the activity of approximately 75,000 neurons?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 81,
+    "question": "Which part of the nervous system was studied using imaging and reconstruction techniques?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 81,
+    "question": "What kind of connections were measured between neurons in different brain areas?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 81,
+    "question": "Which method can be used to identify functional principles of how visual information is processed?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 82,
+    "question": "Electron microscopy can be used to reconstruct synaptic connections between cells.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 82,
+    "question": "Calcium imaging is a method used to monitor the activity of neurons.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 82,
+    "question": "What type of imaging was used to record the activity of approximately 75,000 neurons?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 82,
+    "question": "Which part of the nervous system was studied using imaging and reconstruction techniques?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 82,
+    "question": "What kind of connections were measured between neurons in different brain areas?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 82,
+    "question": "Which method can be used to identify functional principles of how visual information is processed?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 83,
+    "question": "Electron microscopy can be used to reconstruct synaptic connections between cells.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 83,
+    "question": "Calcium imaging is a method used to monitor the activity of neurons.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 83,
+    "question": "What type of imaging was used to record the activity of approximately 75,000 neurons?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 83,
+    "question": "Which part of the nervous system was studied using imaging and reconstruction techniques?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 83,
+    "question": "What kind of connections were measured between neurons in different brain areas?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 83,
+    "question": "Which method can be used to identify functional principles of how visual information is processed?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 84,
+    "question": "Direct fitness benefits can influence cooperation even among unrelated individuals.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 84,
+    "question": "Reciprocal helping refers to individuals assisting one another with the expectation of future help.",
+    "media": "abstract",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 84,
+    "question": "In cooperative societies, helping behavior can be influenced by which type of fitness?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 84,
+    "question": "What is one characteristic of cooperative breeders?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 84,
+    "question": "Why might non-kin helping behavior evolve in animal societies?",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 84,
+    "question": "What does reciprocity in animal behavior typically involve?",
+    "media": "abstract",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 85,
+    "question": "Direct fitness benefits can influence cooperation even among unrelated individuals.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 85,
+    "question": "Reciprocal helping refers to individuals assisting one another with the expectation of future help.",
+    "media": "news",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 85,
+    "question": "In cooperative societies, helping behavior can be influenced by which type of fitness?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 85,
+    "question": "What is one characteristic of cooperative breeders?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 85,
+    "question": "Why might non-kin helping behavior evolve in animal societies?",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 85,
+    "question": "What does reciprocity in animal behavior typically involve?",
+    "media": "news",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 86,
+    "question": "Direct fitness benefits can influence cooperation even among unrelated individuals.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 86,
+    "question": "Reciprocal helping refers to individuals assisting one another with the expectation of future help.",
+    "media": "tweet",
+    "model_pre_answer": 1,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 86,
+    "question": "In cooperative societies, helping behavior can be influenced by which type of fitness?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 86,
+    "question": "What is one characteristic of cooperative breeders?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 3
+  },
+  {
+    "doc_id": 86,
+    "question": "Why might non-kin helping behavior evolve in animal societies?",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 86,
+    "question": "What does reciprocity in animal behavior typically involve?",
+    "media": "tweet",
+    "model_pre_answer": 2,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 87,
+    "question": "The water responsible for forming minerals in the Lafayette meteorite likely came from melting permafrost triggered by volcanic activity.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 87,
+    "question": "The Lafayette meteorite provides evidence that liquid water existed on Mars less than a billion years ago.",
+    "media": "abstract",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 87,
+    "question": "What key material in the Lafayette meteorite indicates past interaction with liquid water?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 87,
+    "question": "What caused the permafrost to melt and create liquid water on Mars?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 87,
+    "question": "What is a key broader implication of applying precise radiometric dating methods in planetary science?",
+    "media": "abstract",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 87,
+    "question": "Which radiometric dating method is commonly used to determine the age of aqueous alteration in meteorites",
+    "media": "abstract",
+    "model_pre_answer": 4,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 88,
+    "question": "The water responsible for forming minerals in the Lafayette meteorite likely came from melting permafrost triggered by volcanic activity.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 88,
+    "question": "The Lafayette meteorite provides evidence that liquid water existed on Mars less than a billion years ago.",
+    "media": "news",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 88,
+    "question": "What key material in the Lafayette meteorite indicates past interaction with liquid water?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 88,
+    "question": "What caused the permafrost to melt and create liquid water on Mars?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 88,
+    "question": "What is a key broader implication of applying precise radiometric dating methods in planetary science?",
+    "media": "news",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 88,
+    "question": "Which radiometric dating method is commonly used to determine the age of aqueous alteration in meteorites",
+    "media": "news",
+    "model_pre_answer": 4,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 89,
+    "question": "The water responsible for forming minerals in the Lafayette meteorite likely came from melting permafrost triggered by volcanic activity.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 89,
+    "question": "The Lafayette meteorite provides evidence that liquid water existed on Mars less than a billion years ago.",
+    "media": "tweet",
+    "model_pre_answer": 3,
+    "model_post_answer": 1
+  },
+  {
+    "doc_id": 89,
+    "question": "What key material in the Lafayette meteorite indicates past interaction with liquid water?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 5
+  },
+  {
+    "doc_id": 89,
+    "question": "What caused the permafrost to melt and create liquid water on Mars?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 89,
+    "question": "What is a key broader implication of applying precise radiometric dating methods in planetary science?",
+    "media": "tweet",
+    "model_pre_answer": 5,
+    "model_post_answer": 2
+  },
+  {
+    "doc_id": 89,
+    "question": "Which radiometric dating method is commonly used to determine the age of aqueous alteration in meteorites",
+    "media": "tweet",
+    "model_pre_answer": 4,
+    "model_post_answer": 4
+  }
+]

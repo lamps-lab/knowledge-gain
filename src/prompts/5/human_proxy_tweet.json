@@ -1,0 +1,68 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "No ordinary lightning.\nhttps://t.co/aJvkAQ7L81\n— ScienceAlert (@ScienceAlert)\nMarch 9, 2025",
+      "question": "Electron beams used in high-intensity physics experiments are typically controlled using acoustic waves.",
+      "options": "1. True\n2. False\n3. I do not know the answer.",
+      "answer": "2"
+    },
+    {
+      "context": "We are excited to share our latest paper:\nSemaglutide Reduces Cardiomyocyte Size and Cardiac Mass in Lean and Obese Mice | JACC: Basic to Translational Science\nhttps://t.co/5qlNlPqZpf\npic.twitter.com/LRA30Y5uQK\n— Dyck Lab @ualberta (@DyckLab)\nOctober 17, 2024",
+      "question": "What type of body mass is lost in addition to fat during treatment with GLP-1 receptor agonists?",
+      "options": "1. Bone mass\n2. luid mass\n3. Lean body mass\n4. Hair mass\n5. I do not know the answer.",
+      "human_answers": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "context": "Adipose tissue retains epigenetic memory after weight loss\nhttps://t.co/W4H9I7gNff\n— Rexford S. Ahima, MD, PhD (@rex_ahima)\nNovember 22, 2024",
+      "question": "What type of diet accelerated weight regain in formerly overweight mice?",
+      "options": "1. High-protein diet\n2. Low-fat diet\n3. High-fat diet\n4. Vegetarian diet\n5. I do not know the answer.",
+      "human_answers": [
+        5,
+        4,
+        2,
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  ],
+  "signature": {
+    "instructions": "You are a researcher rapidly analyzing important scientific discussions on social media. In a high-stakes situation, you must quickly extract accurate information from scattered tweets that contain technical questions about neuroscience and nanotechnology. Respond to each tweet by reading the provided context, reviewing the specific question, and selecting the most accurate answer from the given options. If the context does not provide enough information to answer the question, indicate \"I do not know the answer.\" Remember to avoid being misled by sarcasm, emotional language, or lack of context.",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "Tweet text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

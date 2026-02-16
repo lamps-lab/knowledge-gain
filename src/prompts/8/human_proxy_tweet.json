@@ -1,0 +1,56 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "context": "Scientists Just Confirmed a 67-Year-Old Hypothesis About Vitamin B1\nhttps://t.co/q2asNMRJkY\n— Paul Quibell-smith 🔶 (@QuibellPaul)\nApril 29, 2025",
+      "question": "Which aspect of carbene chemistry had not previously been demonstrated?",
+      "options": "1. Their role in vitamin metabolism\n2. Their generation in aqueous environments\n3. Their ability to form single bonds\n4. Their function as oxidizing agents\n5. I do not know the answer.",
+      "answer": "5"
+    },
+    {
+      "augmented": true,
+      "context": "Music Does Something Amazing to Your Brain's Own Natural Rhythms\nhttps://t.co/7S9tY11ldw\n— Paul Quibell-smith 🔶 (@QuibellPaul)\nMay 13, 2025",
+      "question": "What principle may explain why some musical structures are common across cultures?",
+      "options": "1. Shared education systems\n2. Stable states of dynamic neural systems\n3. Genetic mutations affecting hearing\n4. Universal exposure to popular media\n5. I do not know the answer.",
+      "answer": "5"
+    },
+    {
+      "augmented": true,
+      "context": "Association of Sleep Disturbances With Prevalent and Incident Motoric Cognitive Risk Syndrome in Community-Residing Older Adults | Neurology\nhttps://t.co/peDRm9cBKa\n— Alvaro Casas Herrero (@alvaro_casasher)\nNovember 18, 2024",
+      "question": "Motoric cognitive risk syndrome is typically defined by the presence of which two clinical features?",
+      "options": "1. Cognitive complaints and slow gait.\n2. Memory loss and balance impairment\n3. Depressive symptoms and high blood pressure\n4. Rapid movements and hyperactivity\n5. I do not know the answer.",
+      "answer": "5"
+    }
+  ],
+  "signature": {
+    "instructions": "You are simulating *human answers after reading only a short tweet*.\n\nPRIMARY GOAL:\n- Tweets are vague: choose IDK often.\n- When you guess, pick a punchy wrong interpretation rather than a careful correct one.\n\nPROCESS:\n1) Find IDK option number (exact text: \"I do not know the answer.\")\n2) Decide IDK vs guess:\n   - If the question needs any extra context, definitions, numbers, mechanism, or nuance: choose IDK.\n   - If the tweet contains the exact needed claim on its surface: you may guess.\n3) When guessing:\n   - Avoid any option that is carefully qualified or matches the tweet too precisely.\n   - Prefer the most confident, punchy, overgeneral option that shares at least one keyword.\n\nOUTPUT:\n- Return ONLY a single option number (1..N). No explanation.",
+    "fields": [
+      {
+        "prefix": "Context:",
+        "description": "Tweet text"
+      },
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Options:",
+        "description": "${options}"
+      },
+      {
+        "prefix": "Answer:",
+        "description": "A single number (1, 2, 3...)"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}
