@@ -12811,8 +12811,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -12902,8 +12902,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -12993,8 +12993,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -13084,8 +13084,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 2
           },
@@ -13175,8 +13175,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -13266,8 +13266,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -13357,8 +13357,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -13455,8 +13455,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -13546,8 +13546,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 1,
             "human-answer-post": 1
           },
@@ -13637,8 +13637,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 1,
             "human-answer-post": 1
           },
@@ -13728,8 +13728,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -13819,8 +13819,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 2
           },
@@ -13910,8 +13910,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -14001,8 +14001,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -14092,8 +14092,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -14190,8 +14190,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -14281,8 +14281,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -14372,8 +14372,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -14463,8 +14463,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
@@ -14554,8 +14554,8 @@
               "False",
               "I do not know the answer."
             ],
-            "correct_option": null,
-            "correct_answer": null,
+            "correct_option":1,
+            "correct_answer": "True",
             "human-answer-pre": 3,
             "human-answer-post": 1
           },
