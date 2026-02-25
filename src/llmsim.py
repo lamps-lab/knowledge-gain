@@ -18,6 +18,12 @@ MAX_OUTPUT_TOKENS = int(os.getenv("MAX_OUTPUT_TOKENS", "160"))
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "5"))
 SEED = int(os.getenv("SEED", "0"))
 
+# --- TWEET-ONLY thresholds (deterministic) ---
+# Relaxed defaults to reduce over-IDK on tweets
+TWEET_GATE_CONF_TH = float(os.getenv("TWEET_GATE_CONF_TH", "0.30"))
+TWEET_MEM_CONF_TH = float(os.getenv("TWEET_MEM_CONF_TH", "0.20"))
+TWEET_EXPL_DETAIL_MEMCONF_TH = float(os.getenv("TWEET_EXPL_DETAIL_MEMCONF_TH", "0.40"))
+
 IDK_TEXT = "I do not know the answer."
 EPS = 1e-9
 
@@ -85,6 +91,30 @@ def sample_from_candidates(cands: List[int], probs: List[float]) -> int:
             return int(c)
     return int(cands[-1])
 
+# NEW (tweet-only helper): sample conditional on NOT choosing IDK
+def sample_non_idk(cands: List[int], probs: List[float], idk: int) -> int:
+    keep_c = []
+    keep_p = []
+    for c, p in zip(cands, probs):
+        ci = safe_int(c)
+        if ci == int(idk):
+            continue
+        keep_c.append(ci)
+        try:
+            keep_p.append(float(p))
+        except Exception:
+            keep_p.append(0.0)
+    if not keep_c:
+        return int(idk)
+    keep_p = clamp_probs(keep_p)
+    r = rng.random()
+    acc = 0.0
+    for c, p in zip(keep_c, keep_p):
+        acc += p
+        if r <= acc:
+            return int(c)
+    return int(keep_c[-1])
+
 def is_detail_question(q: str) -> bool:
     ql = q.lower()
     triggers = ["how many", "what year", "which year", "date", "percent", "%", "according to",
@@ -141,7 +171,6 @@ PRE_GATE_SCHEMA = {
     "additionalProperties": False
 }
 
-# NEW: tweet explicitness gate (TWEET ONLY)
 TWEET_GATE_SCHEMA = {
     "type": "object",
     "properties": {
@@ -152,7 +181,6 @@ TWEET_GATE_SCHEMA = {
     "additionalProperties": False
 }
 
-# Dual-trace memory: gist vs schema-based recollection (UNCHANGED)
 NEWS_MEMORY_DUAL_SCHEMA = {
     "type": "object",
     "properties": {
@@ -271,9 +299,8 @@ def load_personas(path: str) -> Tuple[Dict[str, str], Dict[int, str]]:
     mapping = {int(k): v for k, v in obj["annotator_to_cluster"].items()}
     return cluster_prompts, mapping
 
-# ---------------- Prompts ----------------
+# Prompts
 
-# PRE (CHANGED: stricter gate text only)
 PRE_GATE_PROMPT = """TASK: PRE GATE (before seeing options)
 
 You are answering BEFORE any supporting text.
@@ -291,7 +318,6 @@ Be conservative. Most questions are NOT obvious.
 Return JSON: {"familiarity":"obvious|maybe_heard|technical_or_unknown","confidence":0..1}
 """
 
-# PRE answer prompt unchanged in spirit; slightly sharper IDK language (still “prompt-only”)
 PRE_ANSWER_PROMPT = """TASK: PRE ANSWER (options now shown)
 
 Rules:
@@ -306,7 +332,6 @@ Verbalized Sampling:
 Return JSON: {"candidates":[n1,n2,n3],"probs":[p1,p2,p3]}
 """
 
-# NEWS + ABSTRACT prompts (UNCHANGED)
 NEWS_MEMORY_DUAL_PROMPT = """TASK: NEWS MEMORY TRACE (dual-trace)
 
 You skimmed quickly and cannot re-check the article.
@@ -376,16 +401,17 @@ Verbalized Sampling:
 Return JSON: {"candidates":[n1,n2,n3],"probs":[p1,p2,p3]}
 """
 
-# TWEET (CHANGED: add explicitness gate + use it in answer prompt)
+# ---------------- TWEET ----------------
+
 TWEET_GATE_PROMPT = """TASK: TWEET EVIDENCE GATE
 
-Given the tweet and the question, decide if the tweet explicitly supports answering.
+Given the tweet and the question, decide if the tweet supports answering.
 
 - explicit: tweet directly states the needed claim.
-- implied: tweet hints at it but does not clearly state it.
-- unclear: cannot tell from the tweet.
+- implied: tweet is on-topic and suggests the claim but does not clearly state it.
+- unclear: tweet is off-topic OR provides essentially no usable signal for the question.
 
-If the tweet does not clearly contain the needed claim, choose implied or unclear.
+Be realistic: many tweets are "implied", but some are truly "unclear".
 
 Return JSON: {"explicitness":"explicit|implied|unclear","confidence":0..1}
 """
@@ -395,29 +421,34 @@ TWEET_MEMORY_DUAL_PROMPT = """TASK: TWEET INTERPRETATION (dual-trace)
 You saw a short tweet once.
 
 Produce TWO interpretations:
-1) literal: what the tweet literally says (short).
-2) vibe: what it *seems to imply* from tone/stance (can be a bit off).
+1) literal: what the tweet literally says (short, incomplete).
+2) vibe: what it seems to imply from tone/stance (can be wrong).
 
 Constraints:
 - Each: 6–12 words.
 - Provide probabilities for recalling each (sum ~ 1, not extreme).
-- Provide confidence (0..1). If the tweet only implies the answer, confidence should be low.
+- Provide confidence (0..1).
 
 Return JSON:
 {"topic":"...","traces":[{"type":"literal","memory":"..."},{"type":"vibe","memory":"..."}],
  "trace_probs":[p_lit,p_vibe],"confidence":0..1}
 """
 
+# Slightly more “guess-friendly” for implied to reduce over-IDK.
 TWEET_ANSWER_DIST_PROMPT = """TASK: TWEET ANSWER (from one interpretation ONLY)
 
 You must answer using ONLY the provided tweet interpretation. You do NOT have the tweet.
 No outside context. No careful inference.
 
-If EXPLICITNESS is not "explicit", then IDK should be a very plausible answer.
+Rules:
+- explicit: answer if clearly supported; otherwise IDK.
+- implied: people often guess from keywords/vibe. IDK happens, but should NOT dominate.
+- unclear: usually IDK.
 
 Verbalized Sampling:
 - Give 3 candidates + probabilities (not extreme; max prob <= 0.65).
-- IDK is a candidate if confidence is low OR nothing clearly matches.
+- If explicitness is implied, include IDK only when the interpretation provides little/no usable signal.
+- If explicitness is unclear, include IDK.
 
 Return JSON: {"candidates":[n1,n2,n3],"probs":[p1,p2,p3]}
 """
@@ -492,7 +523,6 @@ if __name__ == "__main__":
                     familiarity = gate_obj["familiarity"]
                     gate_conf = float(gate_obj["confidence"])
 
-                    # Deterministic abstention when clearly unknown.
                     if familiarity == "technical_or_unknown":
                         a_pre = idk
                     else:
@@ -521,7 +551,6 @@ if __name__ == "__main__":
                     if ha_post is not None and media in ("news", "abstract", "tweet"):
                         try:
                             if media == "news":
-                                # UNCHANGED
                                 mem_obj = responses_create_json(
                                     client,
                                     persona_sys + "\n\n" + NEWS_MEMORY_DUAL_PROMPT,
@@ -552,7 +581,6 @@ if __name__ == "__main__":
                                 a_post = sample_from_candidates(cands, probs2)
 
                             elif media == "abstract":
-                                # UNCHANGED
                                 mem_obj = responses_create_json(
                                     client,
                                     persona_sys + "\n\n" + ABSTRACT_MEMORY_DUAL_PROMPT,
@@ -582,8 +610,7 @@ if __name__ == "__main__":
                                 probs2 = [float(x) for x in ans_dist_obj["probs"]]
                                 a_post = sample_from_candidates(cands, probs2)
 
-                            else:  # tweet (CHANGED)
-                                # 1) explicitness gate
+                            else:  # ---------------- TWEET ----------------
                                 tg = responses_create_json(
                                     client,
                                     persona_sys + "\n\n" + TWEET_GATE_PROMPT,
@@ -596,7 +623,7 @@ if __name__ == "__main__":
                                 explicitness = tg["explicitness"]
                                 tgate_conf = float(tg["confidence"])
 
-                                # If unclear, abstain immediately.
+                                # Keep: unclear => IDK
                                 if explicitness == "unclear":
                                     a_post = idk
                                 else:
@@ -610,24 +637,44 @@ if __name__ == "__main__":
                                         max_output_tokens=160
                                     )
                                     traces = mem_obj["traces"]
-                                    probs = mem_obj["trace_probs"]
-                                    probs = clamp_probs([float(probs[0]), float(probs[1])], lo=0.10, hi=0.90)
-                                    chosen_idx = 0 if rng.random() < probs[0] else 1
-                                    memory = traces[chosen_idx]["memory"]
+                                    tprobs = mem_obj["trace_probs"]
+                                    tprobs = clamp_probs([float(tprobs[0]), float(tprobs[1])], lo=0.10, hi=0.90)
                                     mem_conf = float(mem_obj["confidence"])
 
-                                    ans_dist_obj = responses_create_json(
-                                        client,
-                                        persona_sys + "\n\n" + TWEET_ANSWER_DIST_PROMPT,
-                                        f"EXPLICITNESS: {explicitness}\nGATE_CONFIDENCE: {tgate_conf:.2f}\nINTERPRETATION:\n{memory}\nCONFIDENCE: {mem_conf:.2f}\n\nQUESTION:\n{q_text}\n\nOPTIONS:\n{options_str}\n\nReturn JSON only.",
-                                        "tweet_answer_dist",
-                                        ANSWER_DIST_SCHEMA,
-                                        temperature=TEMP,
-                                        max_output_tokens=120
-                                    )
-                                    cands = [safe_int(x) for x in ans_dist_obj["candidates"]]
-                                    probs2 = [float(x) for x in ans_dist_obj["probs"]]
-                                    a_post = sample_from_candidates(cands, probs2)
+                                    # Implied tweets: favor "vibe" when confidence is not strong / detail-like.
+                                    if explicitness == "implied" and ((tgate_conf < 0.60) or (mem_conf < 0.55) or is_detail_question(q_text)):
+                                        chosen_idx = 1
+                                    else:
+                                        chosen_idx = 0 if rng.random() < tprobs[0] else 1
+
+                                    memory = traces[chosen_idx]["memory"]
+
+                                    # Implied: abstain only if BOTH signals are weak (AND).
+                                    if explicitness == "implied" and (tgate_conf < TWEET_GATE_CONF_TH) and (mem_conf < TWEET_MEM_CONF_TH):
+                                        a_post = idk
+                                    else:
+                                        # Explicit: still allow IDK on detail questions when memory is weak.
+                                        if explicitness == "explicit" and is_detail_question(q_text) and (mem_conf < TWEET_EXPL_DETAIL_MEMCONF_TH):
+                                            a_post = idk
+                                        else:
+                                            ans_dist_obj = responses_create_json(
+                                                client,
+                                                persona_sys + "\n\n" + TWEET_ANSWER_DIST_PROMPT,
+                                                f"EXPLICITNESS: {explicitness}\nGATE_CONFIDENCE: {tgate_conf:.2f}\nINTERPRETATION:\n{memory}\nCONFIDENCE: {mem_conf:.2f}\nDETAIL_QUESTION: {is_detail_question(q_text)}\n\nQUESTION:\n{q_text}\n\nOPTIONS:\n{options_str}\n\nReturn JSON only.",
+                                                "tweet_answer_dist",
+                                                ANSWER_DIST_SCHEMA,
+                                                temperature=TEMP,
+                                                max_output_tokens=120
+                                            )
+                                            cands = [safe_int(x) for x in ans_dist_obj["candidates"]]
+                                            probs2 = [float(x) for x in ans_dist_obj["probs"]]
+                                            a_post = sample_from_candidates(cands, probs2)
+
+                                            # If we sampled IDK on an IMPLIED tweet but the signals aren't both weak,
+                                            # resample conditional on non-IDK to mimic “guessing from vibes”.
+                                            if explicitness == "implied" and a_post == idk:
+                                                if not ((tgate_conf < TWEET_GATE_CONF_TH) and (mem_conf < TWEET_MEM_CONF_TH)):
+                                                    a_post = sample_non_idk(cands, probs2, idk)
 
                         except Exception:
                             a_post = -1
