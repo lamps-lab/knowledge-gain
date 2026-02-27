@@ -18,6 +18,9 @@ MAX_OUTPUT_TOKENS = int(os.getenv("MAX_OUTPUT_TOKENS", "160"))
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "5"))
 SEED = int(os.getenv("SEED", "0"))
 
+# runs/run_20260225_104826
+RESUME_RUN_DIR = os.getenv("RESUME_RUN_DIR", "").strip()
+
 # --- TWEET-ONLY thresholds (deterministic) ---
 # Relaxed defaults to reduce over-IDK on tweets
 TWEET_GATE_CONF_TH = float(os.getenv("TWEET_GATE_CONF_TH", "0.30"))
@@ -28,6 +31,97 @@ IDK_TEXT = "I do not know the answer."
 EPS = 1e-9
 
 rng = random.Random(SEED)
+
+
+
+def make_key(doc_id: int, q_idx: int, annotator_id: int) -> Tuple[int, int, int]:
+    return (int(doc_id), int(q_idx), int(annotator_id))
+
+def load_existing_predictions(path: str) -> Dict[Tuple[int, int, int], Dict[str, Any]]:
+    """
+    Load existing predictions.jsonl and deduplicate by (doc_id, question_index, annotator_id).
+    If the file ended with a partial line due to crash, skip that malformed line.
+    """
+    existing: Dict[Tuple[int, int, int], Dict[str, Any]] = {}
+    if not os.path.exists(path):
+        return existing
+
+    with open(path, "r", encoding="utf-8") as f:
+        for line_no, line in enumerate(f, start=1):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                rec = json.loads(line)
+            except Exception:
+                print(f"Warning: skipping malformed JSONL line {line_no} in {path}")
+                continue
+
+            try:
+                key = make_key(rec["doc_id"], rec["question_index"], rec["annotator_id"])
+                existing[key] = rec
+            except Exception:
+                print(f"Warning: skipping incomplete record on line {line_no} in {path}")
+                continue
+
+    return existing
+
+def rebuild_state_from_existing(
+    existing: Dict[Tuple[int, int, int], Dict[str, Any]],
+    raw: List[Dict[str, Any]],
+) -> Tuple[List[int], List[int], Dict[str, List[int]], Dict[str, List[int]], Counter]:
+    """
+    Rebuild counters from saved predictions + dataset ground truth/human answers.
+    """
+    human_pre = [0, 0, 0]
+    model_pre = [0, 0, 0]
+    human_post = {"news": [0, 0, 0], "abstract": [0, 0, 0], "tweet": [0, 0, 0]}
+    model_post = {"news": [0, 0, 0], "abstract": [0, 0, 0], "tweet": [0, 0, 0]}
+    cluster_usage = Counter()
+
+    for (doc_id, q_idx, aid), rec in existing.items():
+        doc = raw[doc_id]
+        media = doc["content-type"]
+        anns = doc.get("human_annotations") or []
+        if not anns:
+            continue
+
+        qs = anns[0]["qa_annotations"]
+        q_ref = qs[q_idx]
+        options_list = q_ref["options"]
+        idk = find_idk_index(options_list)
+
+        correct = q_ref.get("correct_option")
+        correct = int(correct) if correct is not None else None
+
+        ann_match = None
+        for ann in anns:
+            if int(ann["annotator_id"]) == int(aid):
+                ann_match = ann
+                break
+        if ann_match is None:
+            continue
+
+        qa = ann_match["qa_annotations"][q_idx]
+
+        ha_pre = safe_int(qa["human-answer-pre"])
+        human_pre[bucket(ha_pre, correct, idk)] += 1
+
+        ha_post = qa.get("human-answer-post")
+        if ha_post is not None and media in human_post:
+            human_post[media][bucket(safe_int(ha_post), correct, idk)] += 1
+
+        model_pre[bucket(safe_int(rec["model_pre_answer"]), correct, idk)] += 1
+        if media in model_post:
+            model_post[media][bucket(safe_int(rec["model_post_answer"]), correct, idk)] += 1
+
+        cluster_id = rec.get("cluster_id", "C_average_gist")
+        cluster_usage[cluster_id] += 1
+
+    return human_pre, model_pre, human_post, model_post, cluster_usage
+
+
+
 
 def pct(x: float) -> str:
     return f"{100*x:.1f}%"
@@ -160,7 +254,7 @@ def responses_create_json(
             time.sleep(min(8.0, 0.5 * (2 ** (attempt - 1))))
     raise RuntimeError(f"Failed after {MAX_RETRIES} attempts: {last_err}")
 
-# Schemas
+# ---------------- Schemas ----------------
 PRE_GATE_SCHEMA = {
     "type": "object",
     "properties": {
@@ -299,8 +393,7 @@ def load_personas(path: str) -> Tuple[Dict[str, str], Dict[int, str]]:
     mapping = {int(k): v for k, v in obj["annotator_to_cluster"].items()}
     return cluster_prompts, mapping
 
-# Prompts
-
+# ---------------- Prompts ----------------
 PRE_GATE_PROMPT = """TASK: PRE GATE (before seeing options)
 
 You are answering BEFORE any supporting text.
@@ -401,8 +494,7 @@ Verbalized Sampling:
 Return JSON: {"candidates":[n1,n2,n3],"probs":[p1,p2,p3]}
 """
 
-# ---------------- TWEET ----------------
-
+# ---------------- TWEET (ONLY PART WE MODIFY) ----------------
 TWEET_GATE_PROMPT = """TASK: TWEET EVIDENCE GATE
 
 Given the tweet and the question, decide if the tweet supports answering.
@@ -434,7 +526,6 @@ Return JSON:
  "trace_probs":[p_lit,p_vibe],"confidence":0..1}
 """
 
-# Slightly more “guess-friendly” for implied to reduce over-IDK.
 TWEET_ANSWER_DIST_PROMPT = """TASK: TWEET ANSWER (from one interpretation ONLY)
 
 You must answer using ONLY the provided tweet interpretation. You do NOT have the tweet.
@@ -453,7 +544,6 @@ Verbalized Sampling:
 Return JSON: {"candidates":[n1,n2,n3],"probs":[p1,p2,p3]}
 """
 
-# ---------------- Main ----------------
 if __name__ == "__main__":
     client = OpenAI()
     cluster_prompts, annotator_to_cluster = load_personas(PERSONA_PATH)
@@ -461,19 +551,39 @@ if __name__ == "__main__":
     raw = json.load(open(DATASET_PATH, "r", encoding="utf-8"))
     num_docs = len(raw)
 
-    run_id = time.strftime("%Y%m%d_%H%M%S")
-    out_dir = f"runs/run_{run_id}"
-    os.makedirs(out_dir, exist_ok=True)
-    out_path = os.path.join(out_dir, "predictions.jsonl")
+    # Resume existing run if requested
+    if RESUME_RUN_DIR:
+        print("BELO")
+        out_dir = RESUME_RUN_DIR
+        os.makedirs(out_dir, exist_ok=True)
+        out_path = os.path.join(out_dir, "predictions.jsonl")
 
-    human_pre = [0, 0, 0]
-    model_pre = [0, 0, 0]
-    human_post = {"news": [0, 0, 0], "abstract": [0, 0, 0], "tweet": [0, 0, 0]}
-    model_post = {"news": [0, 0, 0], "abstract": [0, 0, 0], "tweet": [0, 0, 0]}
+        existing = load_existing_predictions(out_path)
+        processed_keys = set(existing.keys())
 
-    cluster_usage = Counter()
+        human_pre, model_pre, human_post, model_post, cluster_usage = rebuild_state_from_existing(existing, raw)
 
-    with open(out_path, "w", encoding="utf-8") as w:
+        print(f"Resuming from: {out_dir}")
+        print(f"Loaded {len(processed_keys)} completed predictions from existing predictions.jsonl")
+
+        write_mode = "a"
+    else:
+        run_id = time.strftime("%Y%m%d_%H%M%S")
+        out_dir = f"runs/run_{run_id}"
+        os.makedirs(out_dir, exist_ok=True)
+        out_path = os.path.join(out_dir, "predictions.jsonl")
+
+        processed_keys = set()
+        human_pre = [0, 0, 0]
+        model_pre = [0, 0, 0]
+        human_post = {"news": [0, 0, 0], "abstract": [0, 0, 0], "tweet": [0, 0, 0]}
+        model_post = {"news": [0, 0, 0], "abstract": [0, 0, 0], "tweet": [0, 0, 0]}
+        cluster_usage = Counter()
+
+        write_mode = "w"
+
+    # line-buffered append/write so progress survives crashes/quota issues better
+    with open(out_path, write_mode, encoding="utf-8", buffering=1) as w:
         for doc_id, doc in enumerate(raw):
             if (doc_id % 10 == 0) or (doc_id == num_docs - 1):
                 print(f"Processed {doc_id}/{num_docs} documents...")
@@ -496,7 +606,13 @@ if __name__ == "__main__":
                 idk = find_idk_index(options_list)
 
                 for ann in anns:
-                    aid = ann["annotator_id"]
+                    aid = int(ann["annotator_id"])
+                    key = make_key(doc_id, q_idx, aid)
+
+                    # Skip records already saved in existing predictions.jsonl
+                    if key in processed_keys:
+                        continue
+
                     qa = ann["qa_annotations"][q_idx]
 
                     ha_pre = safe_int(qa["human-answer-pre"])
@@ -510,7 +626,7 @@ if __name__ == "__main__":
                     cluster_usage[cluster_id] += 1
                     persona_sys = cluster_prompts[cluster_id]
 
-                    # ---------------- PRE ----------------
+                    # ---------------- PRE (UNCHANGED) ----------------
                     gate_obj = responses_create_json(
                         client,
                         persona_sys + "\n\n" + PRE_GATE_PROMPT,
@@ -610,7 +726,7 @@ if __name__ == "__main__":
                                 probs2 = [float(x) for x in ans_dist_obj["probs"]]
                                 a_post = sample_from_candidates(cands, probs2)
 
-                            else:  # ---------------- TWEET ----------------
+                            else:  # tweet
                                 tg = responses_create_json(
                                     client,
                                     persona_sys + "\n\n" + TWEET_GATE_PROMPT,
@@ -623,7 +739,6 @@ if __name__ == "__main__":
                                 explicitness = tg["explicitness"]
                                 tgate_conf = float(tg["confidence"])
 
-                                # Keep: unclear => IDK
                                 if explicitness == "unclear":
                                     a_post = idk
                                 else:
@@ -641,7 +756,6 @@ if __name__ == "__main__":
                                     tprobs = clamp_probs([float(tprobs[0]), float(tprobs[1])], lo=0.10, hi=0.90)
                                     mem_conf = float(mem_obj["confidence"])
 
-                                    # Implied tweets: favor "vibe" when confidence is not strong / detail-like.
                                     if explicitness == "implied" and ((tgate_conf < 0.60) or (mem_conf < 0.55) or is_detail_question(q_text)):
                                         chosen_idx = 1
                                     else:
@@ -649,11 +763,9 @@ if __name__ == "__main__":
 
                                     memory = traces[chosen_idx]["memory"]
 
-                                    # Implied: abstain only if BOTH signals are weak (AND).
                                     if explicitness == "implied" and (tgate_conf < TWEET_GATE_CONF_TH) and (mem_conf < TWEET_MEM_CONF_TH):
                                         a_post = idk
                                     else:
-                                        # Explicit: still allow IDK on detail questions when memory is weak.
                                         if explicitness == "explicit" and is_detail_question(q_text) and (mem_conf < TWEET_EXPL_DETAIL_MEMCONF_TH):
                                             a_post = idk
                                         else:
@@ -670,8 +782,6 @@ if __name__ == "__main__":
                                             probs2 = [float(x) for x in ans_dist_obj["probs"]]
                                             a_post = sample_from_candidates(cands, probs2)
 
-                                            # If we sampled IDK on an IMPLIED tweet but the signals aren't both weak,
-                                            # resample conditional on non-IDK to mimic “guessing from vibes”.
                                             if explicitness == "implied" and a_post == idk:
                                                 if not ((tgate_conf < TWEET_GATE_CONF_TH) and (mem_conf < TWEET_MEM_CONF_TH)):
                                                     a_post = sample_non_idk(cands, probs2, idk)
@@ -698,6 +808,7 @@ if __name__ == "__main__":
                         "classification_post": bucket_label(b_post),
                     }
                     w.write(json.dumps(record, ensure_ascii=False) + "\n")
+                    processed_keys.add(key)
 
     print("\nCluster usage (LLM calls), derived from human annotator appearances:")
     for cid, cnt in cluster_usage.most_common():
@@ -717,3 +828,4 @@ if __name__ == "__main__":
         print_report(m.upper(), kl(pH, pM), pH, pM)
 
     print(f"\nSaved predictions to: {out_dir}/")
+
