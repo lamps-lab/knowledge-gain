@@ -1,0 +1,51 @@
+{
+  "paper_abstract": "Reducing body weight to improve metabolic health and related comorbidities is a primary goal in treating obesity. However, maintaining weight loss is a considerable challenge, especially as the body seems to retain an obesogenic memory that defends against body weight changes. Overcoming this barrier for long-term treatment success is difficult because the molecular mechanisms underpinning this phenomenon remain largely unknown. Here, by using single-nucleus RNA sequencing, we show that both human and mouse adipose tissues retain cellular transcriptional changes after appreciable weight loss. Furthermore, we find persistent obesity-induced alterations in the epigenome of mouse adipocytes that negatively affect their function and response to metabolic stimuli. Mice carrying this obesogenic memory show accelerated rebound weight gain, and the epigenetic memory can explain future transcriptional deregulation in adipocytes in response to further high-fat diet feeding. In summary, our findings indicate the existence of an obesogenic memory, largely on the basis of stable epigenetic changes, in mouse adipocytes and probably other cell types. These changes seem to prime cells for pathological responses in an obesogenic environment, contributing to the problematic ‘yo-yo’ effect often seen with dieting. Targeting these changes in the future could improve long-term weight management and health outcomes.",
+  "news_article": "Fat Cells Seem to Cling to The Memory of Being Obese, Study Finds\nHealth\n21 November 2024\nBy\nTessa Koumoundouros\n(Iuliia Burmistrova/Getty Images)\nMany of us know from experience how incredibly darn hard it is to keep weight off after losing it. Even those who use the new class of weight loss drugs, such as\nsemaglutide\n, can face\nsubstantial weight regain\nafter ceasing the medication.\nA team led by researchers from ETH Zurich in Switzerland may have discovered why in an analysis of human tissues and experiments on mice.\nThey found mammalian fat cells keep a record of obesity in a process that regulates the expression of our genes, known as\nepigenetics\n.\nFormerly overweight mice with these epigenetic 'memories' experienced faster rebounds in weight gain when fed a fatty diet, compared to control mice that hadn't been overweight. ETH Zurich epigeneticist Laura Hinte and colleagues call this phenomenon an obesogenic memory.\n\"These changes seem to prime cells for pathological responses in an obesogenic environment, contributing to the problematic 'yo-yo' effect often seen with dieting,\" Hinte and team\nwrite in their paper\n.\n\"Targeting these changes in the future could improve long-term weight management and health outcomes.\"\nHinte and team's mouse experiments revealed weight loss following significant gain primes\nadipocyte fat cells\nto respond even more to future high-fat diets, contributing to this weight bounce-back. The cells aren't letting go of the 'obesity setting' in regards to how genes are being turned off and on.\nThe types of genes being regulated differently in formerly overweight mice compared to controls include an increase in the activity of genes involved in inflammation and decreased activity in genes involved in fat cell identity and functions.\nPrevious research has also noted a\nloss of identity of fat cells\nin obese mice. This \"cellular identity crisis\" may be what reduces the\nnormal functions of fat\nusually seen in healthy people in those who are obese, despite the latter having more fat to perform those functions.\nAn adipocyte (fat cell) seen under a microscope. (\njxfzsy/Canva\n)\nThe researchers also found signs of this obesogenic memory in fat cells from humans who had undergone weight loss surgeries, compared to cells from people who had non-weight-related routine elective surgeries.\nDue to limitations in epigenetically analyzing frozen human fat tissue, the team could not show a direct causal relationship in humans.\nBut overall \"these results indicate that obesity induces cellular and transcriptional (obesogenic) changes in the adipose tissue, which are not resolved following significant weight loss,\" Hinte and team\nexplain\n.\nFor\nbillions of us\n, factors outside our control, from our\nmicrobiomes\nto reliance on certain medications, resource restraints, and genetics, can make keeping off that weight incredibly tough. Now we can add epigenetics to this frustrating list.\nObesity was associated with\n4 million global deaths in 2015\n, more than two-thirds of them attributed to\nheart disease\n(the number one cause of death globally).\nObesity rates are expected to continue to rise,\nparticularly in the US\n, so the need to understand this complex issue becomes ever more pressing.\nBut until we have a way to tackle obesogenic memory, it may help to keep in mind\nother studies\nsuggest instead of focusing on the weight itself, focusing on eating healthier may have a more positive and lasting impact on our health.\nThis research was published in\nNature\n.",
+  "good_output": {
+    "article_id": 1,
+    "qa_annotations": [
+      {
+        "question_in_set": 1,
+        "question-text": "Fat cells can retain epigenetic changes after significant weight loss that may influence future weight regain.",
+        "options": ["True", "False", "I do not know the answer."],
+        "correct_option": 1,
+        "correct_answer": "True"
+      },
+      {
+        "question_in_set": 2,
+        "question-text": "Mice that were previously overweight regained weight faster when later fed a high-fat diet than mice that had never been overweight.",
+        "options": ["True", "False", "I do not know the answer."],
+        "correct_option": 1,
+        "correct_answer": "True"
+      },
+      {
+        "question_in_set": 3,
+        "question-text": "The term 'obesogenic memory' refers to a short-lived effect that disappears immediately after weight loss.",
+        "options": ["True", "False", "I do not know the answer."],
+        "correct_option": 2,
+        "correct_answer": "False"
+      },
+      {
+        "question_in_set": 4,
+        "question-text": "Which process can change how genes are turned on or off without changing the DNA sequence, and was linked to an 'obesogenic memory' in fat tissue?",
+        "options": ["Epigenetics", "Photosynthesis", "Protein translation", "DNA replication", "I do not know the answer."],
+        "correct_option": 1,
+        "correct_answer": "Epigenetics"
+      },
+      {
+        "question_in_set": 5,
+        "question-text": "What type of diet was associated with faster rebound weight gain in previously overweight mice?",
+        "options": ["High-protein diet", "Low-carbohydrate diet", "High-fat diet", "Low-sodium diet", "I do not know the answer."],
+        "correct_option": 3,
+        "correct_answer": "High-fat diet"
+      },
+      {
+        "question_in_set": 6,
+        "question-text": "Which explanation best describes why keeping weight off can be difficult after weight loss?",
+        "options": ["Fat tissue can retain cellular and epigenetic changes that promote rebound weight gain in an obesogenic environment", "Body weight becomes permanently fixed after a short dieting period", "Fat cells stop responding to any dietary changes after weight loss", "Weight regain happens only because people always eat more after dieting", "I do not know the answer."],
+        "correct_option": 1,
+        "correct_answer": "Fat tissue can retain cellular and epigenetic changes that promote rebound weight gain in an obesogenic environment"
+      }
+    ]
+  }
+}
