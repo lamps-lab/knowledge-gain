@@ -1,0 +1,102 @@
+[
+  {
+    "article_id": 1,
+    "paper_abstract": "Abstract\nObjectives To determine the impact of running a sub-4 min mile on longevity. It was hypothesised that there would be an increase in longevity for runners who successfully completed a sub-4 min mile compared with the general population.\n\nMethods As part of this retrospective cohort study, the Sub-4 Alphabetic Register was used to extract the first 200 athletes to run a sub-4 min mile. Each runner’s date of birth, date of their first successful mile attempt, current age (if alive) or age at death was compared with the United Nations Life Tables to determine the difference in each runner’s current age or age at death with their country of origin-specific life expectancy.\n\nResults Of the first 200 sub-4 min mile runners (100% male), 60 were dead (30%) and 140 were still alive. Sub-4 min mile runners lived an average of 4.7 years beyond their predicted life expectancy (95% CI 4.7 to 4.8). When accounting for the decade of completion (1950s, 1960s or 1970s), the longevity benefits were 9.2 years (n=22; 95% CI 8.3 to 10.1), 5.5 years (n=88; 95% CI 5.3 to 5.7) and 2.9 years (n=90; 95% CI 2.7 to 3.1), respectively.\n\nConclusion Sub-4 min mile runners have increased longevity compared with the general population, thereby challenging the notion that extreme endurance exercise may be detrimental to longevity.",
+    "qa_annotations": [
+      {
+        "question_in_set": 1,
+        "question-text": "Runners who completed a sub-4 minute mile lived an average of 4.7 years longer than their predicted life expectancy.",
+        "options": [
+          "True",
+          "False",
+          "I do not know the answer."
+        ],
+        "correct_option": 1,
+        "correct_answer": "True"
+      },
+      {
+        "question_in_set": 2,
+        "question-text": "The findings suggest that extreme endurance exercise may be detrimental to longevity.",
+        "options": [
+          "True",
+          "False",
+          "I do not know the answer."
+        ],
+        "correct_option": 2,
+        "correct_answer": "False"
+      },
+      {
+        "question_in_set": 3,
+        "question-text": "The average longevity increase for sub-4 minute mile runners varies by the decade they completed the mile.",
+        "options": [
+          "True",
+          "False",
+          "I do not know the answer."
+        ],
+        "correct_option": 1,
+        "correct_answer": "True"
+      },
+      {
+        "question_in_set": 4,
+        "question-text": "What is the average increase in lifespan for sub-4 minute mile runners compared to the general population?",
+        "options": [
+          "2.9 years",
+          "5.5 years",
+          "4.7 years",
+          "9.2 years",
+          "I do not know the answer."
+        ],
+        "correct_option": 3,
+        "correct_answer": "4.7 years"
+      },
+      {
+        "question_in_set": 5,
+        "question-text": "Which group of athletes has shown increased lifespans compared to the general population?",
+        "options": [
+          "Marathon runners",
+          "Tour de France cyclists",
+          "Olympic athletes",
+          "All of the above",
+          "I do not know the answer."
+        ],
+        "correct_option": 4,
+        "correct_answer": "All of the above"
+      },
+      {
+        "question_in_set": 6,
+        "question-text": "What potential factor might contribute to the increased longevity of elite runners beyond their exercise regimen?",
+        "options": [
+          "Favorable genetics",
+          "Higher caloric intake",
+          "Less competition",
+          "Lower stress levels",
+          "I do not know the answer."
+        ],
+        "correct_option": 1,
+        "correct_answer": "Favorable genetics"
+      }
+    ],
+    "candidates": [
+      {
+        "source": "gen_0",
+        "text": "Sub-4-Minute Mile Runners Live Longer Than Average\nNew research reveals that athletes who have completed a sub-4-minute mile enjoy significantly longer lives than the general population\n\nA groundbreaking study has shown that runners who can break the elusive sub-4-minute mile barrier tend to live longer than their peers. This finding challenges the widely held belief that extreme endurance sports can be detrimental to health.\n\nThe study examined the first 200 male athletes who achieved this remarkable feat. Out of these runners, only 30% have passed away, while the rest are still alive, defying the typical life expectancy of their respective countries.\n\nOn average, these elite runners lived nearly 5 years longer than anticipated based on standard life expectancy tables. The findings suggest a direct correlation between extraordinary athletic achievement and increased longevity.\n\nResearchers categorized the runners by the decade in which they completed their sub-4-minute mile. Those who achieved this in the 1950s experienced the greatest longevity gains, living over 9 years longer than expected. This was followed by runners from the 1960s and 1970s, who also showed notable increases in lifespan.\n\nWhy is this important? It's not just about running fast; it speaks to the overall health benefits associated with rigorous training. The results offer a fresh perspective on endurance sports, previously thought to bring more risks than rewards.\n\nThe implications extend beyond just runners. This research encourages a dialogue about physical fitness and its role in enhancing life quality and longevity, inviting more people to embrace an active lifestyle.\n\nThe study invites further exploration into what makes these runners unique. Their training regimens, diet, and mental resilience are all factors worth investigating in ongoing health research.\n\nIn a world where sedentary lifestyles are becoming the norm, this study serves as a beacon for fitness enthusiasts. It emphasizes the importance of pushing one's physical limits, not just for competition but for long-term health benefits.\n\nThe researchers highlight that this data should inspire more people to pursue their fitness goals. Breaking personal records, no matter how small, can contribute to a longer, healthier life.\n\nMoreover, it’s a reminder that age is just a number. With the right mindset and dedication to fitness, individuals can significantly improve their life expectancy and overall wellbeing.\n\nAs we rethink the relationship between extreme sports and longevity, this study adds a compelling argument for embracing physical challenges responsibly.\n\nIn summary, the findings suggest good news for those chasing athletic excellence—pushing the limits of human endurance could lead to a longer, more fulfilling life."
+      },
+      {
+        "source": "gen_1",
+        "text": "Breaking Barriers: Runners Who Defy Time\nElite athletes running sub-4-minute miles may unlock keys to a longer life\n\nA recent study has unveiled an astonishing link between running a sub-4-minute mile and increased longevity. The findings indicate that these exceptional athletes outlive the general population.\n\nDelving into the lives of the first 200 males who achieved this milestone, the research discovered that only a fraction had passed away—just 30%. Comparatively, the rest have enjoyed lives that extend well beyond standard life expectancies calculated by United Nations data.\n\nOn average, sub-4-minute mile runners exceeded their life expectancy by about 4.7 years. This remarkable statistic raises questions about the relationship between high-intensity exercise and health longevity.\n\nDividing the runners by decade, the results become even more fascinating. Those who accomplished the feat in the 1950s enjoyed an impressive 9.2 additional years—an inspiring reminder of the physical prowess of that era.\n\nSuch evidence challenges the narrative that extreme endurance could harm one's health. Instead, it proposes that rigorous training may fortify the body, promoting a longer life.\n\nThese findings also highlight the broader implications for health and fitness. As medical professionals and fitness enthusiasts debate the effects of strenuous activity on health, this study serves as a critical piece of evidence supporting the benefits of maintaining an active lifestyle.\n\nThe results encourage a reevaluation of how society views long-distance running and its potential risks. While moderation is essential, extreme fitness achievements could be linked to greater longevity.\n\nWith increasing numbers of people facing lifestyle-related health issues, these insights advocate for running and endurance sports as viable pathways to improved health outcomes.\n\nThe study has opened the door to further investigations into the individual characteristics of these runners. Their training regimes, eating habits, and mental fortitude may hold secrets to their longevity.\n\nThis research is a clarion call for both runners and non-runners alike. It underscores the value of striving towards personal bests, regardless of how far one can run.\n\nIn a world grappling with health crises tied to inactivity, these findings may inspire a new generation to lace up their running shoes and hit the track.\n\nUltimately, the evidence suggests that the pursuit of speed doesn’t just end at the finish line—it may also extend one’s lifespan."
+      },
+      {
+        "source": "gen_2",
+        "text": "Runners Who Break 4 Minutes for a Mile Live Longer\nElite athletes enjoy significant longevity benefits, redefining endurance sports\n\nA fascinating new study has revealed that runners who complete a sub-4-minute mile live longer than those who don’t. This surprising finding reshapes our understanding of endurance sports and longevity.\n\nAnalyzing the lives of the first 200 male athletes to achieve this milestone, researchers found that only 30% of them are no longer alive. In contrast, many of the others exceeded their expected lifespans based on data from the United Nations.\n\nOn average, these remarkable runners outlive the general population by nearly 5 years. Such a significant extension raises important questions about the health benefits linked to rigorous athletic training.\n\nThe researchers categorized the runners by the decade in which they achieved their sub-4-minute mile. The longevity benefits were most pronounced among those who completed this feat in the 1950s, living over 9 years longer than their average life expectancy.\n\nThis study contradicts the premise that extreme exercise is harmful. Instead, it suggests that pushing physical limits may foster a healthier overall body and, consequently, a longer life.\n\nThe implications of these findings are far-reaching. They highlight the benefits of an active lifestyle, encouraging more individuals to embrace physical fitness and endurance challenges.\n\nIn a time when sedentary behavior is increasingly normalized, the benefits identified in these athletes could inspire a cultural shift toward valuing fitness and physical activity.\n\nAdditionally, the findings suggest a need to further investigate the factors contributing to the longevity of these elite athletes. Aspects like their training styles, nutrition, and mental conditioning might provide insights vital to promoting health.\n\nThe study also serves as a powerful reminder for anyone looking to improve their health. It underscores the importance of setting and striving for ambitious fitness goals.\n\nWith lifestyle diseases on the rise, this research advocates for running and similar endurance activities as effective measures for enhancing life quality and longevity.\n\nAs perspectives on fitness evolve, it’s crucial to recognize the potential benefits of endurance sports. This study invites a reassessment of how we view athletics and its roles in our lives.\n\nIn conclusion, the findings suggest that extreme athletic achievements may not just be feats of speed—they could also lead to longer, healthier lives."
+      },
+      {
+        "source": "gen_3",
+        "text": "The Longevity Secret of Sub-4-Minute Mile Runners\nNew study highlights extraordinary benefits of elite athleticism for lifespan\n\nA recent study has unveiled that runners who can complete a mile in under 4 minutes enjoy a notable increase in life expectancy compared to average individuals. This revelation challenges many common assumptions about endurance sports.\n\nThe research focused on the first 200 male athletes to break this impressive barrier. Findings showed that only 30% of these runners had passed away, with the others living beyond their predicted life spans according to United Nations statistics.\n\nOn average, these elite athletes outlive their peers by approximately 4.7 years. This statistic raises intriguing questions about the health implications of rigorous training and high-level competition.\n\nThe study also broke down the data by the decade in which these runners achieved their sub-4-minute mile. Those who did so in the 1950s exhibited the most significant longevity benefits, with an impressive additional 9.2 years compared to expected life expectancy.\n\nThese findings cast doubt on the idea that intense training might have negative health effects. Instead, they suggest that undertaking such physical challenges could lead to a longer, healthier life.\n\nThe implications of this research stretch far beyond running. It serves as a motivator for people of all fitness levels, reinforcing the message that pursuing fitness goals can have substantial rewards.\n\nWith many people facing health crises related to inactivity, this study may provide an essential perspective on the far-reaching benefits of maintaining an active lifestyle.\n\nFurthermore, it invites new avenues of research focused on what differentiates these successful runners. Their training methods, nutritional habits, and psychological resilience may hold critical insights into achieving better health outcomes.\n\nThis study serves as an important reminder that striving for personal excellence in physical fitness can yield significant long-term benefits.\n\nThe findings advocate for a health-conscious society that values athleticism and encourages everyone to chase their personal best, regardless of their current level.\n\nIn a time when fitness may be overlooked, this research might inspire a renewed vigor for activity and competition.\n\nUltimately, the study suggests that the pursuit of speed could lead to a longer life, redefining the way we understand endurance sports and longevity."
+      },
+      {
+        "source": "gen_4",
+        "text": "Challenging Conventional Wisdom: Sub-4-Minute Runners Live Longer\nStudy uncovers surprising longevity benefits for elite athletes\n\nA recent study has brought to light that athletes capable of running a mile in under 4 minutes may enjoy extended lifespans compared to the general population. This finding raises important questions about the relationship between extreme endurance sports and longevity.\n\nThe research examined the first 200 male runners to achieve this impressive feat. Out of this group, only 30% have died, while the rest are still alive, often surpassing the life expectancy predicted by United Nations data.\n\nOn average, these elite runners have lived about 4.7 years longer than expected. Such findings offer compelling evidence of the health benefits associated with high levels of physical training.\n\nAn even deeper dive reveals that runners from the 1950s experienced the greatest longevity advantage, living over 9 years longer than average, followed by those from the 1960s and 70s.\n\nThis challenges the prevailing notion that strenuous exercise is harmful to one's health. Instead, the results suggest that pushing physical limits could contribute to a longer life.\n\nThe implications are vast. This research provides a fresh perspective on the importance of fitness and may motivate more people to pursue active lifestyles.\n\nAs we face increasing sedentary behavior in society, the findings advocate for the health benefits of challenging oneself physically, regardless of the extent of the challenge.\n\nThe study also opens the door to further investigation into the unique traits of these elite runners. Their training routines, diet, and mental strength might hold valuable lessons for anyone interested in improving their health.\n\nMoreover, this study shines a light on the potential rewards of goal-setting in athletics. The pursuit of personal bests, whether in running or any other sport, has extensive implications for health and longevity.\n\nIn a world battling lifestyle-related health issues, these findings encourage a prioritization of physical activity. They serve as a reminder that engaging in challenging physical pursuits can boost not just fitness levels but overall lifespan.\n\nThis research serves as a call to action, urging both enthusiasts and the general public to value the transformative power of endurance sports.\n\nIn short, the study suggests that achieving remarkable athletic feats could extend beyond accolades and competitions; it may also lead to a longer and healthier life."
+      }
+    ]
+  }
+]
