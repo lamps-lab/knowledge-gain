@@ -34,7 +34,7 @@ def responses_create_json(
     schema_name: str,
     schema: Dict[str, Any],
     temperature: float,
-    max_output_tokens: int = 1800,
+    max_output_tokens: int = 3750,
     max_retries: int = 5,
 ) -> Dict[str, Any]:
     last_err: Optional[Exception] = None
@@ -100,7 +100,7 @@ def gen_candidates(client: OpenAI, model: str, abstract: str, k: int, temp: floa
         schema_name="news_candidates_v2",  # keep a new name to avoid schema caching weirdness
         schema=CANDIDATES_SCHEMA,
         temperature=temp,
-        max_output_tokens=2200,
+        max_output_tokens=3750,
     )
     cands = [c.strip() for c in obj["candidates"] if isinstance(c, str) and c.strip()]
     return cands[:k] if len(cands) > k else cands
@@ -109,7 +109,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", default="out.json", help="out.json / qgen output JSON/JSONL with paper_abstract, qa_annotations, and optionally news_article")
     ap.add_argument("--output", default="candidates.json", help="JSONL to write: one record per abstract with candidates")
-    ap.add_argument("--k", type=int, default=6, help="Generated candidates per abstract")
+    ap.add_argument("--k", type=int, default=5, help="Generated candidates per abstract")
     ap.add_argument("--include_original", action="store_true", help="Also include original news_article as a candidate")
     ap.add_argument("--model", default="gpt-4o-mini")
     ap.add_argument("--temp", type=float, default=0.9)
