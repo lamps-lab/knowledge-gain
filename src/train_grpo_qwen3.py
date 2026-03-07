@@ -7,8 +7,13 @@ GRPO fine-tuning of a generator to maximize a trained reward model.
 Data JSONL must contain:
   {"paper_abstract": "...", "qa_annotations":[...]}
 
-Generator sees only abstract.
-Reward model sees abstract + questions + candidate article.
+Generator:
+- Uses Qwen3 chat template
+- Forces non-thinking mode (enable_thinking=False)
+- Sees only the abstract (prevents "writing to the test")
+
+Reward model:
+- Scores (abstract + questions + generated article)
 
 Recommended:
 - Generator on cuda:1
@@ -22,8 +27,10 @@ import argparse
 import json
 import sys
 import time
+import re
+import string
 from contextlib import redirect_stdout, redirect_stderr
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 import torch
 
@@ -60,17 +67,16 @@ def qas_to_text(qas: List[Dict[str, Any]]) -> str:
     return "\n\n".join(blocks)
 
 
-def build_generator_prompt(abstract: str) -> str:
+def build_generator_user_content(abstract: str) -> str:
     return (
-        "You are a science news writer.\n"
-        "Write a clear, engaging news article for a general audience.\n"
+        "Write a clear, engaging science news article for a general audience.\n"
+        "Output ONLY the article. No preamble, no analysis, no outline, no 'Okay'.\n"
         "Length: 450–750 words.\n"
-        "Stop when the article is complete. Do NOT add filler or extra sections.\n"
+        "Stop when the article is complete.\n"
         "Do NOT invent facts: no made-up numbers, years, institutions, author names, or journal names.\n"
         "Only include quantitative results if they are explicitly present in the abstract.\n"
         "Prefer short paragraphs and a journalistic tone.\n\n"
-        f"ABSTRACT:\n{abstract.strip()}\n\n"
-        "Write the news article now.\n"
+        f"ABSTRACT:\n{abstract.strip()}\n"
     )
 
 
@@ -84,28 +90,42 @@ def build_rm_prompt(abstract: str, qas: List[Dict[str, Any]]) -> str:
     )
 
 
-def alpha_ratio(text: str) -> float:
-    non_space = [c for c in text if not c.isspace()]
-    if not non_space:
-        return 0.0
-    alpha = sum(c.isalpha() for c in non_space)
-    return alpha / len(non_space)
+def _text_stats(text: str) -> Dict[str, float]:
+    t = text or ""
+    chars = [c for c in t if not c.isspace()]
+    n = len(chars)
+    if n == 0:
+        return {
+            "alpha_ratio": 0.0,
+            "digit_ratio": 0.0,
+            "punct_ratio": 1.0,
+            "word_count": 0,
+            "word_alpha_ratio": 0.0,
+        }
+
+    alpha = sum(c.isalpha() for c in chars)
+    digit = sum(c.isdigit() for c in chars)
+    punct = sum(c in string.punctuation for c in chars)
+
+    words = t.split()
+    wc = len(words)
+    good_words = sum(sum(ch.isalpha() for ch in w) >= 2 for w in words) if wc else 0
+
+    return {
+        "alpha_ratio": alpha / n,
+        "digit_ratio": digit / n,
+        "punct_ratio": punct / n,
+        "word_count": wc,
+        "word_alpha_ratio": (good_words / wc) if wc else 0.0,
+    }
 
 
-def length_reward(words: int, min_words: int, max_words: int, weight: float) -> float:
-    # Penalize being outside the word range. Inside the range gives 0.
+def _length_shape(words: int, min_words: int, max_words: int, weight: float) -> float:
     if words < min_words:
         return -weight * (min_words - words)
     if words > max_words:
         return -weight * (words - max_words)
     return 0.0
-
-
-def alpha_reward(ar: float, min_alpha: float, weight: float) -> float:
-    # Penalize low alphabetic ratio (math/garbage tends to have low ratio).
-    if ar >= min_alpha:
-        return 0.0
-    return -weight * (min_alpha - ar)
 
 
 @torch.no_grad()
@@ -114,21 +134,27 @@ def make_rm_reward_func(
     rm_tokenizer,
     device: torch.device,
     max_length: int,
-    microbatch: int,
-    # reward shaping knobs
-    min_words: int,
-    max_words: int,
-    len_weight: float,
-    min_alpha: float,
-    alpha_weight: float,
+    microbatch: int = 1,
+    min_words: int = 420,
+    max_words: int = 900,
+    min_alpha_ratio: float = 0.72,
+    min_word_alpha_ratio: float = 0.85,
+    max_punct_ratio: float = 0.18,
+    max_digit_ratio: float = 0.08,
+    bad_reward: float = -200.0,
+    len_weight: float = 0.02,
 ):
     rm_model.eval()
+    bad_patterns = [
+        r"\[math", r"\\frac", r"\\times", r"00000", r"\)\)\)", r"\]\]", r"\(\(", r"\)\)",
+    ]
+    bad_re = re.compile("|".join(bad_patterns), flags=re.IGNORECASE)
 
     def reward_func(completions, rm_prompt, **kwargs):
         texts = [p + c for p, c in zip(rm_prompt, completions)]
         mb = max(1, int(microbatch))
-        rm_scores: List[float] = []
 
+        rm_scores: List[float] = []
         for i in range(0, len(texts), mb):
             batch_texts = texts[i : i + mb]
             enc = rm_tokenizer(
@@ -138,26 +164,49 @@ def make_rm_reward_func(
                 truncation=True,
                 max_length=max_length,
             ).to(device)
-
             with torch.inference_mode():
                 out = rm_model(**enc)
-
             rm_scores.extend(out.logits.squeeze(-1).float().detach().cpu().tolist())
 
-        shaped: List[float] = []
+        final_rewards: List[float] = []
         for s, c in zip(rm_scores, completions):
-            w = len((c or "").split())
-            ar = alpha_ratio(c or "")
-            r_len = length_reward(w, min_words=min_words, max_words=max_words, weight=len_weight)
-            r_alpha = alpha_reward(ar, min_alpha=min_alpha, weight=alpha_weight)
-            shaped.append(float(s) + float(r_len) + float(r_alpha))
+            comp = (c or "").strip()
+            st = _text_stats(comp)
+            wc = int(st["word_count"])
 
-        return shaped
+            if (
+                wc < min_words
+                or wc > max_words
+                or st["alpha_ratio"] < min_alpha_ratio
+                or st["word_alpha_ratio"] < min_word_alpha_ratio
+                or st["punct_ratio"] > max_punct_ratio
+                or st["digit_ratio"] > max_digit_ratio
+                or bad_re.search(comp) is not None
+                or comp.lower().startswith("okay")
+            ):
+                final_rewards.append(float(bad_reward))
+                continue
+
+            r_len = _length_shape(wc, min_words=min_words, max_words=max_words, weight=len_weight)
+            final_rewards.append(float(s) + float(r_len))
+
+        return final_rewards
 
     return reward_func
 
 
 class SampleGenerationCallback(TrainerCallback):
+    """
+    Generates and logs one sample every N steps.
+    Uses the already-templated prompt stored in the dataset (so it matches training exactly).
+
+    IMPORTANT FIXES:
+    - Force model.eval() during generation (dropout off) and restore previous mode
+    - Use do_sample=True so temp/top_p/top_k actually apply
+    - Use the same anti-loop knobs as training
+    - Do NOT mutate model.config.use_cache
+    """
+
     def __init__(
         self,
         tokenizer,
@@ -167,7 +216,10 @@ class SampleGenerationCallback(TrainerCallback):
         max_new_tokens: int,
         temperature: float,
         top_p: float,
-        print_samples: bool,
+        top_k: int,
+        prompt_max_length: int,
+        repetition_penalty: float = 1.05,
+        no_repeat_ngram_size: int = 4,
     ):
         self.tokenizer = tokenizer
         self.sample_record = sample_record
@@ -176,7 +228,10 @@ class SampleGenerationCallback(TrainerCallback):
         self.max_new_tokens = int(max_new_tokens)
         self.temperature = float(temperature)
         self.top_p = float(top_p)
-        self.print_samples = bool(print_samples)
+        self.top_k = int(top_k)
+        self.prompt_max_length = int(prompt_max_length)
+        self.repetition_penalty = float(repetition_penalty)
+        self.no_repeat_ngram_size = int(no_repeat_ngram_size)
 
     def on_step_end(self, args, state, control, **kwargs):
         if self.every <= 0:
@@ -193,10 +248,16 @@ class SampleGenerationCallback(TrainerCallback):
             article_id = self.sample_record.get("article_id")
             paper_abs = self.sample_record.get("paper_abstract")
 
-            model_was_cache = getattr(model.config, "use_cache", None)
-            model.config.use_cache = True
+            # FIX: ensure dropout is OFF for sampling
+            was_training = model.training
+            model.eval()
 
-            enc = self.tokenizer(prompt, return_tensors="pt", truncation=True)
+            enc = self.tokenizer(
+                prompt,
+                return_tensors="pt",
+                truncation=True,
+                max_length=self.prompt_max_length,
+            )
             device = next(model.parameters()).device
             enc = {k: v.to(device) for k, v in enc.items()}
             input_len = enc["input_ids"].shape[-1]
@@ -204,44 +265,70 @@ class SampleGenerationCallback(TrainerCallback):
             with torch.inference_mode():
                 out_ids = model.generate(
                     **enc,
+                    # FIX: actually sample (otherwise temp/top_p/top_k are ignored)
                     do_sample=True,
                     temperature=self.temperature,
                     top_p=self.top_p,
+                    top_k=self.top_k,
+                    repetition_penalty=self.repetition_penalty,
+                    no_repeat_ngram_size=self.no_repeat_ngram_size,
                     max_new_tokens=self.max_new_tokens,
-                    pad_token_id=self.tokenizer.eos_token_id,
+                    pad_token_id=self.tokenizer.pad_token_id,
                     eos_token_id=self.tokenizer.eos_token_id,
                 )
 
             completion_ids = out_ids[0, input_len:]
             completion = self.tokenizer.decode(completion_ids, skip_special_tokens=True).strip()
-
-            wc = len(completion.split())
-            ar = alpha_ratio(completion)
+            word_count = len(completion.split())
 
             row = {
                 "step": int(state.global_step),
                 "time": time.strftime("%Y-%m-%d %H:%M:%S"),
                 "article_id": article_id,
-                "words": wc,
-                "alpha_ratio": ar,
-                "prompt": prompt,
+                "words": word_count,
                 "paper_abstract": paper_abs,
                 "completion": completion,
             }
             with open(self.out_path, "a", encoding="utf-8") as w:
                 w.write(json.dumps(row, ensure_ascii=False) + "\n")
 
-            if self.print_samples:
-                preview = completion[:900].replace("\n", " ")
-                print(f"\n[SAMPLE @ step {state.global_step}] words={wc} alpha={ar:.3f} :: {preview}...\n")
-
-            if model_was_cache is not None:
-                model.config.use_cache = model_was_cache
+            # restore previous mode
+            if was_training:
+                model.train()
 
         except Exception as e:
-            print(f"[SAMPLE CALLBACK ERROR @ step {state.global_step}] {repr(e)}")
+            with open(self.out_path, "a", encoding="utf-8") as w:
+                w.write(json.dumps({"step": int(state.global_step), "error": repr(e)}, ensure_ascii=False) + "\n")
 
         return control
+
+
+def format_bonus(completions, **kwargs):
+    out = []
+    for c in completions:
+        t = (c or "").strip()
+        words = t.split()
+        wc = len(words)
+
+        chars = [ch for ch in t if not ch.isspace()]
+        if not chars:
+            out.append(-30.0)
+            continue
+
+        alpha = sum(ch.isalpha() for ch in chars) / len(chars)
+        punct = sum(ch in string.punctuation for ch in chars) / len(chars)
+
+        if t.startswith("A))))") or t.lower().startswith("okay") or "000000" in t or "\\frac" in t or "[math" in t:
+            out.append(-50.0)
+            continue
+
+        if 450 <= wc <= 750 and alpha >= 0.70 and punct <= 0.18:
+            out.append(+30.0)
+        elif 250 <= wc <= 1000 and alpha >= 0.65 and punct <= 0.25:
+            out.append(+5.0)
+        else:
+            out.append(-20.0)
+    return out
 
 
 class nullcontext:
@@ -255,19 +342,19 @@ class nullcontext:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True, help="rl_records.jsonl")
-    ap.add_argument("--gen_model", default="Qwen/Qwen3-4B-Base")
+    ap.add_argument("--gen_model", default="Qwen/Qwen3-8B")
     ap.add_argument("--rm_model", required=True, help="path or HF id of trained RM")
     ap.add_argument("--out", default="qwen3_kgain_grpo")
 
-    ap.add_argument("--max_prompt_length", type=int, default=1024)
-    ap.add_argument("--max_rm_length", type=int, default=2048)
-    ap.add_argument("--max_new_tokens", type=int, default=900)
+    ap.add_argument("--max_prompt_length", type=int, default=2048, help="Cap on generator prompt tokens")
+    ap.add_argument("--max_rm_length", type=int, default=2048, help="RM input length cap")
+    ap.add_argument("--max_new_tokens", type=int, default=1100, help="Generation budget for 450–750 words")
 
     ap.add_argument("--per_device_batch_size", type=int, default=1)
     ap.add_argument("--grad_accum", type=int, default=8)
-    ap.add_argument("--lr", type=float, default=1e-6)
+    ap.add_argument("--lr", type=float, default=5e-7)
     ap.add_argument("--steps", type=int, default=800)
-    ap.add_argument("--beta", type=float, default=0.04)
+    ap.add_argument("--beta", type=float, default=0.10, help="Stronger KL helps prevent RL collapse on small data")
     ap.add_argument("--num_generations", type=int, default=2)
     ap.add_argument("--seed", type=int, default=0)
 
@@ -286,21 +373,15 @@ def main():
     ap.add_argument("--save_total_limit", type=int, default=3)
     ap.add_argument("--resume_from_checkpoint", default=None)
 
-    ap.add_argument("--log_file", default=None, help="If set, redirects stdout/stderr to this file")
+    ap.add_argument("--log_file", default=None, help="Redirect stdout/stderr to this file")
 
     ap.add_argument("--sample_every", type=int, default=100)
     ap.add_argument("--sample_out", default="samples_real.jsonl")
-    ap.add_argument("--sample_temp", type=float, default=0.7)
-    ap.add_argument("--sample_top_p", type=float, default=0.9)
-    ap.add_argument("--sample_max_new_tokens", type=int, default=900)
-    ap.add_argument("--sample_print", action="store_true", help="Also print sample preview to stdout")
+    ap.add_argument("--sample_max_new_tokens", type=int, default=1100)
 
-    # Reward shaping guardrails (prevents junk that hacks the RM)
-    ap.add_argument("--min_words", type=int, default=450)
-    ap.add_argument("--max_words", type=int, default=750)
-    ap.add_argument("--len_weight", type=float, default=0.01, help="Penalty per word outside target range")
-    ap.add_argument("--min_alpha_ratio", type=float, default=0.60)
-    ap.add_argument("--alpha_weight", type=float, default=10.0, help="Penalty scale for low alpha ratio")
+    ap.add_argument("--sample_temperature", type=float, default=0.7)
+    ap.add_argument("--sample_top_p", type=float, default=0.8)
+    ap.add_argument("--sample_top_k", type=int, default=20)
 
     args = ap.parse_args()
 
@@ -322,18 +403,38 @@ def main():
         gen_tok = AutoTokenizer.from_pretrained(args.gen_model, use_fast=True, trust_remote_code=True)
         if gen_tok.pad_token is None:
             gen_tok.pad_token = gen_tok.eos_token
+        # helpful for generation with variable-length prompts
+        gen_tok.padding_side = "left"
 
-        def truncate_to_tokens(tokenizer, text: str, max_tokens: int) -> str:
-            if max_tokens is None or max_tokens <= 0:
+        def make_gen_prompt_text(abstract: str) -> str:
+            system = (
+                "You are a professional science journalist.\n"
+                "Do not reveal internal reasoning. Do not write outlines. Output only the article."
+            )
+            user = build_generator_user_content(abstract)
+            messages = [
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ]
+            text = gen_tok.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+                enable_thinking=False,
+            )
+            return text
+
+        def truncate_prompt(text: str) -> str:
+            ids = gen_tok(text, add_special_tokens=False).input_ids
+            if len(ids) <= args.max_prompt_length:
                 return text
-            ids = tokenizer(text, truncation=True, max_length=max_tokens, add_special_tokens=False).input_ids
-            return tokenizer.decode(ids, skip_special_tokens=True)
+            ids = ids[: args.max_prompt_length]
+            return gen_tok.decode(ids, skip_special_tokens=False)
 
         def _map(ex):
             abstract = ex["paper_abstract"]
             qas = ex["qa_annotations"]
-            prompt = build_generator_prompt(abstract)
-            ex["prompt"] = truncate_to_tokens(gen_tok, prompt, args.max_prompt_length)
+            ex["prompt"] = truncate_prompt(make_gen_prompt_text(abstract))
             ex["rm_prompt"] = build_rm_prompt(abstract, qas)
             return ex
 
@@ -357,11 +458,6 @@ def main():
             device=rm_device,
             max_length=args.max_rm_length,
             microbatch=args.rm_microbatch,
-            min_words=args.min_words,
-            max_words=args.max_words,
-            len_weight=args.len_weight,
-            min_alpha=args.min_alpha_ratio,
-            alpha_weight=args.alpha_weight,
         )
 
         gen_device = torch.device(args.gen_device)
@@ -375,6 +471,7 @@ def main():
             device_map=device_map,
         )
 
+        # training settings
         gen_model.config.use_cache = False
         gen_model.gradient_checkpointing_enable()
 
@@ -390,6 +487,7 @@ def main():
             gen_model = get_peft_model(gen_model, lora_cfg)
             gen_model.print_trainable_parameters()
 
+        # FIX: cfg should exist regardless of LoRA flag
         cfg = GRPOConfig(
             output_dir=args.out,
             learning_rate=args.lr,
@@ -399,6 +497,22 @@ def main():
             num_generations=args.num_generations,
             beta=args.beta,
             max_completion_length=args.max_new_tokens,
+
+            # Single source of truth for rollout decoding:
+            generation_kwargs={
+                "do_sample": True,
+                "temperature": 0.7,
+                "top_p": 0.8,
+                "top_k": 20,
+                "repetition_penalty": 1.05,
+                "no_repeat_ngram_size": 4,
+                "eos_token_id": gen_tok.eos_token_id,
+                "pad_token_id": gen_tok.pad_token_id,
+            },
+
+            log_completions=True,
+            num_completions_to_print=2,
+
             logging_steps=args.logging_steps,
             save_steps=args.save_steps,
             save_total_limit=args.save_total_limit,
@@ -410,21 +524,23 @@ def main():
             model=gen_model,
             args=cfg,
             train_dataset=ds,
-            reward_funcs=reward_func,
+            reward_funcs=[reward_func, format_bonus],
         )
 
         if args.sample_every and args.sample_every > 0:
-            sample_record = ds[0]
             trainer.add_callback(
                 SampleGenerationCallback(
                     tokenizer=gen_tok,
-                    sample_record=sample_record,
+                    sample_record=ds[0],
                     out_path=args.sample_out,
                     every_steps=args.sample_every,
                     max_new_tokens=args.sample_max_new_tokens,
-                    temperature=args.sample_temp,
+                    temperature=args.sample_temperature,
                     top_p=args.sample_top_p,
-                    print_samples=args.sample_print,
+                    top_k=args.sample_top_k,
+                    prompt_max_length=args.max_prompt_length,
+                    repetition_penalty=1.05,
+                    no_repeat_ngram_size=4,
                 )
             )
 
