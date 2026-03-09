@@ -4,21 +4,12 @@ train_grpo_qwen3_kgain.py
 
 GRPO fine-tuning of a generator to maximize a trained reward model.
 
-Data JSONL must contain:
-  {"paper_abstract": "...", "qa_annotations":[...]}
-
-Generator:
-- Uses Qwen3 chat template
-- Forces non-thinking mode (enable_thinking=False)
-- Sees only the abstract (prevents "writing to the test")
-
-Reward model:
-- Scores (abstract + questions + generated article)
-
-Recommended:
-- Generator on cuda:1
-- Reward model on cuda:0
-- LoRA enabled
+Fixes:
+- Prevent accidental resume / mixed checkpoints by backing up output_dir on fresh runs
+- Truncate sample_out on fresh runs (no more mixed JSONL)
+- Sampling callback uses model.eval() and do_sample=True
+- More sophisticated generation prompt (headline + paragraph guide)
+- Optional: sample_k to log multiple drafts per sampling step
 """
 
 from __future__ import annotations
@@ -29,12 +20,14 @@ import sys
 import time
 import re
 import string
+import os
+import shutil
 from contextlib import redirect_stdout, redirect_stderr
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import torch
 
-# TRL/PyTorch FSDP compatibility shim (some torch builds lack FSDPModule, TRL imports it).
+# TRL/PyTorch FSDP compatibility shim
 try:
     import torch.distributed.fsdp as fsdp
     if not hasattr(fsdp, "FSDPModule") and hasattr(fsdp, "FullyShardedDataParallel"):
@@ -68,15 +61,32 @@ def qas_to_text(qas: List[Dict[str, Any]]) -> str:
 
 
 def build_generator_user_content(abstract: str) -> str:
+    # More sophisticated prompt — but output stays as a single article (not JSON),
+    MIN_WORDS = 450
+    MAX_WORDS = 750
+    PARAGRAPH_GUIDE = "12–20 short paragraphs (often 1–3 sentences each), separated by blank lines"
+    HEADLINE_GUIDE = "Start with a punchy headline on the first line (no period)."
+
     return (
-        "Write a clear, engaging science news article for a general audience.\n"
-        "Output ONLY the article. No preamble, no analysis, no outline, no 'Okay'.\n"
-        "Length: 450–750 words.\n"
+        f"ABSTRACT:\n{abstract.strip()}\n\n"
+        "Write ONE science news article draft for a general audience.\n"
+        "Output ONLY the article text (no JSON, no bullets, no outline, no preamble).\n\n"
+        f"Style constraints:\n"
+        f"- {HEADLINE_GUIDE}\n"
+        f"- Length: {MIN_WORDS}–{MAX_WORDS} words\n"
+        f"- Structure: {PARAGRAPH_GUIDE}\n"
+        f"- Tone: explanatory, confident-but-not-hype, with concrete takeaways\n\n"
+        "Content requirements:\n"
+        "- Lead with the main finding in plain language.\n"
+        "- Include 1–3 brief context paragraphs explaining why it matters.\n"
+        "- Include key quantitative results ONLY if present in the abstract; otherwise stay qualitative.\n"
+        "- Avoid deep protocol minutiae (no optimizer names, no measurement internals, etc.).\n"
+        "- It is OK to say findings come from a study/paper.\n"
+        "- Do NOT mention 'the abstract' or that you were given an abstract.\n"
+        "- Do NOT invent facts: no made-up numbers, cohorts, years, institutions, author names, or journal names.\n"
+        "- Only include a journal name if it is explicitly present in the abstract text.\n"
+        "\n"
         "Stop when the article is complete.\n"
-        "Do NOT invent facts: no made-up numbers, years, institutions, author names, or journal names.\n"
-        "Only include quantitative results if they are explicitly present in the abstract.\n"
-        "Prefer short paragraphs and a journalistic tone.\n\n"
-        f"ABSTRACT:\n{abstract.strip()}\n"
     )
 
 
@@ -197,14 +207,12 @@ def make_rm_reward_func(
 
 class SampleGenerationCallback(TrainerCallback):
     """
-    Generates and logs one sample every N steps.
-    Uses the already-templated prompt stored in the dataset (so it matches training exactly).
+    Generates and logs samples every N steps.
 
-    IMPORTANT FIXES:
-    - Force model.eval() during generation (dropout off) and restore previous mode
-    - Use do_sample=True so temp/top_p/top_k actually apply
-    - Use the same anti-loop knobs as training
-    - Do NOT mutate model.config.use_cache
+    Fixes:
+    - model.eval() during generate
+    - do_sample=True so temp/top_p/top_k apply
+    - optional sample_k to get multiple drafts per step (logged as separate rows)
     """
 
     def __init__(
@@ -218,8 +226,10 @@ class SampleGenerationCallback(TrainerCallback):
         top_p: float,
         top_k: int,
         prompt_max_length: int,
+        sample_k: int = 1,
         repetition_penalty: float = 1.05,
         no_repeat_ngram_size: int = 4,
+        run_id: str = "",
     ):
         self.tokenizer = tokenizer
         self.sample_record = sample_record
@@ -230,8 +240,10 @@ class SampleGenerationCallback(TrainerCallback):
         self.top_p = float(top_p)
         self.top_k = int(top_k)
         self.prompt_max_length = int(prompt_max_length)
+        self.sample_k = max(1, int(sample_k))
         self.repetition_penalty = float(repetition_penalty)
         self.no_repeat_ngram_size = int(no_repeat_ngram_size)
+        self.run_id = run_id or ""
 
     def on_step_end(self, args, state, control, **kwargs):
         if self.every <= 0:
@@ -248,7 +260,6 @@ class SampleGenerationCallback(TrainerCallback):
             article_id = self.sample_record.get("article_id")
             paper_abs = self.sample_record.get("paper_abstract")
 
-            # FIX: ensure dropout is OFF for sampling
             was_training = model.training
             model.eval()
 
@@ -265,8 +276,8 @@ class SampleGenerationCallback(TrainerCallback):
             with torch.inference_mode():
                 out_ids = model.generate(
                     **enc,
-                    # FIX: actually sample (otherwise temp/top_p/top_k are ignored)
                     do_sample=True,
+                    num_return_sequences=self.sample_k,
                     temperature=self.temperature,
                     top_p=self.top_p,
                     top_k=self.top_k,
@@ -277,28 +288,35 @@ class SampleGenerationCallback(TrainerCallback):
                     eos_token_id=self.tokenizer.eos_token_id,
                 )
 
-            completion_ids = out_ids[0, input_len:]
-            completion = self.tokenizer.decode(completion_ids, skip_special_tokens=True).strip()
-            word_count = len(completion.split())
+            # out_ids: [sample_k, seq_len] (since batch=1)
+            if out_ids.dim() == 1:
+                out_ids = out_ids.unsqueeze(0)
 
-            row = {
-                "step": int(state.global_step),
-                "time": time.strftime("%Y-%m-%d %H:%M:%S"),
-                "article_id": article_id,
-                "words": word_count,
-                "paper_abstract": paper_abs,
-                "completion": completion,
-            }
-            with open(self.out_path, "a", encoding="utf-8") as w:
-                w.write(json.dumps(row, ensure_ascii=False) + "\n")
+            for j in range(out_ids.shape[0]):
+                completion_ids = out_ids[j, input_len:]
+                completion = self.tokenizer.decode(completion_ids, skip_special_tokens=True).strip()
+                word_count = len(completion.split())
 
-            # restore previous mode
+                row = {
+                    "run_id": self.run_id,
+                    "pid": os.getpid(),
+                    "step": int(state.global_step),
+                    "time": time.strftime("%Y-%m-%d %H:%M:%S"),
+                    "sample_idx": int(j),
+                    "article_id": article_id,
+                    "words": word_count,
+                    "paper_abstract": paper_abs,
+                    "completion": completion,
+                }
+                with open(self.out_path, "a", encoding="utf-8") as w:
+                    w.write(json.dumps(row, ensure_ascii=False) + "\n")
+
             if was_training:
                 model.train()
 
         except Exception as e:
             with open(self.out_path, "a", encoding="utf-8") as w:
-                w.write(json.dumps({"step": int(state.global_step), "error": repr(e)}, ensure_ascii=False) + "\n")
+                w.write(json.dumps({"run_id": self.run_id, "step": int(state.global_step), "error": repr(e)}, ensure_ascii=False) + "\n")
 
         return control
 
@@ -339,6 +357,16 @@ class nullcontext:
         return False
 
 
+def backup_path_if_exists(path: str, label: str) -> None:
+    if not path:
+        return
+    if os.path.exists(path):
+        ts = time.strftime("%Y%m%d_%H%M%S")
+        bak = f"{path}.bak_{ts}"
+        shutil.move(path, bak)
+        print(f"[fresh run] moved existing {label} {path} -> {bak}", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True, help="rl_records.jsonl")
@@ -370,7 +398,7 @@ def main():
 
     ap.add_argument("--save_steps", type=int, default=100)
     ap.add_argument("--logging_steps", type=int, default=10)
-    ap.add_argument("--save_total_limit", type=int, default=3)
+    ap.add_argument("--save_total_limit", type=int, default=5)
     ap.add_argument("--resume_from_checkpoint", default=None)
 
     ap.add_argument("--log_file", default=None, help="Redirect stdout/stderr to this file")
@@ -378,16 +406,24 @@ def main():
     ap.add_argument("--sample_every", type=int, default=100)
     ap.add_argument("--sample_out", default="samples_real.jsonl")
     ap.add_argument("--sample_max_new_tokens", type=int, default=1100)
-
     ap.add_argument("--sample_temperature", type=float, default=0.7)
     ap.add_argument("--sample_top_p", type=float, default=0.8)
     ap.add_argument("--sample_top_k", type=int, default=20)
+    ap.add_argument("--sample_k", type=int, default=1, help="How many sampled drafts to log per sampling step")
 
     args = ap.parse_args()
 
+    # Repro
+    torch.manual_seed(args.seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(args.seed)
+
+    run_id = f"{time.strftime('%Y%m%d_%H%M%S')}_pid{os.getpid()}"
+
     log_fh = None
     if args.log_file:
-        log_fh = open(args.log_file, "a", encoding="utf-8")
+        # overwrite log file to avoid mixing runs
+        log_fh = open(args.log_file, "w", encoding="utf-8")
         try:
             sys.stdout.reconfigure(line_buffering=True)
             sys.stderr.reconfigure(line_buffering=True)
@@ -398,18 +434,38 @@ def main():
     ctx_stderr = redirect_stderr(log_fh) if log_fh else nullcontext()
 
     with ctx_stdout, ctx_stderr:
+        print(f"[run_id] {run_id}", flush=True)
+        print(f"[out_dir] {args.out}", flush=True)
+        print(f"[sample_out] {args.sample_out}", flush=True)
+
+        # If not resuming, prevent accidental resume/mixing by backing up existing output dir & sample file
+        if args.resume_from_checkpoint in (None, "", "None"):
+            backup_path_if_exists(args.out, "output_dir")
+            if args.sample_out:
+                backup_path_if_exists(args.sample_out, "sample_out")
+
+        # Start a fresh sample_out with a header line (always append afterwards)
+        if args.sample_out:
+            with open(args.sample_out, "a", encoding="utf-8") as w:
+                w.write(json.dumps({"run_id": run_id, "event": "start", "time": time.strftime("%Y-%m-%d %H:%M:%S")}, ensure_ascii=False) + "\n")
+
         ds = load_dataset("json", data_files=args.data, split="train")
 
         gen_tok = AutoTokenizer.from_pretrained(args.gen_model, use_fast=True, trust_remote_code=True)
         if gen_tok.pad_token is None:
             gen_tok.pad_token = gen_tok.eos_token
-        # helpful for generation with variable-length prompts
         gen_tok.padding_side = "left"
 
         def make_gen_prompt_text(abstract: str) -> str:
             system = (
-                "You are a professional science journalist.\n"
-                "Do not reveal internal reasoning. Do not write outlines. Output only the article."
+                "You are a science news writer.\n"
+                "Write a clear, engaging news article for a general audience.\n"
+                "It is OK to mention that findings come from a study/paper.\n"
+                "Do NOT mention 'the abstract' or that you were given an abstract.\n"
+                "Do NOT invent facts: no made-up numbers, cohorts, years, institutions, author names, or journal names.\n"
+                "Only include a journal name if it is explicitly present in the abstract text.\n"
+                "Prefer short paragraphs and a journalistic tone.\n"
+                "Output ONLY the article text.\n"
             )
             user = build_generator_user_content(abstract)
             messages = [
@@ -471,7 +527,6 @@ def main():
             device_map=device_map,
         )
 
-        # training settings
         gen_model.config.use_cache = False
         gen_model.gradient_checkpointing_enable()
 
@@ -487,7 +542,6 @@ def main():
             gen_model = get_peft_model(gen_model, lora_cfg)
             gen_model.print_trainable_parameters()
 
-        # FIX: cfg should exist regardless of LoRA flag
         cfg = GRPOConfig(
             output_dir=args.out,
             learning_rate=args.lr,
@@ -498,7 +552,7 @@ def main():
             beta=args.beta,
             max_completion_length=args.max_new_tokens,
 
-            # Single source of truth for rollout decoding:
+            # keep rollout decoding controlled here
             generation_kwargs={
                 "do_sample": True,
                 "temperature": 0.7,
@@ -527,7 +581,7 @@ def main():
             reward_funcs=[reward_func, format_bonus],
         )
 
-        if args.sample_every and args.sample_every > 0:
+        if args.sample_every and args.sample_every > 0 and args.sample_out:
             trainer.add_callback(
                 SampleGenerationCallback(
                     tokenizer=gen_tok,
@@ -539,14 +593,16 @@ def main():
                     top_p=args.sample_top_p,
                     top_k=args.sample_top_k,
                     prompt_max_length=args.max_prompt_length,
+                    sample_k=args.sample_k,
                     repetition_penalty=1.05,
                     no_repeat_ngram_size=4,
+                    run_id=run_id,
                 )
             )
 
         trainer.train(resume_from_checkpoint=args.resume_from_checkpoint)
         trainer.save_model(args.out)
-        print(f"Saved GRPO-tuned generator to: {args.out}")
+        print(f"Saved GRPO-tuned generator to: {args.out}", flush=True)
 
     if log_fh:
         log_fh.close()
