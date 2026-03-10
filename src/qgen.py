@@ -7,7 +7,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from openai import OpenAI
 
-MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+MODEL = os.getenv("OPENAI_MODEL", "gpt-5")
 TEMP_GEN = float(os.getenv("TEMP_GEN", "0.7"))
 TEMP_VERIFY = float(os.getenv("TEMP_VERIFY", "0.2"))
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "5"))
@@ -81,19 +81,21 @@ VERIFY_SCHEMA = {
 SYSTEM_QGEN = f"""You are a multiple-choice question generator for a human study.
 
 Your job:
-- Read BOTH the paper abstract and the news article.
-- Generate a question set that tests GENERAL KNOWLEDGE about the finding/concepts.
-- Questions must be SELF-CONTAINED (no references to sources).
+- Read the paper abstract.
+- Generate a question set that tests GENERAL KNOWLEDGE about the findings/concepts.
+- Questions must be phrased as UNIVERSAL TRIVIA, completely detached from the abstract itself.
 
 Hard constraints:
-1) SELF-CONTAINED:
-   Do NOT use phrases like: "the study", "the paper", "the abstract", "the article",
-   "the researchers", "according to", "this research".
+1) SELF-CONTAINED (CRITICAL):
+   Do NOT make it a reading comprehension test. 
+   - FORBIDDEN NOUNS: "the study", "the paper", "the abstract", "the authors", "the data".
+   - FORBIDDEN VERBS: "assessed", "reported", "stated", "observed", "measured", "estimated", "cited".
+   - BAD: "What was the estimated number of cancer cases reported?"
+   - GOOD: "How many cancer cases are attributed to PFAS in drinking water annually?"
 2) OVERLAPPING KNOWLEDGE:
-   Each question must be answerable with the SAME correct answer by someone who read ONLY the abstract
-   OR ONLY the news article. (Overlap only; not source-specific.)
+   Each question must be answerable with the SAME correct answer by someone who read ONLY the abstract.
 3) NO STUDY/RESEARCHER DETAILS:
-   Avoid authors, venue, affiliations, study design minutiae, apparatus specs that aren't a general claim.
+   Avoid authors, venue, affiliations, study design timelines (e.g., "Between 2016-2021"), or apparatus specs. Focus on the core scientific facts.
 4) FORMAT:
    - First 2 True/False questions (TF)
    - Next 2 Easy MCQ questions (Easy)
@@ -105,17 +107,14 @@ Hard constraints:
    - MCQ options must be exactly 5 options, with last option exactly "{IDK_TEXT}".
      correct_option must be 1..4.
 6) Easy vs Hard:
-   - Easy: directly stated in BOTH texts.
-   - Hard: not a verbatim span, but still inferable from BOTH texts.
+   - Easy: directly stated in the text.
+   - Hard: not a verbatim span, but still inferable.
 
 Return STRICT JSON in the required schema, nothing else.
 """
 
 USER_QGEN_TEMPLATE = """PAPER ABSTRACT:
 {paper_abstract}
-
-NEWS ARTICLE:
-{news_article}
 
 Generate the 6 questions now (2 TF, 2 Easy MCQ, 2 Hard MCQ) in that order.
 Use question_in_set = 1..6 in order.
@@ -124,18 +123,26 @@ Return JSON only.
 
 SYSTEM_VERIFY = f"""You are a strict verifier and repairer for the generated question set.
 
-Check EACH question against these rules:
+Check EACH question against these rules. If ANY rule is violated, mark ok=false and provide a replacement!
 
-A) Self-contained:
-   Must NOT reference sources ("the study/paper/article/abstract/researchers/according to", etc.)
+A) Self-contained & Universal Fact-Framing (CRITICAL):
+   Questions MUST be phrased as universal, standalone facts. They must NOT read like a reading comprehension quiz about a specific document or experiment.
+   - FATAL WORDS (REJECT IF PRESENT): "cited", "assessed", "reported", "stated", "observed", "measured", "estimated", "data", "period", "the study", "the abstract".
+   - BAD EXAMPLE: "Which chemical showed the strongest reported association?" (REJECT: implies a specific report).
+   - GOOD EXAMPLE: "Which chemical has the strongest association with oral cavity cancers?"
+   - BAD EXAMPLE: "During which years was cancer incidence assessed?" (REJECT: asks about study methodology).
+   - GOOD EXAMPLE: "What is the Maximum Contaminant Level for PFOA?"
+
 B) Overlap:
-   Must be answerable from ONLY the abstract AND also from ONLY the news article
-   (same correct answer; no source-specific details).
+   Must be answerable using ONLY the provided abstract text.
+
 C) Format:
    - Q1–Q2 are TF: options exactly ["True","False","{IDK_TEXT}"]; correct_option in {{1,2}}
    - Q3–Q4 are Easy MCQ: 5 options; last is "{IDK_TEXT}"; correct_option in {{1..4}}
    - Q5–Q6 are Hard MCQ: 5 options; last is "{IDK_TEXT}"; correct_option in {{1..4}}
-D) No researcher/venue/study-protocol minutiae.
+
+D) No Study Details:
+   Strictly NO questions about researcher names, venues, monitoring periods (e.g., 2013-2015), methodology timelines, or study protocols. Focus ONLY on the scientific claims.
 
 If a question is invalid, produce ONE replacement with the SAME question_in_set that satisfies all rules.
 Keep difficulty level consistent with its slot (TF/Easy/Hard).
@@ -144,9 +151,6 @@ Return JSON only using the verification schema.
 
 USER_VERIFY_TEMPLATE = """PAPER ABSTRACT:
 {paper_abstract}
-
-NEWS ARTICLE:
-{news_article}
 
 DRAFT QUESTIONS JSON:
 {draft_json}
@@ -170,24 +174,25 @@ def responses_create_json(
             #print("RUNNING FILE:", __file__)
             #print("SCHEMA NAME:", schema_name)
             #print("VERIFY REQUIRED:", schema.get("properties", {}).get("items", {}).get("items", {}).get("required"))
-            resp = client.responses.create(
+            resp = client.chat.completions.create(
                 model=MODEL,
-                input=[
+                messages=[
                     {"role": "system", "content": system_text},
                     {"role": "user", "content": user_text},
                 ],
-                temperature=temperature,
-                max_output_tokens=max_output_tokens,
-                text={
-                    "format": {
-                        "type": "json_schema",
+                #temperature=temperature,
+                #max_tokens=max_output_tokens,
+                response_format={
+                    "type": "json_schema",
+                    "json_schema": {
                         "name": schema_name,
                         "schema": schema,
                         "strict": True,
                     }
                 },
             )
-            out = (resp.output_text or "").strip()
+            out = resp.choices[0].message.content
+            #out = (resp.output_text or "").strip()
             if not out:
                 raise RuntimeError("Empty output_text.")
             return json.loads(out)
@@ -223,15 +228,15 @@ def extract_texts(record: Dict[str, Any]) -> Tuple[int, str, str]:
       - {"article_id": 31, "abstract": "...", "news": "..."}
       - {"article_id": 31, "abstract_item": {"content": "..."}, "news_item": {"content": "..."}}
     """
-    article_id = record.get("article_id", record.get("id", 0))
+    article_id = record.get("id", record.get("id", 0)) or record.get("article_id", record.get("id", 0)) 
     if not isinstance(article_id, int):
         try:
             article_id = int(article_id)
         except Exception:
             article_id = 0
 
-    abs_txt = record.get("paper_abstract") or record.get("abstract") or ""
-    news_txt = record.get("news_article") or record.get("news") or ""
+    abs_txt =  record.get("abstract") or record.get("paper_abstract") or ""
+    news_txt =  record.get("news") or record.get("news_article") or ""
 
     if not abs_txt and isinstance(record.get("abstract_item"), dict):
         abs_txt = record["abstract_item"].get("content", "") or ""
@@ -267,7 +272,7 @@ def qgen(client: OpenAI, article_id: int, paper_abstract: str, news_article: str
     draft = responses_create_json(
         client=client,
         system_text=SYSTEM_QGEN + fewshot,
-        user_text=USER_QGEN_TEMPLATE.format(paper_abstract=paper_abstract, news_article=news_article),
+        user_text=USER_QGEN_TEMPLATE.format(paper_abstract=paper_abstract),
         schema_name="qgen",
         schema=QGEN_SCHEMA,
         temperature=TEMP_GEN,
@@ -282,7 +287,6 @@ def qgen(client: OpenAI, article_id: int, paper_abstract: str, news_article: str
             system_text=SYSTEM_VERIFY,
             user_text=USER_VERIFY_TEMPLATE.format(
                 paper_abstract=paper_abstract,
-                news_article=news_article,
                 draft_json=json.dumps(draft, ensure_ascii=False, indent=2),
             ),
             schema_name="verify",
@@ -340,8 +344,10 @@ def main() -> None:
     client = OpenAI()
 
     outs: List[Dict[str, Any]] = []
+    i = 1
     for rec in recs:
         article_id, abs_txt, news_txt = extract_texts(rec)
+        print(f"processing sample {i}/{len(recs)} with ID {article_id}")
         if not abs_txt or not news_txt:
             raise SystemExit(
                 "Record missing abstract/news. Provide keys like paper_abstract + news_article "
@@ -349,6 +355,7 @@ def main() -> None:
             )
         out = qgen(client, article_id, abs_txt, news_txt)
         outs.append(out)
+        i += 1
 
     if args.output:
         with open(args.output, "w", encoding="utf-8") as w:
