@@ -7,7 +7,7 @@ from typing import Any, Dict, List, Optional
 import anthropic
 
 INPUT_FILE = "eval_dataset.json"
-OUTPUT_FILE = "llm_judge_single_article_claude.json"
+OUTPUT_FILE = "llm_judge_single_article_claude_sonnet.json"
 MODEL = "claude-sonnet-4-6"
 SEED = 42
 MAX_TOKENS = 1400
@@ -110,54 +110,82 @@ def claude_create_json(
 
     raise RuntimeError(f"Failed after {max_retries} attempts: {last_err}")
 
-
 def build_prompt(abstract: str, article: str) -> str:
-    return f"""You are evaluating a science news article for a general audience.
+    return f"""Evaluate the article independently using the abstract as the reference for scientific content.
 
-Evaluate the article independently using the abstract as the reference for scientific content.
-Use the 1-5 anchored scales below.
-
-Accuracy
-1 = Major factual errors, invented claims, or serious contradictions of the abstract
-2 = Noticeable inaccuracies, overclaims, or unsupported details
-3 = Mostly accurate, but with some meaningful imprecision or unsupported framing
-4 = Accurate overall, with only minor issues
-5 = Fully accurate and faithful to the abstract, with no material errors
-
-Completeness
-1 = Misses most of the main findings or scientific ideas
-2 = Covers some important points but leaves out major findings, mechanisms, or caveats
-3 = Covers the core result, but misses several important details
-4 = Covers the main findings and most key scientific points
-5 = Thoroughly covers the key findings, mechanisms, caveats, and important context from the abstract
-
-Relevance
-1 = Focuses on trivial, off-topic, or low-value details; fails to show why the work matters
-2 = Somewhat relevant, but misses the main significance or news angle
-3 = Moderately relevant; identifies the main result but only partly explains why it matters
-4 = Clearly emphasizes the important and newsworthy aspects
-5 = Strongly foregrounds the most significant and newsworthy aspects of the work
-
-Clarity
-1 = Very difficult to follow for a general audience
-2 = Often unclear, jargon-heavy, or poorly structured
-3 = Generally understandable, but uneven or sometimes confusing
-4 = Clear and easy to follow, with good explanation of technical ideas
-5 = Exceptionally clear, readable, and accessible without losing scientific meaning
-
-Guidelines:
-- Judge only this one article, not any hypothetical alternatives.
-- Keep reasons brief and specific.
-- Do not reward style alone if the science is wrong.
-- Do not penalize the article for omitting information absent from the abstract.
+Instructions:
+- Evaluate each dimension independently. A high Clarity score must not influence Accuracy, and vice versa.
 - Base Accuracy and Completeness only on the abstract.
 - For Relevance and Clarity, judge the article as science communication for a general audience.
+- Do not reward style alone if the science is wrong.
+- Do not penalize the article for omitting information absent from the abstract.
+- Judge only this one article, not any hypothetical alternatives.
+- Use only the information provided in the abstract and article. Do not rely on outside knowledge.
+- For each dimension, first assess the evidence from the article against the rubric, then assign a score. Keep the written reason brief and specific.
+- If uncertain between two adjacent scores, choose the better-supported score and note the uncertainty briefly in the reason.
 
-ABSTRACT:
+<rubric>
+  <dimension name="Accuracy">
+    <anchor score="1">Major factual errors, invented claims, or serious contradictions of the abstract.</anchor>
+    <anchor score="2">Noticeable inaccuracies, overclaims, or unsupported details that materially weaken faithfulness to the abstract.</anchor>
+    <anchor score="3">The article's main claim is correct, but at least one secondary claim is unsupported by the abstract, meaningfully overstated, or imprecisely framed.</anchor>
+    <anchor score="4">Accurate overall, with only minor issues that do not materially change the scientific meaning.</anchor>
+    <anchor score="5">Fully accurate and faithful to the abstract, with no material errors or unsupported claims.</anchor>
+  </dimension>
+
+  <dimension name="Completeness">
+    <anchor score="1">Misses most of the main findings or scientific ideas.</anchor>
+    <anchor score="2">Covers some important points but leaves out major findings, mechanisms, caveats, or essential context present in the abstract.</anchor>
+    <anchor score="3">Covers the core result, but omits several important supporting details, mechanisms, caveats, or context needed for a fuller understanding.</anchor>
+    <anchor score="4">Covers the main findings and most key scientific points from the abstract.</anchor>
+    <anchor score="5">Thoroughly covers the key findings, mechanisms, caveats, and important context from the abstract.</anchor>
+  </dimension>
+
+  <dimension name="Relevance">
+    <anchor score="1">Focuses on trivial, off-topic, or low-value details and fails to show why the work matters.</anchor>
+    <anchor score="2">Somewhat relevant, but misses the main significance, implication, or news angle.</anchor>
+    <anchor score="3">Identifies the main result but only partly explains why it matters to a general audience.</anchor>
+    <anchor score="4">Clearly emphasizes the important and newsworthy aspects of the work.</anchor>
+    <anchor score="5">Strongly foregrounds the most significant and newsworthy aspects of the work for a general audience.</anchor>
+  </dimension>
+
+  <dimension name="Clarity">
+    <anchor score="1">Very difficult to follow for a general audience.</anchor>
+    <anchor score="2">Often unclear, jargon-heavy, poorly explained, or poorly structured.</anchor>
+    <anchor score="3">Generally understandable, but uneven, occasionally confusing, or insufficiently explanatory for non-experts.</anchor>
+    <anchor score="4">Clear and easy to follow, with good explanation of technical ideas.</anchor>
+    <anchor score="5">Exceptionally clear, readable, and accessible without losing scientific meaning.</anchor>
+  </dimension>
+</rubric>
+
+<input>
+  <abstract><![CDATA[
 {abstract}
-
-ARTICLE:
+  ]]></abstract>
+  <article><![CDATA[
 {article}
+  ]]></article>
+</input>
+
+Respond ONLY with a valid JSON object in exactly this format:
+{{
+  "accuracy": {{
+    "reason": "<1-2 sentences of evidence-based reasoning>",
+    "score": <1-5>
+  }},
+  "completeness": {{
+    "reason": "<1-2 sentences of evidence-based reasoning>",
+    "score": <1-5>
+  }},
+  "relevance": {{
+    "reason": "<1-2 sentences of evidence-based reasoning>",
+    "score": <1-5>
+  }},
+  "clarity": {{
+    "reason": "<1-2 sentences of evidence-based reasoning>",
+    "score": <1-5>
+  }}
+}}
 """
 
 
@@ -167,9 +195,7 @@ def judge_one_article(
     article: str,
 ) -> Dict[str, Any]:
     system = (
-        "You are a careful evaluator of science communication. "
-        "Be strict about factual faithfulness and scientific coverage, "
-        "but fair about stylistic variation."
+        "You are an expert science communicator and journal editor evaluating whether a science news article faithfully and accessibly represents the findings in the original abstract."
     )
 
     user = build_prompt(abstract, article)
