@@ -8,15 +8,14 @@ from typing import Any, Dict, List, Optional
 import anthropic
 
 INPUT_FILE = "eval_dataset.json"
-OUTPUT_FILE = "llm_judge_pairwise_news1_claude_sonnet.json"
+OUTPUT_FILE = "llm_judge_pairwise_news0_vs_news1_claude_sonnet.json"
 MODEL = "claude-sonnet-4-6"
 SEED = 42
 MAX_TOKENS = 1000
 MAX_RETRIES = 1
 
-ARTICLE_KEYS = ["news_0", "news_1", "news_2", "news_3"]
-BASELINE_KEY = "news_1"
-COMPARE_KEYS = [k for k in ARTICLE_KEYS if k != BASELINE_KEY]
+ARTICLE_A_KEY = "news_0"
+ARTICLE_B_KEY = "news_1"
 
 PAIRWISE_SCHEMA = {
     "type": "object",
@@ -107,7 +106,6 @@ Your task:
   faithfulness to the abstract, coverage of key findings/context, relevance/newsworthiness,
   and clarity/readability.
 - Do NOT score separate dimensions.
-- Do NOT average hidden sub-scores.
 - Prefer the article that is more scientifically faithful if one article is better written
   but less accurate.
 - Use only the information provided in the abstract and the two articles.
@@ -174,82 +172,41 @@ def map_winner_to_key(
 
 
 def judge_record(client: anthropic.Anthropic, rec: Dict[str, Any]) -> Dict[str, Any]:
-    baseline_article = (rec.get(BASELINE_KEY) or "").strip()
+    article_0 = (rec.get(ARTICLE_A_KEY) or "").strip()
+    article_1 = (rec.get(ARTICLE_B_KEY) or "").strip()
 
-    comparisons = []
-    baseline_wins = 0
-    baseline_losses = 0
-    baseline_ties = 0
-    skipped_pairs = []
-
-    if not baseline_article:
+    if not article_0 or not article_1:
         return {
             "id": rec.get("id"),
             "date": rec.get("date"),
             "category": rec.get("category"),
             "news_url": rec.get("news_url"),
             "abstract_url": rec.get("abstract_url"),
-            "baseline_key": BASELINE_KEY,
-            "comparisons": [],
-            "summary": {
-                "baseline_wins": 0,
-                "baseline_losses": 0,
-                "baseline_ties": 0,
-                "skipped_pairs": COMPARE_KEYS[:],
-                "note": f"Baseline article '{BASELINE_KEY}' was empty or missing."
-            },
+            "pair": [ARTICLE_A_KEY, ARTICLE_B_KEY],
+            "comparison": None,
+            "note": "One or both articles were empty or missing."
         }
 
-    for other_key in COMPARE_KEYS:
-        other_article = (rec.get(other_key) or "").strip()
-        if not other_article:
-            skipped_pairs.append(other_key)
-            continue
+    presented_keys = [ARTICLE_A_KEY, ARTICLE_B_KEY]
+    rng = random.Random(f"{SEED}:{rec.get('id')}")
+    rng.shuffle(presented_keys)
 
-        presented_keys = [BASELINE_KEY, other_key]
-        rng = random.Random(f"{SEED}:{rec.get('id')}:{other_key}")
-        rng.shuffle(presented_keys)
+    presented_a_key, presented_b_key = presented_keys
+    presented_a_text = (rec.get(presented_a_key) or "").strip()
+    presented_b_text = (rec.get(presented_b_key) or "").strip()
 
-        article_a_key, article_b_key = presented_keys
-        article_a_text = (rec.get(article_a_key) or "").strip()
-        article_b_text = (rec.get(article_b_key) or "").strip()
+    judgment = judge_pair(
+        client=client,
+        abstract=rec["abstract"],
+        article_a=presented_a_text,
+        article_b=presented_b_text,
+    )
 
-        judgment = judge_pair(
-            client=client,
-            abstract=rec["abstract"],
-            article_a=article_a_text,
-            article_b=article_b_text,
-        )
-
-        winner_key = map_winner_to_key(
-            judgment["better_article"],
-            article_a_key=article_a_key,
-            article_b_key=article_b_key,
-        )
-
-        if winner_key == BASELINE_KEY:
-            baseline_wins += 1
-            baseline_result = "win"
-        elif winner_key is None:
-            baseline_ties += 1
-            baseline_result = "tie"
-        else:
-            baseline_losses += 1
-            baseline_result = "loss"
-
-        comparisons.append(
-            {
-                "pair": [BASELINE_KEY, other_key],
-                "presented_order": {
-                    "article_a": article_a_key,
-                    "article_b": article_b_key,
-                },
-                "winner_label": judgment["better_article"],
-                "winner_key": winner_key,
-                "baseline_result": baseline_result,
-                "judgment": judgment,
-            }
-        )
+    winner_key = map_winner_to_key(
+        judgment["better_article"],
+        article_a_key=presented_a_key,
+        article_b_key=presented_b_key,
+    )
 
     return {
         "id": rec.get("id"),
@@ -257,14 +214,14 @@ def judge_record(client: anthropic.Anthropic, rec: Dict[str, Any]) -> Dict[str, 
         "category": rec.get("category"),
         "news_url": rec.get("news_url"),
         "abstract_url": rec.get("abstract_url"),
-        "baseline_key": BASELINE_KEY,
-        "comparisons": comparisons,
-        "summary": {
-            "baseline_wins": baseline_wins,
-            "baseline_losses": baseline_losses,
-            "baseline_ties": baseline_ties,
-            "skipped_pairs": skipped_pairs,
+        "pair": [ARTICLE_A_KEY, ARTICLE_B_KEY],
+        "presented_order": {
+            "article_a": presented_a_key,
+            "article_b": presented_b_key,
         },
+        "winner_label": judgment["better_article"],
+        "winner_key": winner_key,
+        "judgment": judgment,
     }
 
 
@@ -276,13 +233,12 @@ def main():
     for i, rec in enumerate(dataset):
         print(
             f"Judging {i+1}/{len(dataset)} | "
-            f"ID={rec.get('id')} | {rec.get('category')} | baseline={BASELINE_KEY}"
+            f"ID={rec.get('id')} | {rec.get('category')} | pair={ARTICLE_A_KEY} vs {ARTICLE_B_KEY}"
         )
 
         result = judge_record(client, rec)
         outputs.append(result)
 
-        # checkpoint save
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             json.dump(outputs, f, ensure_ascii=False, indent=2)
             f.write("\n")
