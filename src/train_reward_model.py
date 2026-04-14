@@ -46,7 +46,7 @@ def main():
         torch_dtype="auto",
         trust_remote_code=True,
     )
-
+    
     cfg = RewardConfig(
         output_dir=args.out,
         per_device_train_batch_size=args.batch_size,
@@ -67,7 +67,7 @@ def main():
         model=model,
         args=cfg,
         train_dataset=ds,
-        tokenizer=tokenizer,
+        processing_class=tokenizer,
     )
 
     trainer.train()
