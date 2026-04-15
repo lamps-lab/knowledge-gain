@@ -2,9 +2,8 @@
 import argparse, json, re
 from collections import defaultdict
 
-# -----------------------------
-# PATTERNS TO REMOVE (robust)
-# -----------------------------
+
+# PATTERNS TO REMOVE
 REMOVE_PHRASES = [
     r"according to the findings",
     r"according to findings",
@@ -24,10 +23,7 @@ REMOVE_RE = re.compile("|".join(REMOVE_PHRASES), flags=re.IGNORECASE)
 
 WH_WORDS = ("what", "which", "how", "why", "when", "where", "in which", "to what")
 
-
-# -----------------------------
 # CLEAN CORE FUNCTION
-# -----------------------------
 def clean_question(q: str):
     original = q
 
@@ -55,9 +51,9 @@ def clean_question(q: str):
     # detect if True/False style
     is_tf = any(x in q for x in ["True", "False"]) and len(q.split()) < 25
 
-    # -----------------------------
+    
     # punctuation logic
-    # -----------------------------
+    
     q = q.strip()
 
     # IMPORTANT: preserve existing terminal punctuation
@@ -82,10 +78,6 @@ def clean_question(q: str):
 
     return q, changed, "generic_fix"
 
-
-# -----------------------------
-# MAIN
-# -----------------------------
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", required=True)
