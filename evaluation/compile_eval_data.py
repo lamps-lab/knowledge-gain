@@ -1,21 +1,21 @@
 import json
 
-FILE_0 = "generated_news.json"
-FILE_1 = "generated_simple.json"
-FILE_2 = "agentic_news.json"
-OUTPUT_FILE = "eval_dataset.json"
+FILE_0 = "./sft_outputs/generated_news_70.json"
+FILE_1 = "simple_news_4b.json"
+FILE_2 = "agentic_qwen_4b.json"
+OUTPUT_FILE = "eval_dataset_top50.json"
 
 
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-
-def pick_base(*records):
+def get_valid_field(field_name, *records):
     for rec in records:
-        if rec:
-            return rec
-    return {}
+        val = rec.get(field_name)
+        if val:  # Evaluates to False if None or empty string ""
+            return val
+    return None
 
 
 def main():
@@ -35,21 +35,31 @@ def main():
         rec1 = by_id_1.get(article_id, {})
         rec2 = by_id_2.get(article_id, {})
 
-        base = pick_base(rec0, rec1, rec2)
-        if not base:
-            continue
+        date = get_valid_field("date", rec0, rec1, rec2)
+        category = get_valid_field("category", rec0, rec1, rec2)
+        news_url = get_valid_field("news_url", rec0, rec1, rec2)
+        abstract_url = get_valid_field("abstract_url", rec0, rec1, rec2)
+        
+        
+        abstract = get_valid_field("abstract", rec0, rec1, rec2) or get_valid_field("paper_abstract", rec0, rec1, rec2)
+
+        news_3 = get_valid_field("news", rec0, rec1, rec2) or get_valid_field("news_article", rec0, rec1, rec2) or ""
+
+        news_0 = get_valid_field("news_0", rec0) or ""
+        news_1 = get_valid_field("news_1", rec1) or ""
+        news_2 = get_valid_field("news_2", rec2) or ""
 
         merged.append({
-            "id": base.get("id"),
-            "date": base.get("date"),
-            "category": base.get("category"),
-            "news_url": base.get("news_url"),
-            "abstract": base.get("abstract"),
-            "abstract_url": base.get("abstract_url"),
-            "news_0": (rec0.get("news_0") or "").strip(),
-            "news_1": (rec1.get("news_1") or "").strip(),
-            "news_2": (rec2.get("news_2") or "").strip(),
-            "news_3": (base.get("news") or "").strip(),
+            "id": article_id,
+            "date": date,
+            "category": category,
+            "news_url": news_url,
+            "abstract": abstract,
+            "abstract_url": abstract_url,
+            "news_0": news_0.strip(),
+            "news_1": news_1.strip(),
+            "news_2": news_2.strip(),
+            "news_3": news_3.strip(),
         })
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
