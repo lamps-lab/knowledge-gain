@@ -47,10 +47,10 @@ def main():
     
     # 1. Stability-First LoRA Config
     lora_config = LoraConfig(
-        r=32,
-        lora_alpha=64,
-        target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
-        lora_dropout=0.05,
+        r=16,
+        lora_alpha=16,
+        target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "up_proj", "down_proj"],
+        lora_dropout=0.07,
         bias="none",
         task_type="CAUSAL_LM",
         use_rslora=True # Protects against rank-induced instability
@@ -78,8 +78,8 @@ def main():
         output_dir=args.out,
         per_device_train_batch_size=2,
         gradient_accumulation_steps=16, # Effective Batch Size: 32
-        learning_rate=2e-5, # Slightly lower for stability
-        num_train_epochs=3,
+        learning_rate=1e-5, # Slightly lower for stability
+        num_train_epochs=2,
         bf16=True,
         logging_steps=5,
         eval_strategy="steps", # Watch for overfitting every 20 steps
@@ -89,9 +89,9 @@ def main():
         load_best_model_at_end=True, # Automatically pick the least-overfit version
         metric_for_best_model="loss",
         lr_scheduler_type="cosine",
-        warmup_ratio=0.1,
-        weight_decay=0.1, # Regularization to prevent "forgetting"
-        max_grad_norm=0.3,
+        warmup_ratio=0.05,
+        weight_decay=0.0, # Regularization to prevent "forgetting"
+        max_grad_norm=1.0,
         report_to="none"
     )
 
