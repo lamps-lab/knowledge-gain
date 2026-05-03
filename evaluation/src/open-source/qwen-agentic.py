@@ -2,9 +2,9 @@ import json
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-BASE_REPO = "Qwen/Qwen3-8B"   # base model
+BASE_REPO = "Qwen/Qwen3-4B-Instruct-2507"
 INPUT_FILE = "../../twenty_samples.json"
-OUTPUT_FILE = "../../agentic_qwen.json"
+OUTPUT_FILE = "../../agentic_qwen_4b.json"
 DEVICE = "cuda:1"
 MAX_NEW_TOKENS = 1200
 MAX_INPUT_LENGTH = 2048
@@ -35,8 +35,8 @@ def generate_response(model, tokenizer, system_prompt: str, user_prompt: str, te
     with torch.inference_mode():
         outputs = model.generate(
             **inputs,
-            do_sample=False,
-            #temperature=temperature,
+            do_sample=True,
+            temperature=temperature,
             max_new_tokens=MAX_NEW_TOKENS,
             eos_token_id=tokenizer.eos_token_id,
             pad_token_id=tokenizer.pad_token_id,
@@ -54,15 +54,11 @@ def drafter_agent(model, tokenizer, abstract: str, news_length: int) -> str:
     """Agent 1: Translates the abstract into an accessible news draft."""
     system_prompt = (
         "You are an expert science journalist. "
-        "Your job is to take complex academic abstracts and turn them into engaging, "
-        "accessible news articles for the general public. "
-        "Create a catchy headline, keep the tone informative and exciting, and make the "
-        "science easy to understand without dumbing it down. "
         "Output only the article text."
     )
 
     user_prompt = (
-        f"Please draft a news article in about {news_length} words based on this abstract:\n\n"
+        f"Please draft a news article in about 350-550 words based on this abstract:\n\n"
         f"{abstract}"
     )
 
@@ -71,7 +67,7 @@ def drafter_agent(model, tokenizer, abstract: str, news_length: int) -> str:
         tokenizer=tokenizer,
         system_prompt=system_prompt,
         user_prompt=user_prompt,
-        temperature=0.7,
+        temperature=1.7,
     )
 
 
@@ -79,9 +75,6 @@ def revision_agent(model, tokenizer, abstract: str, draft: str) -> str:
     """Agent 2: Reviews the draft against the abstract and improves it."""
     system_prompt = (
         "You are a strict but fair senior editor at a top science magazine. "
-        "Your job is to review article drafts to ensure they are factually accurate based "
-        "on the original abstract, check for readability, and improve the narrative flow. "
-        "Do not introduce new facts, statistics, or claims outside of the abstract. "
         "Output only the final polished article text."
     )
 
@@ -91,8 +84,7 @@ def revision_agent(model, tokenizer, abstract: str, draft: str) -> str:
 INITIAL DRAFT:
 {draft}
 
-Please revise and polish the draft. Ensure no scientific inaccuracies were introduced,
-improve the hook, and output ONLY the final polished article including the headline.
+Please revise and polish the draft. It's okay if there are a couple inaccuracies. Output ONLY the final polished article including the headline.
 """
 
     return generate_response(
@@ -100,7 +92,7 @@ improve the hook, and output ONLY the final polished article including the headl
         tokenizer=tokenizer,
         system_prompt=system_prompt,
         user_prompt=user_prompt,
-        temperature=0.2,
+        temperature=1.5,
     )
 
 

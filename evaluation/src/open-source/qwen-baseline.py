@@ -5,9 +5,9 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # =========================
 # Hardcoded settings
 # =========================
-BASE_REPO = "Qwen/Qwen3-8B"   # base model, not finetuned
+BASE_REPO = "Qwen/Qwen3-4B"   # base model, not finetuned
 INPUT_FILE = "../../twenty_samples.json"
-OUTPUT_FILE = "../../generated_news_base.json"
+OUTPUT_FILE = "../../simple_news_4b.json"
 DEVICE = "cuda:1"
 MAX_NEW_TOKENS = 1200
 MAX_INPUT_LENGTH = 2048
@@ -15,13 +15,12 @@ MAX_INPUT_LENGTH = 2048
 
 def generate_article(model, tokenizer, abstract: str, news_length: int) -> str:
     system = (
-        "You are an expert science journalist. "
-        "Write a clear, engaging science news article for a general audience. "
+        "You are an science journalist. "
         "Output only the article text."
     )
 
     user = (
-        f"Write a science news article of about {news_length} words based on this abstract.\n\n"
+        f"Write a science news article of about 350-550 words based on this abstract.\n\n"
         f"{abstract}"
     )
 
@@ -48,8 +47,8 @@ def generate_article(model, tokenizer, abstract: str, news_length: int) -> str:
     with torch.inference_mode():
         outputs = model.generate(
             **inputs,
-            do_sample=False,#True,
-            #temperature=0.7,
+            do_sample=True,
+            temperature=2.7,
             max_new_tokens=MAX_NEW_TOKENS,
             eos_token_id=tokenizer.eos_token_id,
             pad_token_id=tokenizer.pad_token_id,
