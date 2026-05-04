@@ -2,9 +2,7 @@ import json
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-# =========================
 # Hardcoded settings
-# =========================
 BASE_REPO = "Qwen/Qwen3-4B"   # base model, not finetuned
 INPUT_FILE = "../../twenty_samples.json"
 OUTPUT_FILE = "../../simple_news_4b.json"
@@ -48,7 +46,7 @@ def generate_article(model, tokenizer, abstract: str, news_length: int) -> str:
         outputs = model.generate(
             **inputs,
             do_sample=True,
-            temperature=2.7,
+            temperature=0.7,
             max_new_tokens=MAX_NEW_TOKENS,
             eos_token_id=tokenizer.eos_token_id,
             pad_token_id=tokenizer.pad_token_id,

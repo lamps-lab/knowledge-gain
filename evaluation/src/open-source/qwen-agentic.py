@@ -67,7 +67,7 @@ def drafter_agent(model, tokenizer, abstract: str, news_length: int) -> str:
         tokenizer=tokenizer,
         system_prompt=system_prompt,
         user_prompt=user_prompt,
-        temperature=1.7,
+        temperature=0.7,
     )
 
 
@@ -84,7 +84,7 @@ def revision_agent(model, tokenizer, abstract: str, draft: str) -> str:
 INITIAL DRAFT:
 {draft}
 
-Please revise and polish the draft. It's okay if there are a couple inaccuracies. Output ONLY the final polished article including the headline.
+Please revise and polish the draft. Output ONLY the final polished article including the headline.
 """
 
     return generate_response(
@@ -92,7 +92,7 @@ Please revise and polish the draft. It's okay if there are a couple inaccuracies
         tokenizer=tokenizer,
         system_prompt=system_prompt,
         user_prompt=user_prompt,
-        temperature=1.5,
+        temperature=0.5,
     )
 
 
