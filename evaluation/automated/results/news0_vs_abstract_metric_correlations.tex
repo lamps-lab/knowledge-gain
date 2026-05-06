@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lrl}
+\toprule
+Metric & Corr. with \textsc{LLMSim} KGain & Signal \\
+\midrule
+ROUGE-1 & 0.010 & Unigram source overlap \\
+ROUGE-2 & 0.104 & Bigram source overlap \\
+ROUGE-L & 0.256 & Longest-sequence source overlap \\
+BLEU & 0.097 & N-gram precision vs. source \\
+BERTScore & -0.246 & Semantic source similarity \\
+LLM judge accuracy & 0.179 & Factual faithfulness \\
+LLM judge completeness & 0.056 & Content coverage \\
+LLM judge relevance & 0.107 & Topical usefulness \\
+LLM judge clarity & 0.113 & Readability/accessibility \\
+LLM judge expected KGain & 0.056 & Judge-estimated learning \\
+\bottomrule
+\end{tabular}
+\caption{Correlation between automatic metrics and article-level \textsc{LLMSim} \textsc{KnowledgeGain} for generated \texttt{news\_0} articles. Traditional metrics are computed against the source abstract. We report pearson correlation.}
+\label{tab:metrics_vs_llmsim_kgain}
+\end{table*}

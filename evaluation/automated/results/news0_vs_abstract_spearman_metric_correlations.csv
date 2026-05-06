@@ -1,0 +1,11 @@
+Metric,Corr. with LLMSim KGain,Signal
+ROUGE-1,0.076,Unigram source overlap
+ROUGE-2,0.142,Bigram source overlap
+ROUGE-L,0.268,Longest-sequence source overlap
+BLEU,0.146,N-gram precision vs. source
+BERTScore,-0.266,Semantic source similarity
+LLM judge accuracy,0.131,Factual faithfulness
+LLM judge completeness,0.044,Content coverage
+LLM judge relevance,0.159,Topical usefulness
+LLM judge clarity,0.136,Readability/accessibility
+LLM judge expected KGain,0.040,Judge-estimated learning
