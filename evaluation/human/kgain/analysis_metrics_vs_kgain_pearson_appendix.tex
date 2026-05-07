@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrr}
+\toprule
+Metric & \textsc{LLMSim} & Human \\
+\midrule
+ROUGE-1 & 0.036 & 0.190 \\
+ROUGE-2 & 0.037 & 0.267 \\
+ROUGE-L & 0.019 & 0.228 \\
+BLEU & 0.001 & 0.173 \\
+BERTScore & -0.194 & 0.200 \\
+LLM judge accuracy & 0.354 & 0.202 \\
+LLM judge completeness & 0.202 & -0.019 \\
+LLM judge relevance & 0.385 & 0.002 \\
+LLM judge clarity & 0.174 & 0.230 \\
+LLM judge expected \textsc{KGain} & 0.189 & 0.119 \\
+\textsc{LLMSim} norm. \textsc{KGain} & -- & 0.136 \\
+\bottomrule
+\end{tabular}
+\caption{Pearson correlations corresponding to Table~\ref{tab:metrics_vs_kgain}.}
+\label{tab:metrics_vs_kgain_pearson}
+\end{table}

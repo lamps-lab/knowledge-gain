@@ -1,0 +1,43 @@
+Metric,Signal,Target,Method,within_min_items,mean_corr,median_corr,ci_low,ci_high,n_valid_topics
+ROUGE-1,Unigram source overlap,LLMSim norm. KGain,spearman,3,,,,,0
+ROUGE-1,Unigram source overlap,LLMSim norm. KGain,kendall,3,,,,,0
+ROUGE-1,Unigram source overlap,Human norm. KGain,spearman,3,,,,,0
+ROUGE-1,Unigram source overlap,Human norm. KGain,kendall,3,,,,,0
+ROUGE-2,Bigram source overlap,LLMSim norm. KGain,spearman,3,,,,,0
+ROUGE-2,Bigram source overlap,LLMSim norm. KGain,kendall,3,,,,,0
+ROUGE-2,Bigram source overlap,Human norm. KGain,spearman,3,,,,,0
+ROUGE-2,Bigram source overlap,Human norm. KGain,kendall,3,,,,,0
+ROUGE-L,Longest-sequence source overlap,LLMSim norm. KGain,spearman,3,,,,,0
+ROUGE-L,Longest-sequence source overlap,LLMSim norm. KGain,kendall,3,,,,,0
+ROUGE-L,Longest-sequence source overlap,Human norm. KGain,spearman,3,,,,,0
+ROUGE-L,Longest-sequence source overlap,Human norm. KGain,kendall,3,,,,,0
+BLEU,N-gram precision vs. source,LLMSim norm. KGain,spearman,3,,,,,0
+BLEU,N-gram precision vs. source,LLMSim norm. KGain,kendall,3,,,,,0
+BLEU,N-gram precision vs. source,Human norm. KGain,spearman,3,,,,,0
+BLEU,N-gram precision vs. source,Human norm. KGain,kendall,3,,,,,0
+BERTScore,Semantic source similarity,LLMSim norm. KGain,spearman,3,,,,,0
+BERTScore,Semantic source similarity,LLMSim norm. KGain,kendall,3,,,,,0
+BERTScore,Semantic source similarity,Human norm. KGain,spearman,3,,,,,0
+BERTScore,Semantic source similarity,Human norm. KGain,kendall,3,,,,,0
+LLM judge accuracy,Factual faithfulness,LLMSim norm. KGain,spearman,3,,,,,0
+LLM judge accuracy,Factual faithfulness,LLMSim norm. KGain,kendall,3,,,,,0
+LLM judge accuracy,Factual faithfulness,Human norm. KGain,spearman,3,,,,,0
+LLM judge accuracy,Factual faithfulness,Human norm. KGain,kendall,3,,,,,0
+LLM judge completeness,Content coverage,LLMSim norm. KGain,spearman,3,,,,,0
+LLM judge completeness,Content coverage,LLMSim norm. KGain,kendall,3,,,,,0
+LLM judge completeness,Content coverage,Human norm. KGain,spearman,3,,,,,0
+LLM judge completeness,Content coverage,Human norm. KGain,kendall,3,,,,,0
+LLM judge relevance,Topical usefulness,LLMSim norm. KGain,spearman,3,,,,,0
+LLM judge relevance,Topical usefulness,LLMSim norm. KGain,kendall,3,,,,,0
+LLM judge relevance,Topical usefulness,Human norm. KGain,spearman,3,,,,,0
+LLM judge relevance,Topical usefulness,Human norm. KGain,kendall,3,,,,,0
+LLM judge clarity,Readability/accessibility,LLMSim norm. KGain,spearman,3,,,,,0
+LLM judge clarity,Readability/accessibility,LLMSim norm. KGain,kendall,3,,,,,0
+LLM judge clarity,Readability/accessibility,Human norm. KGain,spearman,3,,,,,0
+LLM judge clarity,Readability/accessibility,Human norm. KGain,kendall,3,,,,,0
+LLM judge expected \textsc{KGain},Judge-estimated learning,LLMSim norm. KGain,spearman,3,,,,,0
+LLM judge expected \textsc{KGain},Judge-estimated learning,LLMSim norm. KGain,kendall,3,,,,,0
+LLM judge expected \textsc{KGain},Judge-estimated learning,Human norm. KGain,spearman,3,,,,,0
+LLM judge expected \textsc{KGain},Judge-estimated learning,Human norm. KGain,kendall,3,,,,,0
+\textsc{LLMSim} norm. \textsc{KGain},Simulated reader learning,Human norm. KGain,spearman,3,,,,,0
+\textsc{LLMSim} norm. \textsc{KGain},Simulated reader learning,Human norm. KGain,kendall,3,,,,,0

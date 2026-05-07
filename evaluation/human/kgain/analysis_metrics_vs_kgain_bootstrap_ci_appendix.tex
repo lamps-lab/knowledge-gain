@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrr}
+\toprule
+Metric & Corr. & 95\% CI & $n$ \\
+\midrule
+ROUGE-1 & 0.177 & [-0.204, 0.540] & 40 \\
+ROUGE-2 & 0.296 & [-0.059, 0.619] & 40 \\
+ROUGE-L & 0.205 & [-0.165, 0.544] & 40 \\
+BLEU & 0.267 & [-0.095, 0.592] & 40 \\
+BERTScore & 0.232 & [-0.066, 0.500] & 40 \\
+LLM judge accuracy & 0.291 & [-0.091, 0.665] & 40 \\
+LLM judge completeness & -0.016 & [-0.316, 0.288] & 40 \\
+LLM judge relevance & 0.033 & [-0.287, 0.373] & 40 \\
+LLM judge clarity & 0.089 & [-0.217, 0.391] & 40 \\
+LLM judge expected \textsc{KGain} & 0.168 & [-0.225, 0.511] & 40 \\
+\textsc{LLMSim} norm. \textsc{KGain} & 0.167 & [-0.274, 0.541] & 40 \\
+\bottomrule
+\end{tabular}
+\caption{Cluster-bootstrap confidence intervals for Spearman's $\rho$ correlations with Human norm. \textsc{KGain}. Bootstrap samples resample topics with replacement, preserving the paired article-system structure within each topic.}
+\label{tab:metrics_vs_kgain_bootstrap_ci}
+\end{table}

@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrrl}
+\toprule
+Metric & \multicolumn{2}{c}{\textsc{LLMSim} norm. \textsc{KGain}} & \multicolumn{2}{c}{Human norm. \textsc{KGain}} & Signal \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+ & Spearman $\rho$ & Kendall $\tau_b$ & Spearman $\rho$ & Kendall $\tau_b$ & \\
+\midrule
+ROUGE-1 & 0.098 & 0.064 & 0.177 & 0.121 & Unigram source overlap \\
+ROUGE-2 & 0.078 & 0.046 & 0.296 & 0.208 & Bigram source overlap \\
+ROUGE-L & 0.025 & 0.018 & 0.205 & 0.138 & Longest-sequence source overlap \\
+BLEU & 0.076 & 0.062 & 0.267 & 0.167 & N-gram precision vs. source \\
+BERTScore & -0.175 & -0.121 & 0.232 & 0.149 & Semantic source similarity \\
+LLM judge accuracy & 0.325 & 0.256 & 0.291 & 0.240 & Factual faithfulness \\
+LLM judge completeness & 0.195 & 0.161 & -0.016 & -0.012 & Content coverage \\
+LLM judge relevance & 0.346 & 0.284 & 0.033 & 0.028 & Topical usefulness \\
+LLM judge clarity & 0.216 & 0.180 & 0.089 & 0.072 & Readability/accessibility \\
+LLM judge expected \textsc{KGain} & 0.165 & 0.137 & 0.168 & 0.139 & Judge-estimated learning \\
+\textsc{LLMSim} norm. \textsc{KGain} & -- & -- & 0.167 & 0.100 & Simulated reader learning \\
+\bottomrule
+\end{tabular}
+\caption{Rank correlations between automatic metrics and reader-learning outcomes. Traditional metrics are computed against the source abstract. We report Spearman's $\rho$ and Kendall's $\tau_b$ because the main question is whether existing metrics preserve the ranking of articles by learning. The final row compares simulated and human normalized \textsc{KGain}. Pearson correlations and bootstrap confidence intervals are reported in the appendix.}
+\label{tab:metrics_vs_kgain}
+\end{table*}

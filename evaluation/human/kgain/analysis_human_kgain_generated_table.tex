@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+System & Pre & Post & \textsc{KGain} & Norm. \textsc{KGain} \\
+\midrule
+Baseline & 0.409 & 0.855 & 0.446 & 0.721 \\
+Ours & 0.424 & 0.881 & 0.457 & 0.782 \\
+\midrule
+$\Delta$ Ours--Baseline & 0.015 & 0.026 & 0.011 & 0.061 \\
+Wilcoxon $p$ & .614 & .031 & .668 & .048 \\
+\bottomrule
+\end{tabular}
+\caption{Human pre/post learning evaluation on generated articles. Results are topic-level means over paired articles. The \textsc{KGain}-optimized model improves post-reading accuracy and normalized \textsc{KGain} over the baseline.}
+\label{tab:human_kgain_generated}
+\end{table}
