@@ -7,23 +7,23 @@ from typing import Any, Dict, List, Optional
 
 import anthropic
 
-INPUT_FILE = "eval_dataset.json"
-OUTPUT_FILE = "llm_judge_pairwise_news0_vs_news1_claude_sonnet.json"
+INPUT_FILE = "eval_dataset_top50.json"
+OUTPUT_FILE = "llm_judge_pairwise_news0_vs_news2_claude_sonnet.json"
 MODEL = "claude-sonnet-4-6"
 SEED = 42
 MAX_TOKENS = 1000
 MAX_RETRIES = 1
 
 ARTICLE_A_KEY = "news_0"
-ARTICLE_B_KEY = "news_1"
+ARTICLE_B_KEY = "news_2"
 
 PAIRWISE_SCHEMA = {
     "type": "object",
     "properties": {
         "better_article": {
             "type": "string",
-            "enum": ["article_a", "article_b", "tie"],
-            "description": "Which article is better overall."
+            "enum": ["article_a", "article_b"],
+            "description": "Which article is better overall. Forced choice; ties are not allowed."
         },
         "reason": {
             "type": "string",
@@ -107,11 +107,12 @@ Your task:
   and clarity/readability.
 - Do NOT score separate dimensions.
 - Prefer the article that is more scientifically faithful if one article is better written
-  but less accurate.
+  but less accurate. 
+- Also consider hallucinations and fabricated entities when evaluating the news articles. 
+- If a news article contains hallucinations that is not in the abstract, do not pick that article. 
 - Use only the information provided in the abstract and the two articles.
-- Do not rely on outside knowledge.
+- Do not rely on outside knowledge. 
 - The article order is randomized; do not let position affect your judgment.
-- If the two articles are genuinely too close to call, return "tie".
 - Keep the written reason brief, specific, and comparative.
 
 <input>
@@ -130,7 +131,7 @@ Your task:
 
 Respond ONLY with a valid JSON object in exactly this format:
 {{
-  "better_article": "article_a" | "article_b" | "tie",
+  "better_article": "article_a" | "article_b",
   "reason": "<1-3 sentences of comparative reasoning>"
 }}
 """.strip()
@@ -144,8 +145,7 @@ def judge_pair(
 ) -> Dict[str, Any]:
     system = (
         "You are an expert science communicator and journal editor comparing two science "
-        "news articles and deciding which one better represents the original abstract "
-        "for a general audience."
+        "news articles and deciding which one better represents the original abstract for a general audience."
     )
 
     user = build_pairwise_prompt(abstract, article_a, article_b)
@@ -163,12 +163,12 @@ def map_winner_to_key(
     better_article: str,
     article_a_key: str,
     article_b_key: str,
-) -> Optional[str]:
+) -> str:
     if better_article == "article_a":
         return article_a_key
     if better_article == "article_b":
         return article_b_key
-    return None
+    raise ValueError(f"Unexpected forced-choice label: {better_article}")
 
 
 def judge_record(client: anthropic.Anthropic, rec: Dict[str, Any]) -> Dict[str, Any]:
