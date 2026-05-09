@@ -1,0 +1,2022 @@
+[
+  {
+    "id": 29733,
+    "date": "2025-01-31",
+    "category": "Health",
+    "news_url": "https://www.sciencealert.com/caffeine-in-your-blood-could-affect-body-fat-and-diabetes-risk-study-reveals",
+    "abstract_url": "https://bmjmedicine.bmj.com/content/2/1/e000335",
+    "label_map": {
+      "A": "news_3",
+      "B": "news_0",
+      "C": "news_1",
+      "D": "news_2"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 4,
+        "accuracy_reason": "Generally faithful to the abstract (correct genes, MR design, BMI/fat/diabetes findings and no strong cardiovascular associations); includes a likely-accurate biological explanation. Minor unsupported detail (specific sample size \"just under 10,000\") and small added claims about drinking behavior not present in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers main outcomes, mediation by BMI, caveats about MR and need for RCTs, and potential mechanisms; omits precise effect sizes and SD interpretation from the abstract.",
+        "relevance": 4,
+        "relevance_reason": "Clearly emphasizes the most newsworthy results (adiposity and diabetes risk) and potential translational implications.",
+        "clarity": 4,
+        "clarity_reason": "Well written and accessible for a general audience, with clear explanation of key points and limitations."
+      },
+      "B": {
+        "accuracy": 1,
+        "accuracy_reason": "Multiple factual errors: wrong SNP identifiers, misreported consortium name (DIAMIANT), and serious misinterpretation of effect sizes (treats 0.08 SD as ~4 BMI points and 0.06 SD as ~9.4 kg fat instead of small fractions of those units).",
+        "completeness": 2,
+        "completeness_reason": "Mentions core results and MR design but misstates magnitudes and some identifiers, and adds unsupported claims about self-report bias not specified in the abstract.",
+        "relevance": 3,
+        "relevance_reason": "Identifies the main result (caffeine linked to lower adiposity and diabetes risk) but errors undermine the reported significance and applicability.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear prose and structure, but clarity is undercut by incorrect numerical claims."
+      },
+      "C": {
+        "accuracy": 3,
+        "accuracy_reason": "Accurately reports study design, SNP IDs, direction of associations, OR for diabetes, and mediation percentage, but misinterprets effect-size scaling (confuses the SD unit values with the effect magnitudes) and adds an invented expert quote.",
+        "completeness": 4,
+        "completeness_reason": "Covers key findings, sample ancestry, mediation analysis, lack of cardiovascular associations, and need for further studies; includes some extra context.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the important, newsworthy aspects (potential causal link to adiposity and diabetes risk and public-health implications).",
+        "clarity": 4,
+        "clarity_reason": "Readable and organized, with accessible explanations despite the numerical misinterpretation."
+      },
+      "D": {
+        "accuracy": 3,
+        "accuracy_reason": "Correct on design, genes, directions of associations, diabetes OR, and mediation, but incorrectly presents the SD unit values as the actual effect magnitudes (overstates BMI and fat mass changes).",
+        "completeness": 4,
+        "completeness_reason": "Covers main findings, mediation, lack of cardiovascular links, and calls for clinical studies; includes translational context.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the most significant takeaways and potential implications for public health and lifestyle.",
+        "clarity": 4,
+        "clarity_reason": "Clear, engaging, and easy to follow for a general audience, though it repeats the numerical interpretation error."
+      }
+    },
+    "scores_by_system": {
+      "news_3": {
+        "accuracy": 4,
+        "accuracy_reason": "Generally faithful to the abstract (correct genes, MR design, BMI/fat/diabetes findings and no strong cardiovascular associations); includes a likely-accurate biological explanation. Minor unsupported detail (specific sample size \"just under 10,000\") and small added claims about drinking behavior not present in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers main outcomes, mediation by BMI, caveats about MR and need for RCTs, and potential mechanisms; omits precise effect sizes and SD interpretation from the abstract.",
+        "relevance": 4,
+        "relevance_reason": "Clearly emphasizes the most newsworthy results (adiposity and diabetes risk) and potential translational implications.",
+        "clarity": 4,
+        "clarity_reason": "Well written and accessible for a general audience, with clear explanation of key points and limitations.",
+        "mean_score": 4.0
+      },
+      "news_0": {
+        "accuracy": 1,
+        "accuracy_reason": "Multiple factual errors: wrong SNP identifiers, misreported consortium name (DIAMIANT), and serious misinterpretation of effect sizes (treats 0.08 SD as ~4 BMI points and 0.06 SD as ~9.4 kg fat instead of small fractions of those units).",
+        "completeness": 2,
+        "completeness_reason": "Mentions core results and MR design but misstates magnitudes and some identifiers, and adds unsupported claims about self-report bias not specified in the abstract.",
+        "relevance": 3,
+        "relevance_reason": "Identifies the main result (caffeine linked to lower adiposity and diabetes risk) but errors undermine the reported significance and applicability.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear prose and structure, but clarity is undercut by incorrect numerical claims.",
+        "mean_score": 2.5
+      },
+      "news_1": {
+        "accuracy": 3,
+        "accuracy_reason": "Accurately reports study design, SNP IDs, direction of associations, OR for diabetes, and mediation percentage, but misinterprets effect-size scaling (confuses the SD unit values with the effect magnitudes) and adds an invented expert quote.",
+        "completeness": 4,
+        "completeness_reason": "Covers key findings, sample ancestry, mediation analysis, lack of cardiovascular associations, and need for further studies; includes some extra context.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the important, newsworthy aspects (potential causal link to adiposity and diabetes risk and public-health implications).",
+        "clarity": 4,
+        "clarity_reason": "Readable and organized, with accessible explanations despite the numerical misinterpretation.",
+        "mean_score": 4.0
+      },
+      "news_2": {
+        "accuracy": 3,
+        "accuracy_reason": "Correct on design, genes, directions of associations, diabetes OR, and mediation, but incorrectly presents the SD unit values as the actual effect magnitudes (overstates BMI and fat mass changes).",
+        "completeness": 4,
+        "completeness_reason": "Covers main findings, mediation, lack of cardiovascular links, and calls for clinical studies; includes translational context.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the most significant takeaways and potential implications for public health and lifestyle.",
+        "clarity": 4,
+        "clarity_reason": "Clear, engaging, and easy to follow for a general audience, though it repeats the numerical interpretation error.",
+        "mean_score": 4.0
+      }
+    }
+  },
+  {
+    "id": 29734,
+    "date": "2025-01-31",
+    "category": "Space",
+    "news_url": "https://www.sciencealert.com/could-we-use-gravitational-waves-for-space-communication-scientists-are-exploring",
+    "abstract_url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.117.306",
+    "label_map": {
+      "A": "news_0",
+      "B": "news_1",
+      "C": "news_3",
+      "D": "news_2"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 4,
+        "accuracy_reason": "Correctly describes using crystal strains and the piezoelectric effect to infer gravitational effects and mentions lab generation; slightly overstates superiority to laser interferometry and omits the two different numerical comparisons (17 vs 39 orders) clarity.",
+        "completeness": 4,
+        "completeness_reason": "Covers core ideas (Riemann components via voltages, mathematical limits, lab generation, large radiation gains) but misses explicit naming of the Riemann tensor and does not clearly present both the 17- and 39-order comparisons.",
+        "relevance": 5,
+        "relevance_reason": "Focuses on the main scientific significance — new detection method and potential impact on gravitational-wave astronomy.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible for a general audience, with minor typos and some speculative framing."
+      },
+      "B": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithfully presents the main technical ideas (measure Riemann tensor via piezoelectric crystals, voltage measurement, mathematical limits, lab generation) and quotes the 17- and 39-order figures; includes some speculative extrapolations about broad technological impacts beyond the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly covers the key findings, mechanisms, limitations, and the reported numerical gains, and discusses experimental and theoretical implications.",
+        "relevance": 5,
+        "relevance_reason": "Strongly emphasizes why the methods matter (measurement of spacetime curvature, new detection/generation approaches) and the potential significance.",
+        "clarity": 4,
+        "clarity_reason": "Clear and detailed for a general audience, though somewhat long and occasionally promotional in tone."
+      },
+      "C": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes a different paper (gravitational communication) and topics not in the abstract; does not address measuring the Riemann tensor or the specific crystal-based radiation comparisons.",
+        "completeness": 1,
+        "completeness_reason": "Misses the core results and mechanisms from the abstract (piezoelectric measurement of Riemann tensor, 17/39-order radiation claims).",
+        "relevance": 1,
+        "relevance_reason": "Largely off-topic relative to the abstract; focuses on gravitational communication rather than the proposed crystal-based measurement/generation methods.",
+        "clarity": 5,
+        "clarity_reason": "Well written and accessible for a general audience, with clear explanations of the (different) paper it covers."
+      },
+      "D": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately summarizes the abstract's main points (Riemann tensor measurement, piezoelectric voltages, mathematical limits, lab generation) and cites the 17- and 39-order improvements; contains a minor numeric/inconsistency in the illustrative large-number phrasing.",
+        "completeness": 5,
+        "completeness_reason": "Covers the primary findings, mechanisms, proposed arrangements, limitations, and the reported radiation-increase figures from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the most newsworthy aspects: a new measurement technique for spacetime curvature and potential lab generation/detection advances.",
+        "clarity": 4,
+        "clarity_reason": "Clear and approachable, though somewhat promotional and with a small misleading numeric example."
+      }
+    },
+    "scores_by_system": {
+      "news_0": {
+        "accuracy": 4,
+        "accuracy_reason": "Correctly describes using crystal strains and the piezoelectric effect to infer gravitational effects and mentions lab generation; slightly overstates superiority to laser interferometry and omits the two different numerical comparisons (17 vs 39 orders) clarity.",
+        "completeness": 4,
+        "completeness_reason": "Covers core ideas (Riemann components via voltages, mathematical limits, lab generation, large radiation gains) but misses explicit naming of the Riemann tensor and does not clearly present both the 17- and 39-order comparisons.",
+        "relevance": 5,
+        "relevance_reason": "Focuses on the main scientific significance — new detection method and potential impact on gravitational-wave astronomy.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible for a general audience, with minor typos and some speculative framing.",
+        "mean_score": 4.25
+      },
+      "news_1": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithfully presents the main technical ideas (measure Riemann tensor via piezoelectric crystals, voltage measurement, mathematical limits, lab generation) and quotes the 17- and 39-order figures; includes some speculative extrapolations about broad technological impacts beyond the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly covers the key findings, mechanisms, limitations, and the reported numerical gains, and discusses experimental and theoretical implications.",
+        "relevance": 5,
+        "relevance_reason": "Strongly emphasizes why the methods matter (measurement of spacetime curvature, new detection/generation approaches) and the potential significance.",
+        "clarity": 4,
+        "clarity_reason": "Clear and detailed for a general audience, though somewhat long and occasionally promotional in tone.",
+        "mean_score": 4.5
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes a different paper (gravitational communication) and topics not in the abstract; does not address measuring the Riemann tensor or the specific crystal-based radiation comparisons.",
+        "completeness": 1,
+        "completeness_reason": "Misses the core results and mechanisms from the abstract (piezoelectric measurement of Riemann tensor, 17/39-order radiation claims).",
+        "relevance": 1,
+        "relevance_reason": "Largely off-topic relative to the abstract; focuses on gravitational communication rather than the proposed crystal-based measurement/generation methods.",
+        "clarity": 5,
+        "clarity_reason": "Well written and accessible for a general audience, with clear explanations of the (different) paper it covers.",
+        "mean_score": 2.0
+      },
+      "news_2": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately summarizes the abstract's main points (Riemann tensor measurement, piezoelectric voltages, mathematical limits, lab generation) and cites the 17- and 39-order improvements; contains a minor numeric/inconsistency in the illustrative large-number phrasing.",
+        "completeness": 5,
+        "completeness_reason": "Covers the primary findings, mechanisms, proposed arrangements, limitations, and the reported radiation-increase figures from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the most newsworthy aspects: a new measurement technique for spacetime curvature and potential lab generation/detection advances.",
+        "clarity": 4,
+        "clarity_reason": "Clear and approachable, though somewhat promotional and with a small misleading numeric example.",
+        "mean_score": 4.5
+      }
+    }
+  },
+  {
+    "id": 29739,
+    "date": "2025-01-30",
+    "category": "Health",
+    "news_url": "https://www.sciencealert.com/surprising-link-between-menthol-and-alzheimers-discovered-in-mice",
+    "abstract_url": "https://www.mdpi.com/2079-6374/8/2/41",
+    "label_map": {
+      "A": "news_0",
+      "B": "news_3",
+      "C": "news_2",
+      "D": "news_1"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 2,
+        "accuracy_reason": "Misstates key facts (says 12 studies ~4,000 participants vs abstract's 10 articles) and introduces taste/longitudinal predictive claims not supported by the abstract.",
+        "completeness": 3,
+        "completeness_reason": "Covers the core result and practical implications but omits the reported effect sizes and confidence intervals and overstates predictive claims.",
+        "relevance": 4,
+        "relevance_reason": "Emphasizes the important news angle (early, cheap screening) and why it matters globally.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible, but some imprecise language (e.g., implying prediction of future cases)."
+      },
+      "B": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes a different mouse study about menthol and immune effects; contradicts the human olfaction meta-analysis in the abstract.",
+        "completeness": 1,
+        "completeness_reason": "Does not cover the abstract's main findings (meta-analysis of human olfaction in AD/MCI) at all.",
+        "relevance": 1,
+        "relevance_reason": "Focuses on a distinct experiment and therapeutic angle in mice rather than the diagnostic biomarker question in humans.",
+        "clarity": 4,
+        "clarity_reason": "Article itself is readable and structured, but not relevant to the referenced abstract."
+      },
+      "C": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately reports key points: 50 million cases, 10-article meta-analysis, and effect sizes (−1.63 and −0.81); however includes an apparently fabricated researcher quote.",
+        "completeness": 4,
+        "completeness_reason": "Includes main findings, context, and implications (global applicability), but omits confidence intervals and some methodological detail (e.g., two comparative meta-analyses).",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the significance of an inexpensive, scalable early biomarker for AD.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible while retaining the scientific meaning."
+      },
+      "D": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithfully reports core facts (10 articles, effect sizes −1.63 and −0.81, progressive olfactory decline) but uses a named lead researcher not present in the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers main findings, context, practical implications, and includes an appropriate caveat that olfaction is not a standalone diagnostic tool.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the most newsworthy aspects: early detection, accessibility, and global applicability.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured, and accessible for a general audience."
+      }
+    },
+    "scores_by_system": {
+      "news_0": {
+        "accuracy": 2,
+        "accuracy_reason": "Misstates key facts (says 12 studies ~4,000 participants vs abstract's 10 articles) and introduces taste/longitudinal predictive claims not supported by the abstract.",
+        "completeness": 3,
+        "completeness_reason": "Covers the core result and practical implications but omits the reported effect sizes and confidence intervals and overstates predictive claims.",
+        "relevance": 4,
+        "relevance_reason": "Emphasizes the important news angle (early, cheap screening) and why it matters globally.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible, but some imprecise language (e.g., implying prediction of future cases).",
+        "mean_score": 3.25
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes a different mouse study about menthol and immune effects; contradicts the human olfaction meta-analysis in the abstract.",
+        "completeness": 1,
+        "completeness_reason": "Does not cover the abstract's main findings (meta-analysis of human olfaction in AD/MCI) at all.",
+        "relevance": 1,
+        "relevance_reason": "Focuses on a distinct experiment and therapeutic angle in mice rather than the diagnostic biomarker question in humans.",
+        "clarity": 4,
+        "clarity_reason": "Article itself is readable and structured, but not relevant to the referenced abstract.",
+        "mean_score": 1.75
+      },
+      "news_2": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately reports key points: 50 million cases, 10-article meta-analysis, and effect sizes (−1.63 and −0.81); however includes an apparently fabricated researcher quote.",
+        "completeness": 4,
+        "completeness_reason": "Includes main findings, context, and implications (global applicability), but omits confidence intervals and some methodological detail (e.g., two comparative meta-analyses).",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the significance of an inexpensive, scalable early biomarker for AD.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible while retaining the scientific meaning.",
+        "mean_score": 4.5
+      },
+      "news_1": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithfully reports core facts (10 articles, effect sizes −1.63 and −0.81, progressive olfactory decline) but uses a named lead researcher not present in the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers main findings, context, practical implications, and includes an appropriate caveat that olfaction is not a standalone diagnostic tool.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the most newsworthy aspects: early detection, accessibility, and global applicability.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured, and accessible for a general audience.",
+        "mean_score": 4.75
+      }
+    }
+  },
+  {
+    "id": 29753,
+    "date": "2025-01-27",
+    "category": "Health",
+    "news_url": "https://www.sciencealert.com/forever-chemicals-in-us-drinking-water-linked-to-cancer-scientists-find",
+    "abstract_url": "https://www.nature.com/articles/s41370-024-00742-2",
+    "label_map": {
+      "A": "news_2",
+      "B": "news_0",
+      "C": "news_1",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: correct time windows, PFAS measured, main cancer systems, IRR range and PFBS 1.33, sex-specific findings, and attributable-case estimates; no material factual errors.",
+        "completeness": 4,
+        "completeness_reason": "Covers methods, main findings, compounds, and burden estimates but does not emphasize that the analysis is ecological and thus cannot prove causation.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds public-health significance, regulatory implications, and why the findings matter.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and easy to follow for a general audience with appropriate explanation of technical results."
+      },
+      "B": {
+        "accuracy": 2,
+        "accuracy_reason": "Contains multiple factual errors/typos (wrong study years like '2006 to 2031' and garbled monitoring-period dates and numeric ranges) that undermine trust in the reporting.",
+        "completeness": 3,
+        "completeness_reason": "Mentions core results (affected organ systems, PFBS effect, sex differences, attributable cases) but has corrupted/missing methodological details and numeric errors.",
+        "relevance": 3,
+        "relevance_reason": "Identifies the main result and public-health angle but presentation errors weaken the newsworthiness and precision.",
+        "clarity": 2,
+        "clarity_reason": "Confusing due to corrupted dates and numbers and several typos, making it hard for readers to parse the findings accurately."
+      },
+      "C": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately reports the study design, data sources (SEER, UCMR3/5), methods (Poisson models), key associations, IRR range and PFBS 1.33, sex differences, and attributable-case estimates.",
+        "completeness": 4,
+        "completeness_reason": "Thorough on methods and results and policy implications but does not explicitly state the ecological nature/causal limitations of the analysis emphasized in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly highlights the significance of the findings, public-health implications, and need for regulation and further research.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured and accessible while preserving key scientific details."
+      },
+      "D": {
+        "accuracy": 4,
+        "accuracy_reason": "Generally faithful to the abstract (correct systems, PFBS 33% effect, attributable-case range) and notes ecological/causal limits, but includes some added mechanistic speculation and details (county counts/population) not present in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers main findings, sex differences, public-health context and limitations; however it adds speculative mechanisms and omits some methodological specifics (e.g., explicit mention of UCMR3 vs UCMR5 details and MCLs).",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the most newsworthy aspects: increased cancer rates, large population affected, and regulatory implications.",
+        "clarity": 5,
+        "clarity_reason": "Readable and engaging for a general audience, with clear explanation of key findings and limitations."
+      }
+    },
+    "scores_by_system": {
+      "news_2": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: correct time windows, PFAS measured, main cancer systems, IRR range and PFBS 1.33, sex-specific findings, and attributable-case estimates; no material factual errors.",
+        "completeness": 4,
+        "completeness_reason": "Covers methods, main findings, compounds, and burden estimates but does not emphasize that the analysis is ecological and thus cannot prove causation.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds public-health significance, regulatory implications, and why the findings matter.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and easy to follow for a general audience with appropriate explanation of technical results.",
+        "mean_score": 4.75
+      },
+      "news_0": {
+        "accuracy": 2,
+        "accuracy_reason": "Contains multiple factual errors/typos (wrong study years like '2006 to 2031' and garbled monitoring-period dates and numeric ranges) that undermine trust in the reporting.",
+        "completeness": 3,
+        "completeness_reason": "Mentions core results (affected organ systems, PFBS effect, sex differences, attributable cases) but has corrupted/missing methodological details and numeric errors.",
+        "relevance": 3,
+        "relevance_reason": "Identifies the main result and public-health angle but presentation errors weaken the newsworthiness and precision.",
+        "clarity": 2,
+        "clarity_reason": "Confusing due to corrupted dates and numbers and several typos, making it hard for readers to parse the findings accurately.",
+        "mean_score": 2.5
+      },
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately reports the study design, data sources (SEER, UCMR3/5), methods (Poisson models), key associations, IRR range and PFBS 1.33, sex differences, and attributable-case estimates.",
+        "completeness": 4,
+        "completeness_reason": "Thorough on methods and results and policy implications but does not explicitly state the ecological nature/causal limitations of the analysis emphasized in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly highlights the significance of the findings, public-health implications, and need for regulation and further research.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured and accessible while preserving key scientific details.",
+        "mean_score": 4.75
+      },
+      "news_3": {
+        "accuracy": 4,
+        "accuracy_reason": "Generally faithful to the abstract (correct systems, PFBS 33% effect, attributable-case range) and notes ecological/causal limits, but includes some added mechanistic speculation and details (county counts/population) not present in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers main findings, sex differences, public-health context and limitations; however it adds speculative mechanisms and omits some methodological specifics (e.g., explicit mention of UCMR3 vs UCMR5 details and MCLs).",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the most newsworthy aspects: increased cancer rates, large population affected, and regulatory implications.",
+        "clarity": 5,
+        "clarity_reason": "Readable and engaging for a general audience, with clear explanation of key findings and limitations.",
+        "mean_score": 4.5
+      }
+    }
+  },
+  {
+    "id": 29775,
+    "date": "2025-01-23",
+    "category": "Tech",
+    "news_url": "https://www.sciencealert.com/the-roblox-dilemma-can-you-keep-your-kids-safe-in-the-metaverse",
+    "abstract_url": "https://www.mdpi.com/2227-7102/13/3/296",
+    "label_map": {
+      "A": "news_2",
+      "B": "news_1",
+      "C": "news_0",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reports the review of 40 studies and the abstract's main findings (social/collaborative learning, VR, STEM/programming benefits, user attraction, cognitive/noncognitive gains, risks and need for more research) with no material errors.",
+        "completeness": 5,
+        "completeness_reason": "Covers the core findings, key advantages, listed challenges, and the paper's call for more empirical work and better pedagogical design.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the educational significance of Roblox and why the review matters for educators and researchers.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and accessible for a general audience while keeping the scientific points intact."
+      },
+      "B": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately summarizes the abstract's main points (40-article synthesis, collaborative/social learning, VR/STEM benefits, user engagement, risks and research gaps) without factual contradictions.",
+        "completeness": 5,
+        "completeness_reason": "Addresses the main findings, advantages, challenges, and the need for further empirical and pedagogical research from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the study's implications for education and why Roblox is of interest to educators and researchers.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-organized, and accessible for general readers with appropriate explanations of technical ideas."
+      },
+      "C": {
+        "accuracy": 4,
+        "accuracy_reason": "Largely faithful to the abstract's findings but contains minor errors/typos (e.g., 'number của', 'Roblex') and some slight imprecision in phrasing.",
+        "completeness": 4,
+        "completeness_reason": "Covers the core result, benefits, challenges, and research gaps, but omits methodological details (PRISMA/LDA) and has small lapses in presentation.",
+        "relevance": 4,
+        "relevance_reason": "Identifies the main educational implications and the need for more study, but is less emphatic and polished than the strongest summaries.",
+        "clarity": 3,
+        "clarity_reason": "Generally understandable but marred by typographical errors and uneven phrasing that may confuse some readers."
+      },
+      "D": {
+        "accuracy": 2,
+        "accuracy_reason": "Focuses heavily on safety/parental-control issues and introduces specific claims (user counts, age breakdowns, commercial practices, sexual exploitation/grooming) not present in the abstract and overemphasizes harms relative to the review's balanced findings.",
+        "completeness": 1,
+        "completeness_reason": "Misses most of the review's main findings about Roblox's educational benefits (collaboration, VR/STEM programming, cognitive/noncognitive gains) and the 40-study synthesis.",
+        "relevance": 2,
+        "relevance_reason": "While it addresses one of the abstract's challenge themes (safety), it neglects the broader educational findings and research-gap emphasis that are central to the paper.",
+        "clarity": 5,
+        "clarity_reason": "Well written and highly readable for a general audience, with clear presentation of safety concerns and parental guidance."
+      }
+    },
+    "scores_by_system": {
+      "news_2": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reports the review of 40 studies and the abstract's main findings (social/collaborative learning, VR, STEM/programming benefits, user attraction, cognitive/noncognitive gains, risks and need for more research) with no material errors.",
+        "completeness": 5,
+        "completeness_reason": "Covers the core findings, key advantages, listed challenges, and the paper's call for more empirical work and better pedagogical design.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the educational significance of Roblox and why the review matters for educators and researchers.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and accessible for a general audience while keeping the scientific points intact.",
+        "mean_score": 5.0
+      },
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately summarizes the abstract's main points (40-article synthesis, collaborative/social learning, VR/STEM benefits, user engagement, risks and research gaps) without factual contradictions.",
+        "completeness": 5,
+        "completeness_reason": "Addresses the main findings, advantages, challenges, and the need for further empirical and pedagogical research from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the study's implications for education and why Roblox is of interest to educators and researchers.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-organized, and accessible for general readers with appropriate explanations of technical ideas.",
+        "mean_score": 5.0
+      },
+      "news_0": {
+        "accuracy": 4,
+        "accuracy_reason": "Largely faithful to the abstract's findings but contains minor errors/typos (e.g., 'number của', 'Roblex') and some slight imprecision in phrasing.",
+        "completeness": 4,
+        "completeness_reason": "Covers the core result, benefits, challenges, and research gaps, but omits methodological details (PRISMA/LDA) and has small lapses in presentation.",
+        "relevance": 4,
+        "relevance_reason": "Identifies the main educational implications and the need for more study, but is less emphatic and polished than the strongest summaries.",
+        "clarity": 3,
+        "clarity_reason": "Generally understandable but marred by typographical errors and uneven phrasing that may confuse some readers.",
+        "mean_score": 3.75
+      },
+      "news_3": {
+        "accuracy": 2,
+        "accuracy_reason": "Focuses heavily on safety/parental-control issues and introduces specific claims (user counts, age breakdowns, commercial practices, sexual exploitation/grooming) not present in the abstract and overemphasizes harms relative to the review's balanced findings.",
+        "completeness": 1,
+        "completeness_reason": "Misses most of the review's main findings about Roblox's educational benefits (collaboration, VR/STEM programming, cognitive/noncognitive gains) and the 40-study synthesis.",
+        "relevance": 2,
+        "relevance_reason": "While it addresses one of the abstract's challenge themes (safety), it neglects the broader educational findings and research-gap emphasis that are central to the paper.",
+        "clarity": 5,
+        "clarity_reason": "Well written and highly readable for a general audience, with clear presentation of safety concerns and parental guidance.",
+        "mean_score": 2.5
+      }
+    }
+  },
+  {
+    "id": 29802,
+    "date": "2025-01-19",
+    "category": "Humans",
+    "news_url": "https://www.sciencealert.com/paleo-diet-debunked-ancient-humans-ate-plants-study-shows",
+    "abstract_url": "https://www.journals.uchicago.edu/doi/10.1086/682587",
+    "label_map": {
+      "A": "news_2",
+      "B": "news_3",
+      "C": "news_1",
+      "D": "news_0"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to the abstract on starch, cooking, brain/RBC/fetus glucose demand, and amylase CNV; minor factual slip by citing specific foods like 'potatoes' (New World crop) as Pleistocene examples.",
+        "completeness": 5,
+        "completeness_reason": "Covers the core hypothesis, role of cooking, physiological targets (brain, RBCs, fetus), salivary amylase CNV, uncertainties, and the testable prediction.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds why the finding matters for human evolution and challenges meat-centric narratives.",
+        "clarity": 5,
+        "clarity_reason": "Well organized and accessible; technical points explained for a general audience."
+      },
+      "B": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes specific archaeological starch-granule finds at a site in Israel and tool residue evidence not mentioned in the abstract — effectively a different study/claim than the abstract's theoretical paper.",
+        "completeness": 1,
+        "completeness_reason": "Fails to present the abstract's core arguments about cooking increasing starch digestibility, glucose supply to brain/RBC/fetus, and amylase CNV linkage.",
+        "relevance": 2,
+        "relevance_reason": "Relates to plant use in deep time but misses the abstract's main significance about metabolic role of cooked starch and genetic adaptation.",
+        "clarity": 4,
+        "clarity_reason": "Clear and readable reporting of the archaeological story, even though it doesn't match the abstract."
+      },
+      "C": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately presents the hypothesis about cooked starch, glucose supply, and amylase CNV; includes an unsupported named quote (Dr. Emily Turner) not in the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main findings, mechanism (cooking -> gelatinization -> amylase access -> glucose), physiological targets, genetic component, and stated uncertainties.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the evolutionary and broader nutritional implications, matching the abstract's newsworthy angle.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible, though slightly embellished with a fabricated quote and some extrapolation to modern diets."
+      },
+      "D": {
+        "accuracy": 4,
+        "accuracy_reason": "Largely faithful to the abstract on starch, cooking, gelatinization, glucose supply, and amylase CNV; minor imprecision about enzymes 'in the mouth and stomach' and a couple of typos.",
+        "completeness": 5,
+        "completeness_reason": "Covers the hypothesis, mechanism, physiological implications, genetic variation, uncertainties, and evolutionary context.",
+        "relevance": 5,
+        "relevance_reason": "Highlights the study's challenge to meat-only narratives and the importance of starch for brain energetics.",
+        "clarity": 4,
+        "clarity_reason": "Clear and concise presentation, but readability slightly reduced by typos and a small enzymatic imprecision."
+      }
+    },
+    "scores_by_system": {
+      "news_2": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to the abstract on starch, cooking, brain/RBC/fetus glucose demand, and amylase CNV; minor factual slip by citing specific foods like 'potatoes' (New World crop) as Pleistocene examples.",
+        "completeness": 5,
+        "completeness_reason": "Covers the core hypothesis, role of cooking, physiological targets (brain, RBCs, fetus), salivary amylase CNV, uncertainties, and the testable prediction.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds why the finding matters for human evolution and challenges meat-centric narratives.",
+        "clarity": 5,
+        "clarity_reason": "Well organized and accessible; technical points explained for a general audience.",
+        "mean_score": 4.75
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes specific archaeological starch-granule finds at a site in Israel and tool residue evidence not mentioned in the abstract — effectively a different study/claim than the abstract's theoretical paper.",
+        "completeness": 1,
+        "completeness_reason": "Fails to present the abstract's core arguments about cooking increasing starch digestibility, glucose supply to brain/RBC/fetus, and amylase CNV linkage.",
+        "relevance": 2,
+        "relevance_reason": "Relates to plant use in deep time but misses the abstract's main significance about metabolic role of cooked starch and genetic adaptation.",
+        "clarity": 4,
+        "clarity_reason": "Clear and readable reporting of the archaeological story, even though it doesn't match the abstract.",
+        "mean_score": 2.0
+      },
+      "news_1": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately presents the hypothesis about cooked starch, glucose supply, and amylase CNV; includes an unsupported named quote (Dr. Emily Turner) not in the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main findings, mechanism (cooking -> gelatinization -> amylase access -> glucose), physiological targets, genetic component, and stated uncertainties.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the evolutionary and broader nutritional implications, matching the abstract's newsworthy angle.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible, though slightly embellished with a fabricated quote and some extrapolation to modern diets.",
+        "mean_score": 4.5
+      },
+      "news_0": {
+        "accuracy": 4,
+        "accuracy_reason": "Largely faithful to the abstract on starch, cooking, gelatinization, glucose supply, and amylase CNV; minor imprecision about enzymes 'in the mouth and stomach' and a couple of typos.",
+        "completeness": 5,
+        "completeness_reason": "Covers the hypothesis, mechanism, physiological implications, genetic variation, uncertainties, and evolutionary context.",
+        "relevance": 5,
+        "relevance_reason": "Highlights the study's challenge to meat-only narratives and the importance of starch for brain energetics.",
+        "clarity": 4,
+        "clarity_reason": "Clear and concise presentation, but readability slightly reduced by typos and a small enzymatic imprecision.",
+        "mean_score": 4.5
+      }
+    }
+  },
+  {
+    "id": 29846,
+    "date": "2025-01-12",
+    "category": "Nature",
+    "news_url": "https://www.sciencealert.com/one-thing-about-snakes-triggers-a-powerful-instinct-in-primates",
+    "abstract_url": "https://journals.sagepub.com/doi/10.1111/j.1467-9280.2008.02081.x",
+    "label_map": {
+      "A": "news_2",
+      "B": "news_0",
+      "C": "news_1",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 3,
+        "accuracy_reason": "Correctly reports faster detection of snakes by children and adults but overstates this as 'instinctive fear' and invents a named lead researcher not in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the three experiments, participant groups, stimuli and main result; includes reasonable implications but omits caveats about fear vs. detection.",
+        "relevance": 4,
+        "relevance_reason": "Emphasizes the evolutionary significance and practical implications, which are the main newsworthy angles of the study.",
+        "clarity": 4,
+        "clarity_reason": "Clear and accessible language for a general audience, though a bit emotive in framing."
+      },
+      "B": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully describes the methods (three experiments, visual search with eight distractors) and results and explicitly avoids conflating detection with automatic fear.",
+        "completeness": 5,
+        "completeness_reason": "Covers core result, experimental design, participant groups, and appropriate caveats about interpretation and generalizability.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the evolutionary and perceptual significance and why the finding matters.",
+        "clarity": 5,
+        "clarity_reason": "Concise, balanced, and easy to follow for a general audience."
+      },
+      "C": {
+        "accuracy": 3,
+        "accuracy_reason": "Accurately reports faster snake detection but repeatedly frames the finding as 'innate fear' and quotes a named lead researcher not given in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Describes the experiments, stimuli, and main interpretation; includes implications but treats fear more strongly than the evidence warrants.",
+        "relevance": 4,
+        "relevance_reason": "Focuses on the evolutionary importance and developmental implications, matching the study's significance.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and readable, though somewhat repetitive and slightly over-interpretive."
+      },
+      "D": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes a different primate study (macaques, snakeskin manipulation) and methods/results not in the abstract; major mismatch with the child/adult visual-search paper.",
+        "completeness": 1,
+        "completeness_reason": "Does not report the preschooler/adult visual-search experiments, stimuli (flowers/frogs/caterpillars), or the paper's main findings about young children.",
+        "relevance": 1,
+        "relevance_reason": "Focuses on a separate monkey study and snakeskin cue, failing to present the actual study of children and adults described in the abstract.",
+        "clarity": 4,
+        "clarity_reason": "Well-written and understandable on its own, but not relevant to the abstract provided."
+      }
+    },
+    "scores_by_system": {
+      "news_2": {
+        "accuracy": 3,
+        "accuracy_reason": "Correctly reports faster detection of snakes by children and adults but overstates this as 'instinctive fear' and invents a named lead researcher not in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the three experiments, participant groups, stimuli and main result; includes reasonable implications but omits caveats about fear vs. detection.",
+        "relevance": 4,
+        "relevance_reason": "Emphasizes the evolutionary significance and practical implications, which are the main newsworthy angles of the study.",
+        "clarity": 4,
+        "clarity_reason": "Clear and accessible language for a general audience, though a bit emotive in framing.",
+        "mean_score": 3.75
+      },
+      "news_0": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully describes the methods (three experiments, visual search with eight distractors) and results and explicitly avoids conflating detection with automatic fear.",
+        "completeness": 5,
+        "completeness_reason": "Covers core result, experimental design, participant groups, and appropriate caveats about interpretation and generalizability.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the evolutionary and perceptual significance and why the finding matters.",
+        "clarity": 5,
+        "clarity_reason": "Concise, balanced, and easy to follow for a general audience.",
+        "mean_score": 5.0
+      },
+      "news_1": {
+        "accuracy": 3,
+        "accuracy_reason": "Accurately reports faster snake detection but repeatedly frames the finding as 'innate fear' and quotes a named lead researcher not given in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Describes the experiments, stimuli, and main interpretation; includes implications but treats fear more strongly than the evidence warrants.",
+        "relevance": 4,
+        "relevance_reason": "Focuses on the evolutionary importance and developmental implications, matching the study's significance.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and readable, though somewhat repetitive and slightly over-interpretive.",
+        "mean_score": 3.75
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes a different primate study (macaques, snakeskin manipulation) and methods/results not in the abstract; major mismatch with the child/adult visual-search paper.",
+        "completeness": 1,
+        "completeness_reason": "Does not report the preschooler/adult visual-search experiments, stimuli (flowers/frogs/caterpillars), or the paper's main findings about young children.",
+        "relevance": 1,
+        "relevance_reason": "Focuses on a separate monkey study and snakeskin cue, failing to present the actual study of children and adults described in the abstract.",
+        "clarity": 4,
+        "clarity_reason": "Well-written and understandable on its own, but not relevant to the abstract provided.",
+        "mean_score": 1.75
+      }
+    }
+  },
+  {
+    "id": 29866,
+    "date": "2025-01-08",
+    "category": "Nature",
+    "news_url": "https://www.sciencealert.com/dogs-can-catch-your-stress-putting-their-own-health-at-risk",
+    "abstract_url": "https://www.jmir.org/2022/7/e32280",
+    "label_map": {
+      "A": "news_0",
+      "B": "news_2",
+      "C": "news_1",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally matches the abstract but misstates participant split (says half/half; abstract reports 103 vs 181) and asserts which DST elements were most effective (unsupported by the abstract).",
+        "completeness": 3,
+        "completeness_reason": "Covers the core result and scalability but omits key stats (exact group sizes, effect size, P-value) and adds unsupported detail about specific effective elements.",
+        "relevance": 4,
+        "relevance_reason": "Clearly highlights the study's significance (scalability, remote testing) and why it matters for stress research.",
+        "clarity": 4,
+        "clarity_reason": "Clear, easy to follow for a general audience with reasonable explanations of the approach and implications."
+      },
+      "B": {
+        "accuracy": 3,
+        "accuracy_reason": "Accurately describes aims, measures, and main outcome but incorrectly says half the sample did DST (actual groups unequal) and includes an attributed quote/name not in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers methods, measures (PANAS, VAS), comparison to TSST, and future physiological validation, but omits exact group sizes and numerical effect size.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the newsworthy aspects: remote, scalable stress induction and research implications.",
+        "clarity": 5,
+        "clarity_reason": "Well-structured, accessible, and engaging for a general audience."
+      },
+      "C": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: describes methods, remote administration, statistics (P < .001, d = 0.427), and comparison to TSST without adding unsupported claims.",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly covers key findings, measures, statistical comparisons, and planned future work (physiological markers) as in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes why the DST matters (scalability, real-world application, research potential).",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-explained, and accessible while retaining scientific meaning."
+      },
+      "D": {
+        "accuracy": 1,
+        "accuracy_reason": "Discusses a different study (dogs and owner heart rates) and a different experiment; content does not match the DST human smartphone study in the abstract.",
+        "completeness": 1,
+        "completeness_reason": "Does not report the abstract's study, findings, methods, or conclusions—entirely off-topic relative to the provided abstract.",
+        "relevance": 1,
+        "relevance_reason": "Irrelevant to the referenced paper; focuses on human–dog stress contagion rather than the DST validation.",
+        "clarity": 4,
+        "clarity_reason": "Article itself is reasonably clear and readable, but it is unrelated to the abstract."
+      }
+    },
+    "scores_by_system": {
+      "news_0": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally matches the abstract but misstates participant split (says half/half; abstract reports 103 vs 181) and asserts which DST elements were most effective (unsupported by the abstract).",
+        "completeness": 3,
+        "completeness_reason": "Covers the core result and scalability but omits key stats (exact group sizes, effect size, P-value) and adds unsupported detail about specific effective elements.",
+        "relevance": 4,
+        "relevance_reason": "Clearly highlights the study's significance (scalability, remote testing) and why it matters for stress research.",
+        "clarity": 4,
+        "clarity_reason": "Clear, easy to follow for a general audience with reasonable explanations of the approach and implications.",
+        "mean_score": 3.5
+      },
+      "news_2": {
+        "accuracy": 3,
+        "accuracy_reason": "Accurately describes aims, measures, and main outcome but incorrectly says half the sample did DST (actual groups unequal) and includes an attributed quote/name not in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers methods, measures (PANAS, VAS), comparison to TSST, and future physiological validation, but omits exact group sizes and numerical effect size.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the newsworthy aspects: remote, scalable stress induction and research implications.",
+        "clarity": 5,
+        "clarity_reason": "Well-structured, accessible, and engaging for a general audience.",
+        "mean_score": 4.25
+      },
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: describes methods, remote administration, statistics (P < .001, d = 0.427), and comparison to TSST without adding unsupported claims.",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly covers key findings, measures, statistical comparisons, and planned future work (physiological markers) as in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes why the DST matters (scalability, real-world application, research potential).",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-explained, and accessible while retaining scientific meaning.",
+        "mean_score": 5.0
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Discusses a different study (dogs and owner heart rates) and a different experiment; content does not match the DST human smartphone study in the abstract.",
+        "completeness": 1,
+        "completeness_reason": "Does not report the abstract's study, findings, methods, or conclusions—entirely off-topic relative to the provided abstract.",
+        "relevance": 1,
+        "relevance_reason": "Irrelevant to the referenced paper; focuses on human–dog stress contagion rather than the DST validation.",
+        "clarity": 4,
+        "clarity_reason": "Article itself is reasonably clear and readable, but it is unrelated to the abstract.",
+        "mean_score": 1.75
+      }
+    }
+  },
+  {
+    "id": 29873,
+    "date": "2025-01-07",
+    "category": "Humans",
+    "news_url": "https://www.sciencealert.com/surprise-turning-of-ancient-wheel-of-ghosts-casts-doubt-on-astronomical-purpose",
+    "abstract_url": "https://www.mdpi.com/2072-4292/16/22/4239",
+    "label_map": {
+      "A": "news_1",
+      "B": "news_2",
+      "C": "news_0",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to abstract on patterns, reuse, geomagnetic rotation; inaccurately labels tumuli explicitly as 'burial mounds' (the abstract does not assert funerary function).",
+        "completeness": 5,
+        "completeness_reason": "Covers the main satellite findings (40–90 m circles, 20 m fences, linear walls), tumuli variability, reuse, geomagnetic results, and neural‑network application from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the study’s significance—new landscape context for Rujm el‑Hiri and implications for observatory theories and remote‑sensing methods.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible, though verbose in places."
+      },
+      "B": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately reports major findings and geomagnetic rotation; slightly overinterprets tumuli as burial mounds and infers agricultural use for wet‑area fences beyond the abstract’s explicit claims.",
+        "completeness": 5,
+        "completeness_reason": "Includes the key patterns, temporal distinctions, tumuli diversity, reuse, geomagnetic implications, and possible AI applications.",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights the newsworthy implications (landscape network, questioning astronomical alignment, new methods).",
+        "clarity": 4,
+        "clarity_reason": "Clear and well organized, though somewhat repetitive and occasionally inferential."
+      },
+      "C": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally matches core findings but overstates uncertainty by saying structures may be 'older than' Rujm el‑Hiri (abstract says 'possibly as old as') and adds speculative functions for mounds.",
+        "completeness": 4,
+        "completeness_reason": "Covers major discoveries, reuse, geomagnetic shift and AI applications but omits some nuance (statistical distribution and topological links emphasized in the abstract).",
+        "relevance": 4,
+        "relevance_reason": "Identifies the main result and why it matters (landscape complexity and observatory question) but tones down some specifics.",
+        "clarity": 3,
+        "clarity_reason": "Understandable overall but has typos, minor imprecision, and occasional speculative language that reduces clarity."
+      },
+      "D": {
+        "accuracy": 2,
+        "accuracy_reason": "Contains notable factual errors/unsupported details (misstates geographic placement as 'southwest Syria' for a site in the northern Southern Levant) and introduces specific chronological/size details not in the abstract.",
+        "completeness": 3,
+        "completeness_reason": "Highlights geomagnetic rotation, reuse, tumuli and AI angle but omits or underdescribes the specific spatial patterns (40–90 m circles, 20 m fences, linear field walls) emphasized in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the most newsworthy claim—challenge to the astronomical‑observatory interpretation—consistent with the abstract’s implications.",
+        "clarity": 4,
+        "clarity_reason": "Readable and engaging but sensational tone and formatting quirks; some claims lack sourcing or precision."
+      }
+    },
+    "scores_by_system": {
+      "news_1": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to abstract on patterns, reuse, geomagnetic rotation; inaccurately labels tumuli explicitly as 'burial mounds' (the abstract does not assert funerary function).",
+        "completeness": 5,
+        "completeness_reason": "Covers the main satellite findings (40–90 m circles, 20 m fences, linear walls), tumuli variability, reuse, geomagnetic results, and neural‑network application from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the study’s significance—new landscape context for Rujm el‑Hiri and implications for observatory theories and remote‑sensing methods.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible, though verbose in places.",
+        "mean_score": 4.5
+      },
+      "news_2": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately reports major findings and geomagnetic rotation; slightly overinterprets tumuli as burial mounds and infers agricultural use for wet‑area fences beyond the abstract’s explicit claims.",
+        "completeness": 5,
+        "completeness_reason": "Includes the key patterns, temporal distinctions, tumuli diversity, reuse, geomagnetic implications, and possible AI applications.",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights the newsworthy implications (landscape network, questioning astronomical alignment, new methods).",
+        "clarity": 4,
+        "clarity_reason": "Clear and well organized, though somewhat repetitive and occasionally inferential.",
+        "mean_score": 4.5
+      },
+      "news_0": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally matches core findings but overstates uncertainty by saying structures may be 'older than' Rujm el‑Hiri (abstract says 'possibly as old as') and adds speculative functions for mounds.",
+        "completeness": 4,
+        "completeness_reason": "Covers major discoveries, reuse, geomagnetic shift and AI applications but omits some nuance (statistical distribution and topological links emphasized in the abstract).",
+        "relevance": 4,
+        "relevance_reason": "Identifies the main result and why it matters (landscape complexity and observatory question) but tones down some specifics.",
+        "clarity": 3,
+        "clarity_reason": "Understandable overall but has typos, minor imprecision, and occasional speculative language that reduces clarity.",
+        "mean_score": 3.5
+      },
+      "news_3": {
+        "accuracy": 2,
+        "accuracy_reason": "Contains notable factual errors/unsupported details (misstates geographic placement as 'southwest Syria' for a site in the northern Southern Levant) and introduces specific chronological/size details not in the abstract.",
+        "completeness": 3,
+        "completeness_reason": "Highlights geomagnetic rotation, reuse, tumuli and AI angle but omits or underdescribes the specific spatial patterns (40–90 m circles, 20 m fences, linear field walls) emphasized in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the most newsworthy claim—challenge to the astronomical‑observatory interpretation—consistent with the abstract’s implications.",
+        "clarity": 4,
+        "clarity_reason": "Readable and engaging but sensational tone and formatting quirks; some claims lack sourcing or precision.",
+        "mean_score": 3.5
+      }
+    }
+  },
+  {
+    "id": 29902,
+    "date": "2025-01-02",
+    "category": "Nature",
+    "news_url": "https://www.sciencealert.com/volcanic-activity-beneath-yellowstones-massive-caldera-could-be-on-the-move",
+    "abstract_url": "https://pubs.usgs.gov/publication/70016274",
+    "label_map": {
+      "A": "news_2",
+      "B": "news_1",
+      "C": "news_0",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reports eruption volumes, caldera ages/volumes, isotopic shifts from assimilation, intracaldera recovery, distinct extracaldera sources, and basalt-driven deep-crustal hybridization as in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main findings and mechanisms (isotope changes, hybridization by Cenozoic basalt, extracaldera contrast) but omits the specific peripheral tholeiitic-basalt volume/vent count and the explicit statement that intermediate products are absent.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the scientific significance of the isotopic and hybridization findings for understanding Yellowstone's volcanic history.",
+        "clarity": 5,
+        "clarity_reason": "Well organized and accessible for a general audience with accurate explanations of technical terms."
+      },
+      "B": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately describes eruption volumes and timing, peripheral tholeiitic basalt, isotopic evidence for assimilation and recovery, extracaldera differences, and basalt-driven hybridization (including the >50% Nd/Sr contribution claim).",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly covers the key quantitative results, isotopic mechanisms, peripheral basalt data, and places findings in broader geological context.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the most newsworthy aspects (large eruptions, crustal hybridization, implications for other systems and hazards).",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-explained, and accessible while preserving scientific meaning."
+      },
+      "C": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally matches the abstract's main points (long-lived rhyolitic eruptions, isotopic mixing, intracaldera vs extracaldera differences, basalt hybridization) but contains several sloppy errors/typos and some imprecise phrasing.",
+        "completeness": 3,
+        "completeness_reason": "Covers the core result (deep-crustal mixing and differing sources) but omits key quantitative details (eruption volumes, caldera ages/volumes, peripheral basalt volume/vent count) and is uneven in technical detail.",
+        "relevance": 3,
+        "relevance_reason": "Identifies the primary scientific takeaway (mixing/hybridization) but only partially explains its broader significance and overstates utility for predicting future eruptions.",
+        "clarity": 2,
+        "clarity_reason": "Multiple typographical errors and awkward phrases (e.g., 'calderasString', 'rhotic') make it harder for a general audience to follow."
+      },
+      "D": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes a different study (magnetotelluric imaging, northeast shift of melt locus, specific melt volumes and geophysical methods) not reported in the provided abstract; major factual mismatch with the abstract.",
+        "completeness": 1,
+        "completeness_reason": "Does not convey the abstract's main findings (isotopic evidence, hybridization by basalt, extracaldera rhyolite contrasts, eruption volumes/timings).",
+        "relevance": 1,
+        "relevance_reason": "Focuses on a different news angle (migration of melt and future hazard locus) that is not supported by the abstract's content.",
+        "clarity": 4,
+        "clarity_reason": "Well written and accessible for a general audience despite being about a different study."
+      }
+    },
+    "scores_by_system": {
+      "news_2": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reports eruption volumes, caldera ages/volumes, isotopic shifts from assimilation, intracaldera recovery, distinct extracaldera sources, and basalt-driven deep-crustal hybridization as in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main findings and mechanisms (isotope changes, hybridization by Cenozoic basalt, extracaldera contrast) but omits the specific peripheral tholeiitic-basalt volume/vent count and the explicit statement that intermediate products are absent.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the scientific significance of the isotopic and hybridization findings for understanding Yellowstone's volcanic history.",
+        "clarity": 5,
+        "clarity_reason": "Well organized and accessible for a general audience with accurate explanations of technical terms.",
+        "mean_score": 4.75
+      },
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately describes eruption volumes and timing, peripheral tholeiitic basalt, isotopic evidence for assimilation and recovery, extracaldera differences, and basalt-driven hybridization (including the >50% Nd/Sr contribution claim).",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly covers the key quantitative results, isotopic mechanisms, peripheral basalt data, and places findings in broader geological context.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the most newsworthy aspects (large eruptions, crustal hybridization, implications for other systems and hazards).",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-explained, and accessible while preserving scientific meaning.",
+        "mean_score": 5.0
+      },
+      "news_0": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally matches the abstract's main points (long-lived rhyolitic eruptions, isotopic mixing, intracaldera vs extracaldera differences, basalt hybridization) but contains several sloppy errors/typos and some imprecise phrasing.",
+        "completeness": 3,
+        "completeness_reason": "Covers the core result (deep-crustal mixing and differing sources) but omits key quantitative details (eruption volumes, caldera ages/volumes, peripheral basalt volume/vent count) and is uneven in technical detail.",
+        "relevance": 3,
+        "relevance_reason": "Identifies the primary scientific takeaway (mixing/hybridization) but only partially explains its broader significance and overstates utility for predicting future eruptions.",
+        "clarity": 2,
+        "clarity_reason": "Multiple typographical errors and awkward phrases (e.g., 'calderasString', 'rhotic') make it harder for a general audience to follow.",
+        "mean_score": 2.75
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes a different study (magnetotelluric imaging, northeast shift of melt locus, specific melt volumes and geophysical methods) not reported in the provided abstract; major factual mismatch with the abstract.",
+        "completeness": 1,
+        "completeness_reason": "Does not convey the abstract's main findings (isotopic evidence, hybridization by basalt, extracaldera rhyolite contrasts, eruption volumes/timings).",
+        "relevance": 1,
+        "relevance_reason": "Focuses on a different news angle (migration of melt and future hazard locus) that is not supported by the abstract's content.",
+        "clarity": 4,
+        "clarity_reason": "Well written and accessible for a general audience despite being about a different study.",
+        "mean_score": 1.75
+      }
+    }
+  },
+  {
+    "id": 29929,
+    "date": "2025-02-25",
+    "category": "Physics",
+    "news_url": "https://www.sciencealert.com/measures-of-a-double-magic-atom-reveal-an-unexpected-surprise-inside",
+    "abstract_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.062502",
+    "label_map": {
+      "A": "news_0",
+      "B": "news_1",
+      "C": "news_2",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 1,
+        "accuracy_reason": "Multiple factual errors and invented isotope numbers (calls it Pb-218, Pb-198, Pb-207, etc.) and awkward/incorrect phrasing about 'negatively charged quadrupole deformation'.",
+        "completeness": 2,
+        "completeness_reason": "Mentions core idea (unexpected deformation, octupole/quadrupole effects, theory mismatch) but omits/garbles key specifics and adds many incorrect details.",
+        "relevance": 3,
+        "relevance_reason": "Touches on the scientifically important surprise and implications, but confusion from incorrect isotope references reduces its value.",
+        "clarity": 2,
+        "clarity_reason": "Confusing and error-prone presentation (many wrong nucleus labels and awkward technical phrasing) that would mislead a general reader."
+      },
+      "B": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately reports Pb-208, four Coulomb-excitation measurements, negative spectroscopic quadrupole moments for 3−1 and 2+1 and the failure of three theories; includes a likely invented named quote.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main findings, the two-phonon coupling context, and theory comparison; omits few technical caveats but is otherwise thorough for an article.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the surprising, newsworthy aspects and why the result challenges nuclear theory.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured, and accessible explanation of the technical findings and their significance."
+      },
+      "C": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: correct nucleus (Pb-208), four Coulomb-excitation measurements, negative spectroscopic quadrupole moments for 3−1 and 2+1 indicating prolate preference, two-phonon splitting context, and theory failures.",
+        "completeness": 5,
+        "completeness_reason": "Covers the key findings, the mechanism (quadrupole–octupole coupling / two-phonon splitting), and the theoretical comparison and implications.",
+        "relevance": 5,
+        "relevance_reason": "Strongly emphasizes the surprising nature and broader significance for nuclear-structure theory.",
+        "clarity": 5,
+        "clarity_reason": "Very readable and accessible while retaining the scientific meaning."
+      },
+      "D": {
+        "accuracy": 1,
+        "accuracy_reason": "Contradicts the abstract by describing an oblate/flattened shape (article says 'squished/oblate') while the abstract reports a negative quadrupole moment interpreted as prolate; also introduces specifics (10% speed of light, GRETINA) not stated in the abstract.",
+        "completeness": 2,
+        "completeness_reason": "Mentions multiple measurements and challenge to theory but misstates the key result (shape sign) and omits the explicit two-phonon splitting discussion and the comparison to three theoretical methods as described.",
+        "relevance": 3,
+        "relevance_reason": "Highlights the surprising nature and potential implications, but the central scientific claim is misreported, undermining the article's relevance.",
+        "clarity": 4,
+        "clarity_reason": "Generally readable and engaging, though misleading due to the incorrect presentation of the nucleus' deformation."
+      }
+    },
+    "scores_by_system": {
+      "news_0": {
+        "accuracy": 1,
+        "accuracy_reason": "Multiple factual errors and invented isotope numbers (calls it Pb-218, Pb-198, Pb-207, etc.) and awkward/incorrect phrasing about 'negatively charged quadrupole deformation'.",
+        "completeness": 2,
+        "completeness_reason": "Mentions core idea (unexpected deformation, octupole/quadrupole effects, theory mismatch) but omits/garbles key specifics and adds many incorrect details.",
+        "relevance": 3,
+        "relevance_reason": "Touches on the scientifically important surprise and implications, but confusion from incorrect isotope references reduces its value.",
+        "clarity": 2,
+        "clarity_reason": "Confusing and error-prone presentation (many wrong nucleus labels and awkward technical phrasing) that would mislead a general reader.",
+        "mean_score": 2.0
+      },
+      "news_1": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately reports Pb-208, four Coulomb-excitation measurements, negative spectroscopic quadrupole moments for 3−1 and 2+1 and the failure of three theories; includes a likely invented named quote.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main findings, the two-phonon coupling context, and theory comparison; omits few technical caveats but is otherwise thorough for an article.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the surprising, newsworthy aspects and why the result challenges nuclear theory.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured, and accessible explanation of the technical findings and their significance.",
+        "mean_score": 4.5
+      },
+      "news_2": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: correct nucleus (Pb-208), four Coulomb-excitation measurements, negative spectroscopic quadrupole moments for 3−1 and 2+1 indicating prolate preference, two-phonon splitting context, and theory failures.",
+        "completeness": 5,
+        "completeness_reason": "Covers the key findings, the mechanism (quadrupole–octupole coupling / two-phonon splitting), and the theoretical comparison and implications.",
+        "relevance": 5,
+        "relevance_reason": "Strongly emphasizes the surprising nature and broader significance for nuclear-structure theory.",
+        "clarity": 5,
+        "clarity_reason": "Very readable and accessible while retaining the scientific meaning.",
+        "mean_score": 5.0
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Contradicts the abstract by describing an oblate/flattened shape (article says 'squished/oblate') while the abstract reports a negative quadrupole moment interpreted as prolate; also introduces specifics (10% speed of light, GRETINA) not stated in the abstract.",
+        "completeness": 2,
+        "completeness_reason": "Mentions multiple measurements and challenge to theory but misstates the key result (shape sign) and omits the explicit two-phonon splitting discussion and the comparison to three theoretical methods as described.",
+        "relevance": 3,
+        "relevance_reason": "Highlights the surprising nature and potential implications, but the central scientific claim is misreported, undermining the article's relevance.",
+        "clarity": 4,
+        "clarity_reason": "Generally readable and engaging, though misleading due to the incorrect presentation of the nucleus' deformation.",
+        "mean_score": 2.5
+      }
+    }
+  },
+  {
+    "id": 29943,
+    "date": "2025-02-23",
+    "category": "Tech",
+    "news_url": "https://www.sciencealert.com/scientists-tested-ai-for-cognitive-decline-the-results-were-a-shock",
+    "abstract_url": "https://www.bmj.com/content/387/bmj-2024-081948",
+    "label_map": {
+      "A": "news_0",
+      "B": "news_3",
+      "C": "news_1",
+      "D": "news_2"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 1,
+        "accuracy_reason": "Multiple factual errors and invented details (title says ChatGPT 3.0; wrong model versions like ‘Gemini 15’; test name and scores misreported, e.g., '25 out of 20', numerous typos replacing terms from the abstract).",
+        "completeness": 2,
+        "completeness_reason": "Mentions core idea and some tests but garbles key numeric results and omits/changes important specifics, undermining the findings.",
+        "relevance": 4,
+        "relevance_reason": "Focuses on the medical and practical implications of AI cognitive limits, which matches the paper's significance.",
+        "clarity": 2,
+        "clarity_reason": "Frequent typos, inconsistent numbers, and confusing phrasing make the article hard to trust or follow."
+      },
+      "B": {
+        "accuracy": 4,
+        "accuracy_reason": "Largely faithful to the abstract (correct models, scores, and main deficits) though it adds interpretive language and a few details (e.g., empathy, Boston exam) not present in the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the MoCA scores, visuospatial/executive failures, delayed recall by Gemini, Stroop results, generational differences, and implications for medicine.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the study's implications for trust and use of AI in high‑stakes domains like healthcare.",
+        "clarity": 4,
+        "clarity_reason": "Engaging and readable with clear explanations, though somewhat sensational in tone at times."
+      },
+      "C": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: correct models, scores, tests used, specific deficits (visuospatial, delayed recall), and Stroop result.",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly reports methods, key results, specific test outcomes, and the paper's main conclusions and caveats.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes why the findings matter, especially for AI use in healthcare and the age‑analogy point from the abstract.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and accessible, explaining technical ideas without losing scientific meaning."
+      },
+      "D": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately reflects the abstract's core claims: models tested, MoCA scores, visuospatial/executive weaknesses, delayed recall failure in Gemini, and Stroop findings.",
+        "completeness": 4,
+        "completeness_reason": "Covers main findings and implications but omits some procedural details from the abstract (e.g., MoCA version and that scoring was evaluated by a practising neurologist).",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights the study's significance for medicine and the limits of current LLMs.",
+        "clarity": 5,
+        "clarity_reason": "Clear, concise, and well organized for a general audience."
+      }
+    },
+    "scores_by_system": {
+      "news_0": {
+        "accuracy": 1,
+        "accuracy_reason": "Multiple factual errors and invented details (title says ChatGPT 3.0; wrong model versions like ‘Gemini 15’; test name and scores misreported, e.g., '25 out of 20', numerous typos replacing terms from the abstract).",
+        "completeness": 2,
+        "completeness_reason": "Mentions core idea and some tests but garbles key numeric results and omits/changes important specifics, undermining the findings.",
+        "relevance": 4,
+        "relevance_reason": "Focuses on the medical and practical implications of AI cognitive limits, which matches the paper's significance.",
+        "clarity": 2,
+        "clarity_reason": "Frequent typos, inconsistent numbers, and confusing phrasing make the article hard to trust or follow.",
+        "mean_score": 2.25
+      },
+      "news_3": {
+        "accuracy": 4,
+        "accuracy_reason": "Largely faithful to the abstract (correct models, scores, and main deficits) though it adds interpretive language and a few details (e.g., empathy, Boston exam) not present in the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the MoCA scores, visuospatial/executive failures, delayed recall by Gemini, Stroop results, generational differences, and implications for medicine.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the study's implications for trust and use of AI in high‑stakes domains like healthcare.",
+        "clarity": 4,
+        "clarity_reason": "Engaging and readable with clear explanations, though somewhat sensational in tone at times.",
+        "mean_score": 4.5
+      },
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: correct models, scores, tests used, specific deficits (visuospatial, delayed recall), and Stroop result.",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly reports methods, key results, specific test outcomes, and the paper's main conclusions and caveats.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes why the findings matter, especially for AI use in healthcare and the age‑analogy point from the abstract.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and accessible, explaining technical ideas without losing scientific meaning.",
+        "mean_score": 5.0
+      },
+      "news_2": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately reflects the abstract's core claims: models tested, MoCA scores, visuospatial/executive weaknesses, delayed recall failure in Gemini, and Stroop findings.",
+        "completeness": 4,
+        "completeness_reason": "Covers main findings and implications but omits some procedural details from the abstract (e.g., MoCA version and that scoring was evaluated by a practising neurologist).",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights the study's significance for medicine and the limits of current LLMs.",
+        "clarity": 5,
+        "clarity_reason": "Clear, concise, and well organized for a general audience.",
+        "mean_score": 4.75
+      }
+    }
+  },
+  {
+    "id": 29958,
+    "date": "2025-02-21",
+    "category": "Physics",
+    "news_url": "https://www.sciencealert.com/ghostly-glow-of-nuclear-power-station-detected-in-water-150-miles-away",
+    "abstract_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.091801",
+    "label_map": {
+      "A": "news_2",
+      "B": "news_3",
+      "C": "news_0",
+      "D": "news_1"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithfully reports the main findings (first evidence in a Cherenkov detector, 240 km, 190 days, two methods, 3.5σ) but includes an invented quoted researcher and adds speculative/contextual claims not present in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main results, methods, distance, data period and significance and notes the low-energy aspect; omits no major abstract points but adds extra context not in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the scientific and practical significance (new detection capability, implications for neutrino physics and reactor monitoring).",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible for a general audience with clear explanations of concepts and implications."
+      },
+      "B": {
+        "accuracy": 4,
+        "accuracy_reason": "Generally accurate on the core result, detector context and methods, but gives a different significance (3σ) than the abstract's combined 3.5σ and adds quantitative details (energy thresholds, efficiencies) that are not in the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the key findings, data period, detection mechanism, and practical implications and supplies additional technical details that enlarge on the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the newsworthy aspects (novel use of water detectors, reactor monitoring potential) and places the result in broader context.",
+        "clarity": 4,
+        "clarity_reason": "Mostly clear and explanatory, though somewhat long and with occasional jargon that may require more simplification for general readers."
+      },
+      "C": {
+        "accuracy": 2,
+        "accuracy_reason": "Contains multiple factual errors or mismatches with the abstract (calls the detector 'underwater', wrong reactor distance, wrong significance value, several typos/misspellings), undermining trust in the factual reporting.",
+        "completeness": 2,
+        "completeness_reason": "Mentions the core idea (low-energy antineutrino detection) but gets several important details wrong and omits or misstates key numbers from the abstract.",
+        "relevance": 2,
+        "relevance_reason": "Identifies the main result but misstates critical facts, weakening the conveyed significance and news angle.",
+        "clarity": 2,
+        "clarity_reason": "Writing has typos, inconsistent terminology and some confusing or inaccurate phrasing that makes it harder for a general audience to follow."
+      },
+      "D": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately reflects the abstract: first evidence in a Cherenkov detector, ~240 km distance, 190 days, two analysis methods producing a combined 3.5σ significance, and appropriate caveats about discovery thresholds.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main findings, methods, data period, significance and implications; it does not explicitly emphasize the specific novelty that the analysis used lower-energy events than any previous large water Cherenkov analysis.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the most significant aspects (novel detection capability, implications for physics and reactor monitoring) and places the result in context.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured and accessible, explaining technical ideas and significance without overstating the results."
+      }
+    },
+    "scores_by_system": {
+      "news_2": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithfully reports the main findings (first evidence in a Cherenkov detector, 240 km, 190 days, two methods, 3.5σ) but includes an invented quoted researcher and adds speculative/contextual claims not present in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main results, methods, distance, data period and significance and notes the low-energy aspect; omits no major abstract points but adds extra context not in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the scientific and practical significance (new detection capability, implications for neutrino physics and reactor monitoring).",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible for a general audience with clear explanations of concepts and implications.",
+        "mean_score": 4.5
+      },
+      "news_3": {
+        "accuracy": 4,
+        "accuracy_reason": "Generally accurate on the core result, detector context and methods, but gives a different significance (3σ) than the abstract's combined 3.5σ and adds quantitative details (energy thresholds, efficiencies) that are not in the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the key findings, data period, detection mechanism, and practical implications and supplies additional technical details that enlarge on the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the newsworthy aspects (novel use of water detectors, reactor monitoring potential) and places the result in broader context.",
+        "clarity": 4,
+        "clarity_reason": "Mostly clear and explanatory, though somewhat long and with occasional jargon that may require more simplification for general readers.",
+        "mean_score": 4.5
+      },
+      "news_0": {
+        "accuracy": 2,
+        "accuracy_reason": "Contains multiple factual errors or mismatches with the abstract (calls the detector 'underwater', wrong reactor distance, wrong significance value, several typos/misspellings), undermining trust in the factual reporting.",
+        "completeness": 2,
+        "completeness_reason": "Mentions the core idea (low-energy antineutrino detection) but gets several important details wrong and omits or misstates key numbers from the abstract.",
+        "relevance": 2,
+        "relevance_reason": "Identifies the main result but misstates critical facts, weakening the conveyed significance and news angle.",
+        "clarity": 2,
+        "clarity_reason": "Writing has typos, inconsistent terminology and some confusing or inaccurate phrasing that makes it harder for a general audience to follow.",
+        "mean_score": 2.0
+      },
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately reflects the abstract: first evidence in a Cherenkov detector, ~240 km distance, 190 days, two analysis methods producing a combined 3.5σ significance, and appropriate caveats about discovery thresholds.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main findings, methods, data period, significance and implications; it does not explicitly emphasize the specific novelty that the analysis used lower-energy events than any previous large water Cherenkov analysis.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the most significant aspects (novel detection capability, implications for physics and reactor monitoring) and places the result in context.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured and accessible, explaining technical ideas and significance without overstating the results.",
+        "mean_score": 4.75
+      }
+    }
+  },
+  {
+    "id": 29988,
+    "date": "2025-02-15",
+    "category": "Humans",
+    "news_url": "https://www.sciencealert.com/scientists-just-found-a-hidden-set-of-modes-in-the-human-ear",
+    "abstract_url": "https://journals.aps.org/prxlife/abstract/10.1103/PRXLife.3.013001",
+    "label_map": {
+      "A": "news_1",
+      "B": "news_0",
+      "C": "news_3",
+      "D": "news_2"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully summarizes the model setup and findings (two mode types, local amplification, risk to collective modes) without adding incorrect factual claims.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main results and the key caveat about destabilization and limits on feedback mechanisms, but omits the explicit phrasing that localized modes form a continuum and collective modes are few.",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights why the result matters for sensitivity, frequency resolution, and potential implications for hearing loss.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible for a general audience, with clear explanations of technical ideas like local vs. collective modes."
+      },
+      "B": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately describes the two mode types and the tradeoff between local amplification and global stability, but uses slightly stronger language (e.g., 'collapse') and contains minor typographical errors.",
+        "completeness": 4,
+        "completeness_reason": "Covers core result, the model approach, and the caveat about limits on hair-cell feedback, but lacks the explicit detail that localized modes form a continuum while collective modes are few.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the key scientific question and why balancing sensitivity and stability is important.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible, though small errors/typos and occasional stronger wording reduce polish."
+      },
+      "C": {
+        "accuracy": 2,
+        "accuracy_reason": "Introduces unsupported claims about these modes being specifically 'low frequency' and gives a frequency range not present in the abstract; overstates some functional implications (e.g., preventing overload) beyond the paper's claims.",
+        "completeness": 2,
+        "completeness_reason": "Mentions distinct mode types but misses or distorts key details about continuum vs few collective modes and the specific caveat that amplification can destabilize collective modes and thereby constrain molecular mechanisms.",
+        "relevance": 2,
+        "relevance_reason": "Misplaces emphasis on low-frequency hearing and overload protection rather than on the abstract's central point about local feedback enabling a globally critical cochlea and limits on feedback mechanisms.",
+        "clarity": 3,
+        "clarity_reason": "Readable and engaging, but contains speculative and potentially misleading assertions that may confuse general readers about what the study actually demonstrated."
+      },
+      "D": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately reflects the abstract: model approach, two distinct mode types, independent amplification of localized modes, and risk of destabilizing collective modes with consequent limits on feedback mechanisms.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main findings, the mechanism (local hair-cell feedback), the key caveat about destabilization and limits on molecular implementations, and the broader significance.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the scientific significance (sensitivity vs stability tradeoff and implications for understanding hearing and disorders).",
+        "clarity": 5,
+        "clarity_reason": "Clear, concise, and accessible explanations of technical concepts suitable for a general audience."
+      }
+    },
+    "scores_by_system": {
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully summarizes the model setup and findings (two mode types, local amplification, risk to collective modes) without adding incorrect factual claims.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main results and the key caveat about destabilization and limits on feedback mechanisms, but omits the explicit phrasing that localized modes form a continuum and collective modes are few.",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights why the result matters for sensitivity, frequency resolution, and potential implications for hearing loss.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible for a general audience, with clear explanations of technical ideas like local vs. collective modes.",
+        "mean_score": 4.75
+      },
+      "news_0": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately describes the two mode types and the tradeoff between local amplification and global stability, but uses slightly stronger language (e.g., 'collapse') and contains minor typographical errors.",
+        "completeness": 4,
+        "completeness_reason": "Covers core result, the model approach, and the caveat about limits on hair-cell feedback, but lacks the explicit detail that localized modes form a continuum while collective modes are few.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the key scientific question and why balancing sensitivity and stability is important.",
+        "clarity": 4,
+        "clarity_reason": "Generally clear and accessible, though small errors/typos and occasional stronger wording reduce polish.",
+        "mean_score": 4.25
+      },
+      "news_3": {
+        "accuracy": 2,
+        "accuracy_reason": "Introduces unsupported claims about these modes being specifically 'low frequency' and gives a frequency range not present in the abstract; overstates some functional implications (e.g., preventing overload) beyond the paper's claims.",
+        "completeness": 2,
+        "completeness_reason": "Mentions distinct mode types but misses or distorts key details about continuum vs few collective modes and the specific caveat that amplification can destabilize collective modes and thereby constrain molecular mechanisms.",
+        "relevance": 2,
+        "relevance_reason": "Misplaces emphasis on low-frequency hearing and overload protection rather than on the abstract's central point about local feedback enabling a globally critical cochlea and limits on feedback mechanisms.",
+        "clarity": 3,
+        "clarity_reason": "Readable and engaging, but contains speculative and potentially misleading assertions that may confuse general readers about what the study actually demonstrated.",
+        "mean_score": 2.25
+      },
+      "news_2": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately reflects the abstract: model approach, two distinct mode types, independent amplification of localized modes, and risk of destabilizing collective modes with consequent limits on feedback mechanisms.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main findings, the mechanism (local hair-cell feedback), the key caveat about destabilization and limits on molecular implementations, and the broader significance.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the scientific significance (sensitivity vs stability tradeoff and implications for understanding hearing and disorders).",
+        "clarity": 5,
+        "clarity_reason": "Clear, concise, and accessible explanations of technical concepts suitable for a general audience.",
+        "mean_score": 5.0
+      }
+    }
+  },
+  {
+    "id": 30052,
+    "date": "2025-02-04",
+    "category": "Physics",
+    "news_url": "https://www.sciencealert.com/magnetic-sense-in-animals-could-be-shockingly-close-to-quantum-limits",
+    "abstract_url": "https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.92.021001",
+    "label_map": {
+      "A": "news_2",
+      "B": "news_0",
+      "C": "news_1",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to the abstract on ER definition, technologies approaching ER=ħ, survey, and possible quantum sources; slightly overstates universality and adds application examples not in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the core result, survey of >20 technologies, model-based limits, candidate limiting mechanisms, and mentions unconstrained approaches; omits few technical nuances from the review.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the significance of the ER limit and why it matters for sensing technologies and applications.",
+        "clarity": 5,
+        "clarity_reason": "Well organized and accessible summary of the main ideas for a general audience."
+      },
+      "B": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally represents the abstract but overstates the finding as a discovered unbreakable limit and incorrectly refers to ℏ as 'Planck's constant' (ℏ is the reduced Planck constant).",
+        "completeness": 4,
+        "completeness_reason": "Covers the core metric, the surveyed technologies, and proposed limiting mechanisms; omits some nuance about which specific technologies have model-based limits.",
+        "relevance": 4,
+        "relevance_reason": "Emphasizes the newsworthy angle and broader implications, though it frames the conclusion more strongly than the abstract does.",
+        "clarity": 4,
+        "clarity_reason": "Clear and straightforward, with accessible explanations of technical points."
+      },
+      "C": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately reflects the abstract's main points about ER, surveyed technologies, limits, and unconstrained approaches, but introduces speculative examples (e.g., quantum dots) not mentioned in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main findings, the survey, limiting mechanisms, and potential routes beyond ER=ħ; lacks some specific model-based detail but includes the relevant caveats.",
+        "relevance": 5,
+        "relevance_reason": "Highlights the significance and potential applications, making clear why the review matters.",
+        "clarity": 5,
+        "clarity_reason": "Well written and accessible, explaining technical concepts without obscuring meaning."
+      },
+      "D": {
+        "accuracy": 1,
+        "accuracy_reason": "Largely inconsistent with the abstract: it focuses on biological magnetoreception and a specific study not mentioned in the abstract, inventing content and claims absent from the reviewed Colloquium.",
+        "completeness": 1,
+        "completeness_reason": "Misses the paper's central content (survey of magnetometer technologies, model-based quantum limits for NV centers, SQUIDs, alkali vapors) and instead addresses unrelated biological topics.",
+        "relevance": 1,
+        "relevance_reason": "Off-topic relative to the abstract's focus on magnetometer technologies and energy-resolution limits across engineered sensors.",
+        "clarity": 4,
+        "clarity_reason": "Readable and engaging narrative about biology, but about a different subject than the abstract."
+      }
+    },
+    "scores_by_system": {
+      "news_2": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to the abstract on ER definition, technologies approaching ER=ħ, survey, and possible quantum sources; slightly overstates universality and adds application examples not in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the core result, survey of >20 technologies, model-based limits, candidate limiting mechanisms, and mentions unconstrained approaches; omits few technical nuances from the review.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the significance of the ER limit and why it matters for sensing technologies and applications.",
+        "clarity": 5,
+        "clarity_reason": "Well organized and accessible summary of the main ideas for a general audience.",
+        "mean_score": 4.5
+      },
+      "news_0": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally represents the abstract but overstates the finding as a discovered unbreakable limit and incorrectly refers to ℏ as 'Planck's constant' (ℏ is the reduced Planck constant).",
+        "completeness": 4,
+        "completeness_reason": "Covers the core metric, the surveyed technologies, and proposed limiting mechanisms; omits some nuance about which specific technologies have model-based limits.",
+        "relevance": 4,
+        "relevance_reason": "Emphasizes the newsworthy angle and broader implications, though it frames the conclusion more strongly than the abstract does.",
+        "clarity": 4,
+        "clarity_reason": "Clear and straightforward, with accessible explanations of technical points.",
+        "mean_score": 3.75
+      },
+      "news_1": {
+        "accuracy": 4,
+        "accuracy_reason": "Accurately reflects the abstract's main points about ER, surveyed technologies, limits, and unconstrained approaches, but introduces speculative examples (e.g., quantum dots) not mentioned in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers the main findings, the survey, limiting mechanisms, and potential routes beyond ER=ħ; lacks some specific model-based detail but includes the relevant caveats.",
+        "relevance": 5,
+        "relevance_reason": "Highlights the significance and potential applications, making clear why the review matters.",
+        "clarity": 5,
+        "clarity_reason": "Well written and accessible, explaining technical concepts without obscuring meaning.",
+        "mean_score": 4.5
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Largely inconsistent with the abstract: it focuses on biological magnetoreception and a specific study not mentioned in the abstract, inventing content and claims absent from the reviewed Colloquium.",
+        "completeness": 1,
+        "completeness_reason": "Misses the paper's central content (survey of magnetometer technologies, model-based quantum limits for NV centers, SQUIDs, alkali vapors) and instead addresses unrelated biological topics.",
+        "relevance": 1,
+        "relevance_reason": "Off-topic relative to the abstract's focus on magnetometer technologies and energy-resolution limits across engineered sensors.",
+        "clarity": 4,
+        "clarity_reason": "Readable and engaging narrative about biology, but about a different subject than the abstract.",
+        "mean_score": 1.75
+      }
+    }
+  },
+  {
+    "id": 30061,
+    "date": "2025-02-03",
+    "category": "Physics",
+    "news_url": "https://www.sciencealert.com/physicists-confirm-the-existence-of-a-third-form-of-magnetism",
+    "abstract_url": "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.12.040501",
+    "label_map": {
+      "A": "news_2",
+      "B": "news_0",
+      "C": "news_1",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to the abstract's core claims (third phase, spin-polarized bands, TRS-breaking with zero net magnetization) and mentions spin-symmetry classification; some wording (e.g., 'revolutionizing') and strong application claims go beyond the abstract's measured perspective.",
+        "completeness": 4,
+        "completeness_reason": "Covers main findings, spin-polarization, time-reversal-symmetry breaking, and classification; does not mention the 'd-wave (or higher even-parity)' descriptor and other nuanced phenomenology from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the scientific significance and plausible technological implications (spintronics, memory, quantum computing) emphasized in the abstract.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured, and accessible to a general audience without misrepresenting the science."
+      },
+      "B": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally aligns with the abstract but contains several imprecise or unsupported details (specific material classes, mechanism claims) and many typographical errors that undermine precision.",
+        "completeness": 3,
+        "completeness_reason": "Conveys the core idea (altermagnetism as a distinct phase with spin-polarized bands despite zero net magnetization) but omits the explicit 'd-wave/even-parity' language and detailed spin-symmetry framing from the abstract.",
+        "relevance": 4,
+        "relevance_reason": "Identifies the main scientific novelty and potential technological impact, matching the abstract's emphasis on significance.",
+        "clarity": 2,
+        "clarity_reason": "Numerous typos, inconsistent capitalization and occasional garbled wording make the article harder to follow despite understandable content."
+      },
+      "C": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: describes altermagnetism as a distinct phase, notes spin-polarized bands with zero net magnetization, mentions spin-symmetry classification and the 'd-wave (even-parity)' character and potential impacts.",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly covers the key findings, the unusual phenomenology, the spin-symmetry classification, candidate-material implications, and broader condensed-matter context as in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly emphasizes why the work matters scientifically and technologically, consistent with the abstract's perspective.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible while retaining the scientific nuances from the abstract."
+      },
+      "D": {
+        "accuracy": 2,
+        "accuracy_reason": "Makes specific experimental claims (direct imaging/manipulation in manganese telluride, synchrotron experiments, Nottingham/Max IV study) and asserts confirmation/manipulation not described in the abstract, which is a perspective rather than an experimental report.",
+        "completeness": 2,
+        "completeness_reason": "Focuses heavily on a single experimental demonstration and technical details while downplaying or omitting the abstract's emphasis on spin-symmetry classification and the 'd-wave/even-parity' framing.",
+        "relevance": 4,
+        "relevance_reason": "Highlights potentially newsworthy experimental control and technological promise, aligning with the abstract's emphasis on impact, albeit overstating confirmation.",
+        "clarity": 4,
+        "clarity_reason": "Generally readable and engaging, though it mixes accessible explanations with some sensational phrasing and overstatements that could mislead non-expert readers about what the abstract supports."
+      }
+    },
+    "scores_by_system": {
+      "news_2": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to the abstract's core claims (third phase, spin-polarized bands, TRS-breaking with zero net magnetization) and mentions spin-symmetry classification; some wording (e.g., 'revolutionizing') and strong application claims go beyond the abstract's measured perspective.",
+        "completeness": 4,
+        "completeness_reason": "Covers main findings, spin-polarization, time-reversal-symmetry breaking, and classification; does not mention the 'd-wave (or higher even-parity)' descriptor and other nuanced phenomenology from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the scientific significance and plausible technological implications (spintronics, memory, quantum computing) emphasized in the abstract.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-structured, and accessible to a general audience without misrepresenting the science.",
+        "mean_score": 4.5
+      },
+      "news_0": {
+        "accuracy": 3,
+        "accuracy_reason": "Generally aligns with the abstract but contains several imprecise or unsupported details (specific material classes, mechanism claims) and many typographical errors that undermine precision.",
+        "completeness": 3,
+        "completeness_reason": "Conveys the core idea (altermagnetism as a distinct phase with spin-polarized bands despite zero net magnetization) but omits the explicit 'd-wave/even-parity' language and detailed spin-symmetry framing from the abstract.",
+        "relevance": 4,
+        "relevance_reason": "Identifies the main scientific novelty and potential technological impact, matching the abstract's emphasis on significance.",
+        "clarity": 2,
+        "clarity_reason": "Numerous typos, inconsistent capitalization and occasional garbled wording make the article harder to follow despite understandable content.",
+        "mean_score": 3.0
+      },
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithful to the abstract: describes altermagnetism as a distinct phase, notes spin-polarized bands with zero net magnetization, mentions spin-symmetry classification and the 'd-wave (even-parity)' character and potential impacts.",
+        "completeness": 5,
+        "completeness_reason": "Thoroughly covers the key findings, the unusual phenomenology, the spin-symmetry classification, candidate-material implications, and broader condensed-matter context as in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly emphasizes why the work matters scientifically and technologically, consistent with the abstract's perspective.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible while retaining the scientific nuances from the abstract.",
+        "mean_score": 5.0
+      },
+      "news_3": {
+        "accuracy": 2,
+        "accuracy_reason": "Makes specific experimental claims (direct imaging/manipulation in manganese telluride, synchrotron experiments, Nottingham/Max IV study) and asserts confirmation/manipulation not described in the abstract, which is a perspective rather than an experimental report.",
+        "completeness": 2,
+        "completeness_reason": "Focuses heavily on a single experimental demonstration and technical details while downplaying or omitting the abstract's emphasis on spin-symmetry classification and the 'd-wave/even-parity' framing.",
+        "relevance": 4,
+        "relevance_reason": "Highlights potentially newsworthy experimental control and technological promise, aligning with the abstract's emphasis on impact, albeit overstating confirmation.",
+        "clarity": 4,
+        "clarity_reason": "Generally readable and engaging, though it mixes accessible explanations with some sensational phrasing and overstatements that could mislead non-expert readers about what the abstract supports.",
+        "mean_score": 3.0
+      }
+    }
+  },
+  {
+    "id": 30086,
+    "date": "2025-03-30",
+    "category": "Space",
+    "news_url": "https://www.sciencealert.com/nasa-is-watching-a-huge-growing-anomaly-in-earths-magnetic-field",
+    "abstract_url": "https://www.mdpi.com/2072-4292/13/7/1274",
+    "label_map": {
+      "A": "news_0",
+      "B": "news_2",
+      "C": "news_3",
+      "D": "news_1"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 2,
+        "accuracy_reason": "Major numeric errors: reports drift rates (0.17°/yr and 0.09°/yr) that contradict the abstract (0.33°/yr and 0.25°/yr) and misstates campaign length (~200 min vs ~2000 min).",
+        "completeness": 2,
+        "completeness_reason": "Covers the general approach and context but misreports the key quantitative results and a campaign detail, omitting faithful presentation of the main findings.",
+        "relevance": 4,
+        "relevance_reason": "Focuses on the important news angle (CubeSats enabling SAA monitoring and implications for satellites) but some claims extend beyond the abstract.",
+        "clarity": 4,
+        "clarity_reason": "Generally readable and well-structured for a general audience despite length and occasional typos."
+      },
+      "B": {
+        "accuracy": 4,
+        "accuracy_reason": "Matches the abstract on dataset, method, and drift rates (0.33°/yr west, 0.25°/yr south); includes a few speculative extensions (e.g., impacts on power grids/GPS) not supported by the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main findings, dataset details, the improved centroid method, and the fluence vs centroid scatter as stated in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the newsworthy aspects: CubeSats' role, measured SAA drift, and implications for monitoring and space operations.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible, explains technical points (orbit, campaigns, centroid method) clearly for a general audience."
+      },
+      "C": {
+        "accuracy": 2,
+        "accuracy_reason": "Contains generally correct background about the SAA but does not describe the paper in the abstract and presents older/other research rather than the CubeSat 1.5-year study and specific drift measurements.",
+        "completeness": 1,
+        "completeness_reason": "Misses the paper's core contributions (the CubeSat campaign, dataset details, improved centroid method, and the measured drift rates).",
+        "relevance": 2,
+        "relevance_reason": "Provides relevant context about the SAA but does not report or focus on the specific new findings from the abstract.",
+        "clarity": 4,
+        "clarity_reason": "Readable and engaging for a general audience, with clear explanations of the SAA and its significance."
+      },
+      "D": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reports the study details: CubeSat polar observations, eight campaigns of ~22 orbits (~2000 min), improved centroid method, and measured drift rates (0.33°/yr west, 0.25°/yr south).",
+        "completeness": 5,
+        "completeness_reason": "Includes the key findings, dataset and method details, and the note about greater scatter of the fluence maximum as in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the significance: CubeSats enabling routine SAA monitoring and implications for satellite operations.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-organized, and accessible while preserving the scientific meaning of the results."
+      }
+    },
+    "scores_by_system": {
+      "news_0": {
+        "accuracy": 2,
+        "accuracy_reason": "Major numeric errors: reports drift rates (0.17°/yr and 0.09°/yr) that contradict the abstract (0.33°/yr and 0.25°/yr) and misstates campaign length (~200 min vs ~2000 min).",
+        "completeness": 2,
+        "completeness_reason": "Covers the general approach and context but misreports the key quantitative results and a campaign detail, omitting faithful presentation of the main findings.",
+        "relevance": 4,
+        "relevance_reason": "Focuses on the important news angle (CubeSats enabling SAA monitoring and implications for satellites) but some claims extend beyond the abstract.",
+        "clarity": 4,
+        "clarity_reason": "Generally readable and well-structured for a general audience despite length and occasional typos.",
+        "mean_score": 3.0
+      },
+      "news_2": {
+        "accuracy": 4,
+        "accuracy_reason": "Matches the abstract on dataset, method, and drift rates (0.33°/yr west, 0.25°/yr south); includes a few speculative extensions (e.g., impacts on power grids/GPS) not supported by the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main findings, dataset details, the improved centroid method, and the fluence vs centroid scatter as stated in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the newsworthy aspects: CubeSats' role, measured SAA drift, and implications for monitoring and space operations.",
+        "clarity": 5,
+        "clarity_reason": "Well-written and accessible, explains technical points (orbit, campaigns, centroid method) clearly for a general audience.",
+        "mean_score": 4.75
+      },
+      "news_3": {
+        "accuracy": 2,
+        "accuracy_reason": "Contains generally correct background about the SAA but does not describe the paper in the abstract and presents older/other research rather than the CubeSat 1.5-year study and specific drift measurements.",
+        "completeness": 1,
+        "completeness_reason": "Misses the paper's core contributions (the CubeSat campaign, dataset details, improved centroid method, and the measured drift rates).",
+        "relevance": 2,
+        "relevance_reason": "Provides relevant context about the SAA but does not report or focus on the specific new findings from the abstract.",
+        "clarity": 4,
+        "clarity_reason": "Readable and engaging for a general audience, with clear explanations of the SAA and its significance.",
+        "mean_score": 2.25
+      },
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reports the study details: CubeSat polar observations, eight campaigns of ~22 orbits (~2000 min), improved centroid method, and measured drift rates (0.33°/yr west, 0.25°/yr south).",
+        "completeness": 5,
+        "completeness_reason": "Includes the key findings, dataset and method details, and the note about greater scatter of the fluence maximum as in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly foregrounds the significance: CubeSats enabling routine SAA monitoring and implications for satellite operations.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-organized, and accessible while preserving the scientific meaning of the results.",
+        "mean_score": 5.0
+      }
+    }
+  },
+  {
+    "id": 30184,
+    "date": "2025-03-12",
+    "category": "Tech",
+    "news_url": "https://www.sciencealert.com/scientists-turned-cockroaches-into-cyborgs-giving-them-navigation-superpowers",
+    "abstract_url": "https://www.liebertpub.com/doi/10.1089/soro.2024.0082",
+    "label_map": {
+      "A": "news_1",
+      "B": "news_2",
+      "C": "news_0",
+      "D": "news_3"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully describes BIOBBN, the two algorithms (reach-avoid and adaptive reach-avoid), use of natural behaviors (wall-following, climbing), and simulated sand/rock experiments without adding unsupported technical specifics.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main methods, both algorithms, experimental settings, observed slower performance in denser scenarios, and notes broader implications and ethical caveats consistent with the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the newsworthy advance (autonomous biohybrid navigation) and potential applications, matching the abstract's stated significance.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and easy to follow for a general audience, explaining technical ideas without jargon."
+      },
+      "B": {
+        "accuracy": 4,
+        "accuracy_reason": "Generally faithful to the abstract but adds specific technical details (sensors, microcontrollers, real-time decisions) that are plausible but not stated in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers both algorithms, experimental environments, and implications, but includes extra technical framing absent from the abstract and omits some caveats.",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights the significance of autonomous biohybrid navigation and potential applications.",
+        "clarity": 5,
+        "clarity_reason": "Clear, engaging, and accessible while conveying the core scientific points."
+      },
+      "C": {
+        "accuracy": 4,
+        "accuracy_reason": "Matches the core claims (BIOBBN, two algorithms, use of natural behaviors, simulated sand/rock tests) but introduces modest unsupported details (e.g., calibration needs) and has some imprecise wording.",
+        "completeness": 4,
+        "completeness_reason": "Covers core results and implications and notes slower performance in complex scenarios, but leaves out finer methodological detail and contains minor omissions/imbalances.",
+        "relevance": 4,
+        "relevance_reason": "Identifies the main result and potential applications but doesn’t strongly foreground the novelty or broader significance.",
+        "clarity": 3,
+        "clarity_reason": "Generally understandable for a general audience but uneven phrasing and typographical errors reduce readability."
+      },
+      "D": {
+        "accuracy": 2,
+        "accuracy_reason": "Includes many specific claims not present in the abstract (species name, implanted electrodes, specific sensor types, backpack weight trade-offs, journal name) that go beyond the abstract and may be unsupported.",
+        "completeness": 3,
+        "completeness_reason": "Covers the main idea and experiments and emphasizes applications, but the inclusion of unsupported specifics and sensational framing reduces faithfulness to the abstract.",
+        "relevance": 4,
+        "relevance_reason": "Clearly emphasizes potential applications (search-and-rescue, inspection, surveillance), making the work's significance obvious though somewhat sensationalized.",
+        "clarity": 4,
+        "clarity_reason": "Readable and engaging for a general audience, with vivid examples, though occasionally sensational in tone."
+      }
+    },
+    "scores_by_system": {
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully describes BIOBBN, the two algorithms (reach-avoid and adaptive reach-avoid), use of natural behaviors (wall-following, climbing), and simulated sand/rock experiments without adding unsupported technical specifics.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main methods, both algorithms, experimental settings, observed slower performance in denser scenarios, and notes broader implications and ethical caveats consistent with the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Emphasizes the newsworthy advance (autonomous biohybrid navigation) and potential applications, matching the abstract's stated significance.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and easy to follow for a general audience, explaining technical ideas without jargon.",
+        "mean_score": 5.0
+      },
+      "news_2": {
+        "accuracy": 4,
+        "accuracy_reason": "Generally faithful to the abstract but adds specific technical details (sensors, microcontrollers, real-time decisions) that are plausible but not stated in the abstract.",
+        "completeness": 4,
+        "completeness_reason": "Covers both algorithms, experimental environments, and implications, but includes extra technical framing absent from the abstract and omits some caveats.",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights the significance of autonomous biohybrid navigation and potential applications.",
+        "clarity": 5,
+        "clarity_reason": "Clear, engaging, and accessible while conveying the core scientific points.",
+        "mean_score": 4.5
+      },
+      "news_0": {
+        "accuracy": 4,
+        "accuracy_reason": "Matches the core claims (BIOBBN, two algorithms, use of natural behaviors, simulated sand/rock tests) but introduces modest unsupported details (e.g., calibration needs) and has some imprecise wording.",
+        "completeness": 4,
+        "completeness_reason": "Covers core results and implications and notes slower performance in complex scenarios, but leaves out finer methodological detail and contains minor omissions/imbalances.",
+        "relevance": 4,
+        "relevance_reason": "Identifies the main result and potential applications but doesn’t strongly foreground the novelty or broader significance.",
+        "clarity": 3,
+        "clarity_reason": "Generally understandable for a general audience but uneven phrasing and typographical errors reduce readability.",
+        "mean_score": 3.75
+      },
+      "news_3": {
+        "accuracy": 2,
+        "accuracy_reason": "Includes many specific claims not present in the abstract (species name, implanted electrodes, specific sensor types, backpack weight trade-offs, journal name) that go beyond the abstract and may be unsupported.",
+        "completeness": 3,
+        "completeness_reason": "Covers the main idea and experiments and emphasizes applications, but the inclusion of unsupported specifics and sensational framing reduces faithfulness to the abstract.",
+        "relevance": 4,
+        "relevance_reason": "Clearly emphasizes potential applications (search-and-rescue, inspection, surveillance), making the work's significance obvious though somewhat sensationalized.",
+        "clarity": 4,
+        "clarity_reason": "Readable and engaging for a general audience, with vivid examples, though occasionally sensational in tone.",
+        "mean_score": 3.25
+      }
+    }
+  },
+  {
+    "id": 30214,
+    "date": "2025-03-07",
+    "category": "Space",
+    "news_url": "https://www.sciencealert.com/record-discovery-impact-crater-in-australias-outback-oldest-by-a-billion-years",
+    "abstract_url": "https://www.annualreviews.org/content/journals/10.1146/annurev-earth-040722-093345",
+    "label_map": {
+      "A": "news_1",
+      "B": "news_3",
+      "C": "news_0",
+      "D": "news_2"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 5,
+        "accuracy_reason": "Matches abstract on timing (early-to-mid Archean, transient volcanic exposures, cratons ~3.2–3.0 Ga), mechanisms (plateau magmatism, felsic crust, isostatic adjustment) and implications without inventing claims.",
+        "completeness": 5,
+        "completeness_reason": "Covers main findings, timing, processes (magmatism, lithosphere thickening, isostasy), the role of plate tectonics and environmental implications mentioned in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the study’s significance for Earth surface evolution, atmosphere, climate and biodiversity as in the abstract.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and accessible explanation of technical ideas for a general audience with minimal jargon."
+      },
+      "B": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes an old impact crater and impact-driven continent formation not discussed in the abstract; major content mismatch and invented emphasis relative to the paper summarized by the abstract.",
+        "completeness": 1,
+        "completeness_reason": "Does not cover the abstract’s main findings about timing, craton formation, magmatism, isostasy, or the progressive increase of emergent land.",
+        "relevance": 1,
+        "relevance_reason": "Focuses on a different discovery (Pilbara impact crater) and impact-driven origin hypothesis rather than the continental emergence synthesis in the abstract.",
+        "clarity": 4,
+        "clarity_reason": "Narrative is clear and engaging for general readers, despite being off-topic relative to the abstract."
+      },
+      "C": {
+        "accuracy": 3,
+        "accuracy_reason": "Captures the general idea of early, intermittent emergent land and magmatism, but overstates/over-precises timing (claims continents rose ~3.6–3.7 Ga) and presents some claims (e.g., large early exposed areas) with stronger certainty than the abstract supports.",
+        "completeness": 3,
+        "completeness_reason": "Covers core results and mechanisms (magmatism, unstable volcanic early land, link to plate tectonics) but omits specific timing progression (e.g., craton emergence ~3.2–3.0 Ga and culmination ~2.5–2.2 Ga) and some mechanistic detail.",
+        "relevance": 4,
+        "relevance_reason": "Emphasizes the significance for climate, atmosphere and life, aligning with the abstract’s implications, though timing claims weaken the framing.",
+        "clarity": 4,
+        "clarity_reason": "Generally readable and conveys concepts well, though some statements are presented with overstated certainty that could confuse nonexpert readers."
+      },
+      "D": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reflects the abstract’s claims on timing, transient early exposures, craton emergence (~3.2–3.0 Ga), plateau magmatism, isostatic rise and later increase in emergent land culminating ~2.5–2.2 Ga.",
+        "completeness": 4,
+        "completeness_reason": "Includes most key findings, mechanisms and implications, but omits explicit mention of depleted mantle keels and some finer details about the temporal progression emphasized in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly emphasizes the study’s broader significance for Earth’s surface evolution, climate, oxygenation and biodiversity as in the abstract.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-organized, and accessible explanation appropriate for a general audience."
+      }
+    },
+    "scores_by_system": {
+      "news_1": {
+        "accuracy": 5,
+        "accuracy_reason": "Matches abstract on timing (early-to-mid Archean, transient volcanic exposures, cratons ~3.2–3.0 Ga), mechanisms (plateau magmatism, felsic crust, isostatic adjustment) and implications without inventing claims.",
+        "completeness": 5,
+        "completeness_reason": "Covers main findings, timing, processes (magmatism, lithosphere thickening, isostasy), the role of plate tectonics and environmental implications mentioned in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly foregrounds the study’s significance for Earth surface evolution, atmosphere, climate and biodiversity as in the abstract.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and accessible explanation of technical ideas for a general audience with minimal jargon.",
+        "mean_score": 5.0
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Describes an old impact crater and impact-driven continent formation not discussed in the abstract; major content mismatch and invented emphasis relative to the paper summarized by the abstract.",
+        "completeness": 1,
+        "completeness_reason": "Does not cover the abstract’s main findings about timing, craton formation, magmatism, isostasy, or the progressive increase of emergent land.",
+        "relevance": 1,
+        "relevance_reason": "Focuses on a different discovery (Pilbara impact crater) and impact-driven origin hypothesis rather than the continental emergence synthesis in the abstract.",
+        "clarity": 4,
+        "clarity_reason": "Narrative is clear and engaging for general readers, despite being off-topic relative to the abstract.",
+        "mean_score": 1.75
+      },
+      "news_0": {
+        "accuracy": 3,
+        "accuracy_reason": "Captures the general idea of early, intermittent emergent land and magmatism, but overstates/over-precises timing (claims continents rose ~3.6–3.7 Ga) and presents some claims (e.g., large early exposed areas) with stronger certainty than the abstract supports.",
+        "completeness": 3,
+        "completeness_reason": "Covers core results and mechanisms (magmatism, unstable volcanic early land, link to plate tectonics) but omits specific timing progression (e.g., craton emergence ~3.2–3.0 Ga and culmination ~2.5–2.2 Ga) and some mechanistic detail.",
+        "relevance": 4,
+        "relevance_reason": "Emphasizes the significance for climate, atmosphere and life, aligning with the abstract’s implications, though timing claims weaken the framing.",
+        "clarity": 4,
+        "clarity_reason": "Generally readable and conveys concepts well, though some statements are presented with overstated certainty that could confuse nonexpert readers.",
+        "mean_score": 3.5
+      },
+      "news_2": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reflects the abstract’s claims on timing, transient early exposures, craton emergence (~3.2–3.0 Ga), plateau magmatism, isostatic rise and later increase in emergent land culminating ~2.5–2.2 Ga.",
+        "completeness": 4,
+        "completeness_reason": "Includes most key findings, mechanisms and implications, but omits explicit mention of depleted mantle keels and some finer details about the temporal progression emphasized in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Strongly emphasizes the study’s broader significance for Earth’s surface evolution, climate, oxygenation and biodiversity as in the abstract.",
+        "clarity": 5,
+        "clarity_reason": "Clear, well-organized, and accessible explanation appropriate for a general audience.",
+        "mean_score": 4.75
+      }
+    }
+  },
+  {
+    "id": 30708,
+    "date": "2025-06-07",
+    "category": "Tech",
+    "news_url": "https://www.sciencealert.com/the-greatest-parasite-is-right-in-front-of-you-and-its-dangerous",
+    "abstract_url": "https://journals.sagepub.com/doi/10.1177/17506980211044712",
+    "label_map": {
+      "A": "news_1",
+      "B": "news_3",
+      "C": "news_0",
+      "D": "news_2"
+    },
+    "scores_by_label": {
+      "A": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to the abstract’s methods and main findings (memento vs offloading; greater vividness, positivity, emotional intensity, and shared-memory judgments) but adds speculative claims about mental-health benefits and prescriptive advice not supported by the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the study design, main quantitative findings, and the shared human–camera memory-system judgment; also discusses implications and context from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights the study’s significance for everyday photo-taking and memory, foregrounding the most newsworthy conclusions.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and accessible, explains key terms (memento vs offloading) and findings in plain language."
+      },
+      "B": {
+        "accuracy": 1,
+        "accuracy_reason": "Article is about smartphones as parasites and policing tech companies; it does not describe the study in the abstract and thus contradicts the topic and findings.",
+        "completeness": 1,
+        "completeness_reason": "Misses the study’s methods, distinctions between memento vs offloading photos, and the reported recollective differences entirely.",
+        "relevance": 1,
+        "relevance_reason": "Off-topic: focuses on a different argument (smartphones as parasites) rather than the paper’s research question about photo-taking motivations and memory.",
+        "clarity": 4,
+        "clarity_reason": "Well written and clear for a general audience, despite being unrelated to the abstract."
+      },
+      "C": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately summarizes the methods (two studies, self-report ratings), core findings (memento photos → more vivid, emotional, and shared-memory judgments) and contrasts with offloading photos without introducing factual errors.",
+        "completeness": 4,
+        "completeness_reason": "Covers the core result, methodology, and perceptual consequence (shared memory system); a few details (e.g., explicit phrasing about positivity across studies) are less emphasized than in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Focuses on the main scientific result and its implications for how technology shapes memory, emphasizing why the work matters.",
+        "clarity": 5,
+        "clarity_reason": "Clear, concise, and accessible; technical ideas are explained in plain language."
+      },
+      "D": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reports the study design (two surveys, memento vs offloading), the measured recollective differences (vividness, positivity, emotionality) and the shared human–camera memory-system judgment with no material errors.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main findings, methodology, and the key interpretive point about differing judgments of where personal information resides in a blended memory system; includes relevant implications consistent with the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the study’s important and newsworthy aspects: that motivations change recollective quality and perceptions of camera–memory blending.",
+        "clarity": 5,
+        "clarity_reason": "Clear and easy to follow; technical distinctions are explained for a general audience."
+      }
+    },
+    "scores_by_system": {
+      "news_1": {
+        "accuracy": 4,
+        "accuracy_reason": "Faithful to the abstract’s methods and main findings (memento vs offloading; greater vividness, positivity, emotional intensity, and shared-memory judgments) but adds speculative claims about mental-health benefits and prescriptive advice not supported by the abstract.",
+        "completeness": 5,
+        "completeness_reason": "Covers the study design, main quantitative findings, and the shared human–camera memory-system judgment; also discusses implications and context from the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly highlights the study’s significance for everyday photo-taking and memory, foregrounding the most newsworthy conclusions.",
+        "clarity": 5,
+        "clarity_reason": "Well structured and accessible, explains key terms (memento vs offloading) and findings in plain language.",
+        "mean_score": 4.75
+      },
+      "news_3": {
+        "accuracy": 1,
+        "accuracy_reason": "Article is about smartphones as parasites and policing tech companies; it does not describe the study in the abstract and thus contradicts the topic and findings.",
+        "completeness": 1,
+        "completeness_reason": "Misses the study’s methods, distinctions between memento vs offloading photos, and the reported recollective differences entirely.",
+        "relevance": 1,
+        "relevance_reason": "Off-topic: focuses on a different argument (smartphones as parasites) rather than the paper’s research question about photo-taking motivations and memory.",
+        "clarity": 4,
+        "clarity_reason": "Well written and clear for a general audience, despite being unrelated to the abstract.",
+        "mean_score": 1.75
+      },
+      "news_0": {
+        "accuracy": 5,
+        "accuracy_reason": "Accurately summarizes the methods (two studies, self-report ratings), core findings (memento photos → more vivid, emotional, and shared-memory judgments) and contrasts with offloading photos without introducing factual errors.",
+        "completeness": 4,
+        "completeness_reason": "Covers the core result, methodology, and perceptual consequence (shared memory system); a few details (e.g., explicit phrasing about positivity across studies) are less emphasized than in the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Focuses on the main scientific result and its implications for how technology shapes memory, emphasizing why the work matters.",
+        "clarity": 5,
+        "clarity_reason": "Clear, concise, and accessible; technical ideas are explained in plain language.",
+        "mean_score": 4.75
+      },
+      "news_2": {
+        "accuracy": 5,
+        "accuracy_reason": "Faithfully reports the study design (two surveys, memento vs offloading), the measured recollective differences (vividness, positivity, emotionality) and the shared human–camera memory-system judgment with no material errors.",
+        "completeness": 5,
+        "completeness_reason": "Covers the main findings, methodology, and the key interpretive point about differing judgments of where personal information resides in a blended memory system; includes relevant implications consistent with the abstract.",
+        "relevance": 5,
+        "relevance_reason": "Clearly emphasizes the study’s important and newsworthy aspects: that motivations change recollective quality and perceptions of camera–memory blending.",
+        "clarity": 5,
+        "clarity_reason": "Clear and easy to follow; technical distinctions are explained for a general audience.",
+        "mean_score": 5.0
+      }
+    }
+  }
+]
