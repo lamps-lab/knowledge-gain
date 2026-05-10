@@ -1,0 +1,2 @@
+comparison,method,correlation,correlation_p,n_correlation_articles,majority_agreement,n_agreement_articles,human_ours_majority_n,human_agentic_majority_n,human_tie_majority_n,llm_ours_n,llm_agentic_n,llm_tie_n
+Human pairwise vs LLM pairwise,pearson,0.20196429174663566,0.39315780962164,20,0.55,20,20,0,0,11,9,0

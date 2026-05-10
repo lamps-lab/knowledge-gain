@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+Comparison & Corr. & $p$ & Majority agreement & $n$ \\
+\midrule
+Human vs. LLM pairwise & 0.202 & 0.393 & 55.0 & 20 \\
+\bottomrule
+\end{tabular}
+\caption{Human--LLM pairwise alignment for generated article preferences. The correlation compares article-level human Ours win rate with the LLM judge's Ours score ($1$ if the LLM selects Ours, $0$ if it selects Agentic). Majority agreement compares the human majority choice for each article with the LLM pairwise choice.}
+\label{tab:human_llm_pairwise_alignment}
+\end{table}

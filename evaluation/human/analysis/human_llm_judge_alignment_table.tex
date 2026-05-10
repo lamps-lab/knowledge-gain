@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrr}
+\toprule
+Metric & Pearson corr. & $n$ \\
+\midrule
+LLM judge accuracy & 0.389 & 20 \
+LLM judge completeness & -0.121 & 20 \
+LLM judge relevance & 0.031 & 20 \
+LLM judge clarity & 0.016 & 20 \
+LLM judge expected KGain & 0.436 & 20 \
+LLM judge mean score & 0.187 & 20 \
+Overall stacked dimensions & 0.307 & 80 \
+\bottomrule
+\end{tabular}
+\caption{Alignment between LLM judge scores and human pointwise ratings. For accuracy, completeness, relevance, and clarity, each LLM dimension is correlated with the matching human dimension. Expected KGain is correlated with the mean human pointwise score because the human pointwise survey did not include an expected-KGain rating.}
+\label{tab:human_llm_judge_alignment}
+\end{table}
