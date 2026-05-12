@@ -1,0 +1,17 @@
+{
+  "llmsim_path": "/home/dsoos001/research/knowledge-gain/src/scripts/llmsim.py",
+  "questions_path": "/home/dsoos001/research/knowledge-gain/evaluation/generated_questions.json",
+  "eval_dataset_path": "/home/dsoos001/research/knowledge-gain/evaluation/eval_dataset.json",
+  "persona_path": "/home/dsoos001/research/knowledge-gain/src/scripts/persona_cards.json",
+  "openai_model": "gpt-4o-mini",
+  "temp": 1.7,
+  "seed": 0,
+  "n_students_requested": 30,
+  "n_students_running": 30,
+  "memory_scope": "article",
+  "limit_students": 0,
+  "limit_items": 0,
+  "limit_questions": 0,
+  "resume_run_dir": "kgain_run_20260512_051123",
+  "output_dir": "kgain_run_20260512_051123"
+}
