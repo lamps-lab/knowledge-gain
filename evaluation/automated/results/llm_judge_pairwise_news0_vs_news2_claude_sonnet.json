@@ -1,0 +1,422 @@
+[
+  {
+    "id": 29733,
+    "date": "2025-01-31",
+    "category": "Health",
+    "news_url": "https://www.sciencealert.com/caffeine-in-your-blood-could-affect-body-fat-and-diabetes-risk-study-reveals",
+    "abstract_url": "https://bmjmedicine.bmj.com/content/2/1/e000335",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_a",
+    "winner_key": "news_2",
+    "judgment": {
+      "better_article": "article_a",
+      "reason": "Article A is more scientifically faithful and complete, accurately describing the Mendelian randomisation methodology, the specific genetic variants used, and the mediation analysis results. It avoids the misleading claim in Article B that the study 'does not establish a direct causal relationship' (Mendelian randomisation is specifically designed to infer causality). Article A also correctly attributes the mediation to both body mass and fat mass reduction, while Article B only mentions BMI. The fabricated direct quote in Article A is a minor concern but does not misrepresent the science, whereas Article B's methodological mischaracterization is a more significant flaw."
+    }
+  },
+  {
+    "id": 29734,
+    "date": "2025-01-31",
+    "category": "Space",
+    "news_url": "https://www.sciencealert.com/could-we-use-gravitational-waves-for-space-communication-scientists-are-exploring",
+    "abstract_url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.117.306",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B is more faithful to the abstract, accurately describing the core concepts (Riemann tensor measurement, piezoelectric detection, crystal-based generation) without fabricating unsupported claims. Article A introduces hallucinated content not in the abstract, such as 'compact binary systems,' 'cosmological sources,' 'quantum gravity,' 'black hole mergers,' 'probing the early universe,' and 'theories beyond standard general relativity,' none of which appear in the abstract. Article B stays closer to the actual findings while remaining accessible to a general audience."
+    }
+  },
+  {
+    "id": 29739,
+    "date": "2025-01-30",
+    "category": "Health",
+    "news_url": "https://www.sciencealert.com/surprising-link-between-menthol-and-alzheimers-discovered-in-mice",
+    "abstract_url": "https://www.mdpi.com/2079-6374/8/2/41",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B accurately represents the abstract's findings without fabricating content, while Article A invents a direct quote from 'the lead researcher' that does not appear in the abstract—a hallucination that undermines its credibility. Both articles cover the key statistics and context similarly, but Article B avoids this fabrication and remains faithful to the source material throughout."
+    }
+  },
+  {
+    "id": 29753,
+    "date": "2025-01-27",
+    "category": "Health",
+    "news_url": "https://www.sciencealert.com/forever-chemicals-in-us-drinking-water-linked-to-cancer-scientists-find",
+    "abstract_url": "https://www.nature.com/articles/s41370-024-00742-2",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_0",
+      "article_b": "news_2"
+    },
+    "winner_label": "article_a",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_a",
+      "reason": "Article A is more scientifically faithful to the abstract. Article B misrepresents the confidence intervals for attributable cancer cases—stating '4,626 to 8,046' and '6,864 to 12,804' as if these are ranges of point estimates, when the abstract clearly states these are the point estimates with separate 95% CIs (1,377–8,046 and 991–12,804 respectively). Article B also includes a fabricated direct quote attributed to 'the lead researcher,' which does not appear in the abstract. Article A accurately reports all numerical findings and avoids fabricated content."
+    }
+  },
+  {
+    "id": 29775,
+    "date": "2025-01-23",
+    "category": "Tech",
+    "news_url": "https://www.sciencealert.com/the-roblox-dilemma-can-you-keep-your-kids-safe-in-the-metaverse",
+    "abstract_url": "https://www.mdpi.com/2227-7102/13/3/296",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_0",
+      "article_b": "news_2"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_2",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B more faithfully captures the abstract's nuanced framing—acknowledging that empirical research is still emerging and that Roblox's role in formal education remains unproven—while also covering all key findings (collaborative learning, VR, STEM/programming, cognitive/noncognitive skills, cyberbullying, cybersecurity, inadequate teaching design). Article A is accurate but slightly more promotional in tone and less precise about the early-stage, limited nature of the evidence base, which is a central point of the abstract."
+    }
+  },
+  {
+    "id": 29802,
+    "date": "2025-01-19",
+    "category": "Humans",
+    "news_url": "https://www.sciencealert.com/paleo-diet-debunked-ancient-humans-ate-plants-study-shows",
+    "abstract_url": "https://www.journals.uchicago.edu/doi/10.1086/682587",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_a",
+    "winner_key": "news_2",
+    "judgment": {
+      "better_article": "article_a",
+      "reason": "Article A more faithfully covers the key elements of the abstract, including the specific role of AMY1 gene copy number variation, the distinction between raw crystalline starch and cooked starch for amylase effectiveness, and the co-evolutionary hypothesis linking cooking origins with amylase gene amplification. It also provides helpful context (e.g., brain's glucose demands) without fabricating information. Article B is accurate but shallower, and while it mentions the testable prediction, it lacks the mechanistic depth and specificity of Article A. Note that Article A includes a fabricated direct quote, which is a minor concern, but overall its scientific coverage is superior."
+    }
+  },
+  {
+    "id": 29846,
+    "date": "2025-01-12",
+    "category": "Nature",
+    "news_url": "https://www.sciencealert.com/one-thing-about-snakes-triggers-a-powerful-instinct-in-primates",
+    "abstract_url": "https://journals.sagepub.com/doi/10.1111/j.1467-9280.2008.02081.x",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_0",
+      "article_b": "news_2"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_2",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B is more faithful to the abstract and better structured for a general audience, accurately covering the three experiments, the four stimulus types, and the key finding about first evidence of enhanced snake detection in young children. Article A contains a confusing self-contradictory paragraph ('Adults typically locate flowers faster than snakes... This statement is false') that undermines clarity, and both articles contain fabricated quotes/researchers not mentioned in the abstract, but Article B's fabricated 'Dr. Lena Park' is less disruptive than Article A's structural incoherence. Article B also more clearly conveys the evolutionary significance and the novelty of the finding."
+    }
+  },
+  {
+    "id": 29866,
+    "date": "2025-01-08",
+    "category": "Nature",
+    "news_url": "https://www.sciencealert.com/dogs-can-catch-your-stress-putting-their-own-health-at-risk",
+    "abstract_url": "https://www.jmir.org/2022/7/e32280",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_a",
+    "winner_key": "news_2",
+    "judgment": {
+      "better_article": "article_a",
+      "reason": "Article A is more faithful to the abstract, accurately covering the study design, key findings, and effect sizes, while also noting the comparison with TSST data from 4 independent studies and 122 participants. Article A avoids fabrications, whereas it includes a direct quote attributed to a 'lead researcher' that does not appear in the abstract—however, this is a minor issue compared to Article B's omission of key methodological details. Both articles are reasonably accurate, but Article A provides better coverage of the abstract's core content including the multimodal data collection approach and the planned validation study with physiological markers."
+    }
+  },
+  {
+    "id": 29873,
+    "date": "2025-01-07",
+    "category": "Humans",
+    "news_url": "https://www.sciencealert.com/surprise-turning-of-ancient-wheel-of-ghosts-casts-doubt-on-astronomical-purpose",
+    "abstract_url": "https://www.mdpi.com/2072-4292/16/22/4239",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B more faithfully reproduces the abstract's specific details, including the ~20 m diameter flower-like clusters and the precise language about geomagnetic rotation, without adding unsupported interpretations. Article A introduces speculative functions ('communal rituals, ritual boundaries, or agricultural management') not found in the abstract, and describes the geomagnetic shift as 'significant rotational movement' while adding editorial framing that goes beyond what the abstract supports. Both articles cover the key findings adequately, but Article B stays closer to the source material with fewer fabricated elaborations."
+    }
+  },
+  {
+    "id": 29902,
+    "date": "2025-01-02",
+    "category": "Nature",
+    "news_url": "https://www.sciencealert.com/volcanic-activity-beneath-yellowstones-massive-caldera-could-be-on-the-move",
+    "abstract_url": "https://pubs.usgs.gov/publication/70016274",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_0",
+      "article_b": "news_2"
+    },
+    "winner_label": "article_a",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_a",
+      "reason": "Article B contains a fabricated quote attributed to 'Dr. Elena Ramirez,' a person not mentioned in the abstract, which is a hallucination. Article B also misrepresents the total ash-flow volume as '2,800 km³' rather than the correct separate figures of 2500, 280, and 1000 km³. Article A faithfully covers all key findings from the abstract without fabricating sources or misquoting data."
+    }
+  },
+  {
+    "id": 29929,
+    "date": "2025-02-25",
+    "category": "Physics",
+    "news_url": "https://www.sciencealert.com/measures-of-a-double-magic-atom-reveal-an-unexpected-surprise-inside",
+    "abstract_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.062502",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B is more faithful to the abstract, accurately conveying that Lead-208 already exhibits known octupole correlations and quadrupole collectivity before the new measurements, and avoids fabricated content. Article A introduces a hallucinated quote from a 'Dr. Elena Martinez' and fabricated specific theoretical framework names (large-scale shell model, mean-field, particle-phonon coupling) not mentioned in the abstract, which undermines its scientific credibility despite being more readable."
+    }
+  },
+  {
+    "id": 29943,
+    "date": "2025-02-23",
+    "category": "Tech",
+    "news_url": "https://www.sciencealert.com/scientists-tested-ai-for-cognitive-decline-the-results-were-a-shock",
+    "abstract_url": "https://www.bmj.com/content/387/bmj-2024-081948",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B more faithfully represents the abstract's findings, correctly noting that Gemini models (plural) failed the delayed recall task and accurately attributing Gemini 1.5 to Alphabet. Article A incorrectly states only 'Gemini 1.0 failed the delayed recall component' when the abstract says 'Gemini models' (both versions) failed, and Article A also fabricates a direct quote from a 'lead author' not present in the abstract. Both articles are similarly readable, but Article B's greater scientific accuracy and absence of fabricated quotes makes it the better choice."
+    }
+  },
+  {
+    "id": 29958,
+    "date": "2025-02-21",
+    "category": "Physics",
+    "news_url": "https://www.sciencealert.com/ghostly-glow-of-nuclear-power-station-detected-in-water-150-miles-away",
+    "abstract_url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.091801",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_0",
+      "article_b": "news_2"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_2",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B is more scientifically faithful and comprehensive, accurately covering all key elements from the abstract including the low-energy threshold, 190 days of data, 240 km distance, two analytical methods, and 3.5σ significance. However, Article B contains fabricated quotes attributed to 'Dr. James H. Lee' and 'Dr. Elena Márquez,' which are not in the abstract. Article A, while less detailed, does not fabricate named individuals. Despite this hallucination issue in Article B, it still better represents the abstract's scientific content and context compared to Article A's vaguer and less precise coverage—but the fabricated quotes are a notable flaw. On balance, Article B's superior scientific coverage and clarity outweigh Article A's avoidance of fabrication, as Article A also adds unsupported claims (e.g., linking findings to matter-antimatter asymmetry) without the same depth."
+    }
+  },
+  {
+    "id": 29988,
+    "date": "2025-02-15",
+    "category": "Humans",
+    "news_url": "https://www.sciencealert.com/scientists-just-found-a-hidden-set-of-modes-in-the-human-ear",
+    "abstract_url": "https://journals.aps.org/prxlife/abstract/10.1103/PRXLife.3.013001",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_a",
+    "winner_key": "news_2",
+    "judgment": {
+      "better_article": "article_a",
+      "reason": "Article A more accurately and clearly explains the key findings from the abstract, including the two distinct mode types, the self-organized criticality analogy, and the constraints on molecular mechanisms for hair cell feedback. It also better conveys the central puzzle (global tuning via local feedback) and the significance of the results. Article B contains a minor inaccuracy by describing the basilar membrane as 'the inner-ear structure that carries surface waves created by sound' in a redundant and slightly misleading closing paragraph, and is generally less precise in conveying the scientific nuance of the abstract."
+    }
+  },
+  {
+    "id": 30052,
+    "date": "2025-02-04",
+    "category": "Physics",
+    "news_url": "https://www.sciencealert.com/magnetic-sense-in-animals-could-be-shockingly-close-to-quantum-limits",
+    "abstract_url": "https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.92.021001",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_a",
+    "winner_key": "news_2",
+    "judgment": {
+      "better_article": "article_a",
+      "reason": "Article A more faithfully covers the key content of the abstract, including the specific technologies (NV centers, SQUIDs, alkali-vapor magnetometers), the three components of ER, the survey of 20+ technologies, and the possible sources of the quantum limit (zero-point fluctuations, magnetic self-interaction, quantum speed limits). While Article A introduces some speculative details about 'entangled photon systems' and 'non-local quantum states' not mentioned in the abstract, it still provides substantially better coverage and clarity of the core findings compared to Article B, which is more repetitive and less informative about the specific mechanisms and scope of the review."
+    }
+  },
+  {
+    "id": 30061,
+    "date": "2025-02-03",
+    "category": "Physics",
+    "news_url": "https://www.sciencealert.com/physicists-confirm-the-existence-of-a-third-form-of-magnetism",
+    "abstract_url": "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.12.040501",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_0",
+      "article_b": "news_2"
+    },
+    "winner_label": "article_a",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_a",
+      "reason": "Article B contains hallucinations not supported by the abstract: it invents specific material candidates ('manganites, layered oxides, and transition-metal halides'), fabricates a direct quote from a 'lead researcher,' and adds specific phenomena ('large spin currents, enhanced magneto-transport effects, emergent spin textures') not mentioned in the abstract. Article A stays faithful to the abstract's content without inventing details, making it more scientifically accurate despite being less vivid."
+    }
+  },
+  {
+    "id": 30086,
+    "date": "2025-03-30",
+    "category": "Space",
+    "news_url": "https://www.sciencealert.com/nasa-is-watching-a-huge-growing-anomaly-in-earths-magnetic-field",
+    "abstract_url": "https://www.mdpi.com/2072-4292/13/7/1274",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_0",
+      "article_b": "news_2"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_2",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B is more scientifically faithful and complete, accurately describing the SAA as a region where Earth's magnetic field is weakened (consistent with the abstract's context), while Article A incorrectly describes it as a region in Earth's 'magnetosphere' with vague framing. However, Article B contains a fabricated direct quote attributed to 'the lead researcher,' which is not in the abstract. Despite this hallucination, Article B otherwise covers all key findings more accurately and clearly than Article A, which introduces unsupported speculation about 'atmospheric conditions and solar activity' causing scatter. On balance, Article B better represents the abstract's scientific content despite the fabricated quote, while Article A has more substantive scientific inaccuracies and unsupported claims."
+    }
+  },
+  {
+    "id": 30184,
+    "date": "2025-03-12",
+    "category": "Tech",
+    "news_url": "https://www.sciencealert.com/scientists-turned-cockroaches-into-cyborgs-giving-them-navigation-superpowers",
+    "abstract_url": "https://www.liebertpub.com/doi/10.1089/soro.2024.0082",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B is more faithful to the abstract, accurately representing the findings without fabricating details. Article A invents a named researcher ('Dr. Elena Ramirez') who does not appear in the abstract, which is a hallucination that disqualifies it. Article B covers all key points from the abstract clearly and without fabricated entities."
+    }
+  },
+  {
+    "id": 30214,
+    "date": "2025-03-07",
+    "category": "Space",
+    "news_url": "https://www.sciencealert.com/record-discovery-impact-crater-in-australias-outback-oldest-by-a-billion-years",
+    "abstract_url": "https://www.annualreviews.org/content/journals/10.1146/annurev-earth-040722-093345",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_0",
+      "article_b": "news_2"
+    },
+    "winner_label": "article_a",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_a",
+      "reason": "Article A accurately represents the abstract's key findings without fabrication. Article B introduces a fabricated direct quote attributed to 'the study's lead author,' which is not in the abstract and constitutes a hallucination. Article B also adds unsupported mechanisms like 'enhanced albedo and increased evapotranspiration' not mentioned in the abstract. Article A covers all the same scientific content faithfully and clearly."
+    }
+  },
+  {
+    "id": 30708,
+    "date": "2025-06-07",
+    "category": "Tech",
+    "news_url": "https://www.sciencealert.com/the-greatest-parasite-is-right-in-front-of-you-and-its-dangerous",
+    "abstract_url": "https://journals.sagepub.com/doi/10.1177/17506980211044712",
+    "pair": [
+      "news_0",
+      "news_2"
+    ],
+    "presented_order": {
+      "article_a": "news_2",
+      "article_b": "news_0"
+    },
+    "winner_label": "article_b",
+    "winner_key": "news_0",
+    "judgment": {
+      "better_article": "article_b",
+      "reason": "Article B more faithfully represents the abstract's findings without fabricating content, whereas Article A includes a fabricated direct quote from a 'lead researcher' that does not appear in the abstract, which constitutes a hallucination. Both articles cover the key findings similarly, but Article B avoids this invented attribution while still clearly explaining the memento vs. offloading distinction and the shared human-camera memory system concept."
+    }
+  }
+]
