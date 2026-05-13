@@ -1,0 +1,8 @@
+Metric,Human target,spearman corr.,n
+LLM judge accuracy,Human accuracy,0.37334774617215116,20
+LLM judge completeness,Human completeness,-0.1286189205799872,20
+LLM judge relevance,Human relevance,-0.016235135420816598,20
+LLM judge clarity,Human clarity,0.011466627220381258,20
+LLM judge expected KGain,Human mean pointwise score,0.4313500818149465,20
+LLM judge mean score,Human mean pointwise score,0.14537326351236257,20
+Overall stacked dimensions,Matched human dimension,0.15620359125175448,80
