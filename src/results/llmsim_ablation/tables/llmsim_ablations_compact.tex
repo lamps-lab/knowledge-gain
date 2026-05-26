@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Simulator variant & Global KL $\downarrow$ & Item KL $\downarrow$ & KG corr. $\uparrow$ & IDK MAE $\downarrow$ \\
+\midrule
+Direct answer & 4.953 & 5.099 & -0.063 & 0.254 \\
++ Persona mixture & 4.897 & 4.975 & -0.044 & 0.254 \\
++ Memory bottleneck & 4.613 & 4.183 & 0.065 & 0.254 \\
++ IDK option & 0.381 & 3.653 & 0.272 & 0.306 \\
++ Verbalized sampling & 0.023 & 1.934 & 0.263 & 0.270 \\
+\bottomrule
+\end{tabular}
+\caption{Ablation of LLMSim components. Global KL matches the aggregate Correct/Incorrect/IDK evaluation used in the main LLMSim validation; Item KL averages KL over document--question units.}
+\label{tab:llmsim_ablation}
+\end{table}
