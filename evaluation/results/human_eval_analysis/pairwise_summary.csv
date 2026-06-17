@@ -1,2 +1,0 @@
-pair,wins,n,win_rate,ci95_low,ci95_high,p_value
-Ours vs Agentic,87,100,0.87,0.7901947810519012,0.9224290614158575,1.312981552203585e-14
